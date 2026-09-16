@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>身高 × 鞋码 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>男童女童身高与鞋码</h1>
+    <p class="lede">
+      与仪表盘左上散点同一批点。本页额外拟合 <code>鞋码 ≈ a + b × 身高</code>，用来读斜率（每高 1 cm，鞋码大约增加多少厘米），而不是只看点云。
+    </p>
+    <p id="status" class="status">Waiting…</p>
+
+    <div class="card">
+      <div id="chart" class="chart tall"></div>
+    </div>
+
+    <div class="stats-grid" id="summary"></div>
+
+    <h2>读图</h2>
+    <p class="note">
+      纵轴的「鞋码」在源文件里按厘米格式化，接近以脚长表示的 Mondopoint，不是欧码 / 美码。
+      女童云的垂直参考线在仪表盘上是 115 cm，男童是 110 cm；本页改用回归线，避免再画一条与均值无关的竖线。
+    </p>
+
+    <h2>分组摘要</h2>
+    <div class="card">
+      <table id="table"></table>
+    </div>
+  </div>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/boot.js"></script>
+  <script>
+    ExampleBoot.boot({
+      dataUrl: "data/height-shoe-size.json",
+      buildOption: function (data) {
+        var girlFit = FootStats.linearRegression(data.female.points);
+        var boyFit = FootStats.linearRegression(data.male.points);
+        return {
+          backgroundColor: "transparent",
+          legend: { top: 8, textStyle: { color: "#c9d7e6" } },
+          grid: { left: 56, right: 28, top: 48, bottom: 48 },
+          tooltip: {
+            formatter: function (p) {
+              if (!p.value) return p.seriesName;
+              if (p.seriesName.indexOf("趋势") !== -1) {
+                return p.seriesName + "<br/>身高 " + FootStats.format(p.value[0]) +
+                  " cm → 鞋码 " + FootStats.format(p.value[1]) + " cm";
+              }
+              return p.seriesName + "<br/>身高 " + p.value[0] + " cm<br/>鞋码 " + p.value[1] + " cm";
+            }
+          },
+          xAxis: {
+            name: "身高",
+            type: "value",
+            scale: true,
+            axisLabel: { formatter: "{value} cm", color: "#9eb3c7" },
+            nameTextStyle: { color: "#9eb3c7" },
+            splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } }
+          },
+          yAxis: {
+            name: "鞋码",
+            type: "value",
+            scale: true,
+            axisLabel: { formatter: "{value} cm", color: "#9eb3c7" },
+            nameTextStyle: { color: "#9eb3c7" },
+            splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } }
+          },
+          series: [
+            { name: "女性", type: "scatter", symbolSize: 5, itemStyle: { color: "#ff4f3b" }, data: data.female.points },
+            { name: "男性", type: "scatter", symbolSize: 5, itemStyle: { color: "#ffe01f" }, data: data.male.points },
+            {
+              name: "男性趋势",
+              type: "line",
+              z: 9,
+              symbol: "none",
+              itemStyle: { color: "#7ee0ff" },
+              lineStyle: { width: 3, type: "solid", color: "#7ee0ff" },
+              data: boyFit.line
+            },
+            {
+              name: "女性趋势",
+              type: "line",
+              z: 11,
+              symbol: "none",
+              itemStyle: { color: "#ff4f3b" },
+              lineStyle: { width: 3, type: "dashed", color: "#ff4f3b" },
+              data: girlFit.line
+            }
+          ]
+        };
+      },
+      after: function (data) {
+        var girlFit = FootStats.linearRegression(data.female.points);
+        var boyFit = FootStats.linearRegression(data.male.points);
+        var cards = [
+          ["女童 n", data.female.summary.n, "girl"],
+          ["女童 身高均值", FootStats.format(girlFit.meanX) + " cm", "girl"],
+          ["女童 斜率", FootStats.format(girlFit.slope, 3) + " cm/cm", "girl"],
+          ["女童 r", FootStats.format(girlFit.r, 3), "girl"],
+          ["男童 n", data.male.summary.n, "boy"],
+          ["男童 身高均值", FootStats.format(boyFit.meanX) + " cm", "boy"],
+          ["男童 斜率", FootStats.format(boyFit.slope, 3) + " cm/cm", "boy"],
+          ["男童 r", FootStats.format(boyFit.r, 3), "boy"]
+        ];
+        document.getElementById("summary").innerHTML = cards.map(function (c) {
+          return '<div class="stat ' + c[2] + '"><span class="k">' + c[0] + '</span><span class="v">' + c[1] + "</span></div>";
+        }).join("");
+        ExampleBoot.fillTable("table", ["分组", "n", "身高范围", "鞋码范围", "斜率", "截距", "r", "r²"], [
+          [
+            "女性",
+            girlFit.n,
+            FootStats.format(girlFit.minX) + " – " + FootStats.format(girlFit.maxX),
+            FootStats.format(girlFit.minY) + " – " + FootStats.format(girlFit.maxY),
+            FootStats.format(girlFit.slope, 3),
+            FootStats.format(girlFit.intercept, 3),
+            FootStats.format(girlFit.r, 3),
+            FootStats.format(girlFit.r2, 3)
+          ],
+          [
+            "男性",
+            boyFit.n,
+            FootStats.format(boyFit.minX) + " – " + FootStats.format(boyFit.maxX),
+            FootStats.format(boyFit.minY) + " – " + FootStats.format(boyFit.maxY),
+            FootStats.format(boyFit.slope, 3),
+            FootStats.format(boyFit.intercept, 3),
+            FootStats.format(boyFit.r, 3),
+            FootStats.format(boyFit.r2, 3)
+          ]
+        ]);
+      }
+    });
+  </script>
+</body>
+</html>

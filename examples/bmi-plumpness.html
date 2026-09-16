@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI × 胖瘦度 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>儿童 BMI 与脚的胖瘦度</h1>
+    <p class="lede">
+      仪表盘右侧上图。纵轴标题写的是「脚长/脚宽」，但数值在 22–30，不能当成厘米比。
+      右侧环图的百分比是 <code>value / (value + placeholder)</code>，占位弧只为了画出圆环，不是另一组儿童。
+    </p>
+    <p id="status" class="status">Waiting…</p>
+
+    <div class="card">
+      <div id="chart" class="chart tall"></div>
+    </div>
+    <div class="stats-grid" id="summary"></div>
+
+    <h2>BMI 分箱</h2>
+    <div class="card">
+      <table id="table"></table>
+    </div>
+  </div>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/boot.js"></script>
+  <script>
+    function ring(center, value, placeholder, color, caption) {
+      return {
+        type: "pie",
+        center: center,
+        radius: ["22%", "28%"],
+        label: { position: "center" },
+        data: [
+          {
+            value: value,
+            itemStyle: { color: color },
+            label: { formatter: "{d} %", color: color, fontSize: 18 }
+          },
+          {
+            value: placeholder,
+            tooltip: { show: false },
+            itemStyle: { color: "#163044" },
+            label: { formatter: "\n" + caption, color: color }
+          }
+        ]
+      };
+    }
+
+    ExampleBoot.boot({
+      dataUrl: "data/bmi-plumpness.json",
+      buildOption: function (data) {
+        return {
+          backgroundColor: "transparent",
+          legend: { top: 8, textStyle: { color: "#c9d7e6" } },
+          tooltip: { trigger: "axis" },
+          grid: { left: 52, right: "36%", top: 48, bottom: 36 },
+          xAxis: { name: "BMI", type: "category", boundaryGap: false, data: data.bmi, axisLabel: { color: "#9eb3c7" } },
+          yAxis: { name: "胖瘦度指数", min: 20, type: "value", axisLabel: { color: "#9eb3c7" }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
+          series: [
+            {
+              name: "女生脚胖瘦度",
+              type: "line",
+              smooth: true,
+              symbol: "circle",
+              itemStyle: { color: "#FF69B4" },
+              areaStyle: { color: "rgba(255,105,180,0.18)" },
+              data: data.femalePlumpness
+            },
+            {
+              name: "男生脚胖瘦度",
+              type: "line",
+              smooth: true,
+              symbol: "circle",
+              itemStyle: { color: "#3deaff" },
+              areaStyle: { color: "rgba(61,234,255,0.12)" },
+              data: data.malePlumpness
+            },
+            ring(["84%", "32%"], data.thinFootRing.value, data.thinFootRing.placeholder, "#dc832c", data.thinFootRing.label),
+            ring(["84%", "72%"], data.wideFootRing.value, data.wideFootRing.placeholder, "#ff733f", data.wideFootRing.label)
+          ]
+        };
+      },
+      after: function (data) {
+        var thin = FootStats.ringPercent(data.thinFootRing.value, data.thinFootRing.placeholder);
+        var wide = FootStats.ringPercent(data.wideFootRing.value, data.wideFootRing.placeholder);
+        document.getElementById("summary").innerHTML = [
+          ["过瘦环显示", FootStats.format(thin, 1) + "%", "gold"],
+          ["过胖环显示", FootStats.format(wide, 1) + "%", "gold"],
+          ["过瘦 value / 占位", data.thinFootRing.value + " / " + data.thinFootRing.placeholder, "girl"],
+          ["过胖 value / 占位", data.wideFootRing.value + " / " + data.wideFootRing.placeholder, "boy"]
+        ].map(function (c) {
+          return '<div class="stat ' + c[2] + '"><span class="k">' + c[0] + '</span><span class="v">' + c[1] + "</span></div>";
+        }).join("");
+
+        ExampleBoot.fillTable("table", ["BMI", "女童指数", "男童指数", "男 − 女"],
+          data.bmi.map(function (b, i) {
+            return [b, data.femalePlumpness[i], data.malePlumpness[i], FootStats.format(data.malePlumpness[i] - data.femalePlumpness[i])];
+          })
+        );
+      }
+    });
+  </script>
+</body>
+</html>

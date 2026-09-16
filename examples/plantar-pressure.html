@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>足底压力 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>足部压力（成年对照）</h1>
+    <p class="lede">
+      源文件是仓库根目录的 <code>draw1.js</code>，首页没有引用。七个位点的压强单位是帕斯卡。
+      这是成年典型人群 vs 糖尿病足人群，不要和儿童散点画在同一坐标上。
+    </p>
+    <p id="status" class="status">Waiting…</p>
+
+    <div class="card">
+      <div id="chart" class="chart tall"></div>
+    </div>
+    <div class="stats-grid" id="summary"></div>
+
+    <h2>位点表</h2>
+    <div class="card">
+      <table id="table"></table>
+    </div>
+  </div>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/boot.js"></script>
+  <script>
+    ExampleBoot.boot({
+      dataUrl: "data/plantar-pressure.json",
+      theme: null,
+      buildOption: function (data) {
+        return {
+          backgroundColor: "transparent",
+          color: ["#a60bde", "#ff733f"],
+          legend: { top: 8, textStyle: { color: "#c9d7e6" } },
+          tooltip: { trigger: "axis" },
+          grid: { left: 52, right: 24, top: 48, bottom: 36 },
+          xAxis: { type: "category", boundaryGap: false, data: data.sites, axisLabel: { color: "#9eb3c7" } },
+          yAxis: { type: "value", name: "Pa", axisLabel: { color: "#9eb3c7" }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
+          series: [
+            { name: "正常人群", type: "line", smooth: true, symbol: "circle", symbolSize: 8, data: data.typicalPa },
+            { name: "糖尿病足人群", type: "line", smooth: true, symbol: "circle", symbolSize: 8, data: data.diabeticFootPa }
+          ]
+        };
+      },
+      after: function (data) {
+        var diffs = data.sites.map(function (_, i) {
+          return data.diabeticFootPa[i] - data.typicalPa[i];
+        });
+        var maxI = 0;
+        for (var i = 1; i < diffs.length; i++) {
+          if (Math.abs(diffs[i]) > Math.abs(diffs[maxI])) maxI = i;
+        }
+        document.getElementById("summary").innerHTML = [
+          ["典型均值", FootStats.format(FootStats.mean(data.typicalPa)) + " Pa", "boy"],
+          ["糖尿病足均值", FootStats.format(FootStats.mean(data.diabeticFootPa)) + " Pa", "girl"],
+          ["绝对差最大位点", data.sites[maxI], "gold"],
+          ["该点差值", diffs[maxI] + " Pa", "gold"]
+        ].map(function (c) {
+          return '<div class="stat ' + c[2] + '"><span class="k">' + c[0] + '</span><span class="v">' + c[1] + "</span></div>";
+        }).join("");
+
+        ExampleBoot.fillTable("table", ["位点", "正常人群 Pa", "糖尿病足 Pa", "差值 Pa"],
+          data.sites.map(function (site, i) {
+            return [site, data.typicalPa[i], data.diabeticFootPa[i], data.diabeticFootPa[i] - data.typicalPa[i]];
+          })
+        );
+      }
+    });
+  </script>
+</body>
+</html>

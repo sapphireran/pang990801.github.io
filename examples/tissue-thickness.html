@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>皮下组织厚度 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>足底皮下组织厚度（成年对照）</h1>
+    <p class="lede">
+      源文件是 <code>draw2.js</code>，首页同样没有挂载。柱为毫米厚度；折线沿用源文件的「差值:um」标签。
+      这些差值<strong>不等于</strong> <code>1000 × (糖尿病足 mm − 典型 mm)</code>，不要按 SI 去「修正」。
+    </p>
+    <p id="status" class="status">Waiting…</p>
+
+    <div class="card">
+      <div id="chart" class="chart tall"></div>
+    </div>
+
+    <h2>位点表</h2>
+    <div class="card">
+      <table id="table"></table>
+    </div>
+    <p class="note">拖动底轴缩放条可只看一部分位点，对应原 option 里的 <code>dataZoom</code>。</p>
+  </div>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/boot.js"></script>
+  <script>
+    ExampleBoot.boot({
+      dataUrl: "data/tissue-thickness.json",
+      theme: null,
+      buildOption: function (data) {
+        return {
+          backgroundColor: "transparent",
+          legend: { top: 8, textStyle: { color: "#c9d7e6" } },
+          tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+          grid: { left: 52, right: 24, top: 56, bottom: 72 },
+          dataZoom: [
+            { type: "slider", height: 22, bottom: 18, start: 0, end: 100 },
+            { type: "inside" }
+          ],
+          xAxis: { type: "category", data: data.sites, axisLabel: { color: "#9eb3c7" } },
+          yAxis: { type: "value", name: "mm / 差值", axisLabel: { color: "#9eb3c7" }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
+          series: [
+            { name: "正常人群(成年)数据:mm", type: "bar", barMaxWidth: 28, itemStyle: { color: "rgba(255,144,128,1)" }, data: data.typicalAdultMm },
+            { name: "糖尿病足人群(成年)数据:mm", type: "bar", barMaxWidth: 28, itemStyle: { color: "rgba(0,191,183,1)" }, data: data.diabeticFootAdultMm },
+            { name: "差值:um", type: "line", symbol: "emptyCircle", itemStyle: { color: "#28ffb3" }, data: data.differenceUm }
+          ]
+        };
+      },
+      after: function (data) {
+        ExampleBoot.fillTable("table", ["位点", "典型 mm", "糖尿病足 mm", "mm 差", "源文件差值:um"],
+          data.sites.map(function (site, i) {
+            var mm = +(data.diabeticFootAdultMm[i] - data.typicalAdultMm[i]).toFixed(2);
+            return [site, data.typicalAdultMm[i], data.diabeticFootAdultMm[i], mm, data.differenceUm[i]];
+          })
+        );
+      }
+    });
+  </script>
+</body>
+</html>

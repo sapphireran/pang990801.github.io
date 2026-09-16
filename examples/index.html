@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型图表示例 · 儿童脚型</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>独立示例</h1>
+    <p class="lede">
+      每一页从 <code>examples/data/*.json</code> 读取与仪表盘相同的序列，单独画一张图，并附上可核对的表和计算。
+      这些页面不依赖 <code>flexible.js</code>，也不走 <code>js/index.js</code> 里的 IIFE。
+    </p>
+
+    <div class="gallery">
+      <a class="tile" href="height-shoe-size.html">
+        <h2>身高 × 鞋码</h2>
+        <p>199 名女童 + 199 名男童散点，附最小二乘趋势线与相关系数。</p>
+        <span class="tag">scatter · height-shoe-size.json</span>
+      </a>
+      <a class="tile" href="age-foot-length.html">
+        <h2>年龄 × 脚长</h2>
+        <p>6–14 岁均脚长圆柱条，以及女童减男童的差值何时变负。</p>
+        <span class="tag">bar + line · age-foot-length.json</span>
+      </a>
+      <a class="tile" href="growth-radar.html">
+        <h2>9–12 岁雷达</h2>
+        <p>身高、三项围长、鞋码、脚长、体重的 0–100 相对分。</p>
+        <span class="tag">radar · growth-radar.json</span>
+      </a>
+      <a class="tile" href="bmi-plumpness.html">
+        <h2>BMI × 胖瘦度</h2>
+        <p>BMI 12–24 的指数折线，以及过瘦 / 过胖环图的真实百分比算法。</p>
+        <span class="tag">line + pie · bmi-plumpness.json</span>
+      </a>
+      <a class="tile" href="bilateral-ratio.html">
+        <h2>双脚比例时间轴</h2>
+        <p>与 <code>js/index.js</code> 相同的对数衰减公式，表里逐岁展开。</p>
+        <span class="tag">timeline pie · bilateral-ratio.json</span>
+      </a>
+      <a class="tile" href="plantar-pressure.html">
+        <h2>足底压力</h2>
+        <p>来自未挂载的 <code>draw1.js</code>：七个位点，典型人群 vs 糖尿病足。</p>
+        <span class="tag">line · plantar-pressure.json</span>
+      </a>
+      <a class="tile" href="tissue-thickness.html">
+        <h2>皮下组织厚度</h2>
+        <p>来自未挂载的 <code>draw2.js</code>：十四个位点的毫米厚度 + 差值线。</p>
+        <span class="tag">bar + zoom · tissue-thickness.json</span>
+      </a>
+    </div>
+
+    <h2>本地打开</h2>
+    <p class="note">示例用 <code>fetch</code> 读 JSON，请从仓库根目录启动 HTTP 服务后再访问本页。</p>
+    <pre>python3 -m http.server 4173
+# 然后打开 http://127.0.0.1:4173/examples/</pre>
+  </div>
+</body>
+</html>
