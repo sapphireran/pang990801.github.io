@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="BMI 工作台" data-en="BMI bench">BMI 工作台</title>
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body class="desk">
+  <div class="desk-wrap">
+    <header class="desk-head">
+      <div>
+        <div class="eyebrow">BMI 12–24 · length/width</div>
+        <h1 lang="zh">胖瘦度工作台</h1>
+        <h1 lang="en">Shape bench</h1>
+      </div>
+      <div class="lang-toggle" data-lang-toggle></div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">目录 / Index</a>
+      <a href="scatter-desk.html">散点 / Scatter</a>
+      <a href="growth-folio.html">生长册 / Folio</a>
+      <a href="bmi-bench.html">BMI</a>
+      <a href="symmetry-reel.html">对称 / Symmetry</a>
+      <a href="radar-portraits.html">雷达 / Radar</a>
+      <a href="leftover-annex.html">遗稿 / Leftovers</a>
+      <a href="map-annex.html">地图 / Map</a>
+      <a href="print-folio.html">打印 / Print</a>
+    </nav>
+    <p class="lede" lang="zh">主序列是两条面积线。右侧环图来自另一套占位比例，默认关掉，避免和折线读成同一张表。</p>
+    <p class="lede" lang="en">The main series are the two area lines. The rings are a second, placeholder ratio and stay off unless you ask for them.</p>
+    <div class="ctrl">
+      <button type="button" id="rings" aria-pressed="false">rings / 环图</button>
+    </div>
+    <div class="panel"><div id="bmi" class="chart tall"></div></div>
+    <p class="stat" id="pieNote"></p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/yearbook/payload.js"></script>
+  <script src="js/desk.js"></script>
+  <script src="js/bmi-bench.js"></script>
+</body>
+</html>

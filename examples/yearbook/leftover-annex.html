@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="遗稿复原" data-en="Leftover annex">遗稿复原</title>
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body class="desk">
+  <div class="desk-wrap">
+    <header class="desk-head">
+      <div>
+        <div class="eyebrow">draw1.js · draw2.js · not on the homepage</div>
+        <h1 lang="zh">遗稿复原</h1>
+        <h1 lang="en">Leftover annex</h1>
+      </div>
+      <div class="lang-toggle" data-lang-toggle></div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">目录 / Index</a>
+      <a href="scatter-desk.html">散点 / Scatter</a>
+      <a href="growth-folio.html">生长册 / Folio</a>
+      <a href="bmi-bench.html">BMI</a>
+      <a href="symmetry-reel.html">对称 / Symmetry</a>
+      <a href="radar-portraits.html">雷达 / Radar</a>
+      <a href="leftover-annex.html">遗稿 / Leftovers</a>
+      <a href="map-annex.html">地图 / Map</a>
+      <a href="print-folio.html">打印 / Print</a>
+      <a href="../../docs/yearbook/annex.html">说明 / Notes</a>
+    </nav>
+    <p class="lede" lang="zh"><span class="banner">unmounted</span> 这两张图在根目录，首页没有 <code>script</code> 引用。成年对照，不是儿童仪表盘。</p>
+    <p class="lede" lang="en"><span class="banner">unmounted</span> Both files sit at repo root and have no homepage <code>script</code> tag. Adult sketches, not the children’s dashboard.</p>
+
+    <h2 id="pressure"><span lang="zh">足部压力（Pa）</span><span lang="en">Plantar pressure (Pa)</span></h2>
+    <div class="panel"><div id="pressureChart" class="chart"></div></div>
+    <p class="stat" id="pressureNote"></p>
+
+    <h2 id="thickness"><span lang="zh">皮下组织厚度（mm）</span><span lang="en">Tissue thickness (mm)</span></h2>
+    <div class="panel"><div id="thicknessChart" class="chart"></div></div>
+    <p class="stat" id="thicknessNote"></p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/yearbook/payload.js"></script>
+  <script src="js/desk.js"></script>
+  <script src="js/leftover-annex.js"></script>
+</body>
+</html>

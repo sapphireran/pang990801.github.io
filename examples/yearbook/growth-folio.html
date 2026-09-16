@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="生长册" data-en="Growth folio">生长册</title>
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body class="desk">
+  <div class="desk-wrap">
+    <header class="desk-head">
+      <div>
+        <div class="eyebrow">ages 6–14 · foot length</div>
+        <h1 lang="zh">生长册</h1>
+        <h1 lang="en">Growth folio</h1>
+      </div>
+      <div class="lang-toggle" data-lang-toggle></div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">目录 / Index</a>
+      <a href="scatter-desk.html">散点 / Scatter</a>
+      <a href="growth-folio.html">生长册 / Folio</a>
+      <a href="bmi-bench.html">BMI</a>
+      <a href="symmetry-reel.html">对称 / Symmetry</a>
+      <a href="radar-portraits.html">雷达 / Radar</a>
+      <a href="leftover-annex.html">遗稿 / Leftovers</a>
+      <a href="map-annex.html">地图 / Map</a>
+      <a href="print-folio.html">打印 / Print</a>
+      <a href="../../docs/yearbook/reading.html">读图 / Reading</a>
+    </nav>
+    <p class="lede" lang="zh">逐年翻页。11 岁是源码里女−男差值由正转负的一岁。8 到 9 岁两组都略回落，只作为源码拐点记下。</p>
+    <p class="lede" lang="en">Step one year at a time. Age 11 is where the source girl-minus-boy gap turns negative. Both series dip from 8 to 9; that is recorded as a source kink.</p>
+    <div class="ctrl">
+      <button type="button" id="prev">←</button>
+      <label>age <input id="age" type="range" min="6" max="14" value="6" /> <strong id="ageOut">6</strong></label>
+      <button type="button" id="next">→</button>
+    </div>
+    <div class="split">
+      <div class="panel"><div id="growth" class="chart"></div></div>
+      <aside class="panel" id="chapter"></aside>
+    </div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/yearbook/payload.js"></script>
+  <script src="js/desk.js"></script>
+  <script src="js/growth-folio.js"></script>
+</body>
+</html>

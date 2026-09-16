@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="打印折页" data-en="Print folio">打印折页</title>
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body class="desk">
+  <div class="desk-wrap">
+    <header class="desk-head">
+      <div>
+        <div class="eyebrow">one sheet · personal desk copy</div>
+        <h1 lang="zh">打印折页</h1>
+        <h1 lang="en">Print folio</h1>
+      </div>
+      <div class="lang-toggle" data-lang-toggle></div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">目录 / Index</a>
+      <a href="scatter-desk.html">散点 / Scatter</a>
+      <a href="growth-folio.html">生长册 / Folio</a>
+      <a href="bmi-bench.html">BMI</a>
+      <a href="symmetry-reel.html">对称 / Symmetry</a>
+      <a href="radar-portraits.html">雷达 / Radar</a>
+      <a href="leftover-annex.html">遗稿 / Leftovers</a>
+      <a href="map-annex.html">地图 / Map</a>
+      <a href="print-folio.html">打印 / Print</a>
+    </nav>
+    <p class="lede" lang="zh">用浏览器打印成一页 PDF。数字来自数据包，不是新的测量。</p>
+    <p class="lede" lang="en">Print this as a one-page PDF. Numbers come from the pack, not a new measurement pass.</p>
+    <div class="ctrl"><button type="button" id="print">Print / 打印</button></div>
+    <div class="grid">
+      <div class="panel"><div id="miniGrowth" class="chart short"></div></div>
+      <div class="panel"><div id="miniRadar" class="chart short"></div></div>
+    </div>
+    <table class="sheet" id="summary" style="margin-top:16px;"></table>
+    <p class="stat" lang="zh">个人仓库 sapphireran/pang990801.github.io · 田野年鉴书桌副本 · 非诊疗说明。</p>
+    <p class="stat" lang="en">Personal repo sapphireran/pang990801.github.io · field-yearbook desk copy · not clinical advice.</p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/yearbook/payload.js"></script>
+  <script src="js/desk.js"></script>
+  <script src="js/print-folio.js"></script>
+</body>
+</html>

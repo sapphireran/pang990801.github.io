@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="雷达肖像" data-en="Radar portraits">雷达肖像</title>
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body class="desk">
+  <div class="desk-wrap">
+    <header class="desk-head">
+      <div>
+        <div class="eyebrow">relative scores · cap 100</div>
+        <h1 lang="zh">雷达肖像</h1>
+        <h1 lang="en">Radar portraits</h1>
+      </div>
+      <div class="lang-toggle" data-lang-toggle></div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">目录 / Index</a>
+      <a href="scatter-desk.html">散点 / Scatter</a>
+      <a href="growth-folio.html">生长册 / Folio</a>
+      <a href="bmi-bench.html">BMI</a>
+      <a href="symmetry-reel.html">对称 / Symmetry</a>
+      <a href="radar-portraits.html">雷达 / Radar</a>
+      <a href="leftover-annex.html">遗稿 / Leftovers</a>
+      <a href="map-annex.html">地图 / Map</a>
+      <a href="print-folio.html">打印 / Print</a>
+    </nav>
+    <p class="lede" lang="zh">四岁四圈。刻度不是厘米。12 岁的鞋码 / 脚长在源码里写作 77-6 / 79-8。</p>
+    <p class="lede" lang="en">Four ages, four rings. The scale is not centimeters. Age-12 shoe / length are written 77-6 / 79-8 in the source.</p>
+    <div class="ctrl" id="ages"></div>
+    <div class="split">
+      <div class="panel"><div id="radar" class="chart tall"></div></div>
+      <aside class="panel"><table class="sheet" id="table"></table></aside>
+    </div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/yearbook/payload.js"></script>
+  <script src="js/desk.js"></script>
+  <script src="js/radar-portraits.js"></script>
+</body>
+</html>
