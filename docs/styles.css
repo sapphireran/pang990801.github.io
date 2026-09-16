@@ -1,0 +1,134 @@
+:root {
+  --bg: #0b1220;
+  --panel: #121b2e;
+  --ink: #e8eef8;
+  --muted: #9aacc4;
+  --line: #2a3b5a;
+  --accent: #3deaff;
+  --accent-2: #7cffc4;
+  --warn: #ffb36b;
+  --max: 860px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+}
+
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+h2 {
+  margin-top: 36px;
+  font-size: 22px;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+
+h3 { margin-top: 24px; font-size: 18px; }
+
+p, li { color: #d5deec; }
+
+.lead {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 16px 14px;
+}
+
+.card h2, .card h3 {
+  margin: 0 0 8px;
+  border: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 16px 0 24px;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: #18233a; color: var(--accent-2); }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+}
+
+code {
+  background: #1a2438;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+pre {
+  background: #0e1626;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  overflow: auto;
+}
+
+.note {
+  background: #1b2436;
+  border-left: 3px solid var(--warn);
+  padding: 10px 12px;
+  color: var(--muted);
+}
+
+footer {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 13px;
+}

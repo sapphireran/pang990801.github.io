@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据备忘 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <a href="./index.html">文档</a>
+      <a href="./overview.html">说明</a>
+      <a href="./chart-guide.html">读图</a>
+      <a href="../examples/index.html">示例馆</a>
+    </nav>
+    <h1>数据备忘</h1>
+    <p class="lead">只描述已经画进仓库的数组。有的是逐点散点，有的是按年龄或 BMI 分箱后的均值。</p>
+
+    <h2>单位</h2>
+    <table>
+      <thead><tr><th>字段</th><th>单位</th><th>注意</th></tr></thead>
+      <tbody>
+        <tr><td>身高 / 脚长 / 鞋码</td><td>cm</td><td>鞋码是长度厘米，不是 EU/US 码。雷达上的同名轴是 0–100 相对分。</td></tr>
+        <tr><td>年龄</td><td>岁</td><td>脚长柱 6–14 岁；对称饼 2–14 岁。</td></tr>
+        <tr><td>BMI</td><td>整数箱</td><td>轴上是 12–24，不是连续值。</td></tr>
+        <tr><td>胖瘦度</td><td>比例展示值</td><td>轴名是脚长/脚宽，数值约 23–30，更像放大后的比。</td></tr>
+        <tr><td>足底压力</td><td>Pa</td><td>草图，位点 1–7。</td></tr>
+        <tr><td>皮下厚度</td><td>mm；差值标 um</td><td>草图单位和数量级对不上，见文末。</td></tr>
+      </tbody>
+    </table>
+
+    <h2>散点摘要（199 + 199 点）</h2>
+    <table>
+      <thead>
+        <tr><th>组</th><th>身高范围</th><th>均值</th><th>鞋码范围</th><th>均值</th><th>r</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>女童</td><td>79.73–152.78</td><td>116.86</td><td>10.08–24.21</td><td>16.76</td><td>0.914</td></tr>
+        <tr><td>男童</td><td>75.48–149.96</td><td>111.82</td><td>9.74–24.40</td><td>15.96</td><td>0.916</td></tr>
+      </tbody>
+    </table>
+    <p class="note">这批展示点里女童身高均值略高，是样本构成，不是「女童普遍更高」。r ≈ 0.91 只说明近线性，没有因果。</p>
+
+    <h2>年龄 × 脚长（cm）</h2>
+    <p>约 11 岁前女童略长，之后男童超过。9 岁比 8 岁略短，当作分箱波动，不要解释成脚缩了。完整表在 <a href="./data-notes.md">data-notes.md</a>。</p>
+
+    <h2>不要过度解读</h2>
+    <ul>
+      <li>雷达分和散点厘米不能画在同一坐标轴。</li>
+      <li>对称饼用对数衰减临时生成，不是调查加权。</li>
+      <li>BMI 旁的过胖/过瘦环是示意占比，不是从折线算出来的发生率。</li>
+      <li><code>draw2.js</code> 差值图例写 um，数组却是十几到四十的整数。</li>
+    </ul>
+    <footer>Markdown 全文（含逐岁、逐 BMI 表）：<a href="./data-notes.md">data-notes.md</a></footer>
+  </div>
+</body>
+</html>
