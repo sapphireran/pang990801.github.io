@@ -1,0 +1,63 @@
+{
+  "title": "Personal foot-shape series catalog",
+  "repo": "sapphireran/pang990801.github.io",
+  "disclaimer": "Illustrative personal-study series. Not a clinical or last-making table.",
+  "datasets": [
+    {
+      "id": "height-shoe-female",
+      "file": "height-shoe-female.json",
+      "n": 199,
+      "source": "js/index.js scatter 女性",
+      "fields": ["height_cm", "shoe_cm"]
+    },
+    {
+      "id": "height-shoe-male",
+      "file": "height-shoe-male.json",
+      "n": 199,
+      "source": "js/index.js scatter 男性",
+      "fields": ["height_cm", "shoe_cm"]
+    },
+    {
+      "id": "age-foot-length",
+      "file": "age-foot-length.json",
+      "n": 9,
+      "source": "js/index.js pictorial bars + gap line",
+      "fields": ["ages", "female_foot_length_cm", "male_foot_length_cm", "female_minus_male_cm"]
+    },
+    {
+      "id": "bmi-foot-shape",
+      "file": "bmi-foot-shape.json",
+      "n": 13,
+      "source": "js/index.js BMI combo",
+      "fields": ["bmi", "female_length_width_ratio", "male_length_width_ratio"]
+    },
+    {
+      "id": "growth-radar",
+      "file": "growth-radar.json",
+      "n": 4,
+      "source": "js/index.js center radar",
+      "fields": ["indicators", "series"]
+    },
+    {
+      "id": "foot-symmetry",
+      "file": "foot-symmetry.json",
+      "n": 13,
+      "source": "js/index.js timeline pie (log-decay illustration)",
+      "fields": ["series", "formula"]
+    },
+    {
+      "id": "plantar-pressure",
+      "file": "plantar-pressure.json",
+      "n": 7,
+      "source": "draw1.js",
+      "fields": ["sites", "normal", "diabetic_foot"]
+    },
+    {
+      "id": "tissue-thickness",
+      "file": "tissue-thickness.json",
+      "n": 14,
+      "source": "draw2.js",
+      "fields": ["sites", "normal_adult_mm", "diabetic_adult_mm", "difference_um"]
+    }
+  ]
+}

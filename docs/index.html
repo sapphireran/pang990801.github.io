@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文档 · 脚型数据可视化</title>
+  <link rel="stylesheet" href="css/docs.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../index.html">脚型可视化<small>Personal notes</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="index.html" aria-current="page">文档</a>
+        <a href="../examples/index.html">示例</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>个人文档：怎么读这些图，怎么改这些数</h1>
+      <p class="lede">
+        这是 GitHub Pages 上的个人学习仓库，不是产品手册。下面的笔记对着现有的五个驾驶舱面板和两份根目录草稿写成，方便以后把一张图单独拆出来，或把数组改成 JSON 再画一次。
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <span class="meta">结构</span>
+        <h2><a href="architecture.md">Architecture</a></h2>
+        <p>页面角色、脚本加载顺序、IIFE 图表模块，以及 <code>china.js</code> / <code>draw1.js</code> 这些没挂上首页的文件为什么还留着。</p>
+      </article>
+      <article class="card">
+        <span class="meta">图册</span>
+        <h2><a href="charts.md">Chart catalog</a></h2>
+        <p>散点、年龄柱、雷达、BMI 组合图、左右脚时间轴，加上足底压力和软组织厚度两份草稿的读法。</p>
+      </article>
+      <article class="card">
+        <span class="meta">字段</span>
+        <h2><a href="data-dictionary.md">Data dictionary</a></h2>
+        <p>八个 JSON 的键、单位和条数。散点 199×2，对称饼是公式生成的，不要当成普查。</p>
+      </article>
+      <article class="card">
+        <span class="meta">视觉</span>
+        <h2><a href="styling.md">Styling</a></h2>
+        <p>驾驶舱 rem / Less 漂移，以及文档和示例为什么单独写了一套深蓝样式。</p>
+      </article>
+      <article class="card">
+        <span class="meta">测量</span>
+        <h2><a href="measurement-notes.md">Measurement notes</a></h2>
+        <p>位点没有解剖名、雷达是 0–100 相对分、厚度差值不是两根柱相减。截图前先看这一页。</p>
+      </article>
+      <article class="card">
+        <span class="meta">示例</span>
+        <h2><a href="examples-guide.md">Examples guide</a></h2>
+        <p>独立页怎么 <code>fetch</code> JSON、<code>FootTheme.mount</code> 做什么，以及 <code>file://</code> 打不开的原因。</p>
+      </article>
+    </section>
+
+    <article class="prose">
+      <h2>从驾驶舱走到示例</h2>
+      <p class="callout">这些数列是个人练习用的示意序列。它们能说明布局和交互，不能代替人体测量调查、鞋楦标准或医疗判断。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>驾驶舱位置</th>
+            <th>独立示例</th>
+            <th>JSON</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>左上 · 身高 × 鞋码</td>
+            <td><a href="../examples/height-shoe.html">height-shoe.html</a></td>
+            <td><code>height-shoe-female.json</code> / <code>male</code></td>
+          </tr>
+          <tr>
+            <td>左下 · 年龄 × 脚长</td>
+            <td><a href="../examples/age-foot-length.html">age-foot-length.html</a></td>
+            <td><code>age-foot-length.json</code></td>
+          </tr>
+          <tr>
+            <td>中间 · 生长雷达</td>
+            <td><a href="../examples/growth-radar.html">growth-radar.html</a></td>
+            <td><code>growth-radar.json</code></td>
+          </tr>
+          <tr>
+            <td>右上 · BMI × 胖瘦度</td>
+            <td><a href="../examples/bmi-foot-shape.html">bmi-foot-shape.html</a></td>
+            <td><code>bmi-foot-shape.json</code></td>
+          </tr>
+          <tr>
+            <td>右下 · 左右脚时间轴</td>
+            <td><a href="../examples/foot-symmetry.html">foot-symmetry.html</a></td>
+            <td><code>foot-symmetry.json</code></td>
+          </tr>
+          <tr>
+            <td>根目录草稿 <code>draw1.js</code></td>
+            <td><a href="../examples/plantar-pressure.html">plantar-pressure.html</a></td>
+            <td><code>plantar-pressure.json</code></td>
+          </tr>
+          <tr>
+            <td>根目录草稿 <code>draw2.js</code></td>
+            <td><a href="../examples/tissue-thickness.html">tissue-thickness.html</a></td>
+            <td><code>tissue-thickness.json</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Markdown 源文件和这个 HTML 目录页放在一起，方便在 GitHub 网页上直接读 <code>.md</code>，也方便 Pages 上用同一套导航。</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      个人仓库 · Sapphire Ran · <a href="https://github.com/sapphireran/pang990801.github.io">pang990801.github.io</a>
+    </div>
+  </footer>
+</body>
+</html>

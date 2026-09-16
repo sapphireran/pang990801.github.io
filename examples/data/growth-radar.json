@@ -1,0 +1,83 @@
+{
+  "indicators": [
+    {
+      "name": "身高",
+      "max": 100
+    },
+    {
+      "name": "兜跟围长",
+      "max": 100
+    },
+    {
+      "name": "跗骨围长",
+      "max": 100
+    },
+    {
+      "name": "跖趾围长",
+      "max": 100
+    },
+    {
+      "name": "鞋码",
+      "max": 100
+    },
+    {
+      "name": "脚长",
+      "max": 100
+    },
+    {
+      "name": "体重",
+      "max": 100
+    }
+  ],
+  "series": [
+    {
+      "age": 9,
+      "values": [
+        43,
+        29,
+        37,
+        37,
+        38,
+        31,
+        41
+      ]
+    },
+    {
+      "age": 10,
+      "values": [
+        53,
+        32,
+        42,
+        46,
+        43,
+        42,
+        49
+      ]
+    },
+    {
+      "age": 11,
+      "values": [
+        66,
+        37,
+        47,
+        60,
+        57,
+        59,
+        65
+      ]
+    },
+    {
+      "age": 12,
+      "values": [
+        84,
+        45,
+        55,
+        70,
+        71,
+        71,
+        79
+      ]
+    }
+  ],
+  "scale": "Relative 0-100 scores used by the original radar panel, not raw millimetres."
+}

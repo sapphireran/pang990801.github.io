@@ -1,0 +1,798 @@
+[
+  {
+    "height_cm": 121.83,
+    "shoe_cm": 15.6
+  },
+  {
+    "height_cm": 110.31,
+    "shoe_cm": 17.52
+  },
+  {
+    "height_cm": 116.04,
+    "shoe_cm": 18.64
+  },
+  {
+    "height_cm": 140.37,
+    "shoe_cm": 19.21
+  },
+  {
+    "height_cm": 118.99,
+    "shoe_cm": 19.32
+  },
+  {
+    "height_cm": 114.59,
+    "shoe_cm": 18.59
+  },
+  {
+    "height_cm": 114.01,
+    "shoe_cm": 17.61
+  },
+  {
+    "height_cm": 106.25,
+    "shoe_cm": 13.95
+  },
+  {
+    "height_cm": 100.26,
+    "shoe_cm": 15.65
+  },
+  {
+    "height_cm": 98.43,
+    "shoe_cm": 13.62
+  },
+  {
+    "height_cm": 139.36,
+    "shoe_cm": 19.3
+  },
+  {
+    "height_cm": 106.45,
+    "shoe_cm": 14.7
+  },
+  {
+    "height_cm": 102.39,
+    "shoe_cm": 15.35
+  },
+  {
+    "height_cm": 84.77,
+    "shoe_cm": 13.03
+  },
+  {
+    "height_cm": 95.58,
+    "shoe_cm": 13.01
+  },
+  {
+    "height_cm": 88.07,
+    "shoe_cm": 11.95
+  },
+  {
+    "height_cm": 95.45,
+    "shoe_cm": 12.47
+  },
+  {
+    "height_cm": 100.13,
+    "shoe_cm": 15.54
+  },
+  {
+    "height_cm": 117.45,
+    "shoe_cm": 14.93
+  },
+  {
+    "height_cm": 106.04,
+    "shoe_cm": 15.12
+  },
+  {
+    "height_cm": 102.95,
+    "shoe_cm": 13.69
+  },
+  {
+    "height_cm": 127.39,
+    "shoe_cm": 17.88
+  },
+  {
+    "height_cm": 109.95,
+    "shoe_cm": 16.49
+  },
+  {
+    "height_cm": 114.86,
+    "shoe_cm": 14.64
+  },
+  {
+    "height_cm": 145.0,
+    "shoe_cm": 23.61
+  },
+  {
+    "height_cm": 96.13,
+    "shoe_cm": 15.25
+  },
+  {
+    "height_cm": 124.65,
+    "shoe_cm": 17.39
+  },
+  {
+    "height_cm": 137.65,
+    "shoe_cm": 21.13
+  },
+  {
+    "height_cm": 151.98,
+    "shoe_cm": 21.21
+  },
+  {
+    "height_cm": 109.25,
+    "shoe_cm": 14.04
+  },
+  {
+    "height_cm": 147.53,
+    "shoe_cm": 20.98
+  },
+  {
+    "height_cm": 117.8,
+    "shoe_cm": 17.26
+  },
+  {
+    "height_cm": 80.96,
+    "shoe_cm": 12.27
+  },
+  {
+    "height_cm": 112.9,
+    "shoe_cm": 16.12
+  },
+  {
+    "height_cm": 115.54,
+    "shoe_cm": 17.16
+  },
+  {
+    "height_cm": 138.28,
+    "shoe_cm": 18.75
+  },
+  {
+    "height_cm": 147.1,
+    "shoe_cm": 18.89
+  },
+  {
+    "height_cm": 117.64,
+    "shoe_cm": 18.63
+  },
+  {
+    "height_cm": 145.03,
+    "shoe_cm": 20.62
+  },
+  {
+    "height_cm": 113.47,
+    "shoe_cm": 16.68
+  },
+  {
+    "height_cm": 101.51,
+    "shoe_cm": 16.8
+  },
+  {
+    "height_cm": 87.18,
+    "shoe_cm": 13.34
+  },
+  {
+    "height_cm": 140.39,
+    "shoe_cm": 19.65
+  },
+  {
+    "height_cm": 101.67,
+    "shoe_cm": 14.48
+  },
+  {
+    "height_cm": 123.86,
+    "shoe_cm": 16.93
+  },
+  {
+    "height_cm": 150.65,
+    "shoe_cm": 18.92
+  },
+  {
+    "height_cm": 92.46,
+    "shoe_cm": 11.57
+  },
+  {
+    "height_cm": 86.73,
+    "shoe_cm": 14.03
+  },
+  {
+    "height_cm": 130.94,
+    "shoe_cm": 16.52
+  },
+  {
+    "height_cm": 141.99,
+    "shoe_cm": 17.85
+  },
+  {
+    "height_cm": 148.18,
+    "shoe_cm": 18.53
+  },
+  {
+    "height_cm": 80.4,
+    "shoe_cm": 11.67
+  },
+  {
+    "height_cm": 85.32,
+    "shoe_cm": 13.95
+  },
+  {
+    "height_cm": 101.39,
+    "shoe_cm": 14.82
+  },
+  {
+    "height_cm": 152.64,
+    "shoe_cm": 22.02
+  },
+  {
+    "height_cm": 125.34,
+    "shoe_cm": 19.75
+  },
+  {
+    "height_cm": 102.11,
+    "shoe_cm": 15.19
+  },
+  {
+    "height_cm": 109.21,
+    "shoe_cm": 18.05
+  },
+  {
+    "height_cm": 107.27,
+    "shoe_cm": 16.67
+  },
+  {
+    "height_cm": 100.17,
+    "shoe_cm": 13.25
+  },
+  {
+    "height_cm": 124.44,
+    "shoe_cm": 17.04
+  },
+  {
+    "height_cm": 100.85,
+    "shoe_cm": 13.94
+  },
+  {
+    "height_cm": 132.84,
+    "shoe_cm": 18.25
+  },
+  {
+    "height_cm": 119.71,
+    "shoe_cm": 19.52
+  },
+  {
+    "height_cm": 88.69,
+    "shoe_cm": 11.86
+  },
+  {
+    "height_cm": 129.51,
+    "shoe_cm": 16.75
+  },
+  {
+    "height_cm": 126.13,
+    "shoe_cm": 18.19
+  },
+  {
+    "height_cm": 102.79,
+    "shoe_cm": 15.95
+  },
+  {
+    "height_cm": 125.96,
+    "shoe_cm": 17.84
+  },
+  {
+    "height_cm": 110.84,
+    "shoe_cm": 15.8
+  },
+  {
+    "height_cm": 80.96,
+    "shoe_cm": 10.34
+  },
+  {
+    "height_cm": 96.89,
+    "shoe_cm": 13.15
+  },
+  {
+    "height_cm": 93.14,
+    "shoe_cm": 13.08
+  },
+  {
+    "height_cm": 107.71,
+    "shoe_cm": 15.34
+  },
+  {
+    "height_cm": 86.17,
+    "shoe_cm": 12.1
+  },
+  {
+    "height_cm": 91.68,
+    "shoe_cm": 14.05
+  },
+  {
+    "height_cm": 85.93,
+    "shoe_cm": 11.78
+  },
+  {
+    "height_cm": 94.41,
+    "shoe_cm": 13.51
+  },
+  {
+    "height_cm": 113.57,
+    "shoe_cm": 18.38
+  },
+  {
+    "height_cm": 92.4,
+    "shoe_cm": 12.52
+  },
+  {
+    "height_cm": 122.57,
+    "shoe_cm": 18.04
+  },
+  {
+    "height_cm": 145.17,
+    "shoe_cm": 22.23
+  },
+  {
+    "height_cm": 80.52,
+    "shoe_cm": 10.52
+  },
+  {
+    "height_cm": 130.58,
+    "shoe_cm": 20.35
+  },
+  {
+    "height_cm": 91.08,
+    "shoe_cm": 12.52
+  },
+  {
+    "height_cm": 145.24,
+    "shoe_cm": 24.21
+  },
+  {
+    "height_cm": 116.52,
+    "shoe_cm": 16.53
+  },
+  {
+    "height_cm": 94.79,
+    "shoe_cm": 13.43
+  },
+  {
+    "height_cm": 96.44,
+    "shoe_cm": 12.32
+  },
+  {
+    "height_cm": 131.66,
+    "shoe_cm": 20.58
+  },
+  {
+    "height_cm": 79.73,
+    "shoe_cm": 10.08
+  },
+  {
+    "height_cm": 115.45,
+    "shoe_cm": 17.54
+  },
+  {
+    "height_cm": 99.33,
+    "shoe_cm": 15.05
+  },
+  {
+    "height_cm": 130.79,
+    "shoe_cm": 18.7
+  },
+  {
+    "height_cm": 81.58,
+    "shoe_cm": 11.02
+  },
+  {
+    "height_cm": 109.22,
+    "shoe_cm": 14.03
+  },
+  {
+    "height_cm": 113.22,
+    "shoe_cm": 17.15
+  },
+  {
+    "height_cm": 115.85,
+    "shoe_cm": 17.81
+  },
+  {
+    "height_cm": 112.98,
+    "shoe_cm": 15.27
+  },
+  {
+    "height_cm": 111.78,
+    "shoe_cm": 16.91
+  },
+  {
+    "height_cm": 103.9,
+    "shoe_cm": 16.27
+  },
+  {
+    "height_cm": 103.73,
+    "shoe_cm": 14.2
+  },
+  {
+    "height_cm": 83.02,
+    "shoe_cm": 10.98
+  },
+  {
+    "height_cm": 136.18,
+    "shoe_cm": 17.32
+  },
+  {
+    "height_cm": 80.88,
+    "shoe_cm": 12.58
+  },
+  {
+    "height_cm": 148.11,
+    "shoe_cm": 21.51
+  },
+  {
+    "height_cm": 114.84,
+    "shoe_cm": 17.76
+  },
+  {
+    "height_cm": 121.59,
+    "shoe_cm": 17.88
+  },
+  {
+    "height_cm": 124.87,
+    "shoe_cm": 16.37
+  },
+  {
+    "height_cm": 132.64,
+    "shoe_cm": 17.34
+  },
+  {
+    "height_cm": 108.4,
+    "shoe_cm": 17.25
+  },
+  {
+    "height_cm": 142.12,
+    "shoe_cm": 21.31
+  },
+  {
+    "height_cm": 152.17,
+    "shoe_cm": 21.6
+  },
+  {
+    "height_cm": 106.41,
+    "shoe_cm": 15.82
+  },
+  {
+    "height_cm": 90.9,
+    "shoe_cm": 13.5
+  },
+  {
+    "height_cm": 152.78,
+    "shoe_cm": 21.64
+  },
+  {
+    "height_cm": 146.6,
+    "shoe_cm": 19.25
+  },
+  {
+    "height_cm": 87.14,
+    "shoe_cm": 11.09
+  },
+  {
+    "height_cm": 97.49,
+    "shoe_cm": 12.75
+  },
+  {
+    "height_cm": 149.46,
+    "shoe_cm": 22.26
+  },
+  {
+    "height_cm": 149.29,
+    "shoe_cm": 23.87
+  },
+  {
+    "height_cm": 141.05,
+    "shoe_cm": 20.34
+  },
+  {
+    "height_cm": 105.48,
+    "shoe_cm": 14.3
+  },
+  {
+    "height_cm": 101.59,
+    "shoe_cm": 16.6
+  },
+  {
+    "height_cm": 147.2,
+    "shoe_cm": 23.04
+  },
+  {
+    "height_cm": 133.28,
+    "shoe_cm": 17.2
+  },
+  {
+    "height_cm": 120.57,
+    "shoe_cm": 17.26
+  },
+  {
+    "height_cm": 141.58,
+    "shoe_cm": 18.33
+  },
+  {
+    "height_cm": 121.72,
+    "shoe_cm": 17.37
+  },
+  {
+    "height_cm": 133.54,
+    "shoe_cm": 19.57
+  },
+  {
+    "height_cm": 100.57,
+    "shoe_cm": 13.32
+  },
+  {
+    "height_cm": 89.95,
+    "shoe_cm": 12.54
+  },
+  {
+    "height_cm": 136.96,
+    "shoe_cm": 17.59
+  },
+  {
+    "height_cm": 95.05,
+    "shoe_cm": 14.4
+  },
+  {
+    "height_cm": 125.55,
+    "shoe_cm": 16.0
+  },
+  {
+    "height_cm": 106.88,
+    "shoe_cm": 13.74
+  },
+  {
+    "height_cm": 96.34,
+    "shoe_cm": 12.65
+  },
+  {
+    "height_cm": 146.07,
+    "shoe_cm": 22.07
+  },
+  {
+    "height_cm": 126.85,
+    "shoe_cm": 20.41
+  },
+  {
+    "height_cm": 132.71,
+    "shoe_cm": 17.38
+  },
+  {
+    "height_cm": 141.82,
+    "shoe_cm": 20.0
+  },
+  {
+    "height_cm": 105.39,
+    "shoe_cm": 16.75
+  },
+  {
+    "height_cm": 109.98,
+    "shoe_cm": 17.02
+  },
+  {
+    "height_cm": 124.85,
+    "shoe_cm": 20.75
+  },
+  {
+    "height_cm": 140.53,
+    "shoe_cm": 19.5
+  },
+  {
+    "height_cm": 85.83,
+    "shoe_cm": 12.7
+  },
+  {
+    "height_cm": 102.56,
+    "shoe_cm": 14.78
+  },
+  {
+    "height_cm": 134.3,
+    "shoe_cm": 21.89
+  },
+  {
+    "height_cm": 152.31,
+    "shoe_cm": 19.74
+  },
+  {
+    "height_cm": 152.45,
+    "shoe_cm": 19.17
+  },
+  {
+    "height_cm": 139.15,
+    "shoe_cm": 21.9
+  },
+  {
+    "height_cm": 96.47,
+    "shoe_cm": 12.16
+  },
+  {
+    "height_cm": 133.16,
+    "shoe_cm": 19.05
+  },
+  {
+    "height_cm": 88.72,
+    "shoe_cm": 11.73
+  },
+  {
+    "height_cm": 99.21,
+    "shoe_cm": 15.58
+  },
+  {
+    "height_cm": 122.43,
+    "shoe_cm": 17.22
+  },
+  {
+    "height_cm": 147.62,
+    "shoe_cm": 21.11
+  },
+  {
+    "height_cm": 86.47,
+    "shoe_cm": 13.46
+  },
+  {
+    "height_cm": 123.65,
+    "shoe_cm": 18.89
+  },
+  {
+    "height_cm": 121.01,
+    "shoe_cm": 15.91
+  },
+  {
+    "height_cm": 130.27,
+    "shoe_cm": 18.37
+  },
+  {
+    "height_cm": 82.22,
+    "shoe_cm": 10.43
+  },
+  {
+    "height_cm": 118.15,
+    "shoe_cm": 17.59
+  },
+  {
+    "height_cm": 98.13,
+    "shoe_cm": 15.09
+  },
+  {
+    "height_cm": 80.63,
+    "shoe_cm": 12.92
+  },
+  {
+    "height_cm": 151.06,
+    "shoe_cm": 24.11
+  },
+  {
+    "height_cm": 135.76,
+    "shoe_cm": 20.97
+  },
+  {
+    "height_cm": 132.25,
+    "shoe_cm": 18.98
+  },
+  {
+    "height_cm": 149.34,
+    "shoe_cm": 22.76
+  },
+  {
+    "height_cm": 123.61,
+    "shoe_cm": 19.3
+  },
+  {
+    "height_cm": 148.12,
+    "shoe_cm": 23.85
+  },
+  {
+    "height_cm": 149.49,
+    "shoe_cm": 19.65
+  },
+  {
+    "height_cm": 102.54,
+    "shoe_cm": 14.4
+  },
+  {
+    "height_cm": 80.47,
+    "shoe_cm": 11.09
+  },
+  {
+    "height_cm": 145.05,
+    "shoe_cm": 22.59
+  },
+  {
+    "height_cm": 144.99,
+    "shoe_cm": 19.87
+  },
+  {
+    "height_cm": 120.94,
+    "shoe_cm": 15.3
+  },
+  {
+    "height_cm": 124.85,
+    "shoe_cm": 17.69
+  },
+  {
+    "height_cm": 90.01,
+    "shoe_cm": 13.66
+  },
+  {
+    "height_cm": 132.86,
+    "shoe_cm": 18.39
+  },
+  {
+    "height_cm": 107.87,
+    "shoe_cm": 15.1
+  },
+  {
+    "height_cm": 141.62,
+    "shoe_cm": 18.58
+  },
+  {
+    "height_cm": 101.39,
+    "shoe_cm": 14.38
+  },
+  {
+    "height_cm": 121.5,
+    "shoe_cm": 17.21
+  },
+  {
+    "height_cm": 151.78,
+    "shoe_cm": 21.19
+  },
+  {
+    "height_cm": 82.62,
+    "shoe_cm": 11.0
+  },
+  {
+    "height_cm": 114.73,
+    "shoe_cm": 16.61
+  },
+  {
+    "height_cm": 101.02,
+    "shoe_cm": 13.31
+  },
+  {
+    "height_cm": 81.35,
+    "shoe_cm": 13.0
+  },
+  {
+    "height_cm": 131.83,
+    "shoe_cm": 17.51
+  },
+  {
+    "height_cm": 143.93,
+    "shoe_cm": 18.46
+  },
+  {
+    "height_cm": 114.26,
+    "shoe_cm": 16.44
+  },
+  {
+    "height_cm": 151.68,
+    "shoe_cm": 23.59
+  },
+  {
+    "height_cm": 121.34,
+    "shoe_cm": 16.48
+  },
+  {
+    "height_cm": 135.26,
+    "shoe_cm": 18.06
+  },
+  {
+    "height_cm": 146.15,
+    "shoe_cm": 19.2
+  },
+  {
+    "height_cm": 129.54,
+    "shoe_cm": 20.41
+  },
+  {
+    "height_cm": 116.71,
+    "shoe_cm": 16.7
+  },
+  {
+    "height_cm": 144.13,
+    "shoe_cm": 19.85
+  }
+]
