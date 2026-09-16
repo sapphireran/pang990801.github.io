@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>公式 · 儿童脚型个人笔记</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="index.html">说明</a>
+      <a href="source-atlas.html">源码对照</a>
+      <a href="formulas.html" aria-current="page">公式</a>
+      <a href="units.html">单位</a>
+      <a href="../examples/lab/symmetry-lab.html">对称计算器</a>
+      <a href="../examples/lab/correlation.html">回归实验室</a>
+    </nav>
+    <h1>公式</h1>
+    <p class="lead">仪表盘或抽取脚本里真实出现的式子。推导和手算见 <a href="formulas.md">formulas.md</a>。</p>
+    <h2>身高 → 鞋长 OLS</h2>
+    <p>线上散点不画回归，只标最值 / 均值和竖线 x=115（女）、x=110（男）。抽取脚本补了一条直线：</p>
+    <table>
+      <thead><tr><th>组</th><th>n</th><th>r</th><th>斜率 cm/cm</th><th>截距 cm</th></tr></thead>
+      <tbody>
+        <tr><td>女</td><td>199</td><td>0.9135</td><td>0.14088</td><td>0.2989</td></tr>
+        <tr><td>男</td><td>199</td><td>0.9156</td><td>0.14334</td><td>−0.0650</td></tr>
+        <tr><td>合并</td><td>398</td><td>0.9157</td><td>0.14235</td><td>0.0863</td></tr>
+      </tbody>
+    </table>
+    <p>120 cm 儿童在合并线上大约 17.2 cm 鞋长。</p>
+    <h2>年龄差值</h2>
+    <p><code>Δ = 女生脚长 − 男生脚长</code>：0.28 … −0.50 cm，10 岁到 11 岁变号。</p>
+    <h2>环图百分比</h2>
+    <p><code>p = v / (v + 占位)</code>。过瘦 50/230 = 21.74%，过胖 435/2835 = 15.34%。这四个数是写死的，不是折线点数出来的。</p>
+    <h2>左右脚时间轴</h2>
+    <pre><code>i = 0…12          # 2岁…14岁
+a = round(36 − 13 ln(i+1))
+b = round(17 −  6 ln(i+1))
+c = round(11 −  4 ln(i+1))
+d = round(27 − 10 ln(i+1))
+same = 63 + a + b + c + d</code></pre>
+    <p>2 岁：相同 154 / 245 = 62.86%。14 岁：70 / 77 = 90.91%。相同占比随年龄升高，是因为四个对数项在衰减。</p>
+    <p><a href="../examples/lab/symmetry-lab.html">打开对称实验室改系数</a></p>
+    <h2>雷达里的减法</h2>
+    <p>12 岁鞋码、脚长写成 <code>77-6</code>、<code>79-8</code>，求值后都是 71。</p>
+    <h2>draw2「差值:um」不是公式</h2>
+    <p>14 个点没有一个等于 <code>(糖尿病足mm − 正常mm) × 1000</code>。不要用一组去还原另一组。</p>
+    <footer class="tiny">个人笔记</footer>
+  </div>
+</body>
+</html>

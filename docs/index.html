@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>说明 · 儿童脚型个人笔记</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="index.html" aria-current="page">说明</a>
+      <a href="source-atlas.html">源码对照</a>
+      <a href="glossary.html">名词</a>
+      <a href="formulas.html">公式</a>
+      <a href="units.html">单位</a>
+      <a href="display-caveats.html">阅读注意</a>
+      <a href="color-tokens.html">颜色</a>
+      <a href="../examples/lab/index.html">实验室</a>
+      <a href="../data/README.md">数据</a>
+    </nav>
+    <h1>个人说明与实验室入口</h1>
+    <p class="lead">这是 GitHub Pages 个人项目「中国人群脚型数据可视化」的阅读室。不改动公司仓库，也不改五项图本身的算法。Markdown 原文和这些 HTML 是同一套笔记。</p>
+    <div class="cards">
+      <article class="card">
+        <h2>源码对照</h2>
+        <p>五个 IIFE、两个未挂载的 <code>draw*.js</code>、以及 <code>.map</code> 选择器为什么画的是雷达而不是地图。</p>
+        <p><a href="source-atlas.html">打开 source atlas</a> · <a href="source-atlas.md">.md</a></p>
+      </article>
+      <article class="card">
+        <h2>名词与单位</h2>
+        <p>鞋码为什么带 <code>cm</code>、雷达 0–100 不是厘米、脚长/脚宽为什么不像比值。</p>
+        <p><a href="glossary.html">名词</a> · <a href="units.html">单位</a></p>
+      </article>
+      <article class="card">
+        <h2>公式</h2>
+        <p>散点 OLS（<em>r</em> ≈ 0.92）、时间轴饼图的 <code>Math.log</code> 生成器、环图占位百分比。</p>
+        <p><a href="formulas.html">打开公式页</a></p>
+      </article>
+      <article class="card">
+        <h2>阅读注意</h2>
+        <p>双 ECharts、死年切换、缺字库、Pages 地址和 <code>pang990801.github.io</code> 根域名不是同一件事。</p>
+        <p><a href="display-caveats.html">打开注意事项</a></p>
+      </article>
+      <article class="card">
+        <h2>抽出的数据</h2>
+        <p>398 个散点、9 个年龄均值、13 个 BMI 点、以及未挂载的足底草图。JSON / CSV 都在 <code>/data</code>。</p>
+        <p><a href="../data/height-shoe.json">height-shoe.json</a> · <a href="../data/summary.json">summary.json</a></p>
+      </article>
+      <article class="card">
+        <h2>实验室</h2>
+        <p>可筛选表、回归残差、生长叙事、对称公式计算器、单位换算、打印一页。</p>
+        <p><a href="../examples/lab/index.html">打开实验室</a></p>
+      </article>
+    </div>
+    <h2>本地预览</h2>
+    <pre><code>python3 -m http.server 4173</code></pre>
+    <p>然后打开 <code>/docs/</code>、<code>/examples/lab/</code>、<code>/data/summary.json</code>。必须从仓库根目录起服务，否则 <code>../../data</code> 和 <code>../../js/echarts.min.js</code> 会 404。</p>
+    <p class="note">已发布的 Pages 路径是 <a href="https://sapphireran.github.io/pang990801.github.io/">sapphireran.github.io/pang990801.github.io</a>。合并到 <code>master</code> 之后，还需要仓库的 Pages 源指向这份树，线上才会更新。</p>
+    <footer class="tiny">个人笔记 · 与 PR 1 的 USAGE/CHARTS、PR 2 的单图副本互补：这里偏对照表、抽出数据和可交互实验室。</footer>
+  </div>
+</body>
+</html>
