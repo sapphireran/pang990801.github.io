@@ -1,0 +1,196 @@
+{
+  "id": "foot-symmetry",
+  "title": "Left and right foot size mix by age",
+  "formula": {
+    "leftLarger10to20": "round(36 - 13 * ln(ageIndex+1))",
+    "leftLargerOver20": "round(17 - 6 * ln(ageIndex+1))",
+    "rightLargerOver20": "round(11 - 4 * ln(ageIndex+1))",
+    "rightLarger10to20": "round(27 - 10 * ln(ageIndex+1))",
+    "same": "63 + a + b + c + d",
+    "ageIndex": "0 for age 2, 12 for age 14"
+  },
+  "categories": [
+    {
+      "id": "same",
+      "labelZh": "双脚相同"
+    },
+    {
+      "id": "leftLarger10to20",
+      "labelZh": "左脚比右脚大10-20%"
+    },
+    {
+      "id": "leftLargerOver20",
+      "labelZh": "左脚比右脚大20%以上"
+    },
+    {
+      "id": "rightLargerOver20",
+      "labelZh": "右脚比左脚大20%以上"
+    },
+    {
+      "id": "rightLarger10to20",
+      "labelZh": "右脚比左脚大10-20%"
+    }
+  ],
+  "series": [
+    {
+      "age": 2,
+      "labelZh": "2岁",
+      "counts": {
+        "same": 154,
+        "leftLarger10to20": 36,
+        "leftLargerOver20": 17,
+        "rightLargerOver20": 11,
+        "rightLarger10to20": 27
+      },
+      "total": 245
+    },
+    {
+      "age": 3,
+      "labelZh": "3岁",
+      "counts": {
+        "same": 131,
+        "leftLarger10to20": 27,
+        "leftLargerOver20": 13,
+        "rightLargerOver20": 8,
+        "rightLarger10to20": 20
+      },
+      "total": 199
+    },
+    {
+      "age": 4,
+      "labelZh": "4岁",
+      "counts": {
+        "same": 118,
+        "leftLarger10to20": 22,
+        "leftLargerOver20": 10,
+        "rightLargerOver20": 7,
+        "rightLarger10to20": 16
+      },
+      "total": 173
+    },
+    {
+      "age": 5,
+      "labelZh": "5岁",
+      "counts": {
+        "same": 108,
+        "leftLarger10to20": 18,
+        "leftLargerOver20": 9,
+        "rightLargerOver20": 5,
+        "rightLarger10to20": 13
+      },
+      "total": 153
+    },
+    {
+      "age": 6,
+      "labelZh": "6岁",
+      "counts": {
+        "same": 101,
+        "leftLarger10to20": 15,
+        "leftLargerOver20": 7,
+        "rightLargerOver20": 5,
+        "rightLarger10to20": 11
+      },
+      "total": 139
+    },
+    {
+      "age": 7,
+      "labelZh": "7岁",
+      "counts": {
+        "same": 95,
+        "leftLarger10to20": 13,
+        "leftLargerOver20": 6,
+        "rightLargerOver20": 4,
+        "rightLarger10to20": 9
+      },
+      "total": 127
+    },
+    {
+      "age": 8,
+      "labelZh": "8岁",
+      "counts": {
+        "same": 90,
+        "leftLarger10to20": 11,
+        "leftLargerOver20": 5,
+        "rightLargerOver20": 3,
+        "rightLarger10to20": 8
+      },
+      "total": 117
+    },
+    {
+      "age": 9,
+      "labelZh": "9岁",
+      "counts": {
+        "same": 86,
+        "leftLarger10to20": 9,
+        "leftLargerOver20": 5,
+        "rightLargerOver20": 3,
+        "rightLarger10to20": 6
+      },
+      "total": 109
+    },
+    {
+      "age": 10,
+      "labelZh": "10岁",
+      "counts": {
+        "same": 81,
+        "leftLarger10to20": 7,
+        "leftLargerOver20": 4,
+        "rightLargerOver20": 2,
+        "rightLarger10to20": 5
+      },
+      "total": 99
+    },
+    {
+      "age": 11,
+      "labelZh": "11岁",
+      "counts": {
+        "same": 78,
+        "leftLarger10to20": 6,
+        "leftLargerOver20": 3,
+        "rightLargerOver20": 2,
+        "rightLarger10to20": 4
+      },
+      "total": 93
+    },
+    {
+      "age": 12,
+      "labelZh": "12岁",
+      "counts": {
+        "same": 75,
+        "leftLarger10to20": 5,
+        "leftLargerOver20": 3,
+        "rightLargerOver20": 1,
+        "rightLarger10to20": 3
+      },
+      "total": 87
+    },
+    {
+      "age": 13,
+      "labelZh": "13岁",
+      "counts": {
+        "same": 72,
+        "leftLarger10to20": 4,
+        "leftLargerOver20": 2,
+        "rightLargerOver20": 1,
+        "rightLarger10to20": 2
+      },
+      "total": 81
+    },
+    {
+      "age": 14,
+      "labelZh": "14岁",
+      "counts": {
+        "same": 70,
+        "leftLarger10to20": 3,
+        "leftLargerOver20": 2,
+        "rightLargerOver20": 1,
+        "rightLarger10to20": 1
+      },
+      "total": 77
+    }
+  ],
+  "notes": [
+    "The original dashboard generated these shares with Math.log in the browser.",
+    "This file stores the evaluated integers so example pages do not depend on floating-point replay."
+  ]
+}

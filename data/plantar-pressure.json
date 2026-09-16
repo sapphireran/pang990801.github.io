@@ -1,0 +1,28 @@
+{
+  "id": "plantar-pressure",
+  "title": "Plantar pressure at seven sites",
+  "unit": "Pa",
+  "sites": ["位点一", "位点二", "位点三", "位点四", "位点五", "位点六", "位点七"],
+  "siteLabelsEn": [
+    "site-1",
+    "site-2",
+    "site-3",
+    "site-4",
+    "site-5",
+    "site-6",
+    "site-7"
+  ],
+  "series": {
+    "typicalAdult": [90, 50, 39, 50, 120, 82, 80],
+    "diabeticFoot": [290, 200, 20, 132, 15, 200, 90]
+  },
+  "sourceShare": {
+    "highlighted": 335,
+    "placeholder": 180,
+    "labelZh": "正常人群"
+  },
+  "notes": [
+    "Draft series from draw1.js, kept as a worked example rather than a clinical reference.",
+    "Site names were never mapped to anatomical landmarks in the source file."
+  ]
+}

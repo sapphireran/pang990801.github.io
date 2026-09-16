@@ -1,0 +1,17 @@
+{
+  "id": "tissue-thickness",
+  "title": "Subcutaneous thickness under the plantar sites",
+  "siteCount": 14,
+  "sitePrefixZh": "位点",
+  "thicknessUnit": "mm",
+  "differenceUnit": "um",
+  "series": {
+    "typicalAdultMm": [11.6, 12.3, 12.1, 13.7, 12.6, 10.4, 12.2, 11.6, 13.2, 12.9, 11.4, 13.4, 10.2, 11.5],
+    "diabeticFootMm": [13.2, 13.6, 12.9, 14.6, 14.9, 13, 15.7, 16.1, 14.2, 15.8, 15.9, 13.7, 12.9, 14.9],
+    "differenceUm": [16, 13, 8, 9, 23, 26, 35, 45, 10, 29, 45, 3, 27, 34]
+  },
+  "notes": [
+    "Draft series from draw2.js.",
+    "The difference series is labelled micrometres in the original legend while the bars are millimetres. The example page keeps both labels and flags the unit mismatch."
+  ]
+}
