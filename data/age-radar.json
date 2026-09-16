@@ -1,0 +1,86 @@
+{
+  "title": "9–12 岁体型与围长雷达对照",
+  "source": "Personal dashboard sample embedded in js/index.js (center radar)",
+  "scale": "Each axis is normalized to 0–100 on the live chart (not raw centimeters).",
+  "indicators": [
+    {
+      "key": "height",
+      "labelZh": "身高"
+    },
+    {
+      "key": "heelGirth",
+      "labelZh": "兜跟围长"
+    },
+    {
+      "key": "tarsalGirth",
+      "labelZh": "跗骨围长"
+    },
+    {
+      "key": "mtpGirth",
+      "labelZh": "跖趾围长"
+    },
+    {
+      "key": "shoeSize",
+      "labelZh": "鞋码"
+    },
+    {
+      "key": "footLength",
+      "labelZh": "脚长"
+    },
+    {
+      "key": "weight",
+      "labelZh": "体重"
+    }
+  ],
+  "series": [
+    {
+      "age": 9,
+      "values": [
+        43,
+        29,
+        37,
+        37,
+        38,
+        31,
+        41
+      ]
+    },
+    {
+      "age": 10,
+      "values": [
+        53,
+        32,
+        42,
+        46,
+        43,
+        42,
+        49
+      ]
+    },
+    {
+      "age": 11,
+      "values": [
+        66,
+        37,
+        47,
+        60,
+        57,
+        59,
+        65
+      ]
+    },
+    {
+      "age": 12,
+      "values": [
+        84,
+        45,
+        55,
+        70,
+        71,
+        71,
+        79
+      ],
+      "notes": "Live chart encodes shoe/foot as 77-6 and 79-8; this file stores the evaluated 71, 71."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "足部压力位点对照（示例）",
+  "source": "Personal example originally in draw1.js",
+  "units": {
+    "pressure": "Pa"
+  },
+  "sites": [
+    "位点一",
+    "位点二",
+    "位点三",
+    "位点四",
+    "位点五",
+    "位点六",
+    "位点七"
+  ],
+  "series": {
+    "typicalAdults": [
+      90,
+      50,
+      39,
+      50,
+      120,
+      82,
+      80
+    ],
+    "diabeticFootAdults": [
+      290,
+      200,
+      20,
+      132,
+      15,
+      200,
+      90
+    ]
+  },
+  "notes": [
+    "This is a personal example chart, not a clinical dataset.",
+    "Diabetic-foot series is more peaked at some sites and lower at others, which is why the original overlay exists."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "title": "男童女童年龄与脚长",
+  "source": "Personal dashboard sample embedded in js/index.js (pictorial bar + difference line)",
+  "units": {
+    "age": "years",
+    "footLength": "cm",
+    "difference": "cm (girls minus boys)"
+  },
+  "ages": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "girlsFootLengthCm": [
+    18.55,
+    20.24,
+    21.01,
+    20.34,
+    20.83,
+    21.29,
+    21.83,
+    22.36,
+    22.66
+  ],
+  "boysFootLengthCm": [
+    18.27,
+    19.76,
+    20.61,
+    20.01,
+    20.75,
+    21.32,
+    21.98,
+    22.69,
+    23.16
+  ],
+  "girlsMinusBoysCm": [
+    0.28,
+    0.48,
+    0.4,
+    0.33,
+    0.08,
+    -0.03,
+    -0.15,
+    -0.33,
+    -0.5
+  ],
+  "notes": [
+    "Ages 6–10 show a small average girl lead in foot length.",
+    "From about age 11 the boy series overtakes, which is why the difference line crosses zero."
+  ]
+}
