@@ -13,6 +13,7 @@
 | [foot-symmetry.html](foot-symmetry.html) | 双脚比例 |
 | [radar-growth.html](radar-growth.html) | 生长雷达 |
 | [plantar-sketches.html](plantar-sketches.html) | 足底草图 |
+| [data-tables.html](data-tables.html) | 从共享数据生成的核对表 |
 
 共享文件：
 

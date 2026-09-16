@@ -279,15 +279,10 @@
           return {
             name: row.name,
             value: row.value,
-            symbolSize: 3,
-            itemStyle: { borderColor: colors[i], borderWidth: 2 },
-            areaStyle: {
-              color: h.linearGradient(echarts, [
-                { offset: 0, color: colors[i] },
-                { offset: 0.55, color: "rgba(0,0,0,0)" },
-                { offset: 1, color: colors[i] }
-              ], false)
-            }
+            symbolSize: 4,
+            lineStyle: { color: colors[i], width: 2 },
+            itemStyle: { color: colors[i], borderColor: colors[i], borderWidth: 2 },
+            areaStyle: { color: colors[i], opacity: 0.18 }
           };
         })
       }]

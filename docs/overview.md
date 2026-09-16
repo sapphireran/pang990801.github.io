@@ -51,5 +51,6 @@
 | `.line1 .chart` | `examples/foot-symmetry.html` |
 | `.map .chart` | `examples/radar-growth.html` |
 | `draw1.js` / `draw2.js` | `examples/plantar-sketches.html` |
+| （共享数据） | `examples/data-tables.html` |
 
 示例页共用 `examples/js/example-data.js` 和 `examples/js/chart-helpers.js`。改数时优先改 `example-data.js`，大屏 `js/index.js` 仍是当时的内联数组；两边数字应对齐，不一致时以 `example-data.js` 的注释为准。
