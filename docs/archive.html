@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 档案</title>
+  <link rel="stylesheet" href="companion.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">File atlas</p>
+      <h1>仓库里每份文件干什么</h1>
+      <p class="lede">个人 Pages 仓库很容易堆模板残骸。下表按「还在用 / 还在盘里」分开，避免以后把 <code>china.js</code> 误当成仪表盘的一部分。</p>
+    </section>
+
+    <article class="panel">
+      <h2>还挂在 index.html 上</h2>
+      <table>
+        <thead><tr><th>路径</th><th>角色</th></tr></thead>
+        <tbody>
+          <tr><td><code>index.html</code></td><td>五面板壳、时钟、顶栏链接</td></tr>
+          <tr><td><code>css/index.css</code></td><td>大屏布局、面板角标、地图装饰层（雷达其实没用 map1/2/3）</td></tr>
+          <tr><td><code>js/flexible.js</code></td><td><code>rem = 视口宽 / 24</code></td></tr>
+          <tr><td><code>js/jquery.js</code></td><td>导航和标题点击（散点年切换的 <code>a</code> 并不存在）</td></tr>
+          <tr><td><code>js/echarts.js</code> + <code>echarts.min.js</code></td><td>重复加载；min 在完整版之后</td></tr>
+          <tr><td><code>js/index.js</code></td><td>五个 IIFE：散点、年龄柱、BMI、对称饼、雷达</td></tr>
+          <tr><td><code>js/click.js</code></td><td>给 <code>.index_nav ul li</code> 绑定点击，当前导航却是 <code>a</code></td></tr>
+          <tr><td><code>js/macarons.js</code></td><td>在 ECharts 之前加载，控制台会报 “ECharts is not Loaded”</td></tr>
+          <tr><td><code>images/bg.jpg</code>, <code>head_bg.png</code>, <code>line(1).png</code></td><td>背景和面板纹理</td></tr>
+          <tr><td><code>font/DS-DIGIT.TTF</code></td><td>电子钟字体；标题也曾引用「液晶数字.TTF」，仓库里没有那份文件</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>在盘里、没挂上</h2>
+      <table>
+        <thead><tr><th>路径</th><th>角色</th></tr></thead>
+        <tbody>
+          <tr><td><code>draw1.js</code></td><td>七位点压力折线 + 饼，注释写糖尿病足。未引用。</td></tr>
+          <tr><td><code>draw2.js</code></td><td>十四位点皮下厚度。图例写差值 µm，和毫米差 ×1000 全部对不上。</td></tr>
+          <tr><td><code>js/china.js</code>, <code>js/myMap.js</code></td><td>中国地图飞线。在 <code>index.html</code> 里被注释掉，中柱改成了雷达。</td></tr>
+          <tr><td><code>css/index.less</code>, <code>index_new.css</code></td><td>样式草稿</td></tr>
+          <tr><td><code>js/macarons.json</code></td><td>主题 JSON，页面没用</td></tr>
+          <tr><td><code>images/map.png</code>, <code>lbx.png</code>, <code>jt.png</code></td><td>给已移除的地图装饰用</td></tr>
+        </tbody>
+      </table>
+      <p>伴读把两份 draw 草稿收进「哑铃图」示例，只为对照单位，不把它们装回仪表盘。</p>
+    </article>
+  </main>
+  <script src="../examples/js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "notes" });</script>
+</body>
+</html>

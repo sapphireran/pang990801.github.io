@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 项目日记</title>
+  <link rel="stylesheet" href="companion.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Archive diary</p>
+      <h1>2020 个人可视化日记</h1>
+      <p class="lede">
+        这不是公司迭代记录。它只整理这个公开仓库自己留下的痕迹：一次上传、几次改
+        <code>index.html</code> / <code>index.js</code>，然后停在一版深色大屏。
+      </p>
+    </section>
+
+    <article class="panel">
+      <h2>时间线</h2>
+      <table>
+        <thead>
+          <tr><th>提交</th><th>当时在做什么</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>95e31c1</code> … <code>933b682</code></td>
+            <td>通过 GitHub 网页上传静态资源：ECharts、背景图、液晶字体、中国地图脚本。</td>
+          </tr>
+          <tr>
+            <td><code>f5cd102</code> … <code>7b689a2</code></td>
+            <td>改导航和标题，把页面从通用模板收成「中国人群脚型数据可视化」。</td>
+          </tr>
+          <tr>
+            <td><code>366d093</code> … <code>3aa0322</code></td>
+            <td>补上 <code>draw1.js</code> / <code>draw2.js</code> 足底草稿，但没有写进 <code>index.html</code>。</td>
+          </tr>
+          <tr>
+            <td><code>40fee6d</code> … <code>7c7d216</code></td>
+            <td>最后一次调整散点和页面结构。时钟脚本仍写死过「2020年3月17」的演示字样，后来改成实时 <code>Date</code>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>当时的设计决定</h2>
+      <ul>
+        <li>用 rem + <code>flexible.js</code> 按 24 等分屏宽缩放，所以大屏好看、窄屏要横向滚动。</li>
+        <li>五个图全挤在一屏，雷达占中柱，是 2018–2020 国内「数据大屏」模板的常见布局。</li>
+        <li>散点主题写成 <code>'dark'</code>，雷达图却没有同一主题，中柱和左右栏的底色不完全一致。</li>
+        <li>导航里的「儿童脚型」曾经指向 <code>https://pang990801.github.io/</code>。仓库 Pages 源若仍指向已删除的 <code>gh-pages</code>，那个根域名会 404；本仓库路径下的页面才是这份源码。</li>
+      </ul>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>为什么要伴读</h2>
+      <p>
+        源码把 398 个点、年龄均值、BMI 曲线和生成式饼图都写在同一个 IIFE 文件里。
+        要核对「男孩脚长从哪一岁超过女孩」或「过瘦环到底是不是 50/230」，得把数字从字符串里捞出来。
+        伴读做的就是这件事，并加上地标图和另一种画法，方便以后的自己回看。
+      </p>
+    </article>
+  </main>
+  <script src="../examples/js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "notes" });</script>
+</body>
+</html>

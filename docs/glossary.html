@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 双语词表</title>
+  <link rel="stylesheet" href="companion.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Bilingual glossary</p>
+      <h1>仪表盘用词</h1>
+      <p class="lede">原页面是中文标题、英文 <code>title</code>、以及一套鞋楦口语。下表只解释本仓库出现过的词，不引入新的医学分类。</p>
+    </section>
+    <article class="panel">
+      <table>
+        <thead>
+          <tr><th>中文</th><th>English in this companion</th><th>How the dashboard uses it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>脚长</td><td>foot length</td><td>Age bars and one radar spoke. Centimetres.</td></tr>
+          <tr><td>鞋码</td><td>plotted shoe length</td><td>Scatter y-axis is labeled 鞋码 but formatted as <code>cm</code>.</td></tr>
+          <tr><td>身高</td><td>stature</td><td>Scatter x-axis; also a radar spoke as a 0–100 score.</td></tr>
+          <tr><td>脚的胖瘦度</td><td>plumpness index</td><td>Title says 脚长/脚宽; the line sits between 20 and 30.</td></tr>
+          <tr><td>过瘦脚 / 过胖脚</td><td>thin / thick rings</td><td>Donut leftovers: 50/180 and 435/2400.</td></tr>
+          <tr><td>双脚比例</td><td>left/right mix</td><td>Timeline pie. Counts from <code>Math.log</code>.</td></tr>
+          <tr><td>跖趾围长</td><td>ball / metatarsophalangeal girth</td><td>Radar spoke only, scored 0–100.</td></tr>
+          <tr><td>跗骨围长</td><td>tarsal / instep girth</td><td>Radar spoke only.</td></tr>
+          <tr><td>兜跟围长</td><td>heel girth on a last</td><td>Radar spoke only.</td></tr>
+          <tr><td>位点</td><td>plantar site</td><td>Unmounted <code>draw1.js</code> / <code>draw2.js</code> categories.</td></tr>
+        </tbody>
+      </table>
+    </article>
+    <p class="muted">围长名称来自鞋楦制图习惯，用来读雷达图，不是体检项目清单。</p>
+  </main>
+  <script src="../examples/js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "notes" });</script>
+</body>
+</html>

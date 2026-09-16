@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 说明</title>
+  <link rel="stylesheet" href="companion.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Personal companion</p>
+      <h1>脚型可视化伴读</h1>
+      <p class="lede">
+        这是 2020 年个人 GitHub Pages 仪表盘的阅读本，不是第二套业务系统。
+        原站把儿童身高、鞋长、年龄、BMI 和左右脚比例画在同一屏；这里把同一串数字拆开讲清楚。
+      </p>
+      <div class="chip-row">
+        <span class="chip">个人学习材料</span>
+        <span class="chip">非临床</span>
+        <span class="chip">非购鞋标准</span>
+        <span class="chip">398 个散点</span>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <h2>先读什么</h2>
+        <p>想知道这五个图各自在说什么，从<a href="reading.html">读图笔记</a>开始。想知道雷达图上的围长到底量哪里，看<a href="landmarks.html">测量地标</a>。</p>
+        <p>仓库里每个文件当初干什么、哪些脚本其实没挂上，写在<a href="archive.html">档案</a>和<a href="diary.html">项目日记</a>。</p>
+      </article>
+      <article class="card">
+        <h2>再动手</h2>
+        <p><a href="../examples/encodings/">图解工作室</a>用同一份序列改成密度图、坡度图、平行坐标和哑铃图，避免只记得一种 ECharts 皮肤。</p>
+        <p><a href="../examples/workbook/">练习</a>核对交叉年龄、相关系数和对称饼图的生成式；<a href="../examples/tour/">导览</a>按面板走一遍原仪表盘。</p>
+      </article>
+    </section>
+
+    <section class="panel" style="margin-top:1rem">
+      <h2>和原仪表盘的关系</h2>
+      <p>
+        伴读不改 <code>js/index.js</code> 里的画图逻辑。数字从个人页面源码抽出，放在
+        <code>data/companion/</code>。左右脚饼图仍是 <code>Math.log</code> 生成的示意计数；
+        <code>draw1.js</code> / <code>draw2.js</code> 仍是未挂载草稿。
+      </p>
+      <p class="warn">
+        不要用这些点去给孩子买鞋、筛查畸形足或糖尿病足。它们是教学样本，带有展示用的 0–100 分数、占位环和单位不一致的草稿。
+      </p>
+    </section>
+  </main>
+  <script src="../examples/js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "notes" });</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 读图</title>
+  <link rel="stylesheet" href="companion.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">How to read the five panels</p>
+      <h1>读图笔记</h1>
+      <p class="lede">每个面板先写「看见什么」，再写「不要推出什么」。操作手势来自 ECharts 默认工具箱，不是另外做的产品功能。</p>
+    </section>
+
+    <article class="panel">
+      <h2>1. 身高 × 鞋码散点</h2>
+      <p>女 199、男 199。纵轴叫鞋码，tooltip 却写成「鞋码：… cm」。点很小，靠颜色分性别：红女、黄男。框选和保存图片来自 toolbox。</p>
+      <ul>
+        <li>合并后 Pearson <em>r</em> ≈ 0.916，女 0.914、男 0.918。高相关只说明这批教学点沿一条斜线，不证明全国儿童都这样。</li>
+        <li>合并 OLS：鞋长 ≈ 0.1424 × 身高 + 0.12。把 120 cm 代进去大约 17.2 cm，和点云中段一致。</li>
+        <li>平均线旁还有一条竖直参考：女 x=115、男 x=110，是画图时写死的，不是统计检验。</li>
+      </ul>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>2. 年龄 × 脚长</h2>
+      <p>6–14 岁两组均值柱 + 一条「女−男」面积线。女孩在 6–10 岁略长，11 岁起男孩超过，14 岁差 −0.50 cm。</p>
+      <p>8 岁到 9 岁两性都出现一次回落（女 21.01→20.34，男 20.61→20.01）。更像样本波动或录入缺口，不要讲成「脚会缩」。</p>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>3. BMI × 胖瘦度</h2>
+      <p>折线标题写「脚长/脚宽」，数值却在 22–30。把它当成无量纲展示指数。右侧两个环：过瘦 50/(50+180)=21.7%，过胖 435/(435+2400)=15.3%。环的标题和折线没有共用同一批个体 ID，不能指着某个 BMI 说「这就是过瘦的人」。</p>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>4. 双脚比例时间轴</h2>
+      <p>2–14 岁自动播放。每一岁的五瓣计数来自</p>
+      <pre class="figure" style="white-space:pre-wrap;font-family:ui-monospace,monospace">a = round(36 − 13 ln(i+1))
+b = round(17 − 6 ln(i+1))
+c = round(11 − 4 ln(i+1))
+d = round(27 − 10 ln(i+1))
+same = 63 + a + b + c + d</pre>
+      <p>i 从 0 计到 12。年龄越大，左右差瓣越小，「双脚相同」占比升高，14 岁约 90.9%。这是平滑示意，不是随访队列。</p>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>5. 中柱雷达</h2>
+      <p>9–12 岁四条闭合线。半径 0–100。图例可点掉某一岁。要对照围长位置，去<a href="landmarks.html">地标页</a>；要看平行坐标版本，去<a href="../examples/encodings/parallel.html">图解</a>。</p>
+    </article>
+  </main>
+  <script src="../examples/js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "notes" });</script>
+</body>
+</html>
