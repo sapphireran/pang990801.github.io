@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年龄 × 脚长 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>男童女童年龄与脚长</h1>
+    <p class="lede">
+      6–14 岁均脚长。女童减男童的差值在 11 岁越过零点：更小的年龄女童略长，之后男童领先并拉大。
+    </p>
+    <p id="status" class="status">Waiting…</p>
+
+    <div class="card">
+      <div id="chart" class="chart tall"></div>
+    </div>
+    <div class="stats-grid" id="summary"></div>
+
+    <h2>逐年核对</h2>
+    <div class="card">
+      <table id="table"></table>
+    </div>
+  </div>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/boot.js"></script>
+  <script>
+    function cap(values, offset, color) {
+      return {
+        z: 3,
+        type: "pictorialBar",
+        symbol: "diamond",
+        symbolPosition: "end",
+        symbolOffset: [offset, "-50%"],
+        symbolSize: [21, 8],
+        itemStyle: { color: color },
+        data: values,
+        tooltip: { show: false },
+        silent: true
+      };
+    }
+
+    ExampleBoot.boot({
+      dataUrl: "data/age-foot-length.json",
+      buildOption: function (data) {
+        return {
+          backgroundColor: "transparent",
+          legend: { top: 8, textStyle: { color: "#c9d7e6" } },
+          tooltip: { trigger: "axis" },
+          grid: { left: 56, right: 48, top: 48, bottom: 40 },
+          xAxis: {
+            type: "category",
+            data: data.ages.map(function (a) { return a + "岁"; }),
+            axisLabel: { color: "#9eb3c7" }
+          },
+          yAxis: [
+            { type: "value", min: 12, name: "脚长", axisLabel: { formatter: "{value} cm", color: "#9eb3c7" }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
+            { type: "value", name: "差值", axisLabel: { formatter: "{value} cm", color: "#9eb3c7" }, splitLine: { show: false } }
+          ],
+          series: [
+            { name: "女生脚长（cm）", type: "bar", barWidth: 25, itemStyle: { color: "#28f0f5" }, data: data.femaleFootLengthCm },
+            cap(data.femaleFootLengthCm, -12.5, "#12bac1"),
+            { name: "男生脚长（cm）", type: "bar", barWidth: 25, barGap: 0, itemStyle: { color: "#0172e2" }, data: data.maleFootLengthCm },
+            cap(data.maleFootLengthCm, 12.5, "#319cf1"),
+            {
+              name: "女生脚长与男生脚长之差",
+              type: "line",
+              yAxisIndex: 1,
+              smooth: true,
+              symbol: "circle",
+              symbolSize: 8,
+              itemStyle: { color: "#3deaff" },
+              data: data.femaleMinusMaleCm
+            }
+          ]
+        };
+      },
+      after: function (data) {
+        var flip = null;
+        for (var i = 0; i < data.femaleMinusMaleCm.length; i++) {
+          if (data.femaleMinusMaleCm[i] < 0) { flip = data.ages[i]; break; }
+        }
+        var last = data.femaleMinusMaleCm[data.femaleMinusMaleCm.length - 1];
+        document.getElementById("summary").innerHTML = [
+          ["差值首次为负", flip + "岁", "gold"],
+          ["14 岁差值", FootStats.format(last) + " cm", "boy"],
+          ["6 岁女童脚长", data.femaleFootLengthCm[0] + " cm", "girl"],
+          ["14 岁男童脚长", data.maleFootLengthCm[data.maleFootLengthCm.length - 1] + " cm", "boy"]
+        ].map(function (c) {
+          return '<div class="stat ' + c[2] + '"><span class="k">' + c[0] + '</span><span class="v">' + c[1] + "</span></div>";
+        }).join("");
+
+        ExampleBoot.fillTable("table", ["年龄", "女童脚长 cm", "男童脚长 cm", "女 − 男 cm", "谁更长"],
+          data.ages.map(function (age, i) {
+            var d = data.femaleMinusMaleCm[i];
+            var who = d > 0 ? "女童" : d < 0 ? "男童" : "相同";
+            return [age, data.femaleFootLengthCm[i], data.maleFootLengthCm[i], d, who];
+          })
+        );
+      }
+    });
+  </script>
+</body>
+</html>

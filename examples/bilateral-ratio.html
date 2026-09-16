@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>双脚比例 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例</a>
+    </nav>
+
+    <h1>儿童双脚比例</h1>
+    <p class="lede">
+      与仪表盘时间轴饼图使用同一套对数衰减。这是<strong>生成序列</strong>，不是调查频数。
+      播放头从 2 岁走到 14 岁；不对称桶变小，「双脚相同」的份额上升。
+    </p>
+    <p id="status" class="status">Waiting…</p>
+
+    <div class="card">
+      <div id="chart" class="chart tall"></div>
+    </div>
+
+    <h2>公式</h2>
+    <pre id="formula"></pre>
+
+    <h2>逐岁展开</h2>
+    <div class="card">
+      <table id="table"></table>
+    </div>
+  </div>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/boot.js"></script>
+  <script>
+    ExampleBoot.boot({
+      dataUrl: "data/bilateral-ratio.json",
+      buildOption: function (data) {
+        return {
+          baseOption: {
+            backgroundColor: "transparent",
+            timeline: {
+              axisType: "category",
+              autoPlay: true,
+              playInterval: 2000,
+              data: data.ages.map(function (a) { return a.age; }),
+              label: { color: "#9eb3c7" },
+              lineStyle: { color: "#1f79ff" },
+              checkpointStyle: { color: "#3dd4ff", borderColor: "#1f79ff" }
+            },
+            tooltip: {},
+            color: ["#56c979", "#5CAFF2", "#B6A2DF", "#a96ec9", "#2DC7C9"],
+            series: [{ type: "pie", radius: ["36%", "58%"], center: ["50%", "42%"] }]
+          },
+          options: data.ages.map(function (a) {
+            return {
+              series: [{
+                data: [
+                  { name: "双脚相同", value: a.same },
+                  { name: "左脚比右脚大10-20%", value: a.left10to20 },
+                  { name: "左脚比右脚大20%以上", value: a.leftOver20 },
+                  { name: "右脚比左脚大20%以上", value: a.rightOver20 },
+                  { name: "右脚比左脚大10-20%", value: a.right10to20 }
+                ]
+              }]
+            };
+          })
+        };
+      },
+      after: function (data) {
+        document.getElementById("formula").textContent =
+          data.formula.a + "\n" +
+          data.formula.b + "\n" +
+          data.formula.c + "\n" +
+          data.formula.d + "\n" +
+          data.formula.same;
+
+        ExampleBoot.fillTable(
+          "table",
+          ["年龄", "双脚相同", "左大 10–20%", "左大 >20%", "右大 >20%", "右大 10–20%", "相同占比"],
+          data.ages.map(function (a) {
+            var total = a.same + a.left10to20 + a.leftOver20 + a.rightOver20 + a.right10to20;
+            return [
+              a.age,
+              a.same,
+              a.left10to20,
+              a.leftOver20,
+              a.rightOver20,
+              a.right10to20,
+              FootStats.format(100 * a.same / total, 1) + "%"
+            ];
+          })
+        );
+      }
+    });
+  </script>
+</body>
+</html>
