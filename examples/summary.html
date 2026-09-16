@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例 · 数据集摘要</title>
+  <link rel="stylesheet" href="../css/docs.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap prose">
+    <p class="page-lede"><a href="index.html">← 全部示例</a></p>
+    <h1 class="page-title">七个数据集的现场摘要</h1>
+    <p class="page-lede">
+      这一页不画 ECharts，只把 JSON 读进来，用 <code>js/stats.js</code> 算出可以对照说明文档的数字。
+      适合在改 exporter 之后先看摘要，再去单图页看图。
+    </p>
+    <div id="stats" class="stat-row"></div>
+    <div id="report"></div>
+  </main>
+  <footer class="docs-foot">Personal notes for pang990801.github.io</footer>
+  <script src="../js/docs-nav.js" data-root=".."></script>
+  <script src="../js/stats.js"></script>
+  <script src="../js/data-loader.js"></script>
+  <script>
+    FootData.root = "..";
+    function esc(s) {
+      return String(s).replace(/[&<>]/g, function (ch) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[ch];
+      });
+    }
+    FootData.catalog().then(function (catalog) {
+      return Promise.all(catalog.datasets.map(function (entry) {
+        return FootData.load(entry.id).then(function (data) {
+          return { entry: entry, data: data };
+        });
+      }));
+    }).then(function (rows) {
+      var height = rows.find(function (r) { return r.data.id === "height-shoe-size"; }).data;
+      var age = rows.find(function (r) { return r.data.id === "age-foot-length"; }).data;
+      var f = FootStats.describePairs(height.series.female, "female");
+      var m = FootStats.describePairs(height.series.male, "male");
+      var cross = FootStats.crossingAge(age.ages, age.series.female_minus_male_cm);
+      document.getElementById("stats").innerHTML =
+        '<div class="stat"><span>女生身高×鞋长 r</span><b>' + FootStats.round(f.fit.r, 3) + "</b></div>" +
+        '<div class="stat"><span>男生身高×鞋长 r</span><b>' + FootStats.round(m.fit.r, 3) + "</b></div>" +
+        '<div class="stat"><span>脚长交叉年龄</span><b>' + (cross ? cross.at_age + " 岁" : "无") + "</b></div>" +
+        '<div class="stat"><span>数据集</span><b>' + rows.length + "</b></div>";
+
+      var blocks = [];
+      rows.forEach(function (row) {
+        var d = row.data;
+        var lines = [];
+        lines.push("<h2>" + esc(d.title_en) + " / " + esc(d.title) + "</h2>");
+        lines.push("<p>" + esc(d.description) + " 来源 <code>" + esc(d.source_file) + "</code>。</p>");
+        if (d.id === "height-shoe-size") {
+          lines.push("<table><thead><tr><th></th><th>女生</th><th>男生</th></tr></thead><tbody>");
+          lines.push("<tr><th>n</th><td>" + f.n + "</td><td>" + m.n + "</td></tr>");
+          lines.push("<tr><th>身高均值 cm</th><td>" + FootStats.round(f.height_cm.mean, 2) + "</td><td>" + FootStats.round(m.height_cm.mean, 2) + "</td></tr>");
+          lines.push("<tr><th>鞋长均值 cm</th><td>" + FootStats.round(f.shoe_length_cm.mean, 2) + "</td><td>" + FootStats.round(m.shoe_length_cm.mean, 2) + "</td></tr>");
+          lines.push("<tr><th>斜率 cm 鞋长 / cm 身高</th><td>" + FootStats.round(f.fit.slope, 3) + "</td><td>" + FootStats.round(m.fit.slope, 3) + "</td></tr>");
+          lines.push("</tbody></table>");
+        } else if (d.id === "age-foot-length") {
+          lines.push("<table><thead><tr><th>年龄</th><th>女生 cm</th><th>男生 cm</th><th>差 cm</th></tr></thead><tbody>");
+          d.ages.forEach(function (ageYear, i) {
+            lines.push("<tr><td>" + ageYear + "</td><td>" + d.series.female_cm[i] + "</td><td>" + d.series.male_cm[i] + "</td><td>" + d.series.female_minus_male_cm[i] + "</td></tr>");
+          });
+          lines.push("</tbody></table>");
+        } else if (d.id === "bmi-plumpness") {
+          var trendF = FootStats.plumpnessTrend(d.bmi_bins, d.series.female_plumpness);
+          var trendM = FootStats.plumpnessTrend(d.bmi_bins, d.series.male_plumpness);
+          lines.push("<p>女生斜率 " + FootStats.round(trendF.slope, 3) + "，男生斜率 " + FootStats.round(trendM.slope, 3) + "（指数 / BMI）。</p>");
+        } else if (d.id === "left-right-ratio") {
+          lines.push("<table><thead><tr><th>年龄</th><th>相同</th><th>左大 10–20%</th><th>左大 &gt;20%</th><th>右大 &gt;20%</th><th>右大 10–20%</th><th>相同占比</th></tr></thead><tbody>");
+          d.ages.forEach(function (rowAge) {
+            var c = rowAge.counts;
+            lines.push("<tr><td>" + rowAge.age_years + "</td><td>" + c.same + "</td><td>" + c.left_10_20 + "</td><td>" + c.left_over_20 + "</td><td>" + c.right_over_20 + "</td><td>" + c.right_10_20 + "</td><td>" + Math.round(rowAge.same_share * 1000) / 10 + "%</td></tr>");
+          });
+          lines.push("</tbody></table>");
+        } else if (d.id === "age-radar") {
+          lines.push("<table><thead><tr><th>年龄</th>" + d.indicators.map(function (ind) { return "<th>" + esc(ind.label) + "</th>"; }).join("") + "</tr></thead><tbody>");
+          d.series.forEach(function (series) {
+            lines.push("<tr><td>" + series.age_years + "</td>" + series.values.map(function (v) { return "<td>" + v + "</td>"; }).join("") + "</tr>");
+          });
+          lines.push("</tbody></table>");
+        } else if (d.id === "plantar-pressure") {
+          var delta = FootStats.siteDelta(d.series.typical_adult, d.series.diabetic_foot);
+          lines.push("<table><thead><tr><th>位点</th><th>典型 Pa</th><th>糖尿病足 Pa</th><th>差</th></tr></thead><tbody>");
+          delta.forEach(function (item, i) {
+            lines.push("<tr><td>" + esc(d.sites[i]) + "</td><td>" + item.a + "</td><td>" + item.b + "</td><td>" + item.delta + "</td></tr>");
+          });
+          lines.push("</tbody></table>");
+        } else if (d.id === "tissue-thickness") {
+          lines.push("<p>典型均值 " + FootStats.round(FootStats.mean(d.series.typical_adult_mm), 2) + " mm，糖尿病足均值 " + FootStats.round(FootStats.mean(d.series.diabetic_foot_mm), 2) + " mm。</p>");
+        }
+        blocks.push(lines.join(""));
+      });
+      document.getElementById("report").innerHTML = blocks.join("");
+    }).catch(function (err) {
+      document.getElementById("report").innerHTML = "<p>无法加载数据集，请通过本地静态服务器打开。</p>";
+      console.error(err);
+    });
+  </script>
+</body>
+</html>
