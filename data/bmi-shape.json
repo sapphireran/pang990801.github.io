@@ -1,0 +1,84 @@
+{
+  "title": "BMI vs length/width ratio",
+  "source": "js/index.js third IIFE (.bar1 .chart)",
+  "axis_note": "Dashboard y-axis is labeled 脚长/脚宽 but values sit near 23–30, so they are not a unitless L/W ratio near 2.5. Treat them as the stored series, not a physical ratio.",
+  "rings": {
+    "thin_foot": {
+      "value": 50,
+      "placeholder": 180,
+      "percent": 21.74
+    },
+    "thick_foot": {
+      "value": 435,
+      "placeholder": 2400,
+      "percent": 15.34
+    }
+  },
+  "rows": [
+    {
+      "bmi": 12,
+      "girl_length_width_ratio": 22.97,
+      "boy_length_width_ratio": 25.28
+    },
+    {
+      "bmi": 13,
+      "girl_length_width_ratio": 23.38,
+      "boy_length_width_ratio": 22.97
+    },
+    {
+      "bmi": 14,
+      "girl_length_width_ratio": 26.51,
+      "boy_length_width_ratio": 28.47
+    },
+    {
+      "bmi": 15,
+      "girl_length_width_ratio": 24.47,
+      "boy_length_width_ratio": 26.9
+    },
+    {
+      "bmi": 16,
+      "girl_length_width_ratio": 25.96,
+      "boy_length_width_ratio": 28.03
+    },
+    {
+      "bmi": 17,
+      "girl_length_width_ratio": 26.22,
+      "boy_length_width_ratio": 26.07
+    },
+    {
+      "bmi": 18,
+      "girl_length_width_ratio": 26.66,
+      "boy_length_width_ratio": 26.76
+    },
+    {
+      "bmi": 19,
+      "girl_length_width_ratio": 26.92,
+      "boy_length_width_ratio": 30.18
+    },
+    {
+      "bmi": 20,
+      "girl_length_width_ratio": 27.82,
+      "boy_length_width_ratio": 26.63
+    },
+    {
+      "bmi": 21,
+      "girl_length_width_ratio": 26.35,
+      "boy_length_width_ratio": 30.38
+    },
+    {
+      "bmi": 22,
+      "girl_length_width_ratio": 27.51,
+      "boy_length_width_ratio": 30.13
+    },
+    {
+      "bmi": 23,
+      "girl_length_width_ratio": 29.86,
+      "boy_length_width_ratio": 28.07
+    },
+    {
+      "bmi": 24,
+      "girl_length_width_ratio": 28.67,
+      "boy_length_width_ratio": 30.19
+    }
+  ]
+}

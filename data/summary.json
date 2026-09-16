@@ -1,0 +1,71 @@
+{
+  "scatter": {
+    "female": {
+      "n": 199,
+      "height_cm": {
+        "min": 79.73,
+        "max": 152.78,
+        "mean": 116.855
+      },
+      "shoe_length_cm": {
+        "min": 10.08,
+        "max": 24.21,
+        "mean": 16.761
+      },
+      "pearson_r": 0.9135,
+      "ols": {
+        "slope_cm_per_cm": 0.14088,
+        "intercept_cm": 0.2989,
+        "formula": "shoe ≈ 0.1409 × height + 0.299"
+      }
+    },
+    "male": {
+      "n": 199,
+      "height_cm": {
+        "min": 75.48,
+        "max": 149.96,
+        "mean": 111.819
+      },
+      "shoe_length_cm": {
+        "min": 9.74,
+        "max": 24.4,
+        "mean": 15.963
+      },
+      "pearson_r": 0.9156,
+      "ols": {
+        "slope_cm_per_cm": 0.14334,
+        "intercept_cm": -0.065,
+        "formula": "shoe ≈ 0.1433 × height + -0.065"
+      }
+    },
+    "pooled": {
+      "n": 398,
+      "height_cm": {
+        "min": 75.48,
+        "max": 152.78,
+        "mean": 114.337
+      },
+      "shoe_length_cm": {
+        "min": 9.74,
+        "max": 24.4,
+        "mean": 16.362
+      },
+      "pearson_r": 0.9157,
+      "ols": {
+        "slope_cm_per_cm": 0.14235,
+        "intercept_cm": 0.0863,
+        "formula": "shoe ≈ 0.1424 × height + 0.086"
+      }
+    }
+  },
+  "age_crossover": "Girls longer at 6–10, boys longer at 11–14.",
+  "bmi_rings_percent": {
+    "thin": 21.74,
+    "thick": 15.34
+  },
+  "symmetry_same_pct_range": {
+    "min": 62.86,
+    "max": 90.91
+  },
+  "thickness_delta_mismatch_count": 14
+}

@@ -1,0 +1,71 @@
+{
+  "project": "pang990801.github.io personal children's foot-shape dashboard",
+  "generated_by": "scripts/extract-personal-datasets.py",
+  "files": {
+    "height-shoe": {
+      "columns": [
+        "sex",
+        "height_cm",
+        "shoe_length_cm"
+      ],
+      "n": 398
+    },
+    "age-foot-length": {
+      "columns": [
+        "age_years",
+        "girl_foot_length_cm",
+        "boy_foot_length_cm"
+      ],
+      "n": 9
+    },
+    "bmi-shape": {
+      "columns": [
+        "bmi",
+        "girl_length_width_ratio",
+        "boy_length_width_ratio"
+      ],
+      "n": 13
+    },
+    "radar-growth": {
+      "columns": [
+        "age",
+        "身高",
+        "兜跟围长",
+        "跗骨围长",
+        "跖趾围长",
+        "鞋码",
+        "脚长",
+        "体重"
+      ],
+      "n": 4
+    },
+    "foot-symmetry": {
+      "columns": [
+        "age_years",
+        "same",
+        "left_10_20",
+        "left_over_20",
+        "right_over_20",
+        "right_10_20"
+      ],
+      "n": 13
+    },
+    "plantar-pressure": {
+      "columns": [
+        "site_index",
+        "typical_pa",
+        "diabetic_pa"
+      ],
+      "n": 7
+    },
+    "plantar-thickness": {
+      "columns": [
+        "site_index",
+        "typical_adult_mm",
+        "diabetic_adult_mm",
+        "chart_delta_um"
+      ],
+      "n": 14
+    }
+  }
+}
