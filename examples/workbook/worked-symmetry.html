@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>对称公式</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Worked example</p>
+      <h1>时间轴饼图是公式，不是队列</h1>
+      <p>
+        <code>i</code> 从 0 到 12 对应 2–14 岁。
+        <code>a = round(36 − 13 ln(i+1))</code> 这一族随年龄变小，
+        <code>same = 63 + a + b + c + d</code> 反而变大。
+      </p>
+    </section>
+    <section class="panel">
+      <table id="sym"></table>
+      <p id="age14" class="ok" style="margin-top:1rem"></p>
+    </section>
+  </main>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/workbook.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "workbook" });
+    CompanionWorkbook.renderSymmetry("sym", "age14");
+  </script>
+</body>
+</html>

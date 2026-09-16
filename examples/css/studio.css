@@ -1,0 +1,33 @@
+.studio-split {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 860px) {
+  .studio-split { grid-template-columns: 1fr; }
+}
+
+.stat-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.stat-list strong { color: var(--navy); }
+
+.legend-swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>厚度哑铃</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Encoding · leftover dumbbell</p>
+      <h1>未挂载的厚度草稿</h1>
+      <p class="warn">
+        这不是仪表盘的一部分，也不是糖尿病足数据。源文件把毫米差标成 µm，14 处全部对不上。
+        这里只画毫米，并在旁列出声称的 µm。
+      </p>
+    </section>
+    <section class="studio-split">
+      <aside class="panel">
+        <h2>单位对照</h2>
+        <table id="diff"></table>
+      </aside>
+      <section class="panel">
+        <div id="chart" class="chart-box tall"></div>
+      </section>
+    </section>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/encodings.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "encodings" });
+    var leftover = CompanionEncodings.dumbbell("#chart");
+    var html = "<thead><tr><th>位点</th><th>mm 差</th><th>声称 µm</th><th>应有 µm</th></tr></thead><tbody>";
+    leftover.sites.forEach(function (site, i) {
+      html += "<tr><td>" + site + "</td><td>" + leftover.computed_diff_mm[i] +
+        "</td><td>" + leftover.claimed_diff_um[i] +
+        "</td><td>" + leftover.computed_diff_um[i] + "</td></tr>";
+    });
+    document.getElementById("diff").innerHTML = html + "</tbody>";
+  </script>
+</body>
+</html>

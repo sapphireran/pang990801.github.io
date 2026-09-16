@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>交叉年龄</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Worked example</p>
+      <h1>女−男脚长何时变负</h1>
+      <p>差值已经写在年龄图的第三条序列里。这里只是把 9 个数摊开，标出第一年变负的格子。</p>
+    </section>
+    <section class="panel">
+      <table id="ages"></table>
+      <p id="note" class="ok" style="margin-top:1rem"></p>
+    </section>
+  </main>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/workbook.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "workbook" });
+    CompanionWorkbook.renderCrossover("ages", "note");
+  </script>
+</body>
+</html>

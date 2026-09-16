@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 测量地标</title>
+  <link rel="stylesheet" href="companion.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Last-making landmarks</p>
+      <h1>雷达图上的围长量哪里</h1>
+      <p class="lede">
+        中柱雷达用了七个轴：身高、兜跟围长、跗骨围长、跖趾围长、鞋码、脚长、体重。
+        后四个里有三个是鞋楦围度，不是医院步态实验室的术语。下面的图只帮助读这张图，不教人做诊疗测量。
+      </p>
+    </section>
+
+    <article class="panel">
+      <h2>俯视：长度与两个围度</h2>
+      <figure class="figure">
+        <svg viewBox="0 0 720 420" role="img" aria-labelledby="topTitle topDesc">
+          <title id="topTitle">俯视左脚轮廓与脚长、跖围、跗围</title>
+          <desc id="topDesc">简化的左脚俯视轮廓，标出脚长、跖趾围长和跗骨围长的示意位置。</desc>
+          <rect x="0" y="0" width="720" height="420" fill="#f7f1e6" />
+          <path d="M268 48
+                   C286 34 308 32 322 44
+                   C338 30 356 34 368 52
+                   C384 40 402 48 410 70
+                   C424 58 440 72 438 96
+                   C452 90 462 110 454 128
+                   C462 150 458 180 448 210
+                   C438 250 428 292 412 328
+                   C396 362 368 388 332 396
+                   C296 404 262 388 246 352
+                   C232 318 230 278 236 238
+                   C242 196 252 154 258 118
+                   C262 90 262 66 268 48 Z"
+                fill="#e4c89a" stroke="#24324a" stroke-width="2.4" />
+          <line x1="318" y1="46" x2="332" y2="392" stroke="#b44a32" stroke-width="2" stroke-dasharray="5 4" />
+          <text x="488" y="318" fill="#b44a32" font-size="16">脚长</text>
+          <text x="488" y="338" fill="#b44a32" font-size="13">heel → longest toe</text>
+          <ellipse cx="340" cy="128" rx="92" ry="20" fill="none" stroke="#2a6f73" stroke-width="2.6" />
+          <text x="488" y="120" fill="#2a6f73" font-size="16">跖趾围长</text>
+          <text x="488" y="140" fill="#2a6f73" font-size="13">ball girth</text>
+          <ellipse cx="300" cy="236" rx="70" ry="18" fill="none" stroke="#b8862a" stroke-width="2.6" />
+          <text x="488" y="228" fill="#b8862a" font-size="16">跗骨围长</text>
+          <text x="488" y="248" fill="#b8862a" font-size="13">tarsal / instep</text>
+          <circle cx="332" cy="392" r="5" fill="#24324a" />
+          <text x="188" y="408" fill="#24324a" font-size="13">后跟突点</text>
+        </svg>
+        <figcaption>俯视示意。围度其实是环绕一周的软尺，不是图上那条扁椭圆本身。</figcaption>
+      </figure>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>侧视：兜跟围为什么绕后跟</h2>
+      <figure class="figure">
+        <svg viewBox="0 0 720 320" role="img" aria-labelledby="sideTitle sideDesc">
+          <title id="sideTitle">侧视脚与兜跟围路径</title>
+          <desc id="sideDesc">侧视轮廓上一条从后跟经足弓到足背的示意曲线，表示兜跟围。</desc>
+          <rect x="0" y="0" width="720" height="320" fill="#f7f1e6" />
+          <path d="M148 70
+                   C160 70 168 92 166 120
+                   C164 138 170 148 188 146
+                   C250 140 340 148 430 168
+                   C520 188 600 210 638 222
+                   C658 230 656 248 632 252
+                   C580 260 500 262 430 258
+                   C360 236 300 224 248 236
+                   C210 246 180 258 158 258
+                   C132 258 118 246 122 220
+                   C126 188 132 140 138 104
+                   C142 84 144 70 148 70 Z"
+                fill="#e4c89a" stroke="#24324a" stroke-width="2.4" />
+          <path d="M128 230
+                   C168 190 220 160 290 152
+                   C350 146 400 158 428 186
+                   C380 198 320 220 250 240
+                   C200 252 160 250 128 230 Z"
+                fill="none" stroke="#b44a32" stroke-width="2.6" />
+          <circle cx="128" cy="230" r="4" fill="#b44a32" />
+          <text x="250" y="72" fill="#b44a32" font-size="16">兜跟围长 · heel girth</text>
+          <text x="250" y="92" fill="#5d564c" font-size="13">后跟中点 → 足弓 / 足背 → 回到后跟</text>
+          <line x1="80" y1="250" x2="680" y2="250" stroke="#c9b79a" stroke-width="1.5" />
+          <text x="590" y="272" fill="#5d564c" font-size="13">支撑面</text>
+        </svg>
+        <figcaption>鞋楦上的兜跟围用来控制后跟包量。仪表盘只给了 0–100 的展示分，没有厘米原值。</figcaption>
+      </figure>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>和雷达分数怎么对上</h2>
+      <table>
+        <thead>
+          <tr><th>轴</th><th>9 岁</th><th>10 岁</th><th>11 岁</th><th>12 岁</th><th>读法</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>身高</td><td>43</td><td>53</td><td>66</td><td>84</td><td>展示分，不是厘米</td></tr>
+          <tr><td>兜跟围长</td><td>29</td><td>32</td><td>37</td><td>45</td><td>后跟包量，分数最低的一轴</td></tr>
+          <tr><td>跗骨围长</td><td>37</td><td>42</td><td>47</td><td>55</td><td>中足围</td></tr>
+          <tr><td>跖趾围长</td><td>37</td><td>46</td><td>60</td><td>70</td><td>前掌围，11 岁起抬升更快</td></tr>
+          <tr><td>鞋码</td><td>38</td><td>43</td><td>57</td><td>71</td><td>源码 12 岁写成 77-6</td></tr>
+          <tr><td>脚长</td><td>31</td><td>42</td><td>59</td><td>71</td><td>源码 12 岁写成 79-8</td></tr>
+          <tr><td>体重</td><td>79 分位附近的 41→79</td><td>49</td><td>65</td><td>79</td><td>同样是 0–100</td></tr>
+        </tbody>
+      </table>
+      <p class="note">
+        12 岁鞋码 / 脚长在 <code>js/index.js</code> 里写成 <code>77-6</code> 和 <code>79-8</code>，算出来是 71 和 71。
+        伴读按求值后的数画图，不把减法表达式再藏起来。
+      </p>
+    </article>
+  </main>
+  <script src="../examples/js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "notes" });</script>
+</body>
+</html>

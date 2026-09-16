@@ -1,0 +1,56 @@
+[
+  {
+    "age": 6,
+    "girl_cm": 18.55,
+    "boy_cm": 18.27,
+    "girl_minus_boy_cm": 0.28
+  },
+  {
+    "age": 7,
+    "girl_cm": 20.24,
+    "boy_cm": 19.76,
+    "girl_minus_boy_cm": 0.48
+  },
+  {
+    "age": 8,
+    "girl_cm": 21.01,
+    "boy_cm": 20.61,
+    "girl_minus_boy_cm": 0.4
+  },
+  {
+    "age": 9,
+    "girl_cm": 20.34,
+    "boy_cm": 20.01,
+    "girl_minus_boy_cm": 0.33
+  },
+  {
+    "age": 10,
+    "girl_cm": 20.83,
+    "boy_cm": 20.75,
+    "girl_minus_boy_cm": 0.08
+  },
+  {
+    "age": 11,
+    "girl_cm": 21.29,
+    "boy_cm": 21.32,
+    "girl_minus_boy_cm": -0.03
+  },
+  {
+    "age": 12,
+    "girl_cm": 21.83,
+    "boy_cm": 21.98,
+    "girl_minus_boy_cm": -0.15
+  },
+  {
+    "age": 13,
+    "girl_cm": 22.36,
+    "boy_cm": 22.69,
+    "girl_minus_boy_cm": -0.33
+  },
+  {
+    "age": 14,
+    "girl_cm": 22.66,
+    "boy_cm": 23.16,
+    "girl_minus_boy_cm": -0.5
+  }
+]

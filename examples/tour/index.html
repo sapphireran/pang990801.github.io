@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>五面板导览</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Annotated tour</p>
+      <h1>按原仪表盘走一遍</h1>
+      <p class="lede">
+        顺序和 <code>index.html</code> 一致：左上散点、左下年龄、中柱雷达、右上 BMI、右下时间轴饼。
+        纸色小图只为伴读，不复制大屏皮肤。
+      </p>
+      <p><a class="btn" href="../../index.html">打开原仪表盘</a></p>
+    </section>
+
+    <article class="panel">
+      <h2>站 1 · 左上 · 身高与鞋码</h2>
+      <p>398 点。合并 r = 0.916。纵轴名叫鞋码，单位却写成 cm。刷选工具在原图 toolbox 里。</p>
+      <div id="tour-scatter" class="chart-box"></div>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>站 2 · 左下 · 年龄与脚长</h2>
+      <p>6–10 岁女孩略长，11 岁交叉。8→9 岁两边一起掉，当样本缺口看。</p>
+      <div id="tour-age" class="chart-box"></div>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>站 3 · 中柱 · 雷达</h2>
+      <p>9–12 岁展示分。围长位置见<a href="../../docs/landmarks.html">地标</a>。12 岁鞋码 / 脚长在源码里是减法表达式，这里用求值后的 71、71。</p>
+      <div id="tour-radar" class="chart-box tall"></div>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>站 4 · 右上 · BMI 与胖瘦度</h2>
+      <p>折线是指数，不是脚长/脚宽的原始比。原图右侧过瘦 / 过胖环（21.7% / 15.3%）没有和这些点一一对应。</p>
+      <div id="tour-bmi" class="chart-box"></div>
+    </article>
+
+    <article class="panel" style="margin-top:1rem">
+      <h2>站 5 · 右下 · 双脚比例</h2>
+      <p>下面停在 14 岁那一帧：相同瓣约 90.9%。整条时间轴是 <code>Math.log</code> 生成的，不是随访。</p>
+      <div id="tour-pie" class="chart-box"></div>
+    </article>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/tour.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "tour" });
+    CompanionTour.start();
+  </script>
+</body>
+</html>

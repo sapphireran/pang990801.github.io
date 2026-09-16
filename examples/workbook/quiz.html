@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>五题测验</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Workbook · quiz</p>
+      <h1>五题测验</h1>
+      <p>选项旁的数字都来自抽出的个人序列。提交后会标出正确项。</p>
+    </section>
+    <form id="quiz" class="panel">
+      <h2>1. 男孩均值脚长第一次超过女孩是几岁？</h2>
+      <label class="choice"><input type="radio" name="crossover" value="9" /> 9</label>
+      <label class="choice"><input type="radio" name="crossover" value="10" /> 10</label>
+      <label class="choice"><input type="radio" name="crossover" value="11" /> 11</label>
+      <label class="choice"><input type="radio" name="crossover" value="12" /> 12</label>
+
+      <h2>2. 398 点合并后的 Pearson r（三位小数）？</h2>
+      <label class="choice"><input type="radio" name="r" value="0.842" /> 0.842</label>
+      <label class="choice"><input type="radio" name="r" value="0.891" /> 0.891</label>
+      <label class="choice"><input type="radio" name="r" value="0.916" /> 0.916</label>
+      <label class="choice"><input type="radio" name="r" value="0.974" /> 0.974</label>
+
+      <h2>3. 「过瘦脚」环的百分比（一位小数）？</h2>
+      <label class="choice"><input type="radio" name="thin" value="15.3" /> 15.3%</label>
+      <label class="choice"><input type="radio" name="thin" value="21.7" /> 21.7%</label>
+      <label class="choice"><input type="radio" name="thin" value="27.8" /> 27.8%</label>
+      <label class="choice"><input type="radio" name="thin" value="50.0" /> 50.0%</label>
+
+      <h2>4. 14 岁「双脚相同」占比（一位小数）？</h2>
+      <label class="choice"><input type="radio" name="same" value="63.0" /> 63.0%</label>
+      <label class="choice"><input type="radio" name="same" value="77.0" /> 77.0%</label>
+      <label class="choice"><input type="radio" name="same" value="90.9" /> 90.9%</label>
+      <label class="choice"><input type="radio" name="same" value="96.2" /> 96.2%</label>
+
+      <h2>5. 厚度草稿里，「差值 µm」和毫米差×1000 对不上几处？</h2>
+      <label class="choice"><input type="radio" name="mismatch" value="0" /> 0</label>
+      <label class="choice"><input type="radio" name="mismatch" value="3" /> 3</label>
+      <label class="choice"><input type="radio" name="mismatch" value="7" /> 7</label>
+      <label class="choice"><input type="radio" name="mismatch" value="14" /> 14</label>
+
+      <p style="margin-top:1rem">
+        <button type="submit">核对</button>
+        <span id="score" class="muted"></span>
+      </p>
+    </form>
+  </main>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/workbook.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "workbook" });
+    document.getElementById("quiz").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var result = CompanionWorkbook.gradeQuiz(event.target);
+      var score = document.getElementById("score");
+      score.textContent = "得分 " + result.score + " / " + result.total;
+      score.className = result.score === result.total ? "ok" : "warn";
+      score.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  </script>
+</body>
+</html>

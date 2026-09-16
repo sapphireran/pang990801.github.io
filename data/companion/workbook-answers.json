@@ -1,0 +1,12 @@
+{
+  "crossover_age": 11,
+  "pooled_r_3dp": 0.916,
+  "female_n": 199,
+  "male_n": 199,
+  "thin_ring_pct_1dp": 21.7,
+  "thick_ring_pct_1dp": 15.3,
+  "symmetry_same_pct_age_14_1dp": 90.9,
+  "thickness_mismatch_count": 14,
+  "radar_age_12_height_score": 84,
+  "ols_pooled_slope_4dp": 0.1424
+}
