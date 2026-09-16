@@ -1,0 +1,84 @@
+{
+  "id": "radar-growth",
+  "title_zh": "9–12 岁七维轮廓",
+  "title_en": "Seven-dimension profiles, ages 9–12",
+  "source": "js/index.js (.map .chart)",
+  "dimensions_zh": [
+    "身高",
+    "兜跟围长",
+    "跗骨围长",
+    "跖趾围长",
+    "鞋码",
+    "脚长",
+    "体重"
+  ],
+  "dimensions_en": [
+    "height",
+    "heel girth",
+    "tarsal girth",
+    "ball girth",
+    "shoe size",
+    "foot length",
+    "weight"
+  ],
+  "scale_note_zh": "源码把每维最大值设为 100，数值是相对刻度，不是厘米或千克。",
+  "scale_note_en": "Each spoke is capped at 100 in the source. Values are relative scores, not cm or kg.",
+  "series": [
+    {
+      "age": 9,
+      "values": [
+        43,
+        29,
+        37,
+        37,
+        38,
+        31,
+        41
+      ],
+      "sum": 256,
+      "max_dimension_zh": "身高"
+    },
+    {
+      "age": 10,
+      "values": [
+        53,
+        32,
+        42,
+        46,
+        43,
+        42,
+        49
+      ],
+      "sum": 307,
+      "max_dimension_zh": "身高"
+    },
+    {
+      "age": 11,
+      "values": [
+        66,
+        37,
+        47,
+        60,
+        57,
+        59,
+        65
+      ],
+      "sum": 391,
+      "max_dimension_zh": "身高"
+    },
+    {
+      "age": 12,
+      "values": [
+        84,
+        45,
+        55,
+        70,
+        71,
+        71,
+        79
+      ],
+      "sum": 475,
+      "max_dimension_zh": "身高"
+    }
+  ]
+}

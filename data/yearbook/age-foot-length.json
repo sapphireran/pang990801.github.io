@@ -1,0 +1,68 @@
+{
+  "id": "age-foot-length",
+  "title_zh": "男童女童年龄与脚长的关系",
+  "title_en": "Foot length by age and sex",
+  "source": "js/index.js (.line .chart)",
+  "units": {
+    "x": "years",
+    "y": "cm"
+  },
+  "ages": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "girls_cm": [
+    18.55,
+    20.24,
+    21.01,
+    20.34,
+    20.83,
+    21.29,
+    21.83,
+    22.36,
+    22.66
+  ],
+  "boys_cm": [
+    18.27,
+    19.76,
+    20.61,
+    20.01,
+    20.75,
+    21.32,
+    21.98,
+    22.69,
+    23.16
+  ],
+  "difference_cm": [
+    0.28,
+    0.48,
+    0.4,
+    0.33,
+    0.08,
+    -0.03,
+    -0.15,
+    -0.33,
+    -0.5
+  ],
+  "difference_recomputed_cm": [
+    0.28,
+    0.48,
+    0.4,
+    0.33,
+    0.08,
+    -0.03,
+    -0.15,
+    -0.33,
+    -0.5
+  ],
+  "crossover_age": 11,
+  "note_zh": "差值 = 女童脚长 − 男童脚长。源码在约 11 岁后转为负值。",
+  "note_en": "Difference is girl minus boy. The source series turns negative after about age 11."
+}
