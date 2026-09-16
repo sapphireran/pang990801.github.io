@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples — children's foot-shape dashboard</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Personal chart examples</p>
+      <h1>Standalone pages for every series</h1>
+      <p class="lede">
+        Each page loads the same numbers as the dashboard (or the unused
+        gallery sketches), then adds a table, a short reading note, and a
+        downloadable CSV.
+      </p>
+    </div>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a class="is-active" href="./index.html">Examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Homepage series</h2>
+    <ul class="example-grid">
+      <li>
+        <a href="./height-shoe-size.html">
+          <h3>Height × shoe last</h3>
+          <p>398-point scatter with girl / boy filters. Mean stature 116.9 cm vs 111.8 cm.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./age-foot-length.html">
+          <h3>Age × foot length</h3>
+          <p>Means from 6 to 14, plus the sign change after age 10.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./bmi-foot-ratio.html">
+          <h3>BMI × slenderness</h3>
+          <p>Display-scale length/width lines. Rings decoded as 21.7% / 15.3%.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./radar-growth.html">
+          <h3>Growth radar</h3>
+          <p>Toggle ages 9–12. Heel girth is the slow spoke (+16 vs stature +41).</p>
+        </a>
+      </li>
+      <li>
+        <a href="./left-right-asymmetry.html">
+          <h3>Left / right timeline</h3>
+          <p>Playable pie with the log-decay counts and a year table.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="section-title">Unused gallery sketches</h2>
+    <ul class="example-grid">
+      <li>
+        <a href="./plantar-pressure.html">
+          <h3>Plantar pressure</h3>
+          <p>Seven adult landmarks from <code>draw1.js</code>. Peak inverts at 位点五.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./tissue-thickness.html">
+          <h3>Tissue thickness</h3>
+          <p>Fourteen adult sites from <code>draw2.js</code>, with the µm display track explained.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="section-title">Datasets</h2>
+    <p class="fine">CSV for spreadsheets, JSON for scripts, JS for these pages.</p>
+    <ul class="pill-list">
+      <li><a href="./data/height-shoe-size.csv">height-shoe-size.csv</a></li>
+      <li><a href="./data/age-foot-length.csv">age-foot-length.csv</a></li>
+      <li><a href="./data/bmi-foot-ratio.csv">bmi-foot-ratio.csv</a></li>
+      <li><a href="./data/radar-age-profiles.csv">radar-age-profiles.csv</a></li>
+      <li><a href="./data/left-right-asymmetry.csv">left-right-asymmetry.csv</a></li>
+      <li><a href="./data/plantar-pressure.csv">plantar-pressure.csv</a></li>
+      <li><a href="./data/tissue-thickness.csv">tissue-thickness.csv</a></li>
+      <li><a href="./data/manifest.json">manifest.json</a></li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Regenerate with <code>python3 scripts/extract_example_data.py</code>.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Left / right timeline — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Homepage timeline pie</p>
+      <h1>儿童双脚比例</h1>
+      <p class="lede">
+        Counts come from a log-decay formula, not from a measured cohort.
+        Left-larger constants are bigger than right-larger ones, so the pie
+        stays slightly left-heavy on purpose.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/left-right-asymmetry.md">Formula note</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>当前年龄</span><strong id="kpi-age">—</strong></div>
+      <div class="kpi"><span>相同占比</span><strong id="kpi-same">—</strong></div>
+      <div class="kpi"><span>左更大合计</span><strong id="kpi-left">—</strong></div>
+      <div class="kpi"><span>右更大合计</span><strong id="kpi-right">—</strong></div>
+    </div>
+
+    <div class="toolbar">
+      <label for="age-select">Year</label>
+      <select id="age-select" style="background:#102036;color:#e8f4ff;border:1px solid rgba(101,198,231,0.28);border-radius:999px;padding:0.35rem 0.8rem;"></select>
+      <button id="play-toggle" class="is-active">Pause timeline</button>
+      <a href="./data/left-right-asymmetry.csv">Download CSV</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="asymmetry-chart" class="chart-frame"></div>
+    </section>
+
+    <article class="note" style="margin-top: 1rem;">
+      <h2>Same-size already wins at age 2</h2>
+      <p>
+        154 / 245 ≈ 63% at age 2, 70 / 77 ≈ 91% at age 14. Mismatch terms
+        shrink with <code>ln(i+1)</code> while a floor of 63 stays in the
+        same-size slice. This is a teaching animation, not a prevalence
+        study.
+      </p>
+    </article>
+
+    <h2 class="section-title">Counts</h2>
+    <div class="table-wrap">
+      <table id="asymmetry-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source series: fourth IIFE in <code>js/index.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/leftRightAsymmetry.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/left-right-asymmetry.js"></script>
+</body>
+</html>

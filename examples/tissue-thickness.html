@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tissue thickness — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Unused gallery sketch</p>
+      <h1>足底各位点皮下组织厚度</h1>
+      <p class="lede">
+        Fourteen adult sites from <code>draw2.js</code>. The original
+        <code>dataZoom</code> started at 10–80; this page opens at 0–100 so
+        every bar is on screen.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/plantar-pressure.md">Sketch notes</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>位点数</span><strong id="kpi-sites">—</strong></div>
+      <div class="kpi"><span>最小 mm 差</span><strong id="kpi-min-gap">—</strong></div>
+      <div class="kpi"><span>最大 mm 差</span><strong id="kpi-max-gap">—</strong></div>
+    </div>
+
+    <div class="toolbar" id="thickness-filter">
+      <button data-value="with-diff" class="is-active">Bars + display track</button>
+      <button data-value="bars-only">Bars only</button>
+      <a href="./data/tissue-thickness.csv">Download CSV</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="thickness-chart" class="chart-frame"></div>
+    </section>
+
+    <article class="note" style="margin-top: 1rem;">
+      <h2>The green line is not true micrometres</h2>
+      <p>
+        Every diabetic-foot bar is thicker than the typical bar (gaps 0.3–4.5
+        mm). The stored <code>差值:um</code> series is the millimetre gap
+        times ten, not ×1000. The table shows both so the display track is
+        not mistaken for a unit conversion.
+      </p>
+    </article>
+
+    <h2 class="section-title">Fourteen sites</h2>
+    <div class="table-wrap">
+      <table id="thickness-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source arrays: <code>draw2.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/tissueThickness.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/tissue-thickness.js"></script>
+</body>
+</html>

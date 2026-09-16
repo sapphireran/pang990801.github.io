@@ -1,0 +1,35 @@
+{
+  "generated_by": "scripts/extract_example_data.py",
+  "files": [
+    "age-foot-length.csv",
+    "age-foot-length.json",
+    "ageFootLength.js",
+    "bmi-foot-ratio.csv",
+    "bmi-foot-ratio.json",
+    "bmiFootRatio.js",
+    "height-shoe-size.csv",
+    "height-shoe-size.json",
+    "heightShoe.js",
+    "left-right-asymmetry.csv",
+    "left-right-asymmetry.json",
+    "leftRightAsymmetry.js",
+    "plantar-pressure.csv",
+    "plantar-pressure.json",
+    "plantarPressure.js",
+    "radar-age-profiles.csv",
+    "radar-age-profiles.json",
+    "radarProfiles.js",
+    "tissue-thickness.csv",
+    "tissue-thickness.json",
+    "tissueThickness.js"
+  ],
+  "datasets": [
+    "height-shoe-size",
+    "age-foot-length",
+    "bmi-foot-ratio",
+    "radar-age-profiles",
+    "plantar-pressure",
+    "tissue-thickness",
+    "left-right-asymmetry"
+  ]
+}

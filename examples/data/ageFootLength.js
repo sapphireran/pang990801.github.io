@@ -1,0 +1,108 @@
+window.ExampleData = window.ExampleData || {};
+window.ExampleData.ageFootLength = {
+  "description": "Mean foot length by age for girls and boys, ages 6-14.",
+  "ages": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "girls": [
+    18.55,
+    20.24,
+    21.01,
+    20.34,
+    20.83,
+    21.29,
+    21.83,
+    22.36,
+    22.66
+  ],
+  "boys": [
+    18.27,
+    19.76,
+    20.61,
+    20.01,
+    20.75,
+    21.32,
+    21.98,
+    22.69,
+    23.16
+  ],
+  "girl_minus_boy": [
+    0.28,
+    0.48,
+    0.4,
+    0.33,
+    0.08,
+    -0.03,
+    -0.15,
+    -0.33,
+    -0.5
+  ],
+  "rows": [
+    {
+      "age_years": 6,
+      "girl_foot_length_cm": 18.55,
+      "boy_foot_length_cm": 18.27,
+      "girl_minus_boy_cm": 0.28
+    },
+    {
+      "age_years": 7,
+      "girl_foot_length_cm": 20.24,
+      "boy_foot_length_cm": 19.76,
+      "girl_minus_boy_cm": 0.48
+    },
+    {
+      "age_years": 8,
+      "girl_foot_length_cm": 21.01,
+      "boy_foot_length_cm": 20.61,
+      "girl_minus_boy_cm": 0.4
+    },
+    {
+      "age_years": 9,
+      "girl_foot_length_cm": 20.34,
+      "boy_foot_length_cm": 20.01,
+      "girl_minus_boy_cm": 0.33
+    },
+    {
+      "age_years": 10,
+      "girl_foot_length_cm": 20.83,
+      "boy_foot_length_cm": 20.75,
+      "girl_minus_boy_cm": 0.08
+    },
+    {
+      "age_years": 11,
+      "girl_foot_length_cm": 21.29,
+      "boy_foot_length_cm": 21.32,
+      "girl_minus_boy_cm": -0.03
+    },
+    {
+      "age_years": 12,
+      "girl_foot_length_cm": 21.83,
+      "boy_foot_length_cm": 21.98,
+      "girl_minus_boy_cm": -0.15
+    },
+    {
+      "age_years": 13,
+      "girl_foot_length_cm": 22.36,
+      "boy_foot_length_cm": 22.69,
+      "girl_minus_boy_cm": -0.33
+    },
+    {
+      "age_years": 14,
+      "girl_foot_length_cm": 22.66,
+      "boy_foot_length_cm": 23.16,
+      "girl_minus_boy_cm": -0.5
+    }
+  ],
+  "notes": [
+    "Girls are slightly longer on average before age 11.",
+    "Boys overtake after age 11, matching the dashboard difference line."
+  ]
+};
