@@ -1,0 +1,233 @@
+[
+  {
+    "foot_mm": 140,
+    "foot_cm": 14.0,
+    "allowance_mm": 12.0,
+    "last_mm": 152.0,
+    "mondopoint": 140,
+    "cn_hao": 14.0,
+    "eu": 22.8,
+    "uk_kids": 5.96,
+    "us_kids": 6.96
+  },
+  {
+    "foot_mm": 145,
+    "foot_cm": 14.5,
+    "allowance_mm": 12.0,
+    "last_mm": 157.0,
+    "mondopoint": 145,
+    "cn_hao": 14.5,
+    "eu": 23.55,
+    "uk_kids": 6.55,
+    "us_kids": 7.55
+  },
+  {
+    "foot_mm": 150,
+    "foot_cm": 15.0,
+    "allowance_mm": 12.0,
+    "last_mm": 162.0,
+    "mondopoint": 150,
+    "cn_hao": 15.0,
+    "eu": 24.3,
+    "uk_kids": 7.14,
+    "us_kids": 8.14
+  },
+  {
+    "foot_mm": 155,
+    "foot_cm": 15.5,
+    "allowance_mm": 12.0,
+    "last_mm": 167.0,
+    "mondopoint": 155,
+    "cn_hao": 15.5,
+    "eu": 25.05,
+    "uk_kids": 7.73,
+    "us_kids": 8.73
+  },
+  {
+    "foot_mm": 160,
+    "foot_cm": 16.0,
+    "allowance_mm": 12.0,
+    "last_mm": 172.0,
+    "mondopoint": 160,
+    "cn_hao": 16.0,
+    "eu": 25.8,
+    "uk_kids": 8.32,
+    "us_kids": 9.32
+  },
+  {
+    "foot_mm": 165,
+    "foot_cm": 16.5,
+    "allowance_mm": 12.0,
+    "last_mm": 177.0,
+    "mondopoint": 165,
+    "cn_hao": 16.5,
+    "eu": 26.55,
+    "uk_kids": 8.91,
+    "us_kids": 9.91
+  },
+  {
+    "foot_mm": 170,
+    "foot_cm": 17.0,
+    "allowance_mm": 12.0,
+    "last_mm": 182.0,
+    "mondopoint": 170,
+    "cn_hao": 17.0,
+    "eu": 27.3,
+    "uk_kids": 9.5,
+    "us_kids": 10.5
+  },
+  {
+    "foot_mm": 175,
+    "foot_cm": 17.5,
+    "allowance_mm": 12.0,
+    "last_mm": 187.0,
+    "mondopoint": 175,
+    "cn_hao": 17.5,
+    "eu": 28.05,
+    "uk_kids": 10.09,
+    "us_kids": 11.09
+  },
+  {
+    "foot_mm": 180,
+    "foot_cm": 18.0,
+    "allowance_mm": 12.0,
+    "last_mm": 192.0,
+    "mondopoint": 180,
+    "cn_hao": 18.0,
+    "eu": 28.8,
+    "uk_kids": 10.69,
+    "us_kids": 11.69
+  },
+  {
+    "foot_mm": 185,
+    "foot_cm": 18.5,
+    "allowance_mm": 12.0,
+    "last_mm": 197.0,
+    "mondopoint": 185,
+    "cn_hao": 18.5,
+    "eu": 29.55,
+    "uk_kids": 11.28,
+    "us_kids": 12.28
+  },
+  {
+    "foot_mm": 190,
+    "foot_cm": 19.0,
+    "allowance_mm": 12.0,
+    "last_mm": 202.0,
+    "mondopoint": 190,
+    "cn_hao": 19.0,
+    "eu": 30.3,
+    "uk_kids": 11.87,
+    "us_kids": 12.87
+  },
+  {
+    "foot_mm": 195,
+    "foot_cm": 19.5,
+    "allowance_mm": 12.0,
+    "last_mm": 207.0,
+    "mondopoint": 195,
+    "cn_hao": 19.5,
+    "eu": 31.05,
+    "uk_kids": 12.46,
+    "us_kids": 13.46
+  },
+  {
+    "foot_mm": 200,
+    "foot_cm": 20.0,
+    "allowance_mm": 12.0,
+    "last_mm": 212.0,
+    "mondopoint": 200,
+    "cn_hao": 20.0,
+    "eu": 31.8,
+    "uk_kids": 13.05,
+    "us_kids": 14.05
+  },
+  {
+    "foot_mm": 205,
+    "foot_cm": 20.5,
+    "allowance_mm": 12.0,
+    "last_mm": 217.0,
+    "mondopoint": 205,
+    "cn_hao": 20.5,
+    "eu": 32.55,
+    "uk_kids": 13.64,
+    "us_kids": 14.64
+  },
+  {
+    "foot_mm": 210,
+    "foot_cm": 21.0,
+    "allowance_mm": 12.0,
+    "last_mm": 222.0,
+    "mondopoint": 210,
+    "cn_hao": 21.0,
+    "eu": 33.3,
+    "uk_kids": 14.23,
+    "us_kids": 15.23
+  },
+  {
+    "foot_mm": 215,
+    "foot_cm": 21.5,
+    "allowance_mm": 12.0,
+    "last_mm": 227.0,
+    "mondopoint": 215,
+    "cn_hao": 21.5,
+    "eu": 34.05,
+    "uk_kids": 14.82,
+    "us_kids": 15.82
+  },
+  {
+    "foot_mm": 220,
+    "foot_cm": 22.0,
+    "allowance_mm": 12.0,
+    "last_mm": 232.0,
+    "mondopoint": 220,
+    "cn_hao": 22.0,
+    "eu": 34.8,
+    "uk_kids": 15.41,
+    "us_kids": 16.41
+  },
+  {
+    "foot_mm": 225,
+    "foot_cm": 22.5,
+    "allowance_mm": 12.0,
+    "last_mm": 237.0,
+    "mondopoint": 225,
+    "cn_hao": 22.5,
+    "eu": 35.55,
+    "uk_kids": 16.0,
+    "us_kids": 17.0
+  },
+  {
+    "foot_mm": 230,
+    "foot_cm": 23.0,
+    "allowance_mm": 12.0,
+    "last_mm": 242.0,
+    "mondopoint": 230,
+    "cn_hao": 23.0,
+    "eu": 36.3,
+    "uk_kids": 16.6,
+    "us_kids": 17.6
+  },
+  {
+    "foot_mm": 235,
+    "foot_cm": 23.5,
+    "allowance_mm": 12.0,
+    "last_mm": 247.0,
+    "mondopoint": 235,
+    "cn_hao": 23.5,
+    "eu": 37.05,
+    "uk_kids": 17.19,
+    "us_kids": 18.19
+  },
+  {
+    "foot_mm": 240,
+    "foot_cm": 24.0,
+    "allowance_mm": 12.0,
+    "last_mm": 252.0,
+    "mondopoint": 240,
+    "cn_hao": 24.0,
+    "eu": 37.8,
+    "uk_kids": 17.78,
+    "us_kids": 18.78
+  }
+]

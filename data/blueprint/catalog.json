@@ -1,0 +1,22 @@
+{
+  "project": "pang990801.github.io",
+  "kind": "personal-study-material",
+  "disclaimer_zh": "个人可视化练习与读图工坊，不是流行病学报告，也不是购鞋或医疗建议。",
+  "disclaimer_en": "Personal visualisation notes. Not a survey report, not a shop fitting, not medical advice.",
+  "sources": {
+    "dashboard": "js/index.js",
+    "leftover_pressure": "draw1.js",
+    "leftover_thickness": "draw2.js"
+  },
+  "counts": {
+    "girl_scatter": 199,
+    "boy_scatter": 199,
+    "age_rows": 9,
+    "bmi_rows": 13,
+    "symmetry_ages": 13,
+    "radar_ages": 4,
+    "pressure_sites": 7,
+    "thickness_sites": 14,
+    "vignettes": 8
+  }
+}

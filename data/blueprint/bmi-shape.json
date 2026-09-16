@@ -1,0 +1,67 @@
+[
+  {
+    "bmi": 12,
+    "girl_index": 22.97,
+    "boy_index": 25.28
+  },
+  {
+    "bmi": 13,
+    "girl_index": 23.38,
+    "boy_index": 22.97
+  },
+  {
+    "bmi": 14,
+    "girl_index": 26.51,
+    "boy_index": 28.47
+  },
+  {
+    "bmi": 15,
+    "girl_index": 24.47,
+    "boy_index": 26.9
+  },
+  {
+    "bmi": 16,
+    "girl_index": 25.96,
+    "boy_index": 28.03
+  },
+  {
+    "bmi": 17,
+    "girl_index": 26.22,
+    "boy_index": 26.07
+  },
+  {
+    "bmi": 18,
+    "girl_index": 26.66,
+    "boy_index": 26.76
+  },
+  {
+    "bmi": 19,
+    "girl_index": 26.92,
+    "boy_index": 30.18
+  },
+  {
+    "bmi": 20,
+    "girl_index": 27.82,
+    "boy_index": 26.63
+  },
+  {
+    "bmi": 21,
+    "girl_index": 26.35,
+    "boy_index": 30.38
+  },
+  {
+    "bmi": 22,
+    "girl_index": 27.51,
+    "boy_index": 30.13
+  },
+  {
+    "bmi": 23,
+    "girl_index": 29.86,
+    "boy_index": 28.07
+  },
+  {
+    "bmi": 24,
+    "girl_index": 28.67,
+    "boy_index": 30.19
+  }
+]

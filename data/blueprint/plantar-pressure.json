@@ -1,0 +1,44 @@
+[
+  {
+    "site": "位点1",
+    "typical_pa": 90.0,
+    "diabetic_pa": 290.0,
+    "delta_pa": 200.0
+  },
+  {
+    "site": "位点2",
+    "typical_pa": 50.0,
+    "diabetic_pa": 200.0,
+    "delta_pa": 150.0
+  },
+  {
+    "site": "位点3",
+    "typical_pa": 39.0,
+    "diabetic_pa": 20.0,
+    "delta_pa": -19.0
+  },
+  {
+    "site": "位点4",
+    "typical_pa": 50.0,
+    "diabetic_pa": 132.0,
+    "delta_pa": 82.0
+  },
+  {
+    "site": "位点5",
+    "typical_pa": 120.0,
+    "diabetic_pa": 15.0,
+    "delta_pa": -105.0
+  },
+  {
+    "site": "位点6",
+    "typical_pa": 82.0,
+    "diabetic_pa": 200.0,
+    "delta_pa": 118.0
+  },
+  {
+    "site": "位点7",
+    "typical_pa": 80.0,
+    "diabetic_pa": 90.0,
+    "delta_pa": 10.0
+  }
+]
