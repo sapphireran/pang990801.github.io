@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI × 脚型 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>BMI × shape</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>BMI 格子上的脚型指数</h1>
+      <p class="lede">原图右边两个“过瘦 / 过胖”环是占位切片，这一页不画它们。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout">纵轴标签写着脚长/脚宽，数值却在 23–30。更像放大了十倍的比值，或另一套指数借用了这个名字。</p>
+        <ul>
+          <li>BMI：<span id="stat-bmi">…</span></li>
+          <li>女生序列：<span id="stat-girl">…</span></li>
+          <li>男生序列：<span id="stat-boy">…</span></li>
+        </ul>
+        <p>没有每档人数。不要把斜率读成“BMI 越高脚越宽”的临床结论。详见 <a href="../docs/measurement-notes.md">measurement notes</a>。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/bmi-foot-shape.js"></script>
+</body>
+</html>

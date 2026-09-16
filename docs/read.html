@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文档 · 脚型数据可视化</title>
+  <link rel="stylesheet" href="css/docs.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../index.html">脚型可视化<small>Personal notes</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="index.html" aria-current="page">文档</a>
+        <a href="../examples/index.html">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="lede" style="padding-top:1.4rem"><a href="index.html">← 文档目录</a></p>
+    <article class="prose" id="doc">正在读取笔记…</article>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">个人仓库 · Markdown 源文件仍在同目录，方便在 GitHub 上直接读。</div>
+  </footer>
+  <script src="js/md.js"></script>
+  <script>
+    (function () {
+      var host = document.getElementById("doc");
+      var name = DocsMd.requestedFile();
+      if (!name) {
+        host.innerHTML = "<p>没有这份笔记。回到 <a href=\"index.html\">目录</a>。</p>";
+        return;
+      }
+      document.title = name + " · 脚型数据可视化";
+      fetch(name).then(function (res) {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.text();
+      }).then(function (md) {
+        host.innerHTML = DocsMd.render(md);
+        var first = host.querySelector("h1");
+        if (first) document.title = first.textContent + " · 文档";
+      }).catch(function () {
+        host.innerHTML = "<p>读不到 <code>" + DocsMd.escapeHtml(name) + "</code>。请用静态服务器打开。</p>";
+      });
+    })();
+  </script>
+</body>
+</html>

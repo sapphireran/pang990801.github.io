@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>软组织厚度 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>Tissue thickness</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>把 <code>draw2.js</code> 变成能打开的页</h1>
+      <p class="lede">十四根柱是毫米。图例上的“差值 μm”是第三条独立序列。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout">不要用两根柱相减去对那条线。对不上，JSON 也写明了。</p>
+        <ul>
+          <li>位点：<span id="stat-sites">…</span></li>
+          <li>普通厚度：<span id="stat-normal">…</span></li>
+          <li>对照厚度：<span id="stat-df">…</span></li>
+        </ul>
+        <p>柱的量级（约 10–16 mm）看起来像成年足底软组织，但位点仍只有序号。JSON：<code>tissue-thickness.json</code>。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/tissue-thickness.js"></script>
+</body>
+</html>

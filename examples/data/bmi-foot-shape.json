@@ -1,0 +1,58 @@
+{
+  "bmi": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "female_length_width_ratio": [
+    22.97,
+    23.38,
+    26.51,
+    24.47,
+    25.96,
+    26.22,
+    26.66,
+    26.92,
+    27.82,
+    26.35,
+    27.51,
+    29.86,
+    28.67
+  ],
+  "male_length_width_ratio": [
+    25.28,
+    22.97,
+    28.47,
+    26.9,
+    28.03,
+    26.07,
+    26.76,
+    30.18,
+    26.63,
+    30.38,
+    30.13,
+    28.07,
+    30.19
+  ],
+  "notes": {
+    "ratio_definition": "Displayed dashboard series is labeled 脚长/脚宽. Values are kept as published on the original dashboard (not rescaled).",
+    "thin_share_placeholder": {
+      "thin": 50,
+      "rest": 180
+    },
+    "wide_share_placeholder": {
+      "wide": 435,
+      "rest": 2400
+    }
+  }
+}

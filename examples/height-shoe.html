@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>身高 × 鞋码 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>Height × shoe</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>身高和鞋码怎么落在一张散点上</h1>
+      <p class="lede">数据来自驾驶舱左上角。工具箱里可以框选和保存图片。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout">个人示意散点，不是鞋码对照表。纵轴沿用原 tooltip 的 cm 写法。</p>
+        <ul>
+          <li>点数：<strong id="stat-n">…</strong></li>
+          <li>女生身高：<span id="stat-girl-height">…</span></li>
+          <li>男生身高：<span id="stat-boy-height">…</span></li>
+          <li>女生鞋码轴：<span id="stat-girl-shoe">…</span></li>
+          <li>男生鞋码轴：<span id="stat-boy-shoe">…</span></li>
+        </ul>
+        <p>竖参考线仍停在原图的 115 cm（女）和 110 cm（男）。JSON：<code>height-shoe-female.json</code>、<code>height-shoe-male.json</code>。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/height-shoe.js"></script>
+</body>
+</html>

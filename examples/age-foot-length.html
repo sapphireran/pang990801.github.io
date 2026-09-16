@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年龄 × 脚长 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>Age × foot length</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>6–14 岁平均脚长，以及差值何时过零</h1>
+      <p class="lede">驾驶舱左下角的柱 + 线。示例去掉了菱形柱帽，只留可读的三列。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout">每个年龄只有一个均值，没有人数和标准差。</p>
+        <ul>
+          <li>年龄：<span id="stat-ages">…</span></li>
+          <li>14 岁女生：<span id="stat-girl-end">…</span></li>
+          <li>14 岁男生：<span id="stat-boy-end">…</span></li>
+          <li>翻号：<span id="stat-flip">…</span></li>
+        </ul>
+        <p>右轴是女生减男生。正值表示该年龄女生均值更长。JSON：<code>age-foot-length.json</code>。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/age-foot-length.js"></script>
+</body>
+</html>

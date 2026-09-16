@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例 · 脚型数据可视化</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../index.html">脚型可视化<small>Standalone examples</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>把驾驶舱拆成七张能单独打开的图</h1>
+      <p class="lede">
+        每页只问一个问题，数据从 <code>examples/data/</code> 读取。需要本地预览时用 <code>python3 -m http.server</code>，不要直接双击 HTML。
+      </p>
+    </section>
+    <section class="gallery">
+      <article class="card">
+        <span class="meta">驾驶舱 · 左上</span>
+        <h2><a href="height-shoe.html">身高 × 鞋码散点</a></h2>
+        <p>199 名女生 + 199 名男生。可框选、缩放。纵轴沿用原图的 cm 标签。</p>
+      </article>
+      <article class="card">
+        <span class="meta">驾驶舱 · 左下</span>
+        <h2><a href="age-foot-length.html">年龄 × 平均脚长</a></h2>
+        <p>6–14 岁两根柱 + 差值折线。看性别差距何时翻过零。</p>
+      </article>
+      <article class="card">
+        <span class="meta">驾驶舱 · 中间</span>
+        <h2><a href="growth-radar.html">生长雷达</a></h2>
+        <p>身高、三处围长、鞋码、脚长、体重的 0–100 相对分，9–12 岁叠在一起。</p>
+      </article>
+      <article class="card">
+        <span class="meta">驾驶舱 · 右上</span>
+        <h2><a href="bmi-foot-shape.html">BMI × 脚型指数</a></h2>
+        <p>只画两条面积线。原图两侧的装饰环在这里去掉，避免被当成患病率。</p>
+      </article>
+      <article class="card">
+        <span class="meta">驾驶舱 · 右下</span>
+        <h2><a href="foot-symmetry.html">左右脚时间轴</a></h2>
+        <p>2–14 岁自动播放。数列来自 ln 公式，不是普查。</p>
+      </article>
+      <article class="card">
+        <span class="meta">草稿 · draw1.js</span>
+        <h2><a href="plantar-pressure.html">足底压力</a></h2>
+        <p>七个未命名位点的两条示意曲线。单位写着 Pa，没有校准说明。</p>
+      </article>
+      <article class="card">
+        <span class="meta">草稿 · draw2.js</span>
+        <h2><a href="tissue-thickness.html">软组织厚度</a></h2>
+        <p>十四个位点的成年对照柱，外加一条不能用两柱相减还原的差值线。</p>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">个人示例 · 数字只用于读图练习 · <a href="../docs/measurement-notes.md">测量笔记</a> · 目录里共 <span id="catalog-count">…</span> 个 JSON</div>
+  </footer>
+  <script>
+    fetch("data/catalog.json").then(function (res) { return res.json(); }).then(function (catalog) {
+      var el = document.getElementById("catalog-count");
+      if (el) el.textContent = String(catalog.datasets.length);
+    }).catch(function () {
+      var el = document.getElementById("catalog-count");
+      if (el) el.textContent = "8";
+    });
+  </script>
+</body>
+</html>
