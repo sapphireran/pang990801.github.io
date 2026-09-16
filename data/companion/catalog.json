@@ -1,0 +1,88 @@
+{
+  "project": "中国人群脚型数据可视化",
+  "kind": "personal teaching samples from the 2020 GitHub Pages dashboard",
+  "not_clinical": true,
+  "sources": {
+    "dashboard": "js/index.js",
+    "unmounted_pressure_sketch": "draw1.js",
+    "unmounted_thickness_sketch": "draw2.js"
+  },
+  "series": {
+    "height_shoe": {
+      "n_female": 199,
+      "n_male": 199,
+      "units": {
+        "height": "cm",
+        "shoe_length_label": "cm as plotted"
+      }
+    },
+    "age_foot_length": {
+      "ages": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "units": "cm"
+    },
+    "bmi_shape": {
+      "bmi": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "note": "y is labeled 脚长/脚宽 but plotted as a 20–30 index"
+    },
+    "symmetry": {
+      "ages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "note": "counts come from Math.log in the pie IIFE, not from raw pairs"
+    },
+    "radar": {
+      "ages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "axes": [
+        "身高",
+        "兜跟围长",
+        "跗骨围长",
+        "跖趾围长",
+        "鞋码",
+        "脚长",
+        "体重"
+      ],
+      "scale": "display scores 0–100, not raw centimetres"
+    }
+  }
+}

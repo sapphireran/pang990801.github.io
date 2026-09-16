@@ -1,0 +1,132 @@
+[
+  {
+    "age": 2,
+    "left_10_20": 36,
+    "left_over_20": 17,
+    "right_over_20": 11,
+    "right_10_20": 27,
+    "same": 154,
+    "total": 245,
+    "same_pct": 62.857142857142854
+  },
+  {
+    "age": 3,
+    "left_10_20": 27,
+    "left_over_20": 13,
+    "right_over_20": 8,
+    "right_10_20": 20,
+    "same": 131,
+    "total": 199,
+    "same_pct": 65.82914572864321
+  },
+  {
+    "age": 4,
+    "left_10_20": 22,
+    "left_over_20": 10,
+    "right_over_20": 7,
+    "right_10_20": 16,
+    "same": 118,
+    "total": 173,
+    "same_pct": 68.20809248554913
+  },
+  {
+    "age": 5,
+    "left_10_20": 18,
+    "left_over_20": 9,
+    "right_over_20": 5,
+    "right_10_20": 13,
+    "same": 108,
+    "total": 153,
+    "same_pct": 70.58823529411765
+  },
+  {
+    "age": 6,
+    "left_10_20": 15,
+    "left_over_20": 7,
+    "right_over_20": 5,
+    "right_10_20": 11,
+    "same": 101,
+    "total": 139,
+    "same_pct": 72.66187050359713
+  },
+  {
+    "age": 7,
+    "left_10_20": 13,
+    "left_over_20": 6,
+    "right_over_20": 4,
+    "right_10_20": 9,
+    "same": 95,
+    "total": 127,
+    "same_pct": 74.80314960629921
+  },
+  {
+    "age": 8,
+    "left_10_20": 11,
+    "left_over_20": 5,
+    "right_over_20": 3,
+    "right_10_20": 8,
+    "same": 90,
+    "total": 117,
+    "same_pct": 76.92307692307692
+  },
+  {
+    "age": 9,
+    "left_10_20": 9,
+    "left_over_20": 5,
+    "right_over_20": 3,
+    "right_10_20": 6,
+    "same": 86,
+    "total": 109,
+    "same_pct": 78.89908256880734
+  },
+  {
+    "age": 10,
+    "left_10_20": 7,
+    "left_over_20": 4,
+    "right_over_20": 2,
+    "right_10_20": 5,
+    "same": 81,
+    "total": 99,
+    "same_pct": 81.81818181818181
+  },
+  {
+    "age": 11,
+    "left_10_20": 6,
+    "left_over_20": 3,
+    "right_over_20": 2,
+    "right_10_20": 4,
+    "same": 78,
+    "total": 93,
+    "same_pct": 83.87096774193549
+  },
+  {
+    "age": 12,
+    "left_10_20": 5,
+    "left_over_20": 3,
+    "right_over_20": 1,
+    "right_10_20": 3,
+    "same": 75,
+    "total": 87,
+    "same_pct": 86.20689655172414
+  },
+  {
+    "age": 13,
+    "left_10_20": 4,
+    "left_over_20": 2,
+    "right_over_20": 1,
+    "right_10_20": 2,
+    "same": 72,
+    "total": 81,
+    "same_pct": 88.88888888888889
+  },
+  {
+    "age": 14,
+    "left_10_20": 3,
+    "left_over_20": 2,
+    "right_over_20": 1,
+    "right_10_20": 1,
+    "same": 70,
+    "total": 77,
+    "same_pct": 90.9090909090909
+  }
+]

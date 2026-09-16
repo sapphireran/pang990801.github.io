@@ -1,0 +1,153 @@
+{
+  "female": {
+    "label": "female",
+    "n": 199,
+    "height_cm": {
+      "min": 79.73,
+      "max": 152.78,
+      "mean": 116.85517587939698,
+      "sd": 21.39634493576705
+    },
+    "shoe_cm": {
+      "min": 10.08,
+      "max": 24.21,
+      "mean": 16.76145728643216,
+      "sd": 3.2996784947356437
+    },
+    "pearson_r": 0.913516196367574,
+    "ols_shoe_from_height": {
+      "slope": 0.1408796575674912,
+      "intercept": 0.29894012355375565,
+      "r_squared": 0.83451184102588,
+      "residual_sd": 1.345719577718482
+    }
+  },
+  "male": {
+    "label": "male",
+    "n": 199,
+    "height_cm": {
+      "min": 75.48,
+      "max": 149.96,
+      "mean": 111.81859296482413,
+      "sd": 21.754246259833632
+    },
+    "shoe_cm": {
+      "min": 9.74,
+      "max": 24.4,
+      "mean": 15.963417085427135,
+      "sd": 3.4056937444104856
+    },
+    "pearson_r": 0.9156199722751241,
+    "ols_shoe_from_height": {
+      "slope": 0.14334310527652086,
+      "intercept": -0.06500725780208683,
+      "r_squared": 0.8383599336290991,
+      "residual_sd": 1.3727124852053776
+    }
+  },
+  "pooled": {
+    "label": "pooled",
+    "n": 398,
+    "height_cm": {
+      "min": 75.48,
+      "max": 152.78,
+      "mean": 114.33688442211056,
+      "sd": 21.69586507962655
+    },
+    "shoe_cm": {
+      "min": 9.74,
+      "max": 24.4,
+      "mean": 16.362437185929647,
+      "sd": 3.3726267842018163
+    },
+    "pearson_r": 0.9157414510413382,
+    "ols_shoe_from_height": {
+      "slope": 0.14235220093095338,
+      "intercept": 0.08633004085417184,
+      "r_squared": 0.8385824051552955,
+      "residual_sd": 1.3567236048137794
+    }
+  },
+  "age_crossover": {
+    "first_age_boys_longer": 11,
+    "series": [
+      {
+        "age": 6,
+        "girl_cm": 18.55,
+        "boy_cm": 18.27,
+        "girl_minus_boy_cm": 0.28
+      },
+      {
+        "age": 7,
+        "girl_cm": 20.24,
+        "boy_cm": 19.76,
+        "girl_minus_boy_cm": 0.48
+      },
+      {
+        "age": 8,
+        "girl_cm": 21.01,
+        "boy_cm": 20.61,
+        "girl_minus_boy_cm": 0.4
+      },
+      {
+        "age": 9,
+        "girl_cm": 20.34,
+        "boy_cm": 20.01,
+        "girl_minus_boy_cm": 0.33
+      },
+      {
+        "age": 10,
+        "girl_cm": 20.83,
+        "boy_cm": 20.75,
+        "girl_minus_boy_cm": 0.08
+      },
+      {
+        "age": 11,
+        "girl_cm": 21.29,
+        "boy_cm": 21.32,
+        "girl_minus_boy_cm": -0.03
+      },
+      {
+        "age": 12,
+        "girl_cm": 21.83,
+        "boy_cm": 21.98,
+        "girl_minus_boy_cm": -0.15
+      },
+      {
+        "age": 13,
+        "girl_cm": 22.36,
+        "boy_cm": 22.69,
+        "girl_minus_boy_cm": -0.33
+      },
+      {
+        "age": 14,
+        "girl_cm": 22.66,
+        "boy_cm": 23.16,
+        "girl_minus_boy_cm": -0.5
+      }
+    ]
+  },
+  "rings": {
+    "thin": {
+      "highlighted": 50,
+      "placeholder": 180,
+      "percent": 21.73913043478261
+    },
+    "thick": {
+      "highlighted": 435,
+      "placeholder": 2400,
+      "percent": 15.343915343915343
+    }
+  },
+  "symmetry_age_14": {
+    "age": 14,
+    "left_10_20": 3,
+    "left_over_20": 2,
+    "right_over_20": 1,
+    "right_10_20": 1,
+    "same": 70,
+    "total": 77,
+    "same_pct": 90.9090909090909
+  },
+  "leftover_thickness_mismatches": 14
+}
