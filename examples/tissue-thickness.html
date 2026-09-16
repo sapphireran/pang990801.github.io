@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tissue thickness</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Unused sketch · draw2.js</p>
+      <h1>Subcutaneous thickness, 14 sites</h1>
+      <p>
+        Bars are millimetres. The line is labelled <code>um</code> on the original legend but is not
+        (diabetic − typical) × 1000. Caption it as an authored overlay.
+      </p>
+    </header>
+    <div class="layout">
+      <div class="panel">
+        <div id="chart" class="chart"></div>
+      </div>
+      <aside class="side">
+        <h2>Site 1 check</h2>
+        <dl>
+          <dt>Typical / diabetic</dt>
+          <dd>11.6 mm / 13.2 mm</dd>
+          <dt>Plotted “difference”</dt>
+          <dd>16 (not 1.6 and not 1600)</dd>
+          <dt>JSON</dt>
+          <dd><a href="data/subcutaneous-thickness.json">subcutaneous-thickness.json</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("thickness");
+    FootViz.loadJSON("data/subcutaneous-thickness.json").then(function (data) {
+      FootViz.bindChart(document.getElementById("chart"), {
+        backgroundColor: "#102033",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#fff" } },
+        grid: { left: 48, right: 24, top: 56, bottom: 72 },
+        xAxis: { type: "category", data: data.sites, axisLabel: { interval: 0, rotate: 30 } },
+        yAxis: { type: "value" },
+        dataZoom: [{ type: "slider", start: 0, end: 100 }],
+        series: [
+          { name: "typical (mm)", type: "bar", data: data.series.typical_adults_mm, itemStyle: { color: "rgba(255,144,128,1)" } },
+          { name: "diabetic-foot (mm)", type: "bar", data: data.series.diabetic_foot_mm, itemStyle: { color: "rgba(0,191,183,1)" } },
+          { name: "overlay (labelled um)", type: "line", data: data.series.difference_um_label, itemStyle: { color: "#28ffb3" } }
+        ]
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>

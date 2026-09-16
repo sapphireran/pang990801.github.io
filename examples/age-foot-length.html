@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age × foot length</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Means · dashboard left-bottom panel</p>
+      <h1>Mean foot length by age</h1>
+      <p>
+        Ages 6–14. The cyan line is girl minus boy (cm). It crosses zero between 10 and 11
+        in this sample. Both series dip at 8→9; that is in the original arrays — treat it as a sample oddity, not a growth-curve feature.
+      </p>
+    </header>
+    <div class="layout">
+      <div class="panel">
+        <div id="chart" class="chart"></div>
+      </div>
+      <aside class="side">
+        <h2>Series</h2>
+        <dl>
+          <dt>Girls at 6 / 14</dt>
+          <dd id="g-ends"></dd>
+          <dt>Boys at 6 / 14</dt>
+          <dd id="b-ends"></dd>
+          <dt>Last girl lead</dt>
+          <dd>age 10, +0.08 cm</dd>
+          <dt>First boy lead</dt>
+          <dd>age 11, −0.03 cm</dd>
+          <dt>JSON</dt>
+          <dd><a href="data/age-foot-length.json">age-foot-length.json</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("age-foot");
+    FootViz.loadJSON("data/age-foot-length.json").then(function (data) {
+      var g = data.series.girls_foot_length_cm;
+      var b = data.series.boys_foot_length_cm;
+      document.getElementById("g-ends").textContent = g[0] + " → " + g[g.length - 1] + " cm";
+      document.getElementById("b-ends").textContent = b[0] + " → " + b[b.length - 1] + " cm";
+      FootViz.bindChart(document.getElementById("chart"), {
+        backgroundColor: "rgba(33,64,112,0.25)",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#fff" } },
+        grid: { left: 52, right: 52, top: 40, bottom: 48 },
+        xAxis: { type: "category", name: "age (years)", data: data.ages_years },
+        yAxis: [
+          { type: "value", name: "foot length (cm)", min: 12 },
+          { type: "value", name: "girl − boy (cm)" }
+        ],
+        series: [
+          { name: "girls", type: "bar", data: g, itemStyle: { color: "#12bac1" } },
+          { name: "boys", type: "bar", data: b, itemStyle: { color: "#319cf1" } },
+          {
+            name: "girl − boy",
+            type: "line",
+            yAxisIndex: 1,
+            smooth: true,
+            data: data.series.girl_minus_boy_cm,
+            itemStyle: { color: "#3deaff" }
+          }
+        ]
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>

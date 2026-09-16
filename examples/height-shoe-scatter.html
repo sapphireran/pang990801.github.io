@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Height × shoe size</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Scatter · dashboard left-top panel</p>
+      <h1>Height vs shoe size (foot length, cm)</h1>
+      <p>
+        199 girls (red) and 199 boys (yellow). The dashboard tooltip calls the y-axis 鞋码;
+        the values are centimetres, so this is measured foot length used as a size proxy.
+      </p>
+    </header>
+    <div class="stats" id="stats"></div>
+    <div class="layout">
+      <div class="panel">
+        <div id="chart" class="chart"></div>
+      </div>
+      <aside class="side">
+        <h2>How to read it</h2>
+        <dl>
+          <dt>Pattern</dt>
+          <dd>Longer feet with taller stature; r ≈ 0.91 in both groups.</dd>
+          <dt>Spread</dt>
+          <dd>Residual shoe/foot length sd is still ~3 cm — several children’s sizes at one height.</dd>
+          <dt>Reference lines</dt>
+          <dd>Vertical markLines at 115 cm (girls) and 110 cm (boys) are hard-coded near the means, not computed.</dd>
+          <dt>JSON</dt>
+          <dd><a href="data/height-shoe.json">height-shoe.json</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("height-shoe");
+    Promise.all([
+      FootViz.loadJSON("data/height-shoe.json"),
+      FootViz.loadJSON("data/height-shoe-summary.json")
+    ]).then(function (pair) {
+      var data = pair[0];
+      var sum = pair[1];
+      var stats = document.getElementById("stats");
+      function pill(label, value) {
+        var d = document.createElement("div");
+        d.className = "stat";
+        d.innerHTML = "<b></b><span></span>";
+        d.querySelector("b").textContent = value;
+        d.querySelector("span").textContent = label;
+        stats.appendChild(d);
+      }
+      pill("girls n", String(sum.groups.female.height_cm.n));
+      pill("boys n", String(sum.groups.male.height_cm.n));
+      pill("girls r", sum.groups.female.pearson_r_height_shoe.toFixed(3));
+      pill("boys r", sum.groups.male.pearson_r_height_shoe.toFixed(3));
+      pill("girls mean height", sum.groups.female.height_cm.mean + " cm");
+      pill("boys mean height", sum.groups.male.height_cm.mean + " cm");
+
+      FootViz.bindChart(document.getElementById("chart"), {
+        backgroundColor: "rgba(27,116,163,0.18)",
+        tooltip: {
+          formatter: function (params) {
+            return params.seriesName + "<br/>height " + params.value[0] + " cm<br/>foot/size " + params.value[1] + " cm";
+          }
+        },
+        legend: { data: ["girls", "boys"], textStyle: { color: "#fff" } },
+        grid: { left: 48, right: 28, top: 40, bottom: 48 },
+        xAxis: { name: "height (cm)", type: "value", scale: true, splitLine: { show: false } },
+        yAxis: { name: "foot length / size (cm)", type: "value", scale: true, splitLine: { show: false } },
+        series: [
+          {
+            name: "girls",
+            type: "scatter",
+            symbolSize: 5,
+            itemStyle: { color: "#ff4f3b" },
+            data: data.series.female.points,
+            markLine: { data: [{ type: "average", name: "mean" }, { xAxis: 115 }] }
+          },
+          {
+            name: "boys",
+            type: "scatter",
+            symbolSize: 5,
+            itemStyle: { color: "#ffe01f" },
+            data: data.series.male.points,
+            markLine: { data: [{ type: "average", name: "mean" }, { xAxis: 110 }] }
+          }
+        ]
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>

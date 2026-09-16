@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth radar</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Radar · dashboard centre panel</p>
+      <h1>Relative growth profile, ages 9–12</h1>
+      <p>
+        Each axis is a 0–100 dashboard index, not centimetres or kilograms.
+        Age 12 shoe-size and foot-length slots are <code>77-6</code> and <code>79-8</code> in source (both 71).
+      </p>
+    </header>
+    <div class="layout">
+      <div class="panel">
+        <div id="chart" class="chart"></div>
+      </div>
+      <aside class="side">
+        <h2>Axes</h2>
+        <p class="note" id="axes"></p>
+        <dl>
+          <dt>JSON</dt>
+          <dd><a href="data/growth-radar.json">growth-radar.json</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("radar");
+    FootViz.loadJSON("data/growth-radar.json").then(function (data) {
+      document.getElementById("axes").textContent = data.axes.join(" · ");
+      var colors = { age_9: "#00c2ff", age_10: "#f9cf67", age_11: "#32CD32", age_12: "#e92b77" };
+      var labels = { age_9: "9y", age_10: "10y", age_11: "11y", age_12: "12y" };
+      FootViz.bindChart(document.getElementById("chart"), {
+        backgroundColor: "rgba(0,0,0,0.15)",
+        tooltip: {},
+        legend: { data: ["9y", "10y", "11y", "12y"], textStyle: { color: "#fff" }, bottom: 8 },
+        radar: {
+          indicator: data.axes.map(function (name) { return { name: name, max: 100 }; }),
+          shape: "circle",
+          splitNumber: 4,
+          axisName: { color: "#fff" }
+        },
+        series: [{
+          type: "radar",
+          data: Object.keys(data.series).map(function (key) {
+            return {
+              name: labels[key],
+              value: data.series[key],
+              itemStyle: { color: colors[key] },
+              areaStyle: { opacity: 0.18 }
+            };
+          })
+        }]
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>
