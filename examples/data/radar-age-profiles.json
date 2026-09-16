@@ -1,0 +1,63 @@
+{
+  "description": "Circular radar in the center column. Axes are scaled 0-100, not raw centimeters.",
+  "axes": [
+    "身高",
+    "兜跟围长",
+    "跗骨围长",
+    "跖趾围长",
+    "鞋码",
+    "脚长",
+    "体重"
+  ],
+  "series": [
+    {
+      "ageYears": 9,
+      "values": [
+        43,
+        29,
+        37,
+        37,
+        38,
+        31,
+        41
+      ]
+    },
+    {
+      "ageYears": 10,
+      "values": [
+        53,
+        32,
+        42,
+        46,
+        43,
+        42,
+        49
+      ]
+    },
+    {
+      "ageYears": 11,
+      "values": [
+        66,
+        37,
+        47,
+        60,
+        57,
+        59,
+        65
+      ]
+    },
+    {
+      "ageYears": 12,
+      "values": [
+        84,
+        45,
+        55,
+        70,
+        71,
+        71,
+        79
+      ],
+      "sourceNote": "js/index.js writes shoe as 77-6 and foot length as 79-8"
+    }
+  ]
+}

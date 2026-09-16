@@ -1,0 +1,19 @@
+{
+  "project": "pang990801.github.io",
+  "kind": "personal-study-visualization",
+  "extractedFrom": [
+    "js/index.js",
+    "draw1.js",
+    "draw2.js"
+  ],
+  "note": "Values are copied from the personal dashboard source. They are illustrative study plots, not clinical records.",
+  "files": {
+    "height-shoe-size.json": "Scatter of height (cm) vs shoe length (cm) for girls and boys.",
+    "age-foot-length.json": "Mean foot length (cm) by age 6-14, plus girl-minus-boy difference.",
+    "bmi-foot-ratio.json": "Displayed foot plumpness index by BMI 12-24, plus the two ring-chart shares.",
+    "foot-symmetry-by-age.json": "Generated with the same log formulas as the dashboard timeline pie.",
+    "radar-age-profiles.json": "0-100 scaled radar profiles for ages 9-12.",
+    "plantar-pressure.json": "Seven-site pressure sketch from draw1.js (not mounted on the live dashboard).",
+    "plantar-thickness.json": "Fourteen-site plantar thickness sketch from draw2.js (not mounted on the live dashboard)."
+  }
+}

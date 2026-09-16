@@ -1,0 +1,31 @@
+{
+  "description": "Unmounted sketch in draw1.js. Seven named plantar sites, unit Pa as labeled on the draft title.",
+  "sites": [
+    "位点一",
+    "位点二",
+    "位点三",
+    "位点四",
+    "位点五",
+    "位点六",
+    "位点七"
+  ],
+  "units": "Pa",
+  "typicalAdult": [
+    90,
+    50,
+    39,
+    50,
+    120,
+    82,
+    80
+  ],
+  "diabeticFootAdult": [
+    290,
+    200,
+    20,
+    132,
+    15,
+    200,
+    90
+  ]
+}

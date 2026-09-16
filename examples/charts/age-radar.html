@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ages 9–12 radar — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">examples/data/radar-age-profiles.json</p>
+      <h1>Scaled radar profiles, ages 9–12</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../index.html">Dashboard</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      The center dashboard column is this radar, not a map. Every spoke
+      is capped at 100. Age 12 shoe and foot-length values are the
+      evaluated <code>77-6</code> and <code>79-8</code> from
+      <code>js/index.js</code> (both 71).
+    </p>
+    <div class="chart-shell"><div class="chart" id="chart"></div></div>
+    <table id="table"></table>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var chartNode = C.$("#chart");
+      var colors = ["#00c2ff", "#f9cf67", "#32CD32", "#e92b77"];
+
+      C.loadJson("../data/radar-age-profiles.json").then(function (data) {
+        C.fillTable(
+          C.$("#table"),
+          ["Age"].concat(data.axes),
+          data.series.map(function (s) {
+            return [String(s.ageYears)].concat(s.values.map(String));
+          })
+        );
+
+        var chart = C.initChart(chartNode);
+        chart.setOption({
+          backgroundColor: C.darkGrid.backgroundColor,
+          legend: {
+            data: data.series.map(function (s) { return s.ageYears + "y"; }),
+            textStyle: { color: "#d7e7ff" }
+          },
+          tooltip: {},
+          radar: {
+            indicator: data.axes.map(function (name) {
+              return { name: name, max: 100 };
+            }),
+            shape: "circle",
+            splitNumber: 4,
+            axisName: { color: "#d7e7ff" },
+            splitLine: { lineStyle: { color: "rgba(255,255,255,0.18)" } },
+            splitArea: { areaStyle: { color: ["rgba(255,255,255,0.02)", "rgba(255,255,255,0.05)"] } }
+          },
+          series: [{
+            type: "radar",
+            data: data.series.map(function (s, i) {
+              return {
+                name: s.ageYears + "y",
+                value: s.values,
+                lineStyle: { color: colors[i] },
+                itemStyle: { color: colors[i] },
+                areaStyle: { color: colors[i], opacity: 0.18 }
+              };
+            })
+          }]
+        });
+      }).catch(function (err) {
+        C.showError(chartNode, err);
+      });
+    })();
+  </script>
+</body>
+</html>

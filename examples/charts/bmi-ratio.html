@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI vs plumpness index — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">examples/data/bmi-foot-ratio.json</p>
+      <h1>BMI vs displayed plumpness index</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../index.html">Dashboard</a>
+      <a href="../../docs/measurements.md">Units</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      Y values are the dashboard series labeled 脚胖瘦度（脚长/脚宽）.
+      The range is about 23–30, so this is a display index, not a raw
+      length/width ratio. The ring percentages use the placeholder
+      slices from <code>js/index.js</code>.
+    </p>
+    <div class="chart-shell"><div class="chart" id="chart"></div></div>
+    <div class="stats-grid">
+      <section>
+        <h2>Decorative rings</h2>
+        <dl id="rings"></dl>
+      </section>
+    </div>
+    <table id="table"></table>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/foot-stats.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var F = FootStats;
+      var chartNode = C.$("#chart");
+
+      C.loadJson("../data/bmi-foot-ratio.json").then(function (data) {
+        var thin = F.ringShare(data.ringCharts.thinFoot.highlighted, data.ringCharts.thinFoot.placeholder);
+        var plump = F.ringShare(data.ringCharts.plumpFoot.highlighted, data.ringCharts.plumpFoot.placeholder);
+        C.fillDl(C.$("#rings"), [
+          ["过瘦脚占比", F.formatPct(thin) + "  (50 / 230)"],
+          ["过胖脚占比", F.formatPct(plump) + "  (435 / 2835)"]
+        ]);
+        C.fillTable(
+          C.$("#table"),
+          ["BMI", "Girls index", "Boys index"],
+          F.zipBmiSeries(data).map(function (row) {
+            return [String(row.bmi), F.formatFixed(row.girlsIndex), F.formatFixed(row.boysIndex)];
+          })
+        );
+
+        var chart = C.initChart(chartNode);
+        chart.setOption({
+          backgroundColor: C.darkGrid.backgroundColor,
+          legend: { textStyle: { color: "#d7e7ff" } },
+          tooltip: { trigger: "axis" },
+          grid: { left: 56, right: 24, top: 48, bottom: 40 },
+          xAxis: { type: "category", name: "BMI", data: data.bmi, boundaryGap: false },
+          yAxis: { type: "value", name: "Displayed index", min: 20 },
+          series: [
+            {
+              name: "Girls",
+              type: "line",
+              smooth: true,
+              symbol: "circle",
+              data: data.girlsIndex,
+              itemStyle: { color: "#FF69B4" },
+              areaStyle: { color: "rgba(255,105,180,0.25)" }
+            },
+            {
+              name: "Boys",
+              type: "line",
+              smooth: true,
+              symbol: "circle",
+              data: data.boysIndex,
+              itemStyle: { color: "#3deaff" },
+              areaStyle: { color: "rgba(61,234,255,0.18)" }
+            }
+          ]
+        });
+      }).catch(function (err) {
+        C.showError(chartNode, err);
+      });
+    })();
+  </script>
+</body>
+</html>

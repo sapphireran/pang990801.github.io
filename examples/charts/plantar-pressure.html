@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantar pressure draft — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">Unmounted draw1.js</p>
+      <h1>Plantar pressure sketch</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../docs/unpublished-sketches.md">Sketch notes</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      This option object is not included by <code>index.html</code>.
+      Units follow the draft title (Pa). The two series are the only
+      numeric payload; the original file also had a decorative ring.
+    </p>
+    <div class="chart-shell"><div class="chart" id="chart"></div></div>
+    <table id="table"></table>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/foot-stats.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var F = FootStats;
+      var chartNode = C.$("#chart");
+
+      C.loadJson("../data/plantar-pressure.json").then(function (data) {
+        C.fillTable(
+          C.$("#table"),
+          ["Site", "Typical (Pa)", "Diabetic-foot draft (Pa)"],
+          data.sites.map(function (site, i) {
+            return [site, String(data.typicalAdult[i]), String(data.diabeticFootAdult[i])];
+          })
+        );
+
+        var chart = C.initChart(chartNode);
+        chart.setOption({
+          backgroundColor: C.darkGrid.backgroundColor,
+          legend: { textStyle: { color: "#d7e7ff" } },
+          tooltip: { trigger: "axis" },
+          grid: { left: 56, right: 24, top: 48, bottom: 40 },
+          xAxis: { type: "category", data: data.sites, boundaryGap: false },
+          yAxis: { type: "value", name: "Pa" },
+          series: [
+            { name: "Typical", type: "line", smooth: true, symbol: "circle", data: data.typicalAdult, itemStyle: { color: "#a60bde" } },
+            { name: "Diabetic-foot draft", type: "line", smooth: true, symbol: "circle", data: data.diabeticFootAdult, itemStyle: { color: "#ff733f" } }
+          ]
+        });
+      }).catch(function (err) {
+        C.showError(chartNode, err);
+      });
+    })();
+  </script>
+</body>
+</html>

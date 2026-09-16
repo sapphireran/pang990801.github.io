@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal notes — children's foot-shape dashboard</title>
+  <link rel="stylesheet" href="../examples/css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">pang990801.github.io</p>
+      <h1>Personal notes</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../examples/index.html">Examples</a>
+      <a href="README.md">Markdown index</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <p class="lead">
+      Written notes for this personal GitHub Pages visualization.
+      The live dashboard is a single static page. The numbers on the
+      charts are the arrays already stored in <code>js/index.js</code>,
+      <code>draw1.js</code>, and <code>draw2.js</code>. They are
+      illustrative study plots, not clinical records.
+    </p>
+
+    <section class="card-grid">
+      <a class="card" href="project-notes.md">
+        <h2>Project notes</h2>
+        <p>How the shell, rem scaling, and unused files fit together.</p>
+      </a>
+      <a class="card" href="chart-catalog.md">
+        <h2>Chart catalog</h2>
+        <p>The five live panels and the pages that isolate them.</p>
+      </a>
+      <a class="card" href="measurements.md">
+        <h2>Measurements</h2>
+        <p>Chinese axis labels, units, and the radar 0–100 scale.</p>
+      </a>
+      <a class="card" href="data-notes.md">
+        <h2>Data notes</h2>
+        <p>What the extracted JSON is, and what it is not.</p>
+      </a>
+      <a class="card" href="unpublished-sketches.md">
+        <h2>Unpublished sketches</h2>
+        <p>Plantar pressure and thickness drafts that never shipped.</p>
+      </a>
+      <a class="card" href="local-preview.md">
+        <h2>Local preview</h2>
+        <p>Serve the folder with <code>python3 -m http.server</code>.</p>
+      </a>
+    </section>
+
+    <section>
+      <h2>Live layout</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Panel</th>
+            <th>Isolated page</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Left</td>
+            <td>身高与鞋码 scatter</td>
+            <td><a href="../examples/charts/height-shoe-scatter.html">height-shoe-scatter</a></td>
+          </tr>
+          <tr>
+            <td>Left</td>
+            <td>年龄与脚长 bars + difference</td>
+            <td><a href="../examples/charts/age-foot-length.html">age-foot-length</a></td>
+          </tr>
+          <tr>
+            <td>Center</td>
+            <td>Ages 9–12 radar (DOM class <code>map</code>)</td>
+            <td><a href="../examples/charts/age-radar.html">age-radar</a></td>
+          </tr>
+          <tr>
+            <td>Right</td>
+            <td>BMI vs plumpness index</td>
+            <td><a href="../examples/charts/bmi-ratio.html">bmi-ratio</a></td>
+          </tr>
+          <tr>
+            <td>Right</td>
+            <td>Left / right symmetry pies</td>
+            <td><a href="../examples/charts/symmetry-timeline.html">symmetry-timeline</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Refresh the example JSON</h2>
+      <pre><code>node examples/scripts/extract-dashboard-data.js
+node examples/scripts/test-foot-stats.js
+node examples/scripts/summarize-data.js</code></pre>
+      <p>
+        Those scripts read only this repository. They do not download
+        measurements and they do not change <code>index.html</code>.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
