@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夜读课桌 · 脚型仪表盘第二版笔记</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Personal Night Desk</span>
+    <h1>夜读课桌</h1>
+    <p>给 2020 年这张个人 GitHub Pages 脚型仪表盘做的第二版读书笔记。数字仍是当年写进 JavaScript 的样本，不是新调查，也不是工厂楦型。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>这张桌子上有什么</h2>
+      <p>原站只有一页：四张侧栏图，中间一张雷达，标题是「中国人群脚型数据可视化」。<code>draw1.js</code> 和 <code>draw2.js</code> 写了成年足压和皮厚，却从没挂上。<code>china.js</code> / <code>myMap.js</code> 也还在仓库里睡觉。夜读不改那张旧图的算法，只把已经写死的数列抽出来，写成可以引用的笔记和可以点开的课桌。</p>
+      <div class="grid-3">
+        <article class="card">
+          <div class="kicker">Scatter</div>
+          <div class="stat">199 + 199<span>身高–鞋码散点，男女各一朵云</span></div>
+        </article>
+        <article class="card">
+          <div class="kicker">Crossover</div>
+          <div class="stat">11 岁<span>男孩平均脚长第一次超过女孩（21.32 / 21.29 cm）</span></div>
+        </article>
+        <article class="card">
+          <div class="kicker">Fit</div>
+          <div class="stat">r² ≈ 0.83<span>两朵云各自的普通最小二乘，斜率约 0.14 cm/cm</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="sheet">
+      <h2>先读哪一页</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3><a href="origin.html">装订</a></h3>
+          <p>index.html 实际加载了哪些脚本，哪些文件只是陪绑。</p>
+        </article>
+        <article class="card">
+          <h3><a href="reading.html">读图</a></h3>
+          <p>五张已上线的图各自在说什么，轴上的「鞋码」为什么按厘米读。</p>
+        </article>
+        <article class="card">
+          <h3><a href="clinic.html">误读所</a></h3>
+          <p>七张最容易滑倒的读法：欧码、雷达厘米、公式饼图、成年底稿混进儿童面板。</p>
+        </article>
+        <article class="card">
+          <h3><a href="../../examples/desk/index.html">课桌示例</a></h3>
+          <p>残差工作台、年龄交叉、对称时间轴、雷达解码、底稿附录，全部读同一份 <code>payload.js</code>。</p>
+        </article>
+      </div>
+    </section>
+    <section class="sheet">
+      <h2>夜读拒绝写的句子</h2>
+      <div class="warn">
+        这不是诊疗建议，不是选鞋规则，不是中国儿童脚型标准，也不是 Mondopoint / EU / 国标换算表。OLS 斜率只描述这 398 个已经写进页面的点。
+      </div>
+      <p>若要把数字带回原文件，运行 <code>python3 scripts/extract-desk.py</code>。校验用 <code>python3 scripts/verify-desk.py</code>。</p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 源仓库 <code>pang990801.github.io</code> · 日期 <span data-desk-stamp></span></footer>
+  <script src="desk.js"></script>
+</body>
+</html>

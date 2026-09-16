@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>装订 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">How the 2020 page is bound</span>
+    <h1>装订</h1>
+    <p>原仪表盘是一页 HTML、一叠 ECharts 配置，外加两份从未挂上的底稿。夜读按「谁被浏览器执行」来编目。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>浏览器真正走到的路径</h2>
+      <table>
+        <thead>
+          <tr><th>文件</th><th>角色</th><th>夜读怎么用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>index.html</code></td><td>唯一上线页：导航、四块 panel、中央雷达槽</td><td>只加了「夜读 / 课桌」两个链</td></tr>
+          <tr><td><code>css/index.css</code></td><td>大屏深色皮肤、面板角标、背景图</td><td>不改算法，课桌另用灯下纸色</td></tr>
+          <tr><td><code>js/flexible.js</code></td><td>按屏宽改 <code>rem</code></td><td>原页依赖；课桌用普通像素</td></tr>
+          <tr><td><code>js/jquery.js</code></td><td>点击年和页签</td><td>课桌不再依赖</td></tr>
+          <tr><td><code>js/echarts.js</code> + <code>echarts.min.js</code></td><td>两份图表库，原页都引入了</td><td>示例只引 min</td></tr>
+          <tr><td><code>js/index.js</code></td><td>五张图的配置和全部儿童数列</td><td>抽取散点、年龄、BMI、对称、雷达</td></tr>
+          <tr><td><code>js/click.js</code></td><td>给 <code>.index_nav ul li</code> 加 active；原导航却是 <code>a</code></td><td>记一笔死代码</td></tr>
+          <tr><td><code>js/macarons.js</code></td><td>主题，在 head 引入</td><td>原页图表自己写了 dark</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="sheet">
+      <h2>在仓库里、不在页面上</h2>
+      <table>
+        <thead>
+          <tr><th>文件</th><th>写了什么</th><th>为什么夜读单独放附录</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>draw1.js</code></td><td>七个足压位点，正常人群 vs 糖尿病足人群</td><td>成年对照，从未 <code>init</code></td></tr>
+          <tr><td><code>draw2.js</code></td><td>十四位点皮厚，另有一条叫「差值:um」的折线</td><td>同上；单位标签和数字对不上</td></tr>
+          <tr><td><code>js/china.js</code></td><td>中国 GeoJSON 注册</td><td>index 里被注释掉</td></tr>
+          <tr><td><code>js/myMap.js</code></td><td>飞线地图，找 <code>.map .chart</code></td><td>中央槽位后来改成了雷达</td></tr>
+          <tr><td><code>index_new.css</code></td><td>半成品导航样式</td><td>原页没用它</td></tr>
+        </tbody>
+      </table>
+      <p class="note">中央 <code>.map .chart</code> 这个类名是地图时代留下的。现在里面是雷达，不是省份。</p>
+    </section>
+    <section class="sheet">
+      <h2>导航上的外链</h2>
+      <p>页头四个锚点指向同学站和邮箱，不是本仓库路由：</p>
+      <ul>
+        <li>首页 → <code>scuscientia.github.io</code></li>
+        <li>儿童脚型 → 本站</li>
+        <li>畸形足或病足 → <code>ytep-zhi.github.io</code></li>
+        <li>联系我们 → <code>1127235750@qq.com</code></li>
+      </ul>
+      <p>夜读不改这些外链，只在同一条 <code>ul</code> 末尾接上本仓库的文档和示例。</p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 装订笔记不是架构认证</footer>
+  <script src="desk.js"></script>
+</body>
+</html>

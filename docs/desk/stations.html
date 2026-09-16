@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>测站 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Words the panels actually use</span>
+    <h1>测站</h1>
+    <p>下面只解释原图坐标轴和雷达上出现过的词。这不是量脚规程，也不引入仓库里没有的围度定义。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>儿童面板上的量</h2>
+      <table>
+        <thead>
+          <tr><th>原词</th><th>出现位置</th><th>夜读怎么读</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>身高</td><td>散点 X；雷达一轴</td><td>散点是厘米。雷达是 0–100 分数，不要回写成厘米。</td></tr>
+          <tr><td>鞋码</td><td>散点 Y，单位写成 cm</td><td>数值 10–24，和脚长同量级。按脚长/楦长厘米读，不当 EU/UK/US。</td></tr>
+          <tr><td>脚长</td><td>年龄柱、雷达一轴</td><td>年龄图是厘米均值。雷达仍是分数。</td></tr>
+          <tr><td>年龄</td><td>柱状图 6–14；对称饼 2–14</td><td>两套年龄轴不要叠成一张生长曲线。</td></tr>
+          <tr><td>BMI</td><td>折线 X，12–24</td><td>整数刻度，不是每个孩子的 BMI。</td></tr>
+          <tr><td>脚胖瘦度（脚长/脚宽）</td><td>折线 Y，约 23–30</td><td>更像 (长/宽)×10。原始比值不会到 25。</td></tr>
+          <tr><td>双脚相同 / 左右差</td><td>带时间轴的饼图</td><td>公式演示，见对称页。</td></tr>
+          <tr><td>兜跟围长、跗骨围长、跖趾围长</td><td>只在雷达</td><td>没有厘米底数。只能看 9–12 岁之间的形状变化。</td></tr>
+          <tr><td>体重</td><td>只在雷达</td><td>同上。</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="sheet">
+      <h2>底稿上多出来的词</h2>
+      <table>
+        <thead>
+          <tr><th>原词</th><th>文件</th><th>夜读怎么读</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>位点一 … 位点七 / 十四</td><td>draw1 / draw2</td><td>没有解剖图例。只当有序位点。</td></tr>
+          <tr><td>正常人群 / 糖尿病足人群</td><td>两份底稿</td><td>成年对照标题。不并进 6–14 岁图。</td></tr>
+          <tr><td>Pa</td><td>draw1 标题</td><td>按文件自己的单位标签抄写。</td></tr>
+          <tr><td>mm / 差值:um</td><td>draw2</td><td>皮厚是毫米；差值系列是小整数，夜读不换算。</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="sheet">
+      <h2>夜读不发明的测站</h2>
+      <div class="note">
+        仓库没有舟骨高度、第一跖趾角、足弓指数、左右脚长差的毫米值。印刷卡片只列出原图用过的名字，方便对着仪表盘做笔记，不能当成量脚清单。
+      </div>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 测站表不是测量标准</footer>
+  <script src="desk.js"></script>
+</body>
+</html>

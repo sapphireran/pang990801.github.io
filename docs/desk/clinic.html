@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>误读所 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Seven slips the original page invites</span>
+    <h1>误读所</h1>
+    <p>原仪表盘用了很满的词：鞋码、胖瘦、糖尿病足、中国人群。夜读把最容易滑倒的七次读法写成卡片。交互版在课桌里。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>七张卡片</h2>
+      <div class="grid-2" id="clinic-list"></div>
+      <p class="btn-row"><a class="btn" href="../../examples/desk/clinic.html">打开交互误读所</a></p>
+    </section>
+    <section class="sheet">
+      <h2>为什么要单独做一所</h2>
+      <p>2020 年的标题和配色都在暗示「大屏监控」。大屏很容易把装饰环、公式饼、未挂载的成年曲线读成同一项调查。夜读把它们拆开：儿童五图是一叠；底稿是另一叠；外链同学站是第三叠。</p>
+      <div class="warn">如果你需要的是选鞋、矫形或生产，请离开这张个人课桌，去找有样本量和测量规程的材料。</div>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 误读所不是同行评审</footer>
+  <script src="../../data/desk/payload.js"></script>
+  <script src="desk.js"></script>
+  <script>
+    (function () {
+      var host = document.getElementById("clinic-list");
+      var cards = (window.DESK_DATA && window.DESK_DATA.clinic) || [];
+      cards.forEach(function (card) {
+        var el = document.createElement("article");
+        el.className = "card";
+        el.innerHTML =
+          "<div class=\"kicker\">" + card.panel + "</div>" +
+          "<h3>" + card.title + "</h3>" +
+          "<p><strong>滑倒：</strong> " + card.wrong + "</p>" +
+          "<p><strong>夜读：</strong> " + card.desk + "</p>";
+        host.appendChild(el);
+      });
+    })();
+  </script>
+</body>
+</html>

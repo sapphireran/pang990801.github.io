@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>本地预览 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Static files only</span>
+    <h1>本地预览</h1>
+    <p>夜读和课桌都是静态页。课桌示例用 <code>payload.js</code> 引导数据，不强制 <code>fetch</code>；原仪表盘则只靠脚本标签。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>一条命令</h2>
+      <pre>python3 -m http.server 4173</pre>
+      <p>在仓库根目录执行，然后打开：</p>
+      <ul>
+        <li><a href="http://127.0.0.1:4173/index.html">/index.html</a> — 2020 仪表盘</li>
+        <li><a href="http://127.0.0.1:4173/docs/desk/index.html">/docs/desk/index.html</a> — 夜读首页</li>
+        <li><a href="http://127.0.0.1:4173/examples/desk/index.html">/examples/desk/index.html</a> — 课桌示例</li>
+      </ul>
+    </section>
+    <section class="sheet">
+      <h2>为什么还要服务器</h2>
+      <p>原仪表盘用相对路径加载 CSS/JS，<code>file://</code> 通常也能看。夜读的误读所和若干示例从 <code>../../data/desk/payload.js</code> 读数，用 HTTP 更省事，也和 GitHub Pages 的行为一致。</p>
+      <p>飞线底稿还要加载 <code>js/china.js</code>（约 139 KB）和 <code>js/myMap.js</code>。如果中央雷达页已经打开，不要把同一套 class 再留给地图——附录页用自己的容器。</p>
+    </section>
+    <section class="sheet">
+      <h2>打印</h2>
+      <p><a href="print-card.html">印刷卡片</a>带了 <code>@media print</code> 样式：灯晕和导航会藏起来，纸上只留测站表。浏览器选「打印 / 另存 PDF」即可。</p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 本地预览不是部署指南</footer>
+  <script src="desk.js"></script>
+</body>
+</html>

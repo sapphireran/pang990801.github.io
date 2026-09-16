@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>底稿 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Files the dashboard never mounted</span>
+    <h1>底稿</h1>
+    <p>四份还在仓库里的旧稿。夜读把它们从儿童仪表盘旁边拉开，避免「同一页上的数字都是一回事」。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>draw1.js · 足压</h2>
+      <p>七个位点，两组折线：正常人群、糖尿病足人群。标题单位是 Pa。另有一个饼图环，文案是「用户来源分析」，和足压无关。配置写成全局 <code>option</code>，没有 <code>echarts.init</code>。</p>
+      <p>位点没有解剖名称。夜读只保留顺序和两组数字，不补前足/后足图例。</p>
+    </section>
+    <section class="sheet">
+      <h2>draw2.js · 皮厚</h2>
+      <p>十四个位点。成年正常皮厚约 10.2–13.7 mm，糖尿病足组约 12.9–16.1 mm。第三条折线标成「差值:um」，数字却是 3–45 的整数。夜读原样保存，不把它换算成微米，也不宣称它等于两组毫米差。</p>
+    </section>
+    <section class="sheet">
+      <h2>china.js + myMap.js · 飞线地图</h2>
+      <p><code>index.html</code> 里这两行被注释掉了。中央槽位的 class 仍叫 <code>map</code>，里面现在是雷达。<code>myMap.js</code> 还在找 <code>.map .chart</code>，并依赖 <code>china</code> 地图注册。课桌附录会尝试单独挂一次，用来证明它是另一张图，不是儿童测站。</p>
+    </section>
+    <section class="sheet">
+      <h2>不要做的合并</h2>
+      <div class="warn">
+        不要把糖尿病足折线叠到 BMI 图上，不要把飞线城市当成样本来源，不要把「中国人群」标题覆盖到底稿的成年对照上。
+      </div>
+      <p><a class="btn" href="../../examples/desk/leftovers.html">打开底稿附录</a></p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 底稿附录不是临床对照试验</footer>
+  <script src="desk.js"></script>
+</body>
+</html>

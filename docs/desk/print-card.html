@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>印刷卡片 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp no-print">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">One page for paper</span>
+    <h1>印刷卡片</h1>
+    <p>对着 2020 仪表盘做笔记用。空格是留给你自己的观察，不是测量规程。</p>
+  </header>
+  <nav class="desk-nav no-print" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>脚型仪表盘 · 夜读卡片</h2>
+      <p>日期 ________　对照页：index.html / 夜读课桌　声明：个人笔记，非临床、非工厂。</p>
+      <table>
+        <thead>
+          <tr><th>原词</th><th>我看到的范围</th><th>我怀疑的误读</th><th>备忘</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>身高 cm</td><td></td><td>和雷达分数混读</td><td></td></tr>
+          <tr><td>鞋码（轴上是 cm）</td><td></td><td>当成 EU/UK</td><td></td></tr>
+          <tr><td>脚长 cm（6–14 岁）</td><td></td><td>8→9 岁回落当成生理</td><td></td></tr>
+          <tr><td>女−男脚长差</td><td></td><td>忽略 11 岁交叉</td><td></td></tr>
+          <tr><td>BMI 12–24</td><td></td><td>当成因果</td><td></td></tr>
+          <tr><td>胖瘦度 23–30</td><td></td><td>当成原始长宽比</td><td></td></tr>
+          <tr><td>过瘦/过胖环</td><td></td><td>当成折线汇总</td><td></td></tr>
+          <tr><td>双脚饼图</td><td></td><td>当成实测百分比</td><td></td></tr>
+          <tr><td>雷达七轴</td><td></td><td>当成厘米围度</td><td></td></tr>
+          <tr><td>底稿足压 / 皮厚</td><td></td><td>并进儿童图</td><td></td></tr>
+        </tbody>
+      </table>
+      <h3>课桌上算出的锚点（已写入 payload）</h3>
+      <ul>
+        <li>女云 OLS：y ≈ 0.141 x + 0.30，r² 0.835，n=199</li>
+        <li>男云 OLS：y ≈ 0.143 x − 0.07，r² 0.838，n=199</li>
+        <li>男孩平均脚长自 11 岁起更高（21.32 / 21.29 cm）</li>
+        <li>过瘦环 21.7%，过胖环 15.3%，与折线无关</li>
+      </ul>
+      <p class="no-print btn-row"><button class="btn" type="button" onclick="window.print()">打印 / 存 PDF</button></p>
+    </section>
+  </div>
+  <footer class="desk-foot no-print">Personal reprint · 空表不是知情同意书</footer>
+  <script src="desk.js"></script>
+</body>
+</html>
