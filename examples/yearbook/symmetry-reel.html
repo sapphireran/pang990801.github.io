@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="对称性转盘" data-en="Symmetry reel">对称性转盘</title>
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body class="desk">
+  <div class="desk-wrap">
+    <header class="desk-head">
+      <div>
+        <div class="eyebrow">ages 2–14 · pause first</div>
+        <h1 lang="zh">对称性转盘</h1>
+        <h1 lang="en">Symmetry reel</h1>
+      </div>
+      <div class="lang-toggle" data-lang-toggle></div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">目录 / Index</a>
+      <a href="scatter-desk.html">散点 / Scatter</a>
+      <a href="growth-folio.html">生长册 / Folio</a>
+      <a href="bmi-bench.html">BMI</a>
+      <a href="symmetry-reel.html">对称 / Symmetry</a>
+      <a href="radar-portraits.html">雷达 / Radar</a>
+      <a href="leftover-annex.html">遗稿 / Leftovers</a>
+      <a href="map-annex.html">地图 / Map</a>
+      <a href="print-folio.html">打印 / Print</a>
+    </nav>
+    <p class="lede" lang="zh">原图每 2 秒自动跳岁。这里默认暂停。五档来自自然对数衰减，不是随访队列。</p>
+    <p class="lede" lang="en">The homepage autoplays every two seconds. This reel starts paused. The five bins are a natural-log decay, not a followed cohort.</p>
+    <div class="ctrl">
+      <button type="button" id="play" aria-pressed="false">play</button>
+      <label>age <input id="age" type="range" min="2" max="14" value="2" /> <strong id="ageOut">2</strong></label>
+    </div>
+    <div class="split">
+      <div class="panel"><div id="pie" class="chart"></div></div>
+      <aside class="panel">
+        <table class="sheet" id="bins"></table>
+      </aside>
+    </div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/yearbook/payload.js"></script>
+  <script src="js/desk.js"></script>
+  <script src="js/symmetry-reel.js"></script>
+</body>
+</html>

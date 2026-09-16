@@ -1,0 +1,46 @@
+{
+  "id": "plantar-pressure",
+  "title_zh": "足部压力数据图",
+  "title_en": "Plantar pressure sketch (leftover)",
+  "source": "draw1.js (not mounted by index.html)",
+  "units": "Pa",
+  "sites": [
+    "位点1",
+    "位点2",
+    "位点3",
+    "位点4",
+    "位点5",
+    "位点6",
+    "位点7"
+  ],
+  "normal": [
+    90,
+    50,
+    39,
+    50,
+    120,
+    82,
+    80
+  ],
+  "diabetic_foot": [
+    290,
+    200,
+    20,
+    132,
+    15,
+    200,
+    90
+  ],
+  "delta": [
+    200,
+    150,
+    -19,
+    82,
+    -105,
+    118,
+    10
+  ],
+  "status": "leftover",
+  "note_zh": "根目录遗稿，原首页没有挂载。仅作文档与示例对照。",
+  "note_en": "Root leftover file. The live homepage does not load it. Kept for documentation and the annex example."
+}

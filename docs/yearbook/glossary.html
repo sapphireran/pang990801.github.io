@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 词表" data-en="Field yearbook · Glossary">田野年鉴 · 词表</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">bilingual terms from the dashboard</div>
+        <h1 lang="zh">词表</h1>
+        <h1 lang="en">Glossary</h1>
+      </div>
+      <div>
+        <div class="stamp">ZH / EN<br />对照</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <p class="lede" lang="zh">只收仪表盘和遗稿里出现过的词，并按源码用法注释。不是制鞋工业词典。</p>
+    <p class="lede" lang="en">Only terms that appear on the dashboard or leftovers, glossed the way the source uses them. This is not a last-making dictionary.</p>
+
+    <table class="sheet">
+      <thead>
+        <tr>
+          <th>中文</th>
+          <th>English in this copy</th>
+          <th lang="zh">源码里怎么用</th>
+          <th lang="en">How the source uses it</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>鞋码</td>
+          <td>shoe length / shoe size</td>
+          <td lang="zh">散点和雷达都出现。散点轴写成 cm，更接近脚长。</td>
+          <td lang="en">Used on the scatter and the radar. The scatter axis is labeled cm, so it behaves like foot length.</td>
+        </tr>
+        <tr>
+          <td>脚长</td>
+          <td>foot length</td>
+          <td lang="zh">年龄柱图的主序列，单位 cm。</td>
+          <td lang="en">Main series on the age panel, in cm.</td>
+        </tr>
+        <tr>
+          <td>脚胖瘦度</td>
+          <td>length-to-width ratio</td>
+          <td lang="zh">源码括号写“脚长/脚宽”，数值约 23–30。</td>
+          <td lang="en">The source writes “length/width”. Values sit around 23–30.</td>
+        </tr>
+        <tr>
+          <td>兜跟围长</td>
+          <td>heel girth</td>
+          <td lang="zh">雷达第二轴，相对分。</td>
+          <td lang="en">Second radar spoke, relative score.</td>
+        </tr>
+        <tr>
+          <td>跗骨围长</td>
+          <td>tarsal girth</td>
+          <td lang="zh">雷达第三轴，相对分。</td>
+          <td lang="en">Third radar spoke, relative score.</td>
+        </tr>
+        <tr>
+          <td>跖趾围长</td>
+          <td>ball / joint girth</td>
+          <td lang="zh">雷达第四轴，相对分。</td>
+          <td lang="en">Fourth radar spoke, relative score.</td>
+        </tr>
+        <tr>
+          <td>位点</td>
+          <td>site / landmark</td>
+          <td lang="zh">遗稿里对足底采样点的称呼，没有坐标图。</td>
+          <td lang="en">Leftover name for a plantar sample. No coordinate figure is supplied.</td>
+        </tr>
+        <tr>
+          <td>过瘦脚 / 过胖脚</td>
+          <td>narrow foot / wide foot</td>
+          <td lang="zh">BMI 图右侧环图标签，占位比例。</td>
+          <td lang="en">Labels on the BMI inset rings; placeholder ratios.</td>
+        </tr>
+        <tr>
+          <td>双脚相同</td>
+          <td>same feet</td>
+          <td lang="zh">对称性饼图最大的一档，由公式生成。</td>
+          <td lang="en">Largest symmetry bin, produced by the formula.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer class="footer">
+      <span lang="zh">测站页有完整单位表。</span>
+      <span lang="en">The stations page has the full unit table.</span>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+:root {
+  --paper: #f3ead8;
+  --paper-2: #efe4cc;
+  --ink: #241c14;
+  --ink-soft: #5b4d3f;
+  --rule: #c9b89a;
+  --stamp: #8f1d1d;
+  --teal: #1f6f78;
+  --lamp: #c9842a;
+  --card: rgba(255, 252, 244, 0.72);
+  --shadow: 0 12px 32px rgba(36, 28, 20, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.yearbook {
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(201, 132, 42, 0.08), transparent 28%),
+    linear-gradient(180deg, var(--paper), var(--paper-2));
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC",
+    "Source Han Serif SC", serif;
+  line-height: 1.55;
+}
+
+body.yearbook::before {
+  content: "";
+  position: fixed;
+  inset: 18px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  color: var(--teal);
+}
+
+a:hover {
+  color: var(--stamp);
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 72px;
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: end;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--stamp);
+}
+
+.masthead h1 {
+  margin: 4px 0 0;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.02em;
+}
+
+.stamp {
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  padding: 8px 12px;
+  text-align: center;
+  transform: rotate(-6deg);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lang-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.lang-toggle button,
+.nav a,
+.btn {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+}
+
+.lang-toggle button,
+.btn {
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.lang-toggle button[aria-pressed="true"],
+.btn.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 14px 0 22px;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.nav a[aria-current="page"],
+.nav a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.lede {
+  max-width: 68ch;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card,
+table.sheet {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  padding: 16px 18px 18px;
+}
+
+.card h2,
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.meta {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+table.sheet {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+table.sheet th,
+table.sheet td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+table.sheet th {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.note {
+  border-left: 3px solid var(--lamp);
+  padding: 4px 0 4px 12px;
+  color: var(--ink-soft);
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 2px 6px;
+  border: 1px solid var(--rule);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kicker.live {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.kicker.leftover {
+  border-color: var(--stamp);
+  color: var(--stamp);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.footer {
+  margin-top: 36px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+[data-lang="en"] [lang="zh"],
+[data-lang="zh"] [lang="en"] {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .masthead,
+  .pair {
+    grid-template-columns: 1fr;
+  }
+
+  .stamp {
+    justify-self: start;
+  }
+}
+
+@media print {
+  body.yearbook::before,
+  .lang-toggle,
+  .nav {
+    display: none;
+  }
+
+  body.yearbook {
+    background: white;
+  }
+}

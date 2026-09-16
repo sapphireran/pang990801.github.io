@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 托管" data-en="Field yearbook · Hosting">田野年鉴 · 托管</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">preview · pages · print</div>
+        <h1 lang="zh">本地预览与托管笔记</h1>
+        <h1 lang="en">Local preview and hosting notes</h1>
+      </div>
+      <div>
+        <div class="stamp">Serve local<br />本机起站</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <h2 lang="zh">本机起一个静态站</h2>
+    <h2 lang="en">Serve the tree locally</h2>
+    <p lang="zh">原仪表盘大多能直接用 <code>file://</code> 打开。年鉴示例把数据写进 <code>payload.js</code>，同样不依赖 fetch。地图附页要加载 <code>js/china.js</code>，用一个本地静态服务器更稳：</p>
+    <p lang="en">The original dashboard mostly works from <code>file://</code>. Yearbook examples embed <code>payload.js</code>, so they also do not need fetch. The map annex loads <code>js/china.js</code>; a local static server is the more reliable path:</p>
+    <pre class="card" style="overflow:auto;"><code>python3 -m http.server 4173
+# dashboard:  http://127.0.0.1:4173/
+# yearbook:   http://127.0.0.1:4173/docs/yearbook/
+# examples:   http://127.0.0.1:4173/examples/yearbook/</code></pre>
+
+    <h2 lang="zh">发布后的路径</h2>
+    <h2 lang="en">Published paths</h2>
+    <p lang="zh">仓库名是 <code>pang990801.github.io</code>，但 GitHub 用户名是 <code>sapphireran</code>。用户级 Pages 根站 <code>https://pang990801.github.io/</code> 并不对应这个仓库。项目页路径是 <code>https://sapphireran.github.io/pang990801.github.io/</code>。首页导航里“儿童脚型”仍指向根站，年鉴没有改那条外链。</p>
+    <p lang="en">The repository is named <code>pang990801.github.io</code>, but the GitHub user is <code>sapphireran</code>. The user Pages root <code>https://pang990801.github.io/</code> is not this repo. The project URL is <code>https://sapphireran.github.io/pang990801.github.io/</code>. The homepage “儿童脚型” link still points at the user root; the yearbook does not rewrite that outbound href.</p>
+
+    <div class="grid">
+      <article class="card">
+        <h3 lang="zh">检查清单</h3>
+        <h3 lang="en">Checklist</h3>
+        <ul lang="zh">
+          <li>原首页五图仍在，时钟仍走。</li>
+          <li>年鉴中/EN 切换会写进 <code>localStorage</code>。</li>
+          <li><code>python3 scripts/verify-yearbook.py</code> 能通过。</li>
+          <li>打印折页用浏览器“打印 / 另存 PDF”。</li>
+        </ul>
+        <ul lang="en">
+          <li>The five homepage charts still render and the clock still ticks.</li>
+          <li>The yearbook 中/EN toggle writes <code>localStorage</code>.</li>
+          <li><code>python3 scripts/verify-yearbook.py</code> exits 0.</li>
+          <li>The print folio uses the browser Print / Save as PDF dialog.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 lang="zh">重做数据包</h3>
+        <h3 lang="en">Rebuild the pack</h3>
+        <p lang="zh">改过 <code>js/index.js</code> 或两份 <code>draw*.js</code> 之后：</p>
+        <p lang="en">After editing <code>js/index.js</code> or either <code>draw*.js</code>:</p>
+        <pre><code>python3 scripts/build-yearbook.py
+python3 scripts/verify-yearbook.py</code></pre>
+      </article>
+    </div>
+
+    <footer class="footer">
+      <span lang="zh">个人 Pages 仓库，没有构建步骤，也没有密钥。</span>
+      <span lang="en">Personal Pages repo. No build step and no secrets.</span>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

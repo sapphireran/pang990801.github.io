@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 出处" data-en="Field yearbook · Provenance">田野年鉴 · 出处</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">file atlas · live vs leftover</div>
+        <h1 lang="zh">出处与文件地图</h1>
+        <h1 lang="en">Provenance and file atlas</h1>
+      </div>
+      <div>
+        <div class="stamp">Source map<br />底稿目录</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <p class="lede" lang="zh">仓库不大，但“被首页引用”和“躺在目录里”不是一回事。年鉴把个人源文件分成在线与遗稿两叠，避免以后改错文件。</p>
+    <p class="lede" lang="en">The repo is small, but “linked from the homepage” and “sitting in the tree” are different. The yearbook splits personal sources into live and leftover stacks so later edits hit the right file.</p>
+
+    <h2 lang="zh">首页实际加载的脚本</h2>
+    <h2 lang="en">Scripts the homepage actually loads</h2>
+    <table class="sheet">
+      <thead>
+        <tr>
+          <th>path</th>
+          <th lang="zh">角色</th>
+          <th lang="en">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>js/macarons.js</code></td><td lang="zh">页头主题，仪表盘主体用的是 <code>dark</code></td><td lang="en">Head theme; the panels themselves request <code>dark</code></td></tr>
+        <tr><td><code>js/flexible.js</code></td><td lang="zh">把 1rem 设为视口宽度 / 24</td><td lang="en">Sets 1rem to viewport width / 24</td></tr>
+        <tr><td><code>js/jquery.js</code></td><td lang="zh">给 <code>click.js</code> 和一处未用的年份切换</td><td lang="en">Used by <code>click.js</code> and an unused year switch</td></tr>
+        <tr><td><code>js/echarts.js</code> + <code>echarts.min.js</code></td><td lang="zh">图表库加载了两份</td><td lang="en">Chart library is loaded twice</td></tr>
+        <tr><td><code>js/index.js</code></td><td lang="zh">五张在线图的唯一数据源</td><td lang="en">Only data source for the five live charts</td></tr>
+        <tr><td><code>js/click.js</code></td><td lang="zh">绑的是首页里不存在的 <code>li</code> 页签</td><td lang="en">Binds tab handlers for <code>li</code> nodes the homepage does not render</td></tr>
+      </tbody>
+    </table>
+
+    <h2 lang="zh">目录里有、首页没挂的文件</h2>
+    <h2 lang="en">Present in the tree, not mounted</h2>
+    <table class="sheet">
+      <thead>
+        <tr>
+          <th>path</th>
+          <th lang="zh">角色</th>
+          <th lang="en">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>draw1.js</code></td><td lang="zh">足压折线 + 环图 option，根目录遗稿</td><td lang="en">Pressure line + ring option, root leftover</td></tr>
+        <tr><td><code>draw2.js</code></td><td lang="zh">14 个位点的成年厚度柱 + 差值线</td><td lang="en">14-site adult thickness bars + delta line</td></tr>
+        <tr><td><code>js/china.js</code></td><td lang="zh">中国 geo，首页注释掉了</td><td lang="en">China geo; commented out on the homepage</td></tr>
+        <tr><td><code>js/myMap.js</code></td><td lang="zh">西安 / 西宁 / 拉萨航线示例，同样被注释</td><td lang="en">Xi’an / Xining / Lhasa flight-line demo, also commented out</td></tr>
+        <tr><td><code>js/macarons.json</code></td><td lang="zh">主题 JSON 副本</td><td lang="en">Duplicate theme JSON</td></tr>
+        <tr><td><code>index_new.css</code></td><td lang="zh">未引用样式</td><td lang="en">Unreferenced stylesheet</td></tr>
+        <tr><td><code>css/index.less</code></td><td lang="zh">仪表盘 Less 源，浏览器不读它</td><td lang="en">Less source for the dashboard; the browser never reads it</td></tr>
+      </tbody>
+    </table>
+
+    <section class="pair" style="margin-top: 24px;">
+      <article class="card">
+        <h3 lang="zh">改图时动哪里</h3>
+        <h3 lang="en">Where to edit a chart</h3>
+        <p lang="zh">改在线数字只动 <code>js/index.js</code>。改布局动 <code>css/index.css</code> 或它的 Less 源再编译。年鉴数据要同步时重跑 <code>python3 scripts/build-yearbook.py</code>。</p>
+        <p lang="en">Change live numbers only in <code>js/index.js</code>. Change layout in <code>css/index.css</code> or recompile the Less source. Re-run <code>python3 scripts/build-yearbook.py</code> when the yearbook pack should follow.</p>
+      </article>
+      <article class="card">
+        <h3 lang="zh">年鉴自己新增的文件</h3>
+        <h3 lang="en">Files the yearbook adds</h3>
+        <p lang="zh"><code>data/yearbook/</code> 是提取结果，<code>docs/yearbook/</code> 是说明，<code>examples/yearbook/</code> 是复原页。它们不参与原仪表盘的脚本列表。</p>
+        <p lang="en"><code>data/yearbook/</code> is the extract, <code>docs/yearbook/</code> is the desk copy, and <code>examples/yearbook/</code> are reconstructions. None of them join the original dashboard’s script list.</p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span lang="zh">机器可读清单：<a href="../../data/yearbook/files.json">files.json</a></span>
+      <span lang="en">Machine-readable list: <a href="../../data/yearbook/files.json">files.json</a></span>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

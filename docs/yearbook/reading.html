@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 读图" data-en="Field yearbook · Reading">田野年鉴 · 读图</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">reading notes · look here first</div>
+        <h1 lang="zh">读图笔记</h1>
+        <h1 lang="en">Reading notes</h1>
+      </div>
+      <div>
+        <div class="stamp">Desk notes<br />书桌批注</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <p class="lede" lang="zh">原首页把五张图挤在一屏。下面按“先看什么、别误读什么”写下书桌批注，方便把仪表盘当图版而不是当海报。</p>
+    <p class="lede" lang="en">The homepage packs five charts onto one screen. These notes say what to look at first and what not to over-read, so the dashboard can be used as a plate rather than a poster.</p>
+
+    <article class="card">
+      <span class="kicker live">.bar</span>
+      <h2 lang="zh">1. 身高与鞋码：先找斜率，再找离群点</h2>
+      <h2 lang="en">1. Height and shoe: slope first, then outliers</h2>
+      <p lang="zh">两性几乎平行（斜率约 0.14 cm 鞋长 / cm 身高）。框选工具能把某一段身高单独放大。最小值标记会跳到最矮、最短的点，不一定是“异常儿童”。散点没有年龄颜色，所以不能从这一张推出生长速度。</p>
+      <p lang="en">The two sexes are nearly parallel (about 0.14 cm of shoe length per cm of height). Brush a height band to zoom. Min markers jump to the shortest pair, which is not automatically an “outlier child.” There is no age color, so this panel cannot show growth speed.</p>
+    </article>
+    <article class="card" style="margin-top: 16px;">
+      <span class="kicker live">.line</span>
+      <h2 lang="zh">2. 年龄与脚长：看交叉，而不是看柱顶装饰</h2>
+      <h2 lang="en">2. Age and length: watch the crossover, not the diamond caps</h2>
+      <p lang="zh">6–8 岁女童均值略高，11 岁起男童领先，14 岁差约 0.5 cm。菱形是 pictorialBar 装饰。8→9 岁两组都略回落，年鉴把它记作源码里的拐点，而不是要解释的生理事件。</p>
+      <p lang="en">Girl means sit slightly higher from 6–8; boys lead from 11; the gap is about 0.5 cm at 14. The diamonds are pictorialBar caps. Both series dip from 8 to 9 — the yearbook records that as a source kink, not a physiological event to explain.</p>
+    </article>
+    <article class="card" style="margin-top: 16px;">
+      <span class="kicker live">.bar1</span>
+      <h2 lang="zh">3. BMI 与胖瘦度：两条线，不是因果</h2>
+      <h2 lang="en">3. BMI and shape: two lines, not a cause</h2>
+      <p lang="zh">数值随 BMI 上升，但不能把它读成“BMI 决定脚型”。右侧环图是另一套占位比例，分子分母都不在折线序列里。读这张图时把环图当成装饰比例，把折线当成主序列。</p>
+      <p lang="en">Values rise with BMI; that is not “BMI causes foot shape.” The rings are a second, placeholder ratio whose numerator and denominator are not in the line series. Read the lines as the main series and the rings as decoration.</p>
+    </article>
+    <article class="card" style="margin-top: 16px;">
+      <span class="kicker live">.line1</span>
+      <h2 lang="zh">4. 双脚比例：先关掉自动播放</h2>
+      <h2 lang="en">4. Symmetry: pause autoplay first</h2>
+      <p lang="zh">时间轴默认 2 秒一帧。要比较某一岁，先点暂停。越往后“相同”越大，是公式衰减，不是随访队列。五档百分比加总为 100%。</p>
+      <p lang="en">The timeline advances every two seconds. Pause it before comparing a single age. The climb in “same feet” is the decay formula, not a followed cohort. The five bins add to 100%.</p>
+    </article>
+    <article class="card" style="margin-top: 16px;">
+      <span class="kicker live">.map</span>
+      <h2 lang="zh">5. 中央图是雷达，底图是装饰</h2>
+      <h2 lang="en">5. The center is a radar; the map art is decoration</h2>
+      <p lang="zh">CSS 仍铺着 <code>map.png</code> / <code>lbx.png</code> / <code>jt.png</code>，但 <code>china.js</code> 已注释。四个年龄圈在放大，并不表示某一维的厘米增长。图例可开关单岁。</p>
+      <p lang="en">CSS still layers <code>map.png</code> / <code>lbx.png</code> / <code>jt.png</code>, but <code>china.js</code> is commented out. The four age rings get larger; that is not centimeters on a given spoke. The legend toggles a single age.</p>
+    </article>
+
+    <footer class="footer">
+      <span lang="zh">更细的宿主与单位表见 <a href="stations.html">测站</a>。</span>
+      <span lang="en">Host and unit tables are on the <a href="stations.html">stations</a> page.</span>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

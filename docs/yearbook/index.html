@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 门厅" data-en="Field yearbook · Lobby">田野年鉴 · 门厅</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">pang990801.github.io · personal desk copy</div>
+        <h1 lang="zh">中国人群脚型数据可视化 · 田野年鉴</h1>
+        <h1 lang="en">Children’s foot-shape visualization · field yearbook</h1>
+      </div>
+      <div>
+        <div class="stamp">Field copy<br />田野底稿</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <p class="lede" lang="zh">
+      这是一份<b>个人书桌副本</b>，用来把 2020 年那张儿童脚型仪表盘读清楚：
+      五个在线图各画什么、单位是什么、哪些文件其实没有挂上首页。
+      它不改原图的行为，也不引入任何公司代码或临床结论。
+    </p>
+    <p class="lede" lang="en">
+      This is a <b>personal desk copy</b> of the 2020 children’s foot-shape
+      dashboard: what each of the five live charts shows, which units the
+      source actually uses, and which files never made it onto the homepage.
+      It does not change the original charts and it does not pull in company
+      code or clinical claims.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <span class="kicker live">Live</span>
+        <h2 lang="zh">五张在线图</h2>
+        <h2 lang="en">Five live panels</h2>
+        <p lang="zh">身高–鞋码散点、年龄–脚长柱线、BMI–胖瘦度、双脚比例时间轴、9–12 岁雷达。数据写在 <code>js/index.js</code> 里。</p>
+        <p lang="en">Height–shoe scatter, age–length bars, BMI vs shape, a left/right timeline, and a 9–12 radar. The series live in <code>js/index.js</code>.</p>
+        <p><a href="stations.html">测站卡片 →</a></p>
+      </article>
+      <article class="card">
+        <span class="kicker leftover">Leftover</span>
+        <h2 lang="zh">没有挂上的遗稿</h2>
+        <h2 lang="en">Unmounted sketches</h2>
+        <p lang="zh"><code>draw1.js</code> 足压、<code>draw2.js</code> 皮下厚度、以及已注释的 <code>china.js</code> / <code>myMap.js</code> 航线图。年鉴把它们单独陈列，避免和儿童首页混在一起。</p>
+        <p lang="en"><code>draw1.js</code> pressure, <code>draw2.js</code> tissue thickness, and the commented-out <code>china.js</code> / <code>myMap.js</code> flight map. The yearbook keeps them in an annex so they are not mistaken for the children’s homepage.</p>
+        <p><a href="annex.html">遗稿说明 →</a></p>
+      </article>
+      <article class="card">
+        <span class="kicker">Examples</span>
+        <h2 lang="zh">可操作的示例</h2>
+        <h2 lang="en">Worked examples</h2>
+        <p lang="zh">散点工作台、6–14 岁生长册、对称性转盘、雷达肖像、遗稿复原和打印折页。全部读取 <code>data/yearbook/payload.js</code>。</p>
+        <p lang="en">A scatter desk, a 6–14 growth folio, a symmetry reel, radar portraits, leftover reconstructions, and a print folio. All of them read <code>data/yearbook/payload.js</code>.</p>
+        <p><a href="../../examples/yearbook/index.html">打开示例桌 →</a></p>
+      </article>
+    </div>
+
+    <section class="pair" style="margin-top: 28px;">
+      <div>
+        <h2 lang="zh">这份副本承认的事实</h2>
+        <h2 lang="en">What this copy treats as fact</h2>
+        <ul lang="zh">
+          <li>女童 / 男童散点各 199 点，合并后身高与鞋长相关约 r = 0.92。</li>
+          <li>6 到 14 岁，女童脚长约增 4.11 cm，男童约增 4.89 cm。</li>
+          <li>女童脚长在 11 岁附近被男童超过（差值由正转负）。</li>
+          <li>双脚“相同”一档从 2 岁约 63% 升到 14 岁约 91%，但这是源码里的对数衰减公式，不是逐人实测。</li>
+          <li>雷达每根轴满刻度是 100，是相对分，不是厘米或千克。</li>
+        </ul>
+        <ul lang="en">
+          <li>199 girl points and 199 boy points; pooled height vs shoe length is about r = 0.92.</li>
+          <li>From age 6 to 14, mean foot length rises about 4.11 cm for girls and 4.89 cm for boys.</li>
+          <li>Girl mean length is overtaken by boys around age 11 (the signed gap turns negative).</li>
+          <li>“Same feet” rises from about 63% at age 2 to 91% at age 14 — that series is a log-decay formula in the source, not person-level measurements.</li>
+          <li>Radar spokes are capped at 100. They are relative scores, not cm or kg.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 lang="zh">这份副本不声称的事</h2>
+        <h2 lang="en">What this copy does not claim</h2>
+        <p class="note" lang="zh">不是诊疗建议，不是抽样设计说明书，也不是公司内部数据。鞋码轴在源码里按厘米标注；嵌套环图沿用原文件的占位比例。若要改图，先看 <a href="provenance.html">出处页</a> 再动 <code>js/index.js</code>。</p>
+        <p class="note" lang="en">Not clinical advice, not a sampling-design memo, and not company data. The shoe axis is labeled in centimeters in the source. Inset rings reuse placeholder ratios. To change a chart, read the <a href="provenance.html">provenance page</a> before editing <code>js/index.js</code>.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span lang="zh">个人仓库 sapphireran/pang990801.github.io · 仅书桌文档与示例。</span>
+      <span lang="en">Personal repo sapphireran/pang990801.github.io · desk docs and examples only.</span>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

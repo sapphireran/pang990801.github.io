@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 遗稿" data-en="Field yearbook · Annex">田野年鉴 · 遗稿</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">annex · leftovers kept separate</div>
+        <h1 lang="zh">遗稿附页</h1>
+        <h1 lang="en">Leftover annex</h1>
+      </div>
+      <div>
+        <div class="stamp">Not mounted<br />未挂载</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <p class="lede" lang="zh">这三份遗稿都还在个人仓库里，但首页没有执行它们。附页把内容写清楚，并链到单独的复原示例，避免有人以为儿童仪表盘里画了糖尿病足或航线。</p>
+    <p class="lede" lang="en">These three leftovers still live in the personal repo, but the homepage never runs them. The annex writes down what they contain and links to standalone reconstructions so nobody mistakes diabetic-foot sketches or flight lines for the children’s dashboard.</p>
+
+    <article class="card">
+      <span class="kicker leftover">draw1.js</span>
+      <h2 lang="zh">足部压力草图（Pa）</h2>
+      <h2 lang="en">Plantar pressure sketch (Pa)</h2>
+      <p lang="zh">七个位点。正常人序列 90, 50, 39, 50, 120, 82, 80；糖尿病足序列 290, 200, 20, 132, 15, 200, 90。右侧环图用 335 / 180 做占位。图例里还有一个未配序列的“潍V”。</p>
+      <p lang="en">Seven sites. Typical series 90, 50, 39, 50, 120, 82, 80; diabetic-foot series 290, 200, 20, 132, 15, 200, 90. The ring uses 335 / 180 as a placeholder. The legend also names “潍V”, which has no series.</p>
+      <p><a href="../../examples/yearbook/leftover-annex.html">打开复原页 →</a></p>
+    </article>
+    <article class="card" style="margin-top: 16px;">
+      <span class="kicker leftover">draw2.js</span>
+      <h2 lang="zh">皮下组织厚度草图（mm / μm）</h2>
+      <h2 lang="en">Tissue thickness sketch (mm / μm)</h2>
+      <p lang="zh">十四个位点。成年正常与糖尿病足两组柱，差值线单位写成 <code>um</code>。标题写明是成年数据，和儿童首页不是同一张表。</p>
+      <p lang="en">Fourteen sites. Adult typical and diabetic-foot bars, plus a delta line labeled <code>um</code>. The title says adult; it is not the children’s table.</p>
+      <p><a href="../../examples/yearbook/leftover-annex.html#thickness">打开复原页 →</a></p>
+    </article>
+    <article class="card" style="margin-top: 16px;">
+      <span class="kicker leftover">china.js + myMap.js</span>
+      <h2 lang="zh">航线地图草图</h2>
+      <h2 lang="en">Flight-line map sketch</h2>
+      <p lang="zh">首页里这两行被注释掉了。中央面板的宿主选择器 <code>.map .chart</code> 后来改挂雷达。<code>myMap.js</code> 仍画西安、西宁、拉萨出发的示意航线，城市坐标表在文件前半。示例页用独立宿主复原，避免和雷达抢同一个 DOM。</p>
+      <p lang="en">Both script tags are commented out on the homepage. The <code>.map .chart</code> host later received the radar. <code>myMap.js</code> still describes illustrative routes from Xi’an, Xining, and Lhasa; the city table is the first half of the file. The example uses its own host so it does not fight the radar for the same DOM node.</p>
+      <p><a href="../../examples/yearbook/map-annex.html">打开地图附页 →</a></p>
+    </article>
+
+    <p class="note" style="margin-top: 20px;" lang="zh">遗稿里的“糖尿病足”字样属于 2020 年桌面草图，不是本年鉴的调查结论，也不应当作医疗说明。</p>
+    <p class="note" style="margin-top: 20px;" lang="en">The diabetic-foot labels belong to a 2020 desk sketch. They are not a survey finding and they are not medical advice.</p>
+
+    <footer class="footer">
+      <span lang="zh">出处总表见 <a href="provenance.html">出处页</a>。</span>
+      <span lang="en">The full file atlas is on the <a href="provenance.html">provenance</a> page.</span>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

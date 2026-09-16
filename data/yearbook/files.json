@@ -1,0 +1,86 @@
+{
+  "live": [
+    {
+      "path": "index.html",
+      "role_en": "homepage shell",
+      "role_zh": "首页骨架"
+    },
+    {
+      "path": "css/index.css",
+      "role_en": "dashboard layout",
+      "role_zh": "仪表盘样式"
+    },
+    {
+      "path": "js/index.js",
+      "role_en": "five live charts",
+      "role_zh": "五个在线图表"
+    },
+    {
+      "path": "js/flexible.js",
+      "role_en": "rem scaling",
+      "role_zh": "rem 适配"
+    },
+    {
+      "path": "js/jquery.js",
+      "role_en": "nav helpers",
+      "role_zh": "导航辅助"
+    },
+    {
+      "path": "js/echarts.js",
+      "role_en": "chart library",
+      "role_zh": "图表库"
+    },
+    {
+      "path": "js/echarts.min.js",
+      "role_en": "minified chart library",
+      "role_zh": "压缩图表库"
+    },
+    {
+      "path": "js/click.js",
+      "role_en": "unused tab handlers",
+      "role_zh": "未用到的页签脚本"
+    },
+    {
+      "path": "js/macarons.js",
+      "role_en": "theme file loaded in head",
+      "role_zh": "页头载入的主题"
+    }
+  ],
+  "leftover": [
+    {
+      "path": "draw1.js",
+      "role_en": "plantar pressure option",
+      "role_zh": "足压 option 遗稿"
+    },
+    {
+      "path": "draw2.js",
+      "role_en": "tissue thickness option",
+      "role_zh": "组织厚度 option 遗稿"
+    },
+    {
+      "path": "js/china.js",
+      "role_en": "China geo JSON, commented out",
+      "role_zh": "中国地图，首页已注释"
+    },
+    {
+      "path": "js/myMap.js",
+      "role_en": "flight-line map, commented out",
+      "role_zh": "航线图，首页已注释"
+    },
+    {
+      "path": "js/macarons.json",
+      "role_en": "theme JSON duplicate",
+      "role_zh": "主题 JSON 副本"
+    },
+    {
+      "path": "index_new.css",
+      "role_en": "unused stylesheet",
+      "role_zh": "未引用样式"
+    },
+    {
+      "path": "css/index.less",
+      "role_en": "Less source for dashboard CSS",
+      "role_zh": "仪表盘 Less 源"
+    }
+  ]
+}

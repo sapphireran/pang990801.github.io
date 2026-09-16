@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-zh="田野年鉴 · 测站" data-en="Field yearbook · Stations">田野年鉴 · 测站</title>
+  <link rel="stylesheet" href="yearbook.css" />
+</head>
+<body class="yearbook">
+  <div class="wrap">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">stations · five live hosts</div>
+        <h1 lang="zh">测站卡片</h1>
+        <h1 lang="en">Station cards</h1>
+      </div>
+      <div>
+        <div class="stamp">Live only<br />仅在线</div>
+        <div class="lang-toggle" data-lang-toggle></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <a href="index.html">门厅 / Lobby</a>
+      <a href="stations.html">测站 / Stations</a>
+      <a href="reading.html">读图 / Reading</a>
+      <a href="provenance.html">出处 / Provenance</a>
+      <a href="annex.html">遗稿 / Annex</a>
+      <a href="hosting.html">托管 / Hosting</a>
+      <a href="glossary.html">词表 / Glossary</a>
+      <a href="../../examples/yearbook/index.html">示例 / Examples</a>
+      <a href="../../index.html">原仪表盘 / Dashboard</a>
+    </nav>
+
+    <p class="lede" lang="zh">每张卡片对应首页上一个 <code>.chart</code> 宿主。统计由 <code>scripts/build-yearbook.py</code> 从源码重新算出，方便以后对照。</p>
+    <p class="lede" lang="en">Each card matches one homepage <code>.chart</code> host. Statistics are recomputed from the source by <code>scripts/build-yearbook.py</code> so later edits can be checked.</p>
+
+    <table class="sheet">
+      <thead>
+        <tr>
+          <th>Host</th>
+          <th lang="zh">中文题</th>
+          <th lang="en">English title</th>
+          <th lang="zh">编码 / 单位</th>
+          <th lang="en">Encoding / units</th>
+          <th lang="zh">从源码读出的要点</th>
+          <th lang="en">What the source actually holds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>.bar .chart</code></td>
+          <td lang="zh">男童女童身高与鞋码的关系</td>
+          <td lang="en">Height and shoe length</td>
+          <td lang="zh">散点 · 身高 cm × 鞋码 cm</td>
+          <td lang="en">Scatter · height cm × shoe cm</td>
+          <td lang="zh">女 199 / 男 199。女 r=0.914，斜率 0.141；男 r=0.916，斜率 0.143。工具箱开了框选和缩放。</td>
+          <td lang="en">199 girls / 199 boys. Girls r=0.914, slope 0.141; boys r=0.916, slope 0.143. Brush and dataZoom are on.</td>
+        </tr>
+        <tr>
+          <td><code>.line .chart</code></td>
+          <td lang="zh">男童女童年龄与脚长的关系</td>
+          <td lang="en">Foot length by age</td>
+          <td lang="zh">6–14 岁柱 + 差值面积线</td>
+          <td lang="en">Ages 6–14 bars + difference area</td>
+          <td lang="zh">女 18.55→22.66 cm，男 18.27→23.16 cm。11 岁差值转负。</td>
+          <td lang="en">Girls 18.55→22.66 cm, boys 18.27→23.16 cm. Signed gap turns negative at 11.</td>
+        </tr>
+        <tr>
+          <td><code>.bar1 .chart</code></td>
+          <td lang="zh">儿童BMI与脚的胖瘦度关系</td>
+          <td lang="en">BMI vs length/width</td>
+          <td lang="zh">BMI 12–24 双面积线 + 两枚环图</td>
+          <td lang="en">BMI 12–24 dual area + two rings</td>
+          <td lang="zh">纵轴标签是“脚长/脚宽”。过瘦环 50/(50+180)≈21.7%，过胖环 435/(435+2400)≈15.3%。</td>
+          <td lang="en">Y label is length/width. Narrow ring 50/(50+180)≈21.7%, wide ring 435/(435+2400)≈15.3%.</td>
+        </tr>
+        <tr>
+          <td><code>.line1 .chart</code></td>
+          <td lang="zh">儿童双脚比例</td>
+          <td lang="en">Left/right proportion</td>
+          <td lang="zh">2–14 岁时间轴饼图</td>
+          <td lang="en">Timeline pie, ages 2–14</td>
+          <td lang="zh">五档由 <code>round(a - b * ln(i+1))</code> 生成，每 2 秒自动播放。</td>
+          <td lang="en">Five bins from <code>round(a - b * ln(i+1))</code>, autoplay every 2s.</td>
+        </tr>
+        <tr>
+          <td><code>.map .chart</code></td>
+          <td lang="zh">中央雷达（不是地图）</td>
+          <td lang="en">Center radar (not a map)</td>
+          <td lang="zh">身高 / 兜跟围 / 跗骨围 / 跖趾围 / 鞋码 / 脚长 / 体重</td>
+          <td lang="en">Height / heel / tarsal / ball / shoe / length / weight</td>
+          <td lang="zh">9–12 岁四圈。分值和：256、307、391、475。12 岁鞋码与脚长在源码里写成 77-6 与 79-8。</td>
+          <td lang="en">Four rings, ages 9–12. Spoke sums: 256, 307, 391, 475. Age-12 shoe and length are written as 77-6 and 79-8.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="grid" style="margin-top: 24px;">
+      <article class="card">
+        <h3 lang="zh">散点回归（合并）</h3>
+        <h3 lang="en">Pooled scatter fit</h3>
+        <p class="meta">shoe ≈ 0.142 × height + 0.086 · r² = 0.839 · n = 398</p>
+        <p lang="zh">女童平均身高 116.9 cm / 鞋长 16.8 cm；男童 111.8 cm / 16.0 cm。这是图上的点，不是独立测量表。</p>
+        <p lang="en">Girl means 116.9 cm height / 16.8 cm shoe; boy means 111.8 / 16.0. These are the plotted points, not a separate measurement table.</p>
+      </article>
+      <article class="card">
+        <h3 lang="zh">年龄序列怎么读</h3>
+        <h3 lang="en">How the age series is stored</h3>
+        <p lang="zh">源码同时写了女、男两组柱和一条“女−男”面积线。年鉴重算差值，与源码数组一致，交叉点在 11 岁。</p>
+        <p lang="en">The source stores girl bars, boy bars, and a girl-minus-boy area. The yearbook recomputes the gap; it matches the source array and crosses at 11.</p>
+      </article>
+      <article class="card">
+        <h3 lang="zh">对称性公式</h3>
+        <h3 lang="en">Symmetry formula</h3>
+        <p lang="zh">对年龄下标 i（2 岁为 0）：左大 10–20% = round(36−13ln(i+1))，左大 20%+ = round(17−6ln(i+1))，右大 20%+ = round(11−4ln(i+1))，右大 10–20% = round(27−10ln(i+1))，相同 = 63 + 四者之合。</p>
+        <p lang="en">For age index i (age 2 → 0): left +10–20% = round(36−13ln(i+1)), left +20%+ = round(17−6ln(i+1)), right +20%+ = round(11−4ln(i+1)), right +10–20% = round(27−10ln(i+1)), same = 63 + the four bins.</p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <a href="../../examples/yearbook/scatter-desk.html">散点工作台</a> ·
+      <a href="../../examples/yearbook/growth-folio.html">生长册</a> ·
+      <a href="../../data/yearbook/README.md">数据说明</a>
+    </footer>
+  </div>
+  <script src="yearbook.js"></script>
+</body>
+</html>

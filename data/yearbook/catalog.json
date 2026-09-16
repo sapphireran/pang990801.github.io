@@ -1,0 +1,68 @@
+{
+  "project_zh": "中国人群脚型数据可视化 · 田野年鉴",
+  "project_en": "Chinese children's foot-shape visualization — field yearbook",
+  "personal": true,
+  "company_code": false,
+  "live_charts": [
+    "height-shoe",
+    "age-foot-length",
+    "bmi-shape",
+    "foot-symmetry",
+    "radar-growth"
+  ],
+  "leftover_charts": [
+    "plantar-pressure",
+    "plantar-thickness"
+  ],
+  "datasets": [
+    {
+      "id": "height-shoe",
+      "file": "height-shoe.json",
+      "title_zh": "男童女童身高与鞋码的关系",
+      "title_en": "Height and shoe length by sex",
+      "source": "js/index.js (.bar .chart)"
+    },
+    {
+      "id": "age-foot-length",
+      "file": "age-foot-length.json",
+      "title_zh": "男童女童年龄与脚长的关系",
+      "title_en": "Foot length by age and sex",
+      "source": "js/index.js (.line .chart)"
+    },
+    {
+      "id": "bmi-shape",
+      "file": "bmi-shape.json",
+      "title_zh": "儿童BMI与脚的胖瘦度关系",
+      "title_en": "BMI versus length-to-width ratio",
+      "source": "js/index.js (.bar1 .chart)"
+    },
+    {
+      "id": "foot-symmetry",
+      "file": "foot-symmetry.json",
+      "title_zh": "儿童双脚比例",
+      "title_en": "Left/right foot proportion by age",
+      "source": "js/index.js (.line1 .chart)"
+    },
+    {
+      "id": "radar-growth",
+      "file": "radar-growth.json",
+      "title_zh": "9–12 岁七维轮廓",
+      "title_en": "Seven-dimension profiles, ages 9–12",
+      "source": "js/index.js (.map .chart)"
+    },
+    {
+      "id": "plantar-pressure",
+      "file": "plantar-pressure.json",
+      "title_zh": "足部压力数据图",
+      "title_en": "Plantar pressure sketch (leftover)",
+      "source": "draw1.js (not mounted by index.html)"
+    },
+    {
+      "id": "plantar-thickness",
+      "file": "plantar-thickness.json",
+      "title_zh": "足底各位点皮下组织厚度数据图",
+      "title_en": "Plantar tissue thickness sketch (leftover)",
+      "source": "draw2.js (not mounted by index.html)"
+    }
+  ]
+}

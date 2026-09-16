@@ -1,0 +1,67 @@
+{
+  "height_shoe": {
+    "girls": {
+      "n": 199,
+      "slope": 0.14088,
+      "intercept": 0.29894,
+      "r2": 0.834512,
+      "r": 0.913516,
+      "mean_x": 116.8552,
+      "mean_y": 16.7615,
+      "min_x": 79.73,
+      "max_x": 152.78,
+      "min_y": 10.08,
+      "max_y": 24.21,
+      "sex": "girl"
+    },
+    "boys": {
+      "n": 199,
+      "slope": 0.143343,
+      "intercept": -0.065007,
+      "r2": 0.83836,
+      "r": 0.91562,
+      "mean_x": 111.8186,
+      "mean_y": 15.9634,
+      "min_x": 75.48,
+      "max_x": 149.96,
+      "min_y": 9.74,
+      "max_y": 24.4,
+      "sex": "boy"
+    },
+    "all": {
+      "n": 398,
+      "slope": 0.142352,
+      "intercept": 0.08633,
+      "r2": 0.838582,
+      "r": 0.915741,
+      "mean_x": 114.3369,
+      "mean_y": 16.3624,
+      "min_x": 75.48,
+      "max_x": 152.78,
+      "min_y": 9.74,
+      "max_y": 24.4,
+      "sex": "all"
+    },
+    "n_girls": 199,
+    "n_boys": 199
+  },
+  "age_foot_length": {
+    "girl_gain_cm": 4.11,
+    "boy_gain_cm": 4.89,
+    "crossover_age": 11,
+    "max_girl_lead_cm": 0.48,
+    "max_boy_lead_cm": 0.5
+  },
+  "symmetry": {
+    "age2_same_pct": 62.86,
+    "age14_same_pct": 90.91
+  },
+  "radar": {
+    "sum_by_age": {
+      "9": 256,
+      "10": 307,
+      "11": 391,
+      "12": 475
+    }
+  }
+}
