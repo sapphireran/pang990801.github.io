@@ -1,0 +1,78 @@
+{
+  "id": "tissue-thickness",
+  "title": "足底各位点皮下组织厚度数据图",
+  "title_en": "Plantar subcutaneous tissue thickness",
+  "description": "Tissue thickness (mm) at 14 plantar sites, plus difference in micrometers.",
+  "source_file": "draw2.js",
+  "units": {
+    "thickness": "mm",
+    "difference": "um"
+  },
+  "sites": [
+    "位点1",
+    "位点2",
+    "位点3",
+    "位点4",
+    "位点5",
+    "位点6",
+    "位点7",
+    "位点8",
+    "位点9",
+    "位点10",
+    "位点11",
+    "位点12",
+    "位点13",
+    "位点14"
+  ],
+  "series": {
+    "typical_adult_mm": [
+      11.6,
+      12.3,
+      12.1,
+      13.7,
+      12.6,
+      10.4,
+      12.2,
+      11.6,
+      13.2,
+      12.9,
+      11.4,
+      13.4,
+      10.2,
+      11.5
+    ],
+    "diabetic_foot_mm": [
+      13.2,
+      13.6,
+      12.9,
+      14.6,
+      14.9,
+      13,
+      15.7,
+      16.1,
+      14.2,
+      15.8,
+      15.9,
+      13.7,
+      12.9,
+      14.9
+    ],
+    "difference_um": [
+      16,
+      13,
+      8,
+      9,
+      23,
+      26,
+      35,
+      45,
+      10,
+      29,
+      45,
+      3,
+      27,
+      34
+    ]
+  },
+  "used_on_live_dashboard": false
+}

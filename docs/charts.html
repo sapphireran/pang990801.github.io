@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图目录 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/docs.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap prose">
+    <p class="page-lede"><a href="index.html">← 说明首页</a></p>
+    <h1 class="page-title">图目录</h1>
+    <p class="page-lede">
+      首页是四宫格加中央雷达。下面按版面位置列出选择器、数据文件和对应示例。成人两张图只出现在示例里。
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>位置</th>
+          <th>标题</th>
+          <th>DOM</th>
+          <th>数据</th>
+          <th>示例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>左上</td>
+          <td>男童女童身高与鞋码的关系</td>
+          <td><code>.bar .chart</code></td>
+          <td><code>height-shoe-size.json</code></td>
+          <td><a href="../examples/height-shoe-size.html">打开</a></td>
+        </tr>
+        <tr>
+          <td>左下</td>
+          <td>男童女童年龄与脚长的关系</td>
+          <td><code>.line .chart</code></td>
+          <td><code>age-foot-length.json</code></td>
+          <td><a href="../examples/age-foot-length.html">打开</a></td>
+        </tr>
+        <tr>
+          <td>中央</td>
+          <td>9–12 岁综合雷达</td>
+          <td><code>.map .chart</code></td>
+          <td><code>age-radar.json</code></td>
+          <td><a href="../examples/age-radar.html">打开</a></td>
+        </tr>
+        <tr>
+          <td>右上</td>
+          <td>儿童 BMI 与脚的胖瘦度关系</td>
+          <td><code>.bar1 .chart</code></td>
+          <td><code>bmi-plumpness.json</code></td>
+          <td><a href="../examples/bmi-plumpness.html">打开</a></td>
+        </tr>
+        <tr>
+          <td>右下</td>
+          <td>儿童双脚比例</td>
+          <td><code>.line1 .chart</code></td>
+          <td><code>left-right-ratio.json</code></td>
+          <td><a href="../examples/left-right-ratio.html">打开</a></td>
+        </tr>
+        <tr>
+          <td>仅示例</td>
+          <td>足部压力数据图</td>
+          <td>原 <code>draw1.js</code> 的 <code>option</code></td>
+          <td><code>plantar-pressure.json</code></td>
+          <td><a href="../examples/plantar-pressure.html">打开</a></td>
+        </tr>
+        <tr>
+          <td>仅示例</td>
+          <td>足底皮下组织厚度</td>
+          <td>原 <code>draw2.js</code> 的 <code>option</code></td>
+          <td><code>tissue-thickness.json</code></td>
+          <td><a href="../examples/tissue-thickness.html">打开</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>选择器为什么对不上图种</h2>
+    <p>
+      类名还停在更早的模板：<code>.bar</code> 实际是散点，<code>.line</code> 实际是柱 + 线，
+      <code>.map</code> 实际是雷达，<code>.bar1</code> 是折线，<code>.line1</code> 是时间轴饼图。
+      说明和示例按数据 id 命名，不再沿用这些历史类名，以免继续叫错。
+    </p>
+
+    <h2>首页脚本加载顺序</h2>
+    <p>
+      <code>index.html</code> 依次引入 flexible、jQuery、完整版 echarts、压缩版 echarts、
+      <code>js/index.js</code> 和 <code>js/click.js</code>。<code>china.js</code> / <code>myMap.js</code>
+      已注释，所以中央区域不会画航线图。<code>macarons.js</code> 在 <code>&lt;head&gt;</code> 里，
+      但实例初始化用的是 <code>'dark'</code> 主题而不是 macarons。
+    </p>
+    <p>
+      示例页只加载 <code>echarts.min.js</code>，不再重复引入完整版，也不再依赖 jQuery。
+    </p>
+  </main>
+  <footer class="docs-foot">Personal notes for pang990801.github.io</footer>
+  <script src="../js/docs-nav.js" data-root=".."></script>
+</body>
+</html>

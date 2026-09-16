@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>说明 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/docs.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap prose">
+    <h1 class="page-title">个人可视化说明</h1>
+    <p class="page-lede">
+      这是 2020 年做的个人 GitHub Pages 大屏：用 ECharts 看儿童脚长、鞋码、BMI 和左右脚是否同码。
+      原来几乎没有说明，数组全写在 <code>js/index.js</code> 里。这组页面把图、数据和生成方式拆开，方便以后改。
+    </p>
+
+    <div class="grid">
+      <a class="card" href="methodology.html">
+        <h3>测量与读图</h3>
+        <p>每张图在回答什么问题，轴的单位是什么，哪些系列是均值、哪些是生成值。</p>
+      </a>
+      <a class="card" href="data-dictionary.html">
+        <h3>数据字典</h3>
+        <p>七个 JSON 文件的字段、条数和从原 option 里抽出来的摘要。</p>
+      </a>
+      <a class="card" href="charts.html">
+        <h3>图目录</h3>
+        <p>首页四宫格 + 中央雷达，以及从未挂上首页的两张成人对照图。</p>
+      </a>
+      <a class="card" href="../examples/index.html">
+        <h3>可运行示例</h3>
+        <p>每张图一页，读取同一份 JSON，用 <code>js/charts/options.js</code> 绘图。</p>
+      </a>
+    </div>
+
+    <h2>仓库怎么长</h2>
+    <table>
+      <thead>
+        <tr><th>路径</th><th>用途</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>index.html</code></td><td>原来的深色大屏，仍是 GitHub Pages 首页。</td></tr>
+        <tr><td><code>js/index.js</code></td><td>首页五张图的原始 option，暂时保持原样以免改掉线上效果。</td></tr>
+        <tr><td><code>data/*.json</code></td><td>从原始 option 抽出的数据集，供说明和示例共用。</td></tr>
+        <tr><td><code>docs/</code></td><td>本说明站点。</td></tr>
+        <tr><td><code>examples/</code></td><td>单图示例。</td></tr>
+        <tr><td><code>draw1.js</code> / <code>draw2.js</code></td><td>成人足底压力和皮下厚度草稿，现已接到示例页。</td></tr>
+      </tbody>
+    </table>
+
+    <h2>本地预览</h2>
+    <pre><code>python3 -m http.server 4173
+# 打开 http://127.0.0.1:4173/docs/
+# 打开 http://127.0.0.1:4173/examples/</code></pre>
+    <p>
+      校验抽出的数组是否仍等于首页脚本：
+    </p>
+    <pre><code>python3 scripts/export-datasets.py
+node tests/validate-data.js
+node tests/validate-options.js</code></pre>
+
+    <h2>不要把它当成什么</h2>
+    <p>
+      这是个人笔记和作业向可视化，不是制鞋标准，也不是医疗结论。左右脚饼图按公式生成；
+      BMI 页上的两个环图沿用了 2020 年 option 里的占位分母。读数请以 JSON 和轴标签为准。
+    </p>
+  </main>
+  <footer class="docs-foot">Personal notes for pang990801.github.io</footer>
+  <script src="../js/docs-nav.js" data-root=".."></script>
+</body>
+</html>

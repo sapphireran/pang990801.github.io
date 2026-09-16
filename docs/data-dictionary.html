@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据字典 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/docs.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap prose">
+    <p class="page-lede"><a href="index.html">← 说明首页</a></p>
+    <h1 class="page-title">数据字典</h1>
+    <p class="page-lede">
+      下表由浏览器读取 <code>data/catalog.json</code> 和各数据集现场拼出来，避免说明和文件各写一套。
+      完整字段说明还写在仓库里的 <a href="../data/README.md">data/README.md</a>。
+    </p>
+    <div id="summary" class="stat-row"></div>
+    <div id="tables"></div>
+  </main>
+  <footer class="docs-foot">Personal notes for pang990801.github.io</footer>
+  <script src="../js/docs-nav.js" data-root=".."></script>
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/stats.js"></script>
+  <script>
+    FootData.root = "..";
+    function esc(s) {
+      return String(s).replace(/[&<>]/g, function (ch) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[ch];
+      });
+    }
+    function stat(label, value) {
+      return '<div class="stat"><span>' + esc(label) + "</span><b>" + esc(value) + "</b></div>";
+    }
+    FootData.catalog().then(function (catalog) {
+      return Promise.all(catalog.datasets.map(function (entry) {
+        return FootData.load(entry.id).then(function (data) {
+          return { entry: entry, data: data };
+        });
+      }));
+    }).then(function (rows) {
+      document.getElementById("summary").innerHTML =
+        stat("数据集", rows.length) +
+        stat("首页在用", rows.filter(function (r) { return r.entry.live; }).length) +
+        stat("仅示例", rows.filter(function (r) { return !r.entry.live; }).length);
+
+      document.getElementById("tables").innerHTML = rows.map(function (row) {
+        var d = row.data;
+        var extra = "";
+        if (d.summary) {
+          extra =
+            "<p>女生 n=" + d.summary.female.n +
+            "，身高均值 " + d.summary.female.height_cm.mean +
+            " cm，r=" + d.summary.female.pearson_r +
+            "。男生 n=" + d.summary.male.n +
+            "，身高均值 " + d.summary.male.height_cm.mean +
+            " cm，r=" + d.summary.male.pearson_r + "。</p>";
+        }
+        if (d.ages && d.ages[0] && d.ages[0].counts) {
+          extra = "<p>年龄 " + d.ages[0].age_years + "–" + d.ages[d.ages.length - 1].age_years +
+            "。生成器：" + esc(JSON.stringify(d.generator)) + "</p>";
+        }
+        if (d.indicators) {
+          extra = "<p>轴：" + d.indicators.map(function (i) { return i.label; }).join("、") + "。</p>";
+        }
+        return (
+          "<h2>" + esc(d.title) + "</h2>" +
+          "<p>" + esc(d.description) + "</p>" +
+          "<table><tbody>" +
+          "<tr><th>id</th><td><code>" + esc(d.id) + "</code></td></tr>" +
+          "<tr><th>文件</th><td><code>" + esc(row.entry.file) + "</code></td></tr>" +
+          "<tr><th>图类</th><td>" + esc(row.entry.chart) + "</td></tr>" +
+          "<tr><th>来源脚本</th><td><code>" + esc(d.source_file) + "</code></td></tr>" +
+          "<tr><th>首页</th><td>" + (row.entry.live ? "在用" : "未挂接") + "</td></tr>" +
+          "</tbody></table>" + extra
+        );
+      }).join("");
+    }).catch(function (err) {
+      document.getElementById("tables").innerHTML =
+        "<p>无法加载 JSON。请用 <code>python3 -m http.server</code> 打开本页。</p>";
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

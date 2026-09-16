@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/docs.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap">
+    <h1 class="page-title">可单独打开的图表示例</h1>
+    <p class="page-lede">
+      每一页只画一张图，数据从 <code>/data</code> 读取，而不是从 <code>js/index.js</code>
+      的 option 对象里拆。适合对照说明文档，也适合检查某一组数有没有画错。
+    </p>
+    <div class="grid example-list" id="cards"></div>
+    <p class="callout">
+      GitHub Pages 上可以直接点开。若用本地文件协议打开，<code>fetch</code> 会被浏览器拦住，
+      请先运行 <code>python3 -m http.server 4173</code>。
+      不想看图、只想对数字：<a href="summary.html">七个数据集摘要表</a>。
+    </p>
+  </main>
+  <footer class="docs-foot">Personal notes for pang990801.github.io</footer>
+  <script src="../js/docs-nav.js" data-root=".."></script>
+  <script src="../js/data-loader.js"></script>
+  <script>
+    FootData.root = "..";
+    var copy = {
+      "height-shoe-size": "身高与鞋长的散点，男女各 199 个点。",
+      "age-foot-length": "6–14 岁平均脚长，以及女生减男生的差值线。",
+      "bmi-plumpness": "BMI 分箱上的脚长/脚宽，看身体胖瘦和脚型是否同向。",
+      "left-right-ratio": "2–14 岁左右脚是否同码的时间轴饼图。",
+      "age-radar": "9–12 岁身高、围长、鞋码、脚长、体重的归一化雷达。",
+      "plantar-pressure": "未接入首页的成人足底压力对照（来自 draw1.js）。",
+      "tissue-thickness": "未接入首页的皮下组织厚度对照（来自 draw2.js）。"
+    };
+    FootData.catalog().then(function (catalog) {
+      var host = document.getElementById("cards");
+      host.innerHTML = catalog.datasets.map(function (item) {
+        return (
+          '<a class="card" href="' + item.id + '.html">' +
+          "<h3>" + item.id + "</h3>" +
+          "<p>" + (copy[item.id] || item.chart) + "</p>" +
+          '<div class="meta">' + item.chart + (item.live ? " · 首页在用" : " · 仅示例") + "</div>" +
+          "</a>"
+        );
+      }).join("");
+    }).catch(function () {
+      document.getElementById("cards").innerHTML =
+        "<p>无法读取 catalog.json，请通过本地静态服务器打开本页。</p>";
+    });
+  </script>
+</body>
+</html>

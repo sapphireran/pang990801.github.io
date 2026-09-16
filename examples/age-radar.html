@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例 · age-radar</title>
+  <link rel="stylesheet" href="../css/docs.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap">
+    <p class="page-lede"><a href="index.html">← 全部示例</a></p>
+    <h1 class="page-title" id="chart-title">age-radar</h1>
+    <p class="page-lede" id="chart-lede">正在读取 JSON 数据集…</p>
+    
+    <div id="stats" class="stat-row"></div>
+    <div class="chart-stage"><div id="chart" data-dataset="age-radar"></div></div>
+    <p class="callout" style="margin-top:20px">
+      数据来自 <code>data/age-radar.json</code>，图配置来自 <code>js/charts/options.js</code>。
+      这是个人 GitHub Pages 示例，不是临床工具。
+    </p>
+  </main>
+  <footer class="docs-foot">Personal notes for pang990801.github.io</footer>
+  <script src="../js/docs-nav.js" data-root=".."></script>
+  <script src="../js/echarts.min.js"></script>
+  <script src="../js/stats.js"></script>
+  <script src="../js/charts/options.js"></script>
+  <script src="../js/data-loader.js"></script>
+  <script src="boot.js"></script>
+</body>
+</html>

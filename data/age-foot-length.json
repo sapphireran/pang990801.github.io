@@ -1,0 +1,62 @@
+{
+  "id": "age-foot-length",
+  "title": "男童女童年龄与脚长的关系",
+  "title_en": "Mean foot length by age",
+  "description": "Age-group means for foot length, plus girl-minus-boy difference.",
+  "source_file": "js/index.js",
+  "units": {
+    "age": "years",
+    "length": "cm",
+    "difference": "cm"
+  },
+  "ages": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "series": {
+    "female_cm": [
+      18.55,
+      20.24,
+      21.01,
+      20.34,
+      20.83,
+      21.29,
+      21.83,
+      22.36,
+      22.66
+    ],
+    "male_cm": [
+      18.27,
+      19.76,
+      20.61,
+      20.01,
+      20.75,
+      21.32,
+      21.98,
+      22.69,
+      23.16
+    ],
+    "female_minus_male_cm": [
+      0.28,
+      0.48,
+      0.4,
+      0.33,
+      0.08,
+      -0.03,
+      -0.15,
+      -0.33,
+      -0.5
+    ]
+  },
+  "notes": [
+    "Values are group means, not individual observations.",
+    "Difference crosses zero around age 11: boys overtake girls after that."
+  ]
+}
