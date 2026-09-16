@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>生长叙事 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="growth-story.html" aria-current="page">叙事</a>
+      <a href="small-multiples.html">小倍数</a>
+    </nav>
+    <h1>一段可以读完的生长叙事</h1>
+    <p class="lead">把年龄柱、BMI 系列和雷达分数放在同一条阅读线上。数字仍是仓库里的展示系列，不是新调查。</p>
+    <div class="story">
+      <section class="card">
+        <h2>1. 脚长均值在 11 岁交叉</h2>
+        <p>6–10 岁女童均值更高，最大差距 8 岁的 0.40 cm 和 7 岁的 0.48 cm。11 岁起男童反超，14 岁差 −0.50 cm。</p>
+        <div class="chart short" id="age"></div>
+      </section>
+      <section class="card">
+        <h2>2. BMI 轴上的「胖瘦度」一起走高</h2>
+        <p>两条线大致随 BMI 上升。纵轴名叫脚长/脚宽，但数值在 23–30，所以只当作命名系列。右侧环图是另一组字面量：过瘦 21.74%，过胖 15.34%。</p>
+        <div class="chart short" id="bmi"></div>
+      </section>
+      <section class="card">
+        <h2>3. 雷达是 0–100 的展示分</h2>
+        <p>9 → 12 岁每个轴都在抬高。12 岁的鞋码、脚长在源码里写成 <code>77-6</code>、<code>79-8</code>，这里用求值后的 71、71。</p>
+        <div class="chart" id="radar"></div>
+      </section>
+      <section class="card">
+        <h2>4. 左右脚「相同」占比被公式推高</h2>
+        <p>时间轴饼图不是调查表。自然对数项衰减后，相同占比从 2 岁 62.86% 升到 14 岁 90.91%。</p>
+        <div class="chart short" id="sym"></div>
+      </section>
+    </div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    const axis = { axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } };
+    Promise.all([
+      Lab.loadData("age-foot-length.json"),
+      Lab.loadData("bmi-shape.json"),
+      Lab.loadData("radar-growth.json"),
+      Lab.loadData("foot-symmetry.json"),
+    ]).then(([age, bmi, radar, sym]) => {
+      echarts.init(document.getElementById("age")).setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#cfe6f5" } },
+        xAxis: { type: "category", data: age.rows.map((r) => r.age_years + "岁"), ...axis },
+        yAxis: [{ min: 17, max: 24, name: "cm", ...axis }, { name: "Δ cm", ...axis }],
+        series: [
+          { name: "女", type: "bar", data: age.rows.map((r) => r.girl_foot_length_cm), itemStyle: { color: "#28f0f5" } },
+          { name: "男", type: "bar", data: age.rows.map((r) => r.boy_foot_length_cm), itemStyle: { color: "#0172e2" } },
+          { name: "女−男", type: "line", yAxisIndex: 1, data: age.rows.map((r) => r.girl_minus_boy_cm), itemStyle: { color: "#3deaff" } },
+        ],
+      });
+      echarts.init(document.getElementById("bmi")).setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#cfe6f5" } },
+        xAxis: { type: "category", name: "BMI", data: bmi.rows.map((r) => r.bmi), ...axis },
+        yAxis: { min: 20, ...axis },
+        series: [
+          { name: "女", type: "line", smooth: true, data: bmi.rows.map((r) => r.girl_length_width_ratio), itemStyle: { color: "#ff69b4" }, areaStyle: { color: "rgba(255,105,180,0.2)" } },
+          { name: "男", type: "line", smooth: true, data: bmi.rows.map((r) => r.boy_length_width_ratio), itemStyle: { color: "#3deaff" }, areaStyle: { color: "rgba(61,234,255,0.15)" } },
+        ],
+      });
+      echarts.init(document.getElementById("radar")).setOption({
+        backgroundColor: "transparent",
+        legend: { bottom: 0, textStyle: { color: "#cfe6f5" } },
+        radar: { indicator: radar.axes.map((t) => ({ name: t, max: 100 })), axisName: { color: "#cfe6f5" }, splitLine: { lineStyle: { color: "#2a4a66" } }, splitArea: { areaStyle: { color: ["rgba(0,0,0,0)", "rgba(255,255,255,0.02)"] } } },
+        series: [{
+          type: "radar",
+          data: radar.series.map((s, i) => ({
+            name: s.age + "岁",
+            value: s.values,
+            lineStyle: { color: ["#00c2ff", "#f9cf67", "#32cd32", "#e92b77"][i] },
+            itemStyle: { color: ["#00c2ff", "#f9cf67", "#32cd32", "#e92b77"][i] },
+          })),
+        }],
+      });
+      echarts.init(document.getElementById("sym")).setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        xAxis: { type: "category", data: sym.rows.map((r) => r.age_label), ...axis },
+        yAxis: { name: "相同 %", min: 60, max: 95, ...axis },
+        series: [{ type: "line", data: sym.rows.map((r) => r.same_pct), itemStyle: { color: "#56c979" } }],
+      });
+    });
+  </script>
+</body>
+</html>

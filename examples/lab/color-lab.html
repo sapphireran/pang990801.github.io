@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>色板 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="color-lab.html" aria-current="page">色板</a>
+      <a href="../../docs/color-tokens.html">令牌说明</a>
+    </nav>
+    <h1>仪表盘色板</h1>
+    <p class="lead">从 <code>js/index.js</code> 和两份 <code>draw*.js</code> 抄下来的颜色，方便实验室和笔记保持同一套。</p>
+    <div class="swatch-grid" id="grid"></div>
+  </div>
+  <script>
+    const tokens = [
+      ["#ff4f3b", "女性散点"],
+      ["#ffe01f", "男性散点"],
+      ["#28f0f5", "女年龄柱顶"],
+      ["#0172e2", "男年龄柱顶"],
+      ["#3deaff", "差值 / 男 BMI"],
+      ["#ff69b4", "女 BMI"],
+      ["#dc832c", "过瘦环"],
+      ["#ff733f", "过胖环 / draw1 糖尿病足"],
+      ["#56c979", "双脚相同"],
+      ["#5caff2", "左 10–20%"],
+      ["#b6a2df", "左 >20%"],
+      ["#a96ec9", "右 >20%"],
+      ["#2dc7c9", "右 10–20%"],
+      ["#00c2ff", "雷达 9岁"],
+      ["#f9cf67", "雷达 10岁"],
+      ["#32cd32", "雷达 11岁"],
+      ["#e92b77", "雷达 12岁"],
+      ["#a60bde", "draw1 正常"],
+      ["#ff9080", "draw2 正常"],
+      ["#00bfb7", "draw2 糖尿病足"],
+      ["#28ffb3", "draw2 um 线"],
+      ["#02a6b5", "面板角标青"],
+    ];
+    document.getElementById("grid").innerHTML = tokens.map(([hex, name]) => `
+      <div class="swatch">
+        <div class="chip" style="background:${hex}"></div>
+        <div><strong>${name}</strong><br/><code>${hex}</code></div>
+      </div>`).join("");
+  </script>
+</body>
+</html>

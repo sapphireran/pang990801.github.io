@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>相关与残差 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="explorer.html">探索</a>
+      <a href="correlation.html" aria-current="page">回归</a>
+      <a href="../../docs/formulas.html">公式</a>
+    </nav>
+    <h1>OLS 直线与残差</h1>
+    <p class="lead">仪表盘只标了最值和平均值。这里用同一批点拟合 <code>鞋长 ≈ a × 身高 + b</code>，并画出残差。</p>
+    <label class="field" style="max-width:200px">分组
+      <select id="group">
+        <option value="pooled">合并 398</option>
+        <option value="female">女性 199</option>
+        <option value="male">男性 199</option>
+      </select>
+    </label>
+    <div class="stat-row" id="stats"></div>
+    <div class="split">
+      <div class="chart" id="scatter"></div>
+      <div class="chart" id="resid"></div>
+    </div>
+    <p class="note">残差 = 观测鞋长 − 拟合鞋长。两边都接近对称、中心靠近 0，说明这条直线对这批展示点够用；这不是对总体儿童的推断。</p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    const scatter = echarts.init(document.getElementById("scatter"));
+    const resid = echarts.init(document.getElementById("resid"));
+    let pack;
+
+    function points(group) {
+      if (group === "female") return pack.female;
+      if (group === "male") return pack.male;
+      return pack.female.concat(pack.male);
+    }
+
+    function hist(values, bins) {
+      const lo = Math.min(...values);
+      const hi = Math.max(...values);
+      const step = (hi - lo) / bins || 1;
+      const counts = Array(bins).fill(0);
+      const labels = [];
+      for (let i = 0; i < bins; i += 1) {
+        const a = lo + i * step;
+        labels.push((a + step / 2).toFixed(2));
+      }
+      values.forEach((v) => {
+        let idx = Math.floor((v - lo) / step);
+        if (idx >= bins) idx = bins - 1;
+        if (idx < 0) idx = 0;
+        counts[idx] += 1;
+      });
+      return { labels, counts };
+    }
+
+    function render() {
+      const group = document.getElementById("group").value;
+      const pts = points(group);
+      const xs = pts.map((p) => p[0]);
+      const ys = pts.map((p) => p[1]);
+      const fit = Lab.ols(xs, ys);
+      const r = Lab.pearson(xs, ys);
+      const residuals = pts.map(([x, y]) => y - (fit.slope * x + fit.intercept));
+      const x0 = Math.min(...xs);
+      const x1 = Math.max(...xs);
+      document.getElementById("stats").innerHTML = [
+        ["n", pts.length],
+        ["r", r.toFixed(4)],
+        ["斜率", fit.slope.toFixed(5)],
+        ["截距", fit.intercept.toFixed(4)],
+        ["公式", `y = ${fit.slope.toFixed(4)} x + ${fit.intercept.toFixed(3)}`],
+      ].map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+
+      scatter.setOption({
+        backgroundColor: "transparent",
+        title: { text: "散点 + 拟合", textStyle: { color: "#fff", fontSize: 14 } },
+        xAxis: { name: "身高 cm", axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        yAxis: { name: "鞋长 cm", axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [
+          { type: "scatter", symbolSize: 5, itemStyle: { color: group === "male" ? "#ffe01f" : group === "female" ? "#ff4f3b" : "#7de8ff" }, data: pts },
+          { type: "line", showSymbol: false, lineStyle: { color: "#56c979", width: 2 }, data: [[x0, fit.slope * x0 + fit.intercept], [x1, fit.slope * x1 + fit.intercept]] },
+        ],
+      }, true);
+
+      const h = hist(residuals, 16);
+      resid.setOption({
+        backgroundColor: "transparent",
+        title: { text: "残差直方图 (cm)", textStyle: { color: "#fff", fontSize: 14 } },
+        xAxis: { type: "category", data: h.labels, axisLabel: { color: "#8fb0c8", rotate: 40 } },
+        yAxis: { axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [{ type: "bar", data: h.counts, itemStyle: { color: "#3deaff" } }],
+      }, true);
+    }
+
+    document.getElementById("group").onchange = render;
+    window.addEventListener("resize", () => { scatter.resize(); resid.resize(); });
+    Lab.loadData("height-shoe.json").then((data) => { pack = data; render(); });
+  </script>
+</body>
+</html>

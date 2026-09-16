@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>实验室 · 儿童脚型</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="../../docs/index.html">说明</a>
+      <a href="index.html" aria-current="page">实验室</a>
+      <a href="../../data/summary.json">summary.json</a>
+    </nav>
+    <h1>实验室</h1>
+    <p class="lead">在抽出的个人数据上做筛选、回归和公式实验。不是五项图的逐张复刻。</p>
+    <div class="cards">
+      <article class="card">
+        <h2>散点探索</h2>
+        <p>398 行身高 × 鞋长。按性别和身高区间过滤，排序，导出 CSV。</p>
+        <p><a href="explorer.html">打开 explorer</a></p>
+      </article>
+      <article class="card">
+        <h2>相关与残差</h2>
+        <p>女 r = 0.9135，男 r = 0.9156。看拟合直线和残差分布。</p>
+        <p><a href="correlation.html">打开 correlation</a></p>
+      </article>
+      <article class="card">
+        <h2>生长叙事</h2>
+        <p>6–10 岁女童脚长均值更高，11 岁起男童反超，再对照雷达四龄。</p>
+        <p><a href="growth-story.html">打开 story</a></p>
+      </article>
+      <article class="card">
+        <h2>小倍数</h2>
+        <p>9–12 岁雷达并排，旁边放年龄柱。</p>
+        <p><a href="small-multiples.html">打开 small multiples</a></p>
+      </article>
+      <article class="card">
+        <h2>对称公式</h2>
+        <p>把 <code>Math.log</code> 生成器的系数拉一遍，看「双脚相同」占比怎么变。</p>
+        <p><a href="symmetry-lab.html">打开 symmetry lab</a></p>
+      </article>
+      <article class="card">
+        <h2>厘米换算</h2>
+        <p>散点里的厘米 → Mondopoint / 粗欧码，并标在分布上。</p>
+        <p><a href="unit-converter.html">打开 converter</a></p>
+      </article>
+      <article class="card">
+        <h2>未挂载草图</h2>
+        <p>足底压力与厚度。14 条「um」差值全部对不上毫米差 × 1000。</p>
+        <p><a href="leftover-compare.html">打开 leftovers</a></p>
+      </article>
+      <article class="card">
+        <h2>色板 / 打印</h2>
+        <p><a href="color-lab.html">颜色令牌</a> · <a href="print-report.html">一页报告</a></p>
+      </article>
+    </div>
+    <footer class="tiny">从仓库根目录执行 <code>python3 -m http.server 4173</code></footer>
+  </div>
+</body>
+</html>

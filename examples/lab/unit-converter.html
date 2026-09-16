@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>厘米换算 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="unit-converter.html" aria-current="page">换算</a>
+      <a href="../../docs/units.html">单位说明</a>
+    </nav>
+    <h1>厘米 → Mondopoint / 粗欧码</h1>
+    <p class="lead">散点把鞋码画成厘米。下面的欧码是 <code>mm/6.67+2</code> 的成人近似，不是童鞋楦，也不是仓库里的字段。</p>
+    <div class="toolbar">
+      <label class="field">脚长或鞋长 cm
+        <input id="cm" type="number" value="18.0" min="8" max="28" step="0.1" />
+      </label>
+      <label class="field">从散点均值填入
+        <select id="preset">
+          <option value="">—</option>
+          <option value="16.761">女性鞋长均值 16.76</option>
+          <option value="15.963">男性鞋长均值 15.96</option>
+          <option value="16.362">合并均值 16.36</option>
+          <option value="22.66">14岁女均值脚长 22.66</option>
+          <option value="23.16">14岁男均值脚长 23.16</option>
+        </select>
+      </label>
+    </div>
+    <div class="stat-row" id="stats"></div>
+    <div class="chart" id="chart"></div>
+    <p class="note">竖线是你输入的厘米。直方图是 398 个散点鞋长的分布，用来看这个长度落在样本的哪一段。</p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    const chart = echarts.init(document.getElementById("chart"));
+    let shoes = [];
+
+    function hist(values) {
+      const bins = 16;
+      const lo = 9, hi = 25, step = (hi - lo) / bins;
+      const counts = Array(bins).fill(0);
+      const labels = [];
+      for (let i = 0; i < bins; i += 1) labels.push((lo + i * step + step / 2).toFixed(1));
+      values.forEach((v) => {
+        let idx = Math.floor((v - lo) / step);
+        if (idx < 0 || idx >= bins) return;
+        counts[idx] += 1;
+      });
+      return { labels, counts };
+    }
+
+    function render() {
+      const cm = Number(document.getElementById("cm").value);
+      const mp = Lab.mondopoint(cm);
+      const eu = Lab.euRough(cm);
+      document.getElementById("stats").innerHTML = [
+        ["输入", cm.toFixed(2) + " cm"],
+        ["Mondopoint", mp],
+        ["粗欧码", eu],
+        ["英寸", (cm / 2.54).toFixed(2)],
+      ].map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+      const h = hist(shoes);
+      const lo = 9;
+      const hi = 25;
+      const bins = 16;
+      const step = (hi - lo) / bins;
+      const idx = Math.max(0, Math.min(bins - 1, Math.floor((cm - lo) / step)));
+      chart.setOption({
+        backgroundColor: "transparent",
+        tooltip: {},
+        xAxis: { type: "category", data: h.labels, name: "鞋长 cm", axisLabel: { color: "#8fb0c8" } },
+        yAxis: { name: "点数", axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [{
+          type: "bar",
+          data: h.counts,
+          itemStyle: { color: "#7de8ff" },
+          markLine: {
+            symbol: "none",
+            label: { formatter: cm.toFixed(1) + " cm", color: "#ff4f3b" },
+            lineStyle: { color: "#ff4f3b" },
+            data: [{ xAxis: h.labels[idx] }],
+          },
+        }],
+      }, true);
+    }
+
+    document.getElementById("cm").oninput = render;
+    document.getElementById("preset").onchange = (e) => {
+      if (!e.target.value) return;
+      document.getElementById("cm").value = e.target.value;
+      render();
+    };
+    window.addEventListener("resize", () => chart.resize());
+    Lab.loadData("height-shoe.json").then((pack) => {
+      shoes = pack.female.concat(pack.male).map((p) => p[1]);
+      render();
+    });
+  </script>
+</body>
+</html>
