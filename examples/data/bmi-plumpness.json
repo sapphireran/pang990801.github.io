@@ -1,0 +1,59 @@
+{
+  "description": "Foot plumpness (dashboard label: 脚长/脚宽) vs BMI integer bins 12-24, plus ring-chart placeholders for thin/wide feet.",
+  "note": "Y values sit in the 22-30 range, so they are not raw length/width ratios. Treat them as the dashboard plumpness index as plotted.",
+  "bmi": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "femalePlumpness": [
+    22.97,
+    23.38,
+    26.51,
+    24.47,
+    25.96,
+    26.22,
+    26.66,
+    26.92,
+    27.82,
+    26.35,
+    27.51,
+    29.86,
+    28.67
+  ],
+  "malePlumpness": [
+    25.28,
+    22.97,
+    28.47,
+    26.9,
+    28.03,
+    26.07,
+    26.76,
+    30.18,
+    26.63,
+    30.38,
+    30.13,
+    28.07,
+    30.19
+  ],
+  "thinFootRing": {
+    "value": 50,
+    "placeholder": 180,
+    "label": "过瘦脚占比"
+  },
+  "wideFootRing": {
+    "value": 435,
+    "placeholder": 2400,
+    "label": "过胖脚占比"
+  }
+}

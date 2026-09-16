@@ -1,0 +1,63 @@
+{
+  "description": "Normalized 0-100 radar scores for ages 9-12 across seven growth axes.",
+  "axes": [
+    "身高",
+    "兜跟围长",
+    "跗骨围长",
+    "跖趾围长",
+    "鞋码",
+    "脚长",
+    "体重"
+  ],
+  "series": [
+    {
+      "age": 9,
+      "values": [
+        43,
+        29,
+        37,
+        37,
+        38,
+        31,
+        41
+      ]
+    },
+    {
+      "age": 10,
+      "values": [
+        53,
+        32,
+        42,
+        46,
+        43,
+        42,
+        49
+      ]
+    },
+    {
+      "age": 11,
+      "values": [
+        66,
+        37,
+        47,
+        60,
+        57,
+        59,
+        65
+      ]
+    },
+    {
+      "age": 12,
+      "values": [
+        84,
+        45,
+        55,
+        70,
+        71,
+        71,
+        79
+      ]
+    }
+  ],
+  "note": "Age 12 shoe-size and foot-length scores are 77-6 and 79-8 in js/index.js (71 and 71)."
+}
