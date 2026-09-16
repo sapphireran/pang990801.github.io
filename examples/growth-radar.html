@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生长雷达 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>Growth radar</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>七根轴上的相对分，不是毫米</h1>
+      <p class="lede">对应驾驶舱正中那块仍叫 <code>.map</code> 的雷达。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout">0–100 相对分。43 不是 43 cm，也不要换算成围长。</p>
+        <ul>
+          <li>年龄层：<span id="stat-ages">…</span></li>
+          <li>轴数：<span id="stat-spokes">…</span></li>
+        </ul>
+        <p id="stat-scale"></p>
+        <p>12 岁的鞋码 / 脚长在原文件里写成 <code>77-6</code>、<code>79-8</code>，JSON 存的是算完的 71、71。字段说明见 <a href="../docs/data-dictionary.md">data dictionary</a>。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/growth-radar.js"></script>
+</body>
+</html>

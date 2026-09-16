@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>足底压力 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>Plantar pressure</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>把 <code>draw1.js</code> 变成能打开的页</h1>
+      <p class="lede">原草稿是 gallery 风的折线 + 装饰饼。示例只保留两条压力线。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout">位点没有解剖名。单位写着 Pa，没有体重或传感器说明，不能当峰值压研究。</p>
+        <ul>
+          <li>位点数：<span id="stat-sites">…</span></li>
+          <li>单位：<span id="stat-unit">…</span></li>
+          <li>普通峰值：<span id="stat-normal-peak">…</span></li>
+          <li>对照峰值：<span id="stat-df-peak">…</span></li>
+        </ul>
+        <p>“糖尿病足”是对比用的示意线，不是队列数据。JSON：<code>plantar-pressure.json</code>。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/plantar-pressure.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>左右脚时间轴 · 示例</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">脚型可视化<small>Symmetry timeline</small></a>
+      <nav>
+        <a href="../index.html">驾驶舱</a>
+        <a href="../docs/index.html">文档</a>
+        <a href="index.html" aria-current="page">示例</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>一条 ln 公式推着饼图往前走</h1>
+      <p class="lede">用来练习 ECharts <code>timeline</code>。不要写成“多少孩子左右脚差 20%”。</p>
+    </section>
+    <section class="layout">
+      <div class="chart-well"><div id="chart" class="chart"></div></div>
+      <aside class="sidebar">
+        <h2>你在看什么</h2>
+        <p class="callout" id="stat-model">示意公式，不是普查。</p>
+        <p>年龄：<span id="stat-ages">…</span></p>
+        <ol>
+          <li><code>a = round(36 - 13 ln(i+1))</code></li>
+          <li><code>b = round(17 - 6 ln(i+1))</code></li>
+          <li><code>c = round(11 - 4 ln(i+1))</code></li>
+          <li><code>d = round(27 - 10 ln(i+1))</code></li>
+          <li><code>same = 63 + a + b + c + d</code></li>
+        </ol>
+        <p><code>i = 0</code> 对应 2 岁。JSON 里保留了 <code>formula</code> 字段，免得以后误当成观测值。</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-inner"><a href="index.html">← 全部示例</a></div></footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-theme.js"></script>
+  <script src="js/foot-symmetry.js"></script>
+</body>
+</html>
