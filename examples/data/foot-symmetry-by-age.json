@@ -1,0 +1,119 @@
+[
+  {
+    "ageYears": 2,
+    "label": "2岁",
+    "leftLarger10to20": 36,
+    "leftLargerOver20": 17,
+    "rightLargerOver20": 11,
+    "rightLarger10to20": 27,
+    "same": 154
+  },
+  {
+    "ageYears": 3,
+    "label": "3岁",
+    "leftLarger10to20": 27,
+    "leftLargerOver20": 13,
+    "rightLargerOver20": 8,
+    "rightLarger10to20": 20,
+    "same": 131
+  },
+  {
+    "ageYears": 4,
+    "label": "4岁",
+    "leftLarger10to20": 22,
+    "leftLargerOver20": 10,
+    "rightLargerOver20": 7,
+    "rightLarger10to20": 16,
+    "same": 118
+  },
+  {
+    "ageYears": 5,
+    "label": "5岁",
+    "leftLarger10to20": 18,
+    "leftLargerOver20": 9,
+    "rightLargerOver20": 5,
+    "rightLarger10to20": 13,
+    "same": 108
+  },
+  {
+    "ageYears": 6,
+    "label": "6岁",
+    "leftLarger10to20": 15,
+    "leftLargerOver20": 7,
+    "rightLargerOver20": 5,
+    "rightLarger10to20": 11,
+    "same": 101
+  },
+  {
+    "ageYears": 7,
+    "label": "7岁",
+    "leftLarger10to20": 13,
+    "leftLargerOver20": 6,
+    "rightLargerOver20": 4,
+    "rightLarger10to20": 9,
+    "same": 95
+  },
+  {
+    "ageYears": 8,
+    "label": "8岁",
+    "leftLarger10to20": 11,
+    "leftLargerOver20": 5,
+    "rightLargerOver20": 3,
+    "rightLarger10to20": 8,
+    "same": 90
+  },
+  {
+    "ageYears": 9,
+    "label": "9岁",
+    "leftLarger10to20": 9,
+    "leftLargerOver20": 5,
+    "rightLargerOver20": 3,
+    "rightLarger10to20": 6,
+    "same": 86
+  },
+  {
+    "ageYears": 10,
+    "label": "10岁",
+    "leftLarger10to20": 7,
+    "leftLargerOver20": 4,
+    "rightLargerOver20": 2,
+    "rightLarger10to20": 5,
+    "same": 81
+  },
+  {
+    "ageYears": 11,
+    "label": "11岁",
+    "leftLarger10to20": 6,
+    "leftLargerOver20": 3,
+    "rightLargerOver20": 2,
+    "rightLarger10to20": 4,
+    "same": 78
+  },
+  {
+    "ageYears": 12,
+    "label": "12岁",
+    "leftLarger10to20": 5,
+    "leftLargerOver20": 3,
+    "rightLargerOver20": 1,
+    "rightLarger10to20": 3,
+    "same": 75
+  },
+  {
+    "ageYears": 13,
+    "label": "13岁",
+    "leftLarger10to20": 4,
+    "leftLargerOver20": 2,
+    "rightLargerOver20": 1,
+    "rightLarger10to20": 2,
+    "same": 72
+  },
+  {
+    "ageYears": 14,
+    "label": "14岁",
+    "leftLarger10to20": 3,
+    "leftLargerOver20": 2,
+    "rightLargerOver20": 1,
+    "rightLarger10to20": 1,
+    "same": 70
+  }
+]
