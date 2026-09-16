@@ -1,0 +1,80 @@
+{
+  "dataset_id": "subcutaneous-thickness",
+  "title": "Subcutaneous tissue thickness at 14 plantar sites",
+  "title_zh": "足底各位点皮下组织厚度",
+  "source_file": "draw2.js",
+  "units": {
+    "thickness": "mm",
+    "difference": "um as labelled (values look like mm*10 or a residual index)"
+  },
+  "sites": [
+    "位点1",
+    "位点2",
+    "位点3",
+    "位点4",
+    "位点5",
+    "位点6",
+    "位点7",
+    "位点8",
+    "位点9",
+    "位点10",
+    "位点11",
+    "位点12",
+    "位点13",
+    "位点14"
+  ],
+  "series": {
+    "typical_adults_mm": [
+      11.6,
+      12.3,
+      12.1,
+      13.7,
+      12.6,
+      10.4,
+      12.2,
+      11.6,
+      13.2,
+      12.9,
+      11.4,
+      13.4,
+      10.2,
+      11.5
+    ],
+    "diabetic_foot_mm": [
+      13.2,
+      13.6,
+      12.9,
+      14.6,
+      14.9,
+      13,
+      15.7,
+      16.1,
+      14.2,
+      15.8,
+      15.9,
+      13.7,
+      12.9,
+      14.9
+    ],
+    "difference_um_label": [
+      16,
+      13,
+      8,
+      9,
+      23,
+      26,
+      35,
+      45,
+      10,
+      29,
+      45,
+      3,
+      27,
+      34
+    ]
+  },
+  "notes": [
+    "Standalone sketch; not wired into index.html.",
+    "Difference series is labelled um but is not equal to (diabetic-typical)*1000."
+  ]
+}

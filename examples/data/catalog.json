@@ -1,0 +1,55 @@
+{
+  "project": "pang990801.github.io",
+  "description": "Personal GitHub Pages dashboard for Chinese children's foot-shape visualisation.",
+  "datasets": [
+    {
+      "file": "height-shoe.json",
+      "dataset_id": "height-shoe-scatter",
+      "title": "Children height vs shoe size (foot length used as shoe size proxy)",
+      "title_zh": "儿童身高与鞋码（脚长作为鞋码代理）",
+      "bytes": 22464
+    },
+    {
+      "file": "age-foot-length.json",
+      "dataset_id": "age-foot-length",
+      "title": "Mean foot length by age (years 6–14)",
+      "title_zh": "6–14岁平均脚长",
+      "bytes": 991
+    },
+    {
+      "file": "bmi-foot-ratio.json",
+      "dataset_id": "bmi-foot-ratio",
+      "title": "BMI vs foot plumpness (length/width * 10-style index as plotted)",
+      "title_zh": "BMI 与脚胖瘦度（脚长/脚宽）",
+      "bytes": 1300
+    },
+    {
+      "file": "bilateral-symmetry.json",
+      "dataset_id": "bilateral-symmetry",
+      "title": "Left/right foot size categories by age (timeline pie)",
+      "title_zh": "分年龄的双脚比例",
+      "bytes": 3645
+    },
+    {
+      "file": "growth-radar.json",
+      "dataset_id": "growth-radar",
+      "title": "Relative growth profile by age (radar, 0–100 index)",
+      "title_zh": "9–12岁体型/脚型雷达图",
+      "bytes": 1022
+    },
+    {
+      "file": "plantar-pressure.json",
+      "dataset_id": "plantar-pressure",
+      "title": "Plantar pressure at seven sites",
+      "title_zh": "足部压力数据图",
+      "bytes": 721
+    },
+    {
+      "file": "subcutaneous-thickness.json",
+      "dataset_id": "subcutaneous-thickness",
+      "title": "Subcutaneous tissue thickness at 14 plantar sites",
+      "title_zh": "足底各位点皮下组织厚度",
+      "bytes": 1286
+    }
+  ]
+}

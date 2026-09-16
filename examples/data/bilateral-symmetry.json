@@ -1,0 +1,142 @@
+{
+  "dataset_id": "bilateral-symmetry",
+  "title": "Left/right foot size categories by age (timeline pie)",
+  "title_zh": "分年龄的双脚比例",
+  "generator": "pieData in js/index.js: a=round(36-13*ln(i+1)), b=round(17-6*ln(i+1)), c=round(11-4*ln(i+1)), d=round(27-10*ln(i+1)), same=63+a+b+c+d",
+  "notes": [
+    "This series is a smooth illustrative model, not raw counts from a table.",
+    "Natural log uses i starting at 0 for age 2 (i+1 = 1, ln(1)=0)."
+  ],
+  "rows": [
+    {
+      "age_label": "2岁",
+      "age_years": 2,
+      "same": 154,
+      "left_10_20_pct_larger": 36,
+      "left_over_20_pct_larger": 17,
+      "right_over_20_pct_larger": 11,
+      "right_10_20_pct_larger": 27,
+      "total": 245
+    },
+    {
+      "age_label": "3岁",
+      "age_years": 3,
+      "same": 131,
+      "left_10_20_pct_larger": 27,
+      "left_over_20_pct_larger": 13,
+      "right_over_20_pct_larger": 8,
+      "right_10_20_pct_larger": 20,
+      "total": 199
+    },
+    {
+      "age_label": "4岁",
+      "age_years": 4,
+      "same": 118,
+      "left_10_20_pct_larger": 22,
+      "left_over_20_pct_larger": 10,
+      "right_over_20_pct_larger": 7,
+      "right_10_20_pct_larger": 16,
+      "total": 173
+    },
+    {
+      "age_label": "5岁",
+      "age_years": 5,
+      "same": 108,
+      "left_10_20_pct_larger": 18,
+      "left_over_20_pct_larger": 9,
+      "right_over_20_pct_larger": 5,
+      "right_10_20_pct_larger": 13,
+      "total": 153
+    },
+    {
+      "age_label": "6岁",
+      "age_years": 6,
+      "same": 101,
+      "left_10_20_pct_larger": 15,
+      "left_over_20_pct_larger": 7,
+      "right_over_20_pct_larger": 5,
+      "right_10_20_pct_larger": 11,
+      "total": 139
+    },
+    {
+      "age_label": "7岁",
+      "age_years": 7,
+      "same": 95,
+      "left_10_20_pct_larger": 13,
+      "left_over_20_pct_larger": 6,
+      "right_over_20_pct_larger": 4,
+      "right_10_20_pct_larger": 9,
+      "total": 127
+    },
+    {
+      "age_label": "8岁",
+      "age_years": 8,
+      "same": 90,
+      "left_10_20_pct_larger": 11,
+      "left_over_20_pct_larger": 5,
+      "right_over_20_pct_larger": 3,
+      "right_10_20_pct_larger": 8,
+      "total": 117
+    },
+    {
+      "age_label": "9岁",
+      "age_years": 9,
+      "same": 86,
+      "left_10_20_pct_larger": 9,
+      "left_over_20_pct_larger": 5,
+      "right_over_20_pct_larger": 3,
+      "right_10_20_pct_larger": 6,
+      "total": 109
+    },
+    {
+      "age_label": "10岁",
+      "age_years": 10,
+      "same": 81,
+      "left_10_20_pct_larger": 7,
+      "left_over_20_pct_larger": 4,
+      "right_over_20_pct_larger": 2,
+      "right_10_20_pct_larger": 5,
+      "total": 99
+    },
+    {
+      "age_label": "11岁",
+      "age_years": 11,
+      "same": 78,
+      "left_10_20_pct_larger": 6,
+      "left_over_20_pct_larger": 3,
+      "right_over_20_pct_larger": 2,
+      "right_10_20_pct_larger": 4,
+      "total": 93
+    },
+    {
+      "age_label": "12岁",
+      "age_years": 12,
+      "same": 75,
+      "left_10_20_pct_larger": 5,
+      "left_over_20_pct_larger": 3,
+      "right_over_20_pct_larger": 1,
+      "right_10_20_pct_larger": 3,
+      "total": 87
+    },
+    {
+      "age_label": "13岁",
+      "age_years": 13,
+      "same": 72,
+      "left_10_20_pct_larger": 4,
+      "left_over_20_pct_larger": 2,
+      "right_over_20_pct_larger": 1,
+      "right_10_20_pct_larger": 2,
+      "total": 81
+    },
+    {
+      "age_label": "14岁",
+      "age_years": 14,
+      "same": 70,
+      "left_10_20_pct_larger": 3,
+      "left_over_20_pct_larger": 2,
+      "right_over_20_pct_larger": 1,
+      "right_10_20_pct_larger": 1,
+      "total": 77
+    }
+  ]
+}

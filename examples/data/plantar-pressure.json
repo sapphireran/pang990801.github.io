@@ -1,0 +1,42 @@
+{
+  "dataset_id": "plantar-pressure",
+  "title": "Plantar pressure at seven sites",
+  "title_zh": "足部压力数据图",
+  "source_file": "draw1.js",
+  "units": {
+    "pressure": "Pa (as labelled on the original option.title)"
+  },
+  "sites": [
+    "位点一",
+    "位点二",
+    "位点三",
+    "位点四",
+    "位点五",
+    "位点六",
+    "位点七"
+  ],
+  "series": {
+    "typical_adults": [
+      90,
+      50,
+      39,
+      50,
+      120,
+      82,
+      80
+    ],
+    "diabetic_foot": [
+      290,
+      200,
+      20,
+      132,
+      15,
+      200,
+      90
+    ]
+  },
+  "notes": [
+    "Standalone sketch; not wired into index.html.",
+    "Legend also lists a third unused series name 潍V."
+  ]
+}
