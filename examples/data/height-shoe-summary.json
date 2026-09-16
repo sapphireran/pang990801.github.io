@@ -1,0 +1,51 @@
+{
+  "dataset_id": "height-shoe-summary",
+  "groups": {
+    "female": {
+      "height_cm": {
+        "n": 199,
+        "min": 79.73,
+        "p25": 100.215,
+        "median": 115.85,
+        "p75": 133.92,
+        "max": 152.78,
+        "mean": 116.855,
+        "stdev": 21.396
+      },
+      "shoe_size_cm": {
+        "n": 199,
+        "min": 10.08,
+        "p25": 14.035,
+        "median": 16.93,
+        "p75": 19.015,
+        "max": 24.21,
+        "mean": 16.761,
+        "stdev": 3.3
+      },
+      "pearson_r_height_shoe": 0.9135
+    },
+    "male": {
+      "height_cm": {
+        "n": 199,
+        "min": 75.48,
+        "p25": 92.99,
+        "median": 110.16,
+        "p75": 129.75,
+        "max": 149.96,
+        "mean": 111.819,
+        "stdev": 21.754
+      },
+      "shoe_size_cm": {
+        "n": 199,
+        "min": 9.74,
+        "p25": 13.38,
+        "median": 15.72,
+        "p75": 18.72,
+        "max": 24.4,
+        "mean": 15.963,
+        "stdev": 3.406
+      },
+      "pearson_r_height_shoe": 0.9156
+    }
+  }
+}

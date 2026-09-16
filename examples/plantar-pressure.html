@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantar pressure</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Unused sketch · draw1.js</p>
+      <h1>Plantar pressure at seven sites</h1>
+      <p>
+        Not mounted on <code>index.html</code>. Units are labelled Pa. Site anatomy is not named in the original file, so the example keeps 位点 numbering.
+      </p>
+    </header>
+    <div class="layout">
+      <div class="panel">
+        <div id="chart" class="chart"></div>
+      </div>
+      <aside class="side">
+        <h2>Series</h2>
+        <dl>
+          <dt>Typical adults</dt>
+          <dd>peak 120 at site 5</dd>
+          <dt>Diabetic-foot</dt>
+          <dd>peak 290 at site 1; site 5 drops to 15</dd>
+          <dt>JSON</dt>
+          <dd><a href="data/plantar-pressure.json">plantar-pressure.json</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("pressure");
+    FootViz.loadJSON("data/plantar-pressure.json").then(function (data) {
+      FootViz.bindChart(document.getElementById("chart"), {
+        backgroundColor: "#14343a",
+        tooltip: { trigger: "axis" },
+        legend: { data: ["typical", "diabetic-foot"], textStyle: { color: "#fff" } },
+        grid: { left: 48, right: 24, top: 48, bottom: 48 },
+        xAxis: { type: "category", data: data.sites, boundaryGap: false },
+        yAxis: { type: "value", name: "Pa" },
+        series: [
+          { name: "typical", type: "line", smooth: true, data: data.series.typical_adults },
+          { name: "diabetic-foot", type: "line", smooth: true, data: data.series.diabetic_foot }
+        ]
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dataset browser</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">examples/data</p>
+      <h1>JSON catalogue</h1>
+      <p>
+        Files extracted from the dashboard and the unused gallery sketches.
+        Summary statistics for the scatter are computed, not hand-typed.
+      </p>
+    </header>
+    <div class="panel">
+      <table class="data" id="catalog">
+        <thead>
+          <tr><th>dataset_id</th><th>title</th><th>file</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <h2>Height × size summary</h2>
+    <div class="panel" style="margin-top:0.6rem; overflow:auto">
+      <table class="data" id="summary">
+        <thead>
+          <tr>
+            <th>group</th><th>n</th>
+            <th>height mean</th><th>height sd</th>
+            <th>size mean</th><th>size sd</th>
+            <th>r</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="note">Field meanings: <a href="../docs/data-dictionary.md">data-dictionary.md</a> (rendered on GitHub) or the <a href="../docs/index.html">notes hub</a>.</p>
+  </main>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("browser");
+    Promise.all([
+      FootViz.loadJSON("data/catalog.json"),
+      FootViz.loadJSON("data/height-shoe-summary.json")
+    ]).then(function (pair) {
+      var cat = pair[0];
+      var sum = pair[1];
+      var tb = document.querySelector("#catalog tbody");
+      cat.datasets.forEach(function (ds) {
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td></td><td></td><td><a></a></td>";
+        tr.cells[0].textContent = ds.dataset_id;
+        tr.cells[1].textContent = ds.title_zh + " — " + ds.title;
+        var a = tr.cells[2].querySelector("a");
+        a.href = "data/" + ds.file;
+        a.textContent = ds.file;
+        tb.appendChild(tr);
+      });
+      var sb = document.querySelector("#summary tbody");
+      Object.keys(sum.groups).forEach(function (key) {
+        var g = sum.groups[key];
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
+        var cells = [key, g.height_cm.n, g.height_cm.mean, g.height_cm.stdev, g.shoe_size_cm.mean, g.shoe_size_cm.stdev, g.pearson_r_height_shoe];
+        cells.forEach(function (v, i) { tr.cells[i].textContent = v; });
+        sb.appendChild(tr);
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>

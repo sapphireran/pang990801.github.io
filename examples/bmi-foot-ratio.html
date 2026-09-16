@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI × plumpness</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Lines + rings · dashboard right-top panel</p>
+      <h1>BMI and foot plumpness index</h1>
+      <p>
+        Y is labelled 脚长/脚宽 on the board and sits around 23–30, so it is a scaled index, not a raw ratio.
+        The donuts use hard-coded counts (50/180 and 435/2400); they are not computed from the lines.
+      </p>
+    </header>
+    <div class="layout">
+      <div class="panel">
+        <div id="chart" class="chart"></div>
+      </div>
+      <aside class="side">
+        <h2>Rings (decorative)</h2>
+        <dl>
+          <dt>Thin-foot highlight</dt>
+          <dd id="thin"></dd>
+          <dt>Thick-foot highlight</dt>
+          <dd id="thick"></dd>
+          <dt>JSON</dt>
+          <dd><a href="data/bmi-foot-ratio.json">bmi-foot-ratio.json</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/chart-helpers.js"></script>
+  <script>
+    FootViz.mountNav("bmi");
+    FootViz.loadJSON("data/bmi-foot-ratio.json").then(function (data) {
+      function pct(h, r) {
+        return ((100 * h) / (h + r)).toFixed(1) + "%  (" + h + " / " + (h + r) + ")";
+      }
+      document.getElementById("thin").textContent = pct(data.ring_charts.thin_feet.highlighted, data.ring_charts.thin_feet.remainder);
+      document.getElementById("thick").textContent = pct(data.ring_charts.thick_feet.highlighted, data.ring_charts.thick_feet.remainder);
+      var thin = data.ring_charts.thin_feet;
+      var thick = data.ring_charts.thick_feet;
+      FootViz.bindChart(document.getElementById("chart"), {
+        backgroundColor: "rgba(33,64,112,0.25)",
+        tooltip: { trigger: "axis" },
+        legend: { data: ["girls", "boys"], textStyle: { color: "#fff" }, right: "32%" },
+        grid: { left: "6%", right: "36%", top: "16%", bottom: "8%" },
+        xAxis: { type: "category", name: "BMI", boundaryGap: false, data: data.bmi },
+        yAxis: { type: "value", name: "plumpness index", min: 20 },
+        series: [
+          {
+            name: "girls",
+            type: "line",
+            smooth: true,
+            data: data.series.girls,
+            itemStyle: { color: "#FF69B4" },
+            areaStyle: { color: "rgba(255,105,180,0.25)" }
+          },
+          {
+            name: "boys",
+            type: "line",
+            smooth: true,
+            data: data.series.boys,
+            itemStyle: { color: "#3deaff" },
+            areaStyle: { color: "rgba(61,234,255,0.18)" }
+          },
+          {
+            type: "pie",
+            center: ["84%", "32%"],
+            radius: ["18%", "24%"],
+            label: { formatter: "thin\n{d}%" },
+            data: [
+              { value: thin.highlighted, name: "thin" },
+              { value: thin.remainder, name: "rest", tooltip: { show: false } }
+            ]
+          },
+          {
+            type: "pie",
+            center: ["84%", "72%"],
+            radius: ["18%", "24%"],
+            label: { formatter: "thick\n{d}%" },
+            data: [
+              { value: thick.highlighted, name: "thick" },
+              { value: thick.remainder, name: "rest", tooltip: { show: false } }
+            ]
+          }
+        ]
+      });
+    }).catch(function (err) {
+      FootViz.showError(err.message);
+    });
+  </script>
+</body>
+</html>

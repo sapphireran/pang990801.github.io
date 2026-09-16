@@ -1,0 +1,212 @@
+:root {
+  --bg0: #06101c;
+  --bg1: #0b1b2e;
+  --panel: rgba(14, 40, 74, 0.72);
+  --line: rgba(94, 168, 255, 0.28);
+  --text: #e8f2ff;
+  --muted: #93a9c7;
+  --accent: #3deaff;
+  --girl: #ff4f3b;
+  --boy: #ffe01f;
+  --ok: #56c979;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(61, 234, 255, 0.12), transparent 50%),
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 79, 59, 0.1), transparent 45%),
+    var(--bg0);
+  color: var(--text);
+  font-family: "Segoe UI", "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", sans-serif;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  align-items: center;
+  padding: 0.7rem 1.2rem;
+  background: rgba(6, 16, 28, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.topnav .brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-right: 0.6rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.topnav a[data-nav] {
+  color: var(--muted);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.topnav a[data-nav]:hover,
+.topnav a[data-nav].active {
+  color: var(--bg0);
+  background: var(--accent);
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1.25rem auto 3rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 0.4rem;
+}
+
+.hero p, .lede {
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.card {
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.05rem 1.1rem;
+  color: inherit;
+  text-decoration: none;
+  min-height: 8.5rem;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-2px);
+  transition: 0.15s ease;
+}
+
+.card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1rem;
+}
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.panel, .side {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.chart {
+  width: 100%;
+  height: min(72vh, 640px);
+}
+
+.side h2 { margin-top: 0; font-size: 1rem; }
+.side dl { margin: 0; }
+.side dt { color: var(--muted); font-size: 0.8rem; margin-top: 0.7rem; }
+.side dd { margin: 0.15rem 0 0; font-variant-numeric: tabular-nums; }
+
+.banner {
+  margin: 1rem auto;
+  width: min(1120px, calc(100% - 2rem));
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 79, 59, 0.15);
+  border: 1px solid var(--girl);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.stat {
+  background: var(--bg1);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+  min-width: 7.5rem;
+}
+
+.stat b { display: block; font-size: 1.15rem; }
+.stat span { color: var(--muted); font-size: 0.78rem; }
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.92rem;
+}
+
+table.data th, table.data td {
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+table.data th { color: var(--muted); font-weight: 600; }
+
+pre, code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+pre {
+  overflow: auto;
+  background: var(--bg1);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
