@@ -2,6 +2,8 @@
 
 Standalone pages live in `../examples/`. Each page is one question, one chart, one JSON file (sometimes two). They exist so a chart can be opened without the cockpit's rem layout and so the series can be reused in another sketch.
 
+The documentation hub cards open `read.html?f=…` so GitHub Pages renders these notes instead of serving raw Markdown. The `.md` sources stay next to that reader.
+
 ## Why not iframe the homepage?
 
 The homepage is a 1920-class composition. Four of the five charts fight for height; the radar borrows a `.map` box. Iframes clip, `flexible.js` resizes the wrong root, and a reader cannot see the caveat next to the series. A dedicated page fixes that.
