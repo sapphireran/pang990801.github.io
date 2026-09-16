@@ -36,21 +36,6 @@
   <script src="js/stats.js"></script>
   <script src="js/boot.js"></script>
   <script>
-    function cap(values, offset, color) {
-      return {
-        z: 3,
-        type: "pictorialBar",
-        symbol: "diamond",
-        symbolPosition: "end",
-        symbolOffset: [offset, "-50%"],
-        symbolSize: [21, 8],
-        itemStyle: { color: color },
-        data: values,
-        tooltip: { show: false },
-        silent: true
-      };
-    }
-
     ExampleBoot.boot({
       dataUrl: "data/age-foot-length.json",
       buildOption: function (data) {
@@ -69,10 +54,8 @@
             { type: "value", name: "差值", axisLabel: { formatter: "{value} cm", color: "#9eb3c7" }, splitLine: { show: false } }
           ],
           series: [
-            { name: "女生脚长（cm）", type: "bar", barWidth: 25, itemStyle: { color: "#28f0f5" }, data: data.femaleFootLengthCm },
-            cap(data.femaleFootLengthCm, -12.5, "#12bac1"),
-            { name: "男生脚长（cm）", type: "bar", barWidth: 25, barGap: 0, itemStyle: { color: "#0172e2" }, data: data.maleFootLengthCm },
-            cap(data.maleFootLengthCm, 12.5, "#319cf1"),
+            { name: "女生脚长（cm）", type: "bar", barMaxWidth: 28, barGap: "30%", itemStyle: { color: "#28f0f5" }, data: data.femaleFootLengthCm },
+            { name: "男生脚长（cm）", type: "bar", barMaxWidth: 28, itemStyle: { color: "#3d7dff" }, data: data.maleFootLengthCm },
             {
               name: "女生脚长与男生脚长之差",
               type: "line",
@@ -80,7 +63,8 @@
               smooth: true,
               symbol: "circle",
               symbolSize: 8,
-              itemStyle: { color: "#3deaff" },
+              itemStyle: { color: "#f9cf67" },
+              lineStyle: { color: "#f9cf67" },
               data: data.femaleMinusMaleCm
             }
           ]
