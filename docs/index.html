@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文档 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="docs-index">
+  <div id="site-header"></div>
+  <div class="site-shell">
+    <aside class="site-side" id="site-side"></aside>
+    <main class="site-main">
+      <p class="kicker">Personal docs</p>
+      <h1>这个站点在画什么</h1>
+      <p class="lead">
+        根目录的大屏是一组儿童脚型关系图：身高和鞋长、年龄和脚长、BMI 和脚的胖瘦观感、左右脚是否一样大，以及 9–12 岁的体型围长画像。
+        这一目录把原来堆在 <code>js/index.js</code> 里的数组拆成可复用的 JSON，并补上读图说明和独立示例页。
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat"><b>5</b><span>总览看板上的主图</span></div>
+        <div class="stat"><b>7</b><span>抽出来的数据集</span></div>
+        <div class="stat"><b>398</b><span>身高–鞋长散点（女 199 / 男 199）</span></div>
+        <div class="stat"><b>2</b><span>未挂进总览的草稿图，现已做成示例</span></div>
+      </div>
+
+      <h2>怎么走</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3><a href="methodology.html">测量与读图</a></h3>
+          <p>鞋长、围长、BMI 和“胖瘦度”在这个项目里分别代表什么，以及中国童鞋楦常用的几个围度名称。</p>
+        </article>
+        <article class="card">
+          <h3><a href="data-dictionary.html">数据字典</a></h3>
+          <p>每个 JSON 字段的单位、取值范围，以及雷达图 0–100 分是怎么来的。</p>
+        </article>
+        <article class="card">
+          <h3><a href="chart-guide.html">图表说明</a></h3>
+          <p>总览五张图各自在回答什么问题，坐标轴容易误读的地方标出来。</p>
+        </article>
+        <article class="card">
+          <h3><a href="limitations.html">范围与局限</a></h3>
+          <p>这些数来自个人可视化练习，不是公开流行病学报告。使用前先看这一页。</p>
+        </article>
+      </div>
+
+      <h2>和总览页的关系</h2>
+      <table>
+        <thead>
+          <tr><th>总览面板</th><th>数据集</th><th>独立示例</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>男童女童身高与鞋码</td>
+            <td><code>height-shoe-size.json</code></td>
+            <td><a href="../examples/shoe-size.html">身高估鞋码</a></td>
+          </tr>
+          <tr>
+            <td>年龄与脚长</td>
+            <td><code>age-foot-length.json</code></td>
+            <td><a href="../examples/growth.html">年龄与脚长</a></td>
+          </tr>
+          <tr>
+            <td>BMI 与脚的胖瘦度</td>
+            <td><code>bmi-foot-plumpness.json</code></td>
+            <td>总览页保留交互；字典里解释指数</td>
+          </tr>
+          <tr>
+            <td>儿童双脚比例</td>
+            <td><code>foot-symmetry.json</code></td>
+            <td><a href="../examples/symmetry.html">左右脚比例</a></td>
+          </tr>
+          <tr>
+            <td>中间雷达图</td>
+            <td><code>age-radar-profiles.json</code></td>
+            <td><a href="../examples/radar.html">分年龄画像</a></td>
+          </tr>
+          <tr>
+            <td>未挂接的 <code>draw1.js</code></td>
+            <td><code>plantar-pressure.json</code></td>
+            <td><a href="../examples/pressure.html">足底压力</a></td>
+          </tr>
+          <tr>
+            <td>未挂接的 <code>draw2.js</code></td>
+            <td><code>tissue-thickness.json</code></td>
+            <td><a href="../examples/thickness.html">皮下厚度</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        示例页通过 <code>js/data-loader.js</code> 拉取 JSON，不再内嵌长数组。改数据时先跑
+        <code>node scripts/validate-data.js</code>。
+      </div>
+    </main>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/site-nav.js"></script>
+</body>
+</html>

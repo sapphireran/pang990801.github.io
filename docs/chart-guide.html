@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图表说明 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="docs-charts">
+  <div id="site-header"></div>
+  <div class="site-shell">
+    <aside class="site-side" id="site-side"></aside>
+    <main class="site-main">
+      <p class="kicker">Dashboard panels</p>
+      <h1>图表说明</h1>
+      <p class="lead">按总览从左到右、从上到下的顺序。实现都在 <code>js/index.js</code> 的即时函数里，示例页是同一份 JSON 的拆开版本。</p>
+
+      <h2>1. 身高与鞋码散点</h2>
+      <p>
+        女生珊瑚色、男生金色。十字准星、框选缩放、平均线和最值点都开着。虚线框是该性别点的最小外包矩形，不是置信椭圆。
+        平均线旁边还有一条竖直参考：女生 <code>x = 115</code> cm，男生 <code>x = 110</code> cm，只是原稿里的参照身高，不是均值。
+      </p>
+      <p>标题写「鞋码」但轴格式是 <code>{value} cm</code>。按脚长厘米读。</p>
+
+      <h2>2. 年龄与脚长</h2>
+      <p>
+        双色立体柱 + 一条面积折线。柱是男女均值脚长，折线是女减男，挂在右侧第二 Y 轴。
+        右侧轴没有写单位，数值大约在 −0.5 到 0.5，单位是厘米。11 岁附近折线过零，和“先女后男”的叙述一致。
+      </p>
+
+      <h2>3. 中间雷达</h2>
+      <p>
+        七个轴：身高、兜跟围、跗骨围、跖趾围、鞋码、脚长、体重。圆分割 3 档，半径很大，所以在总览里几乎占满中栏。
+        四条年龄曲线叠色半透明。比较的是形状（哪一岁在哪一轴更“撑”），不要读成真实厘米。
+      </p>
+
+      <h2>4. BMI 与脚胖瘦度</h2>
+      <p>
+        左线右环。线是 BMI 分箱后的指数，环是固定的示意占比。图例在上方偏右，以免挡住 12–14 的第一个点。
+        纵轴从 20 起，把 22–30 的变化放大了；不要以为儿童脚指数真从 0 起跳。
+      </p>
+
+      <h2>5. 双脚比例时间轴饼图</h2>
+      <p>
+        ECharts timeline，2 秒一档自动播放。颜色五类固定。中心偏右是为了给时间轴留空。
+        类别名称里的“大 10–20%”在生成公式里只是标签，公式本身并不计算真实左右脚毫米差。
+      </p>
+
+      <h2>示例页相对总览改了什么</h2>
+      <table>
+        <thead>
+          <tr><th>示例</th><th>多出来的交互</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>身高估鞋码</td><td>拖身高、选性别，显示预测鞋长和残差带。</td></tr>
+          <tr><td>年龄与脚长</td><td>可切换只看女生、只看男生，或看差值。</td></tr>
+          <tr><td>左右脚比例</td><td>年龄滑块，停在一岁看人数而不是只看饼。</td></tr>
+          <tr><td>分年龄画像</td><td>复选年龄，避免四层面积糊在一起。</td></tr>
+          <tr><td>压力 / 厚度</td><td>第一次真正挂上原来的草稿 option。</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/site-nav.js"></script>
+</body>
+</html>

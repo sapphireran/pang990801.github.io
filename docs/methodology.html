@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>测量与读图 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="docs-methodology">
+  <div id="site-header"></div>
+  <div class="site-shell">
+    <aside class="site-side" id="site-side"></aside>
+    <main class="site-main">
+      <p class="kicker">How to read the numbers</p>
+      <h1>测量与读图</h1>
+      <p class="lead">
+        总览里出现的量可以分成三类：整体体型（身高、体重、BMI）、脚的长度量（脚长、鞋码），以及脚的围度量（兜跟、跗骨、跖趾）。
+        下面按这个项目实际使用的定义来写，不把它说成国家标准正文。
+      </p>
+
+      <h2>长度：脚长和鞋码</h2>
+      <p>
+        散点图把鞋码画成厘米，和脚长同一量纲。这更接近 Mondopoint（以毫米脚长标码）而不是英码、美码的楦号。
+        读图时把纵轴当成“这双鞋大约要覆盖多长的脚”，不要换算成 US 3.5 或 UK 2。
+      </p>
+      <p>
+        从抽出的 398 个点做普通最小二乘：女生鞋长 ≈ <code>0.141 × 身高 + 0.30</code>，R² 0.83；
+        男生 ≈ <code>0.143 × 身高 − 0.07</code>，R² 0.84。斜率都在 0.14 附近，意思是身高每高 10 cm，鞋长大约多 1.4 cm。
+        <a href="../examples/shoe-size.html">身高估鞋码</a>示例把这条直线和原始云叠在一起。
+      </p>
+      <div class="note">
+        儿童脚长并不是身高的固定比例。低龄段脚相对更长，青春前期下肢加速，比例会再变。
+        年龄–脚长图里 8 到 9 岁均值回落，来自原始序列，示例页没有抹平。
+      </div>
+
+      <h2>围度：雷达图上的三个中文名</h2>
+      <table>
+        <thead>
+          <tr><th>字段</th><th>中文</th><th>在楦型讨论里通常指什么</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>heelGirth</code></td>
+            <td>兜跟围长</td>
+            <td>绕过后跟突点和跗骨部位的斜向围长，约束后跟是否容易滑脱。</td>
+          </tr>
+          <tr>
+            <td><code>tarsalGirth</code></td>
+            <td>跗骨围长</td>
+            <td>跗骨最高处一圈，对应脚背高度和中段体积。</td>
+          </tr>
+          <tr>
+            <td><code>ballGirth</code></td>
+            <td>跖趾围长</td>
+            <td>第一与第五跖趾关节一周，也叫跖围，决定前掌肥瘦和鞋头宽。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        雷达图里这些量已经被压到 0–100 的相对分，用来比较 9、10、11、12 岁的“画像形状”，不能反推厘米。
+        年龄越大，身高、体重和跖围的相对分涨得比兜跟围更快，图面会明显往外扩。
+      </p>
+
+      <h2>BMI 和“脚胖瘦度”</h2>
+      <p>
+        BMI 轴是 12 到 24，覆盖偏瘦到超重的儿童区间。纵轴原标题写的是「脚长/脚宽」，但数值在 23–30，而且随 BMI 上升。
+        若真是长度除以宽度，更胖的脚（更宽）数值应下降。所以这里把它当成项目自定义的<strong>胖瘦指数</strong>：越大越“厚实”，不要当成像 2.5 那种长宽比。
+      </p>
+      <p>
+        右侧两个环图沿用原稿的 <code>value / (value + placeholder)</code> 算法，分别表示“过瘦脚”和“过胖脚”的示意占比。它们不是从 BMI 序列现算出来的，字典和局限页都标了这一点。
+      </p>
+
+      <h2>左右脚是否一样大</h2>
+      <p>
+        时间轴饼图不是实测普查，而是用对数衰减公式按年龄生成五类份额：双脚相同、左大 10–20%、左大 20% 以上、右大 20% 以上、右大 10–20%。
+        年龄越大，“相同”类占比越高，不对称类被压下去。独立示例把公式求值后的整数写进 JSON，避免浏览器 <code>Math.log</code> 再算一遍出现浮点差。
+      </p>
+
+      <h2>草稿图：压力和皮下厚度</h2>
+      <p>
+        <code>draw1.js</code> / <code>draw2.js</code> 对比的是“正常人群”和“糖尿病足人群”在足底若干位点的压力（帕）和皮下厚度（毫米）。
+        位点没有对应到解剖标志（例如第一跖骨头、足跟中心），所以示例页只保留“位点一…十四”的编号。
+        厚度图的差值序列在原稿图例里写成微米，柱子却是毫米——示例页同时保留两个单位，并在图下说明不一致。
+      </p>
+    </main>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/site-nav.js"></script>
+</body>
+</html>
