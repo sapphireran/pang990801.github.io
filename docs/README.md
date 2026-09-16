@@ -4,7 +4,7 @@ These notes describe the personal children's foot-shape dashboard in this reposi
 
 Start here:
 
-1. [Browseable hub](index.html) if you are on GitHub Pages
+1. [Browseable hub](index.html) if you are on GitHub Pages — cards open `read.html?f=…` so the notes render instead of dumping raw Markdown
 2. [Architecture](architecture.md) — how the homepage is wired
 3. [Chart catalog](charts.md) — one card per visualization
 4. [Data dictionary](data-dictionary.md) — field names, units, file locations
