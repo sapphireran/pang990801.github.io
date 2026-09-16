@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>范围与局限 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Scope</p>
+      <h1>这些数够用来练读图，不够用来开楦</h1>
+      <p class="lede">
+        蓝图工坊把个人大屏上的数组翻译成尺码和测量语言。它没有抽样框、没有知情同意副本、没有工厂公差。
+      </p>
+    </section>
+
+    <div class="grid two">
+      <article class="card">
+        <h3>这是什么</h3>
+        <ul>
+          <li>2020 年个人 GitHub Pages 可视化的注释层</li>
+          <li>从已公开数组计算的 OLS、分箱和换算表</li>
+          <li>一套可打印的练习用测量纸</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>这不是什么</h3>
+        <ul>
+          <li>中国儿童足部流行病学报告</li>
+          <li>GB/T 或 ISO 的官方配码</li>
+          <li>医疗建议、矫形处方、品牌鞋码保证</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>读图时已知的扭曲</h2>
+    <ol>
+      <li>年龄 9 岁的脚长均值比 8 岁更短。一阶差分是负的。更像分组或样本量造成的折点，不像普遍生长规律。</li>
+      <li>左右脚饼图的人数由 <code>36 − 13 ln(i+1)</code> 这类式子生成，不是计数器读数。</li>
+      <li>雷达 12 岁「鞋码」「脚长」在源码里写成 <code>77-6</code>、<code>79-8</code>。工坊按运算结果 71、71 归档，并在楦型页标明这是分数。</li>
+      <li><code>draw2.js</code> 差值系列标注 µm，数值却跟着十分之一毫米走。厚度表同时保留标注值和真毫米差。</li>
+      <li>BMI 图只有 13 个汇总点。女童 r = 0.89、男童 r = 0.70 不能当成个体相关。</li>
+      <li>散点女 199、男 199，像是为了对称画图截取的教学样本，不是自然到达的调查 n。</li>
+    </ol>
+
+    <h2>公司代码</h2>
+    <p>
+      这个仓库是 <code>sapphireran/pang990801.github.io</code> 个人站点。工坊只新增 <code>docs/blueprint</code>、
+      <code>examples/blueprint</code>、<code>data/blueprint</code> 和脚本，不引入任何公司内部项目。
+    </p>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", active: "caveats" });</script>
+</body>
+</html>

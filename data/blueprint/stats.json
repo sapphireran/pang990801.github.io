@@ -1,0 +1,57 @@
+{
+  "girl_ols": {
+    "n": 199,
+    "slope": 0.14088,
+    "intercept": 0.29894,
+    "r": 0.913516,
+    "r2": 0.834512,
+    "resid_sd": 1.34572,
+    "x_mean": 116.8552,
+    "y_mean": 16.7615,
+    "x_min": 79.73,
+    "x_max": 152.78,
+    "y_min": 10.08,
+    "y_max": 24.21,
+    "equation": "shoe_cm = 0.2989 + 0.1409 * height_cm"
+  },
+  "boy_ols": {
+    "n": 199,
+    "slope": 0.143343,
+    "intercept": -0.065007,
+    "r": 0.91562,
+    "r2": 0.83836,
+    "resid_sd": 1.372712,
+    "x_mean": 111.8186,
+    "y_mean": 15.9634,
+    "x_min": 75.48,
+    "x_max": 149.96,
+    "y_min": 9.74,
+    "y_max": 24.4,
+    "equation": "shoe_cm = -0.0650 + 0.1433 * height_cm"
+  },
+  "crossover_age": 11,
+  "age_velocity_notes": {
+    "girl_max_step": 1.69,
+    "boy_max_step": 1.49,
+    "girl_min_step": -0.67,
+    "boy_min_step": -0.6
+  },
+  "bmi_index_r": {
+    "girl": 0.88578,
+    "boy": 0.702912,
+    "n": 13,
+    "note": "Thirteen aggregated BMI ticks, not child-level pairs."
+  },
+  "same_foot_pct_range": {
+    "min": 62.86,
+    "max": 90.91
+  },
+  "default_allowance_mm": 12,
+  "size_formulas": {
+    "mondopoint": "round(foot_mm)",
+    "cn_hao": "foot_mm / 10",
+    "eu": "(foot_mm + allowance_mm) / (20/3)",
+    "uk_kids": "(last_mm - 101.6) / 8.46",
+    "us_kids": "uk_kids + 1"
+  }
+}

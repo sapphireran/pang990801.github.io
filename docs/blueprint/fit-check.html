@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>试穿核对 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Fit check · educational</p>
+      <h1>报完号之后还要看三件事</h1>
+      <p class="lede">
+        换算尺只能把厘米变成一套号码。试穿时仍要看足趾余量、足跟是否打滑、左右是否同一号。
+        这一页是给自己和家长的读图核对清单，不是儿科或矫形门诊流程。
+      </p>
+      <p><span class="stamp">Education only</span><span class="stamp">No diagnosis</span></p>
+    </section>
+
+    <h2>三件比号更硬的观察</h2>
+    <div class="grid three">
+      <article class="card">
+        <h3>1. 足趾余量</h3>
+        <p>站立时，最长趾到鞋内头应还能按进去大约一只拇指宽（常见教学口令，不是实验室公差）。对应工坊放余量 8–15 mm 那一档。</p>
+      </article>
+      <article class="card">
+        <h3>2. 足跟锁定</h3>
+        <p>走几步，后跟不应反复抽出。负残差（脚比身高估计的短）再加厚袜「保险」，最容易空跟。</p>
+      </article>
+      <article class="card">
+        <h3>3. 左右分开看</h3>
+        <p>总览时间轴把「左比右大 10–20%」和「20% 以上」分成两片。若两脚差接近半号，按长的那只买，或接受不成对。</p>
+      </article>
+    </div>
+
+    <h2>和总览四张图怎么对</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>总览面板</th><th>试穿时能用的一句</th><th>不能用的一句</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>身高–鞋码散点</td>
+            <td>同身高孩子鞋长大概落在哪一带</td>
+            <td>「120 cm 就该穿 17 码」</td>
+          </tr>
+          <tr>
+            <td>年龄–脚长</td>
+            <td>11 岁前后均值交叉，别用「女童永远更长」</td>
+            <td>「9 岁男童一定是 20 cm」——该岁反而有回落</td>
+          </tr>
+          <tr>
+            <td>BMI–胖瘦度</td>
+            <td>指数随 BMI 上升，宽楦可能更相关</td>
+            <td>把指数 26 读成 26 cm 脚宽</td>
+          </tr>
+          <tr>
+            <td>左右脚饼图</td>
+            <td>提醒你量两只脚</td>
+            <td>把公式生成的计数当成门诊患病率</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>什么时候别用这个工坊</h2>
+    <ul>
+      <li>疼痛、跛行、明显内外翻、皮肤破溃——去看专业人员，不要调放余量滑块。</li>
+      <li>总览标题里的「畸形足或病足」链到另一个站点；本工坊不解释那组图。</li>
+      <li><code>draw1.js</code> / <code>draw2.js</code> 的成年压力与厚度草稿，不能拿来给儿童试鞋。</li>
+    </ul>
+    <p><a href="../../examples/blueprint/vignettes.html">用八个真实散点做读图练习 →</a></p>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", active: "fit" });</script>
+</body>
+</html>

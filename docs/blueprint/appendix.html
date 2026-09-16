@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>计算附录 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Computed appendix</p>
+      <h1>从原数组算出来的数</h1>
+      <p class="lede">
+        下列表格在打开页面时从 <code>data/blueprint/payload.js</code> 填入。若要重算，在仓库根目录运行
+        <code>python3 scripts/build-blueprint-data.py</code>。
+      </p>
+    </section>
+
+    <h2>身高 → 鞋长 OLS</h2>
+    <div class="table-wrap"><table id="ols-table"></table></div>
+
+    <h2>年龄均值与一阶差分</h2>
+    <div class="table-wrap"><table id="age-table"></table></div>
+
+    <h2>BMI 与胖瘦指数</h2>
+    <p id="bmi-r" class="note"></p>
+    <div class="table-wrap"><table id="bmi-table"></table></div>
+
+    <h2>尺码表摘录（放余量 12 mm）</h2>
+    <div class="table-wrap"><table id="size-table"></table></div>
+  </main>
+  <script src="../../data/blueprint/payload.js"></script>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>
+    Blueprint.mount({ kind: "docs", base: ".", active: "appendix" });
+    var P = Blueprint.payload();
+    var f = Blueprint.fmt;
+    Blueprint.fillTable(document.getElementById("ols-table"),
+      ["组", "n", "方程", "r", "r²", "σ 残差 cm", "身高均值", "鞋长均值"],
+      [
+        ["女童", P.stats.girl_ols.n, P.stats.girl_ols.equation, f(P.stats.girl_ols.r, 4), f(P.stats.girl_ols.r2, 4), f(P.stats.girl_ols.resid_sd, 3), f(P.stats.girl_ols.x_mean, 2), f(P.stats.girl_ols.y_mean, 2)],
+        ["男童", P.stats.boy_ols.n, P.stats.boy_ols.equation, f(P.stats.boy_ols.r, 4), f(P.stats.boy_ols.r2, 4), f(P.stats.boy_ols.resid_sd, 3), f(P.stats.boy_ols.x_mean, 2), f(P.stats.boy_ols.y_mean, 2)]
+      ]);
+    Blueprint.fillTable(document.getElementById("age-table"),
+      ["岁", "女童 cm", "男童 cm", "女−男", "女 Δ", "男 Δ"],
+      P.age_foot_length.map(function (row) {
+        return [row.age, f(row.girl_cm, 2), f(row.boy_cm, 2), f(row.diff_girl_minus_boy_cm, 2), f(row.girl_velocity_cm, 2), f(row.boy_velocity_cm, 2)];
+      }));
+    document.getElementById("bmi-r").innerHTML =
+      "Pearson r（13 个汇总点，不是儿童个体）：女童 <strong>" + f(P.stats.bmi_index_r.girl, 3) +
+      "</strong>，男童 <strong>" + f(P.stats.bmi_index_r.boy, 3) + "</strong>。";
+    Blueprint.fillTable(document.getElementById("bmi-table"),
+      ["BMI", "女童指数", "男童指数"],
+      P.bmi_shape.map(function (row) { return [row.bmi, f(row.girl_index, 2), f(row.boy_index, 2)]; }));
+    var slim = P.size_table_12mm.filter(function (row, i) { return row.foot_mm % 10 === 0; });
+    Blueprint.fillTable(document.getElementById("size-table"),
+      ["脚长 mm", "号", "Mondopoint", "EU", "UK 童", "US 童", "楦长 mm"],
+      slim.map(function (row) {
+        return [row.foot_mm, f(row.cn_hao, 1), row.mondopoint, f(row.eu, 2), f(row.uk_kids, 2), f(row.us_kids, 2), row.last_mm];
+      }));
+  </script>
+</body>
+</html>

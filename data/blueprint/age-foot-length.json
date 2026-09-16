@@ -1,0 +1,74 @@
+[
+  {
+    "age": 6,
+    "girl_cm": 18.55,
+    "boy_cm": 18.27,
+    "diff_girl_minus_boy_cm": 0.28,
+    "girl_velocity_cm": null,
+    "boy_velocity_cm": null
+  },
+  {
+    "age": 7,
+    "girl_cm": 20.24,
+    "boy_cm": 19.76,
+    "diff_girl_minus_boy_cm": 0.48,
+    "girl_velocity_cm": 1.69,
+    "boy_velocity_cm": 1.49
+  },
+  {
+    "age": 8,
+    "girl_cm": 21.01,
+    "boy_cm": 20.61,
+    "diff_girl_minus_boy_cm": 0.4,
+    "girl_velocity_cm": 0.77,
+    "boy_velocity_cm": 0.85
+  },
+  {
+    "age": 9,
+    "girl_cm": 20.34,
+    "boy_cm": 20.01,
+    "diff_girl_minus_boy_cm": 0.33,
+    "girl_velocity_cm": -0.67,
+    "boy_velocity_cm": -0.6
+  },
+  {
+    "age": 10,
+    "girl_cm": 20.83,
+    "boy_cm": 20.75,
+    "diff_girl_minus_boy_cm": 0.08,
+    "girl_velocity_cm": 0.49,
+    "boy_velocity_cm": 0.74
+  },
+  {
+    "age": 11,
+    "girl_cm": 21.29,
+    "boy_cm": 21.32,
+    "diff_girl_minus_boy_cm": -0.03,
+    "girl_velocity_cm": 0.46,
+    "boy_velocity_cm": 0.57
+  },
+  {
+    "age": 12,
+    "girl_cm": 21.83,
+    "boy_cm": 21.98,
+    "diff_girl_minus_boy_cm": -0.15,
+    "girl_velocity_cm": 0.54,
+    "boy_velocity_cm": 0.66
+  },
+  {
+    "age": 13,
+    "girl_cm": 22.36,
+    "boy_cm": 22.69,
+    "diff_girl_minus_boy_cm": -0.33,
+    "girl_velocity_cm": 0.53,
+    "boy_velocity_cm": 0.71
+  },
+  {
+    "age": 14,
+    "girl_cm": 22.66,
+    "boy_cm": 23.16,
+    "diff_girl_minus_boy_cm": -0.5,
+    "girl_velocity_cm": 0.3,
+    "boy_velocity_cm": 0.47
+  }
+]

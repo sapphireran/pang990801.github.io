@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>放余量 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Last allowance</p>
+      <h1>楦要比脚长出一截，但长哪一截</h1>
+      <p class="lede">
+        放余量（toe allowance / 前容）不是测量误差，是给足趾屈曲、袜子和步态留的空间。
+        工坊默认 12 mm，只为了让换算尺有一个写得下来的数。它不是国标强制值，也不是某双鞋的内长。
+      </p>
+    </section>
+
+    <div class="grid two">
+      <article class="card">
+        <h3>脚长 → 楦长</h3>
+        <p><code>last_mm = foot_mm + allowance_mm</code></p>
+        <p>Mondopoint / 中国号继续报脚长。EU / UK / US 童码在本工坊里按楦长分级。</p>
+      </article>
+      <article class="card">
+        <h3>常见教学区间</h3>
+        <p>童鞋笔记里常见 8–15 mm。运动款、厚袜、宽跖围会把需要的内长往上推；过松则足跟打滑。</p>
+      </article>
+    </div>
+
+    <h2>和回归残差不要加错层</h2>
+    <p>
+      女童线 <code>shoe_cm = 0.2989 + 0.1409 × height_cm</code> 的残差标准差约 13.5 mm。
+      一个比回归线长 1σ 的孩子，脚已经比「按身高估的脚」长出大约一个放余量。
+      若再机械加上 12 mm 去报欧码，买到的鞋可能只是刚好，也可能已经偏长。
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>情境</th><th>脚长怎么取</th><th>放余量怎么取</th><th>风险</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>只有身高</td>
+            <td>回归中线</td>
+            <td>12 mm</td>
+            <td>忽略 ±1σ ≈ 一个 UK 码</td>
+          </tr>
+          <tr>
+            <td>量到了脚长</td>
+            <td>实测毫米</td>
+            <td>按鞋型 8–15 mm</td>
+            <td>仍未考虑跖围和左右差</td>
+          </tr>
+          <tr>
+            <td>正残差（脚偏长）</td>
+            <td>实测，不要用中线</td>
+            <td>可略保守</td>
+            <td>用中线会系统性偏短</td>
+          </tr>
+          <tr>
+            <td>负残差（脚偏短）</td>
+            <td>实测</td>
+            <td>不要再加宽裕「保险」</td>
+            <td>鞋会空，足跟打滑</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>总览图里没有放余量</h2>
+    <p>
+      散点、年龄柱和雷达都没有第三条「楦长」系列。把 y 值直接当成 EU 码，等于既忘了单位是厘米，又忘了巴黎点走楦长。
+      蓝图工坊把放余量做成滑块，就是把这层假设从公式里拖到画面上。
+    </p>
+    <p><a href="../../examples/blueprint/converter.html">在换算尺上拖放余量 →</a></p>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", active: "allowance" });</script>
+</body>
+</html>

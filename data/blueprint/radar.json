@@ -1,0 +1,134 @@
+[
+  {
+    "age": 9,
+    "axes": [
+      {
+        "name_zh": "身高",
+        "score": 43
+      },
+      {
+        "name_zh": "兜跟围长",
+        "score": 29
+      },
+      {
+        "name_zh": "跗骨围长",
+        "score": 37
+      },
+      {
+        "name_zh": "跖趾围长",
+        "score": 37
+      },
+      {
+        "name_zh": "鞋码",
+        "score": 38
+      },
+      {
+        "name_zh": "脚长",
+        "score": 31
+      },
+      {
+        "name_zh": "体重",
+        "score": 41
+      }
+    ]
+  },
+  {
+    "age": 10,
+    "axes": [
+      {
+        "name_zh": "身高",
+        "score": 53
+      },
+      {
+        "name_zh": "兜跟围长",
+        "score": 32
+      },
+      {
+        "name_zh": "跗骨围长",
+        "score": 42
+      },
+      {
+        "name_zh": "跖趾围长",
+        "score": 46
+      },
+      {
+        "name_zh": "鞋码",
+        "score": 43
+      },
+      {
+        "name_zh": "脚长",
+        "score": 42
+      },
+      {
+        "name_zh": "体重",
+        "score": 49
+      }
+    ]
+  },
+  {
+    "age": 11,
+    "axes": [
+      {
+        "name_zh": "身高",
+        "score": 66
+      },
+      {
+        "name_zh": "兜跟围长",
+        "score": 37
+      },
+      {
+        "name_zh": "跗骨围长",
+        "score": 47
+      },
+      {
+        "name_zh": "跖趾围长",
+        "score": 60
+      },
+      {
+        "name_zh": "鞋码",
+        "score": 57
+      },
+      {
+        "name_zh": "脚长",
+        "score": 59
+      },
+      {
+        "name_zh": "体重",
+        "score": 65
+      }
+    ]
+  },
+  {
+    "age": 12,
+    "axes": [
+      {
+        "name_zh": "身高",
+        "score": 84
+      },
+      {
+        "name_zh": "兜跟围长",
+        "score": 45
+      },
+      {
+        "name_zh": "跗骨围长",
+        "score": 55
+      },
+      {
+        "name_zh": "跖趾围长",
+        "score": 70
+      },
+      {
+        "name_zh": "鞋码",
+        "score": 71
+      },
+      {
+        "name_zh": "脚长",
+        "score": 71
+      },
+      {
+        "name_zh": "体重",
+        "score": 79
+      }
+    ]
+  }
+]

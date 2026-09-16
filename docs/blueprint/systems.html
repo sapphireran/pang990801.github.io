@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>尺码体系 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Size systems</p>
+      <h1>同一只脚，五套说话方式</h1>
+      <p class="lede">
+        总览散点的 y 值是 10–24 厘米。把它读成「24 码童鞋」会错一整号段。
+        下面五套公式都是个人学习笔记里的常用近似，用来对照，不是某家品牌的配码表。
+      </p>
+    </section>
+
+    <div class="title-block">
+      <div><b>Measures</b>foot length vs last length</div>
+      <div><b>Default allowance</b>12 mm</div>
+      <div><b>Worked example</b>180 mm foot</div>
+    </div>
+
+    <h2>先分清在量什么</h2>
+    <div class="grid two">
+      <article class="card">
+        <h3>脚长 foot length</h3>
+        <p>后跟突点到最长趾端。Mondopoint 和中国「号」按这根长度说话。总览散点的 y 轴更接近这一类。</p>
+      </article>
+      <article class="card">
+        <h3>楦长 last length</h3>
+        <p>脚长加上放余量（toe allowance）。欧洲巴黎点和英码童鞋习惯按楦长分级。工坊默认加 12 mm。</p>
+      </article>
+    </div>
+
+    <h2>五套对照</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>体系</th>
+            <th>量的是</th>
+            <th>工坊公式</th>
+            <th>180 mm 脚 / 12 mm 余量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mondopoint (ISO 9407)</td>
+            <td>脚长 mm</td>
+            <td><code>round(foot_mm)</code></td>
+            <td>180</td>
+          </tr>
+          <tr>
+            <td>中国号 CN 号</td>
+            <td>脚长 cm</td>
+            <td><code>foot_mm / 10</code></td>
+            <td>18.0 号</td>
+          </tr>
+          <tr>
+            <td>European / Paris point</td>
+            <td>楦长</td>
+            <td><code>last_mm / (20/3)</code></td>
+            <td>28.80</td>
+          </tr>
+          <tr>
+            <td>UK children’s</td>
+            <td>楦长，从 4 in 起算</td>
+            <td><code>(last_mm − 101.6) / 8.46</code></td>
+            <td>10.69</td>
+          </tr>
+          <tr>
+            <td>US children’s</td>
+            <td>UK 童码平移</td>
+            <td><code>uk_kids + 1</code></td>
+            <td>11.69</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>为什么 EU 不是 脚长 / 6.67。</strong>
+      巴黎点是 2/3 厘米，约 6.67 mm。零售欧码通常跟着<strong>楦</strong>走。
+      若误用脚长去除，180 mm 会得到 27.0，比上表少将近两号——这正是「忘了放余量」的典型偏差。
+    </div>
+
+    <h2>和总览图怎么对读</h2>
+    <ul>
+      <li>散点 y = 16.8 cm 左右，是女童鞋长均值，Mondopoint ≈ 168，中国号 ≈ 16.8，不是 26、27 那种零售整数。</li>
+      <li>年龄柱状图 6–14 岁的脚长均值从 18.3 cm 走到 23.2 cm。换算尺上这是 Mondopoint 183 → 232。</li>
+      <li>雷达上的「鞋码」「脚长」是 0–100 分，<em>不能</em>直接代入上面的公式。</li>
+    </ul>
+
+    <h2>半号、整号和残差</h2>
+    <p>
+      童鞋 UK 一号约 8.5 mm，巴黎点约 6.7 mm，中国号半号是 5 mm。
+      女童回归残差标准差约 <strong>1.35 cm</strong>，已经超过一个 UK 童码。
+      所以「用身高估计鞋码再去商店报号」会把回归噪声和尺码体系误差叠在一起。
+      交互页把残差带和换算尺放在同一屏，就是为了让这两层误差同时可见。
+    </p>
+
+    <p><a href="../../examples/blueprint/converter.html">打开换算尺示例 →</a></p>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", active: "systems" });</script>
+</body>
+</html>

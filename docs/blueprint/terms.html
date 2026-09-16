@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>对照词表 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Bilingual terms</p>
+      <h1>同一词，总览和大图里经常错位</h1>
+      <p class="lede">
+        原站标题用中文。蓝图工坊把尺码和楦的词做成中英对照，避免「鞋码」被读成零售整数、「胖瘦度」被读成厘米。
+      </p>
+    </section>
+
+    <h2>尺码与楦</h2>
+    <dl>
+      <div class="term"><dt>鞋码 / 鞋号</dt><dd>On the dashboard: centimetres of shoe or foot length. In a shop: an integer pair size. The workshop treats the dashboard meaning as length and converts it outward.</dd></div>
+      <div class="term"><dt>Mondopoint</dt><dd>ISO 9407 label equal to foot length in millimetres. 180 means 180 mm, not EU 18.</dd></div>
+      <div class="term"><dt>中国号</dt><dd>Length number in centimetres of the foot. 18.0 号 ≈ Mondopoint 180.</dd></div>
+      <div class="term"><dt>Paris point</dt><dd>2/3 cm. European sizes in this workshop divide last length, not bare foot length, by 6.67 mm.</dd></div>
+      <div class="term"><dt>Barleycorn</dt><dd>1/3 inch ≈ 8.46 mm. UK children’s scale in the converter starts from a 4-inch last.</dd></div>
+      <div class="term"><dt>楦 last</dt><dd>The form the shoe is built on. Last length = foot length + allowance.</dd></div>
+      <div class="term"><dt>放余量</dt><dd>Toe allowance. Default 12 mm here. Not a residual and not measurement error.</dd></div>
+    </dl>
+
+    <h2>几何</h2>
+    <dl>
+      <div class="term"><dt>脚长</dt><dd>Heel to longest toe, standing. Dashboard scatter y, age bars, and Mondopoint all want this family of length.</dd></div>
+      <div class="term"><dt>跖趾围长</dt><dd>Ball girth through the first and fifth metatarsal heads. Radar axis, 0–100 score.</dd></div>
+      <div class="term"><dt>跗骨围长</dt><dd>Instep / tarsal girth. Radar axis, 0–100 score.</dd></div>
+      <div class="term"><dt>兜跟围长</dt><dd>Heel girth, lowest radar dimension at ages 9–12 in this sample.</dd></div>
+      <div class="term"><dt>胖瘦度</dt><dd>Dashboard index, labelled 脚长/脚宽 in the axis title. Values sit near 23–30 — not a centimetre width.</dd></div>
+    </dl>
+
+    <h2>统计</h2>
+    <dl>
+      <div class="term"><dt>残差 residual</dt><dd>Observed shoe length minus the sex-specific OLS line. Girl σ ≈ 1.35 cm.</dd></div>
+      <div class="term"><dt>交叉 crossover</dt><dd>Age 11 on the mean curves: boy foot length overtakes girl foot length.</dd></div>
+      <div class="term"><dt>一阶差分 velocity</dt><dd>This year’s mean minus last year’s. Age 9 is negative in the original bars — treat as a subsample kink, not a law of growth.</dd></div>
+    </dl>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", active: "terms" });</script>
+</body>
+</html>

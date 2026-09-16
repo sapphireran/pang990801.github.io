@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>残差对尺码 · 蓝图工坊</title>
+  <link rel="stylesheet" href="../../docs/blueprint/blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Residuals as sizes</p>
+      <h1>比中线长一厘米，等于几个号</h1>
+      <p class="lede">点选残差图上的一个孩子。右侧不重复讲回归，只把残差翻译成巴黎点和 UK 童码，并对比「用中线报号」会偏多少。</p>
+    </section>
+    <div class="pair">
+      <div class="card"><div id="resid" class="chart tall"></div></div>
+      <div class="card">
+        <h3>选中的点</h3>
+        <div id="pick" class="lede">点图上任意一点。</div>
+        <div class="table-wrap"><table id="pick-table"></table></div>
+        <p class="lede">成年足底草稿不在这张图里。它们仍留在 <code>draw1.js</code> / <code>draw2.js</code>，单位问题写在范围页。</p>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/blueprint/payload.js"></script>
+  <script src="js/blueprint.js"></script>
+  <script src="js/leftover-page.js"></script>
+</body>
+</html>

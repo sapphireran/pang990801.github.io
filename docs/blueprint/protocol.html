@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>测量协议 · 蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Measurement notes</p>
+      <h1>四个量：长、跖、跗、兜跟</h1>
+      <p class="lede">
+        总览雷达用了七个轴，其中四个是足部几何：脚长、跖趾围长、跗骨围长、兜跟围长。
+        原数组只保留了 0–100 分，没有毫米底稿。下面是个人复习用的量法，用来读懂轴的名字，不是现场 SOP。
+      </p>
+    </section>
+
+    <svg class="dim-svg" viewBox="0 0 720 280" role="img" aria-label="Foot outline with four measurement callouts">
+      <rect x="0" y="0" width="720" height="280" fill="#071627"/>
+      <path d="M140 200 C150 120, 210 70, 300 62 C360 56, 430 70, 500 90 C560 108, 600 140, 610 168 C618 190, 590 210, 540 216 C480 224, 400 230, 330 228 C250 226, 180 220, 140 200 Z" fill="none" stroke="#7fd3ff" stroke-width="2"/>
+      <line x1="140" y1="240" x2="610" y2="240" stroke="#ffb86b" stroke-width="1.5"/>
+      <line x1="140" y1="232" x2="140" y2="248" stroke="#ffb86b"/>
+      <line x1="610" y1="232" x2="610" y2="248" stroke="#ffb86b"/>
+      <text x="360" y="262" fill="#ffb86b" font-size="14" text-anchor="middle">脚长 L · heel to longest toe</text>
+      <path d="M430 96 C470 120, 490 170, 470 210" fill="none" stroke="#3ad6c4" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="500" y="70" fill="#3ad6c4" font-size="13">跖趾围长 ball girth</text>
+      <path d="M340 70 C360 110, 370 160, 350 220" fill="none" stroke="#7fd3ff" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="250" y="54" fill="#7fd3ff" font-size="13">跗骨围长 instep</text>
+      <path d="M175 150 C200 175, 210 200, 190 220" fill="none" stroke="#ff8a7a" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="80" y="140" fill="#ff8a7a" font-size="13">兜跟围长</text>
+    </svg>
+
+    <h2>量之前</h2>
+    <ol>
+      <li>下午量。足部白天会略胀，比刚起床更接近穿鞋状态。</li>
+      <li>双脚都量。总览时间轴饼图把「左右不同」单独成类，不要默认成对鞋共用一个长度。</li>
+      <li>站立、体重落在被量的脚上。坐着量会系统性偏短、偏瘦。</li>
+      <li>穿将要配套的袜子。厚运动袜能吃掉 2–4 mm 内长。</li>
+    </ol>
+
+    <h2>记号点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>中文</th><th>English</th><th>怎么找</th><th>总览里出现的位置</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>后跟突点</td>
+            <td>pternion</td>
+            <td>足跟最凸处，长度的零点</td>
+            <td>脚长、兜跟围长</td>
+          </tr>
+          <tr>
+            <td>最长趾端</td>
+            <td>acropodion</td>
+            <td>通常是第 1 或第 2 趾，以实际更长者为准</td>
+            <td>脚长、散点 y、年龄柱</td>
+          </tr>
+          <tr>
+            <td>第 1 / 第 5 跖趾</td>
+            <td>metatarsale tibiale / fibulare</td>
+            <td>跖骨头最宽处，围长过这两点</td>
+            <td>雷达「跖趾围长」</td>
+          </tr>
+          <tr>
+            <td>跗骨中段</td>
+            <td>instep / tarsal girth</td>
+            <td>足弓最高处附近绕一圈</td>
+            <td>雷达「跗骨围长」</td>
+          </tr>
+          <tr>
+            <td>兜跟</td>
+            <td>heel girth</td>
+            <td>后跟突点斜向前上，绕过足窝</td>
+            <td>雷达「兜跟围长」，9–12 岁分里最低的一维</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>不要从雷达倒推毫米</h2>
+    <p>
+      9 岁兜跟围长分数是 29，12 岁是 45。这只说明相对画像里这一维抬了，不表示围长从 29 mm 长到 45 mm。
+      楦型蓝图示例把分数当成比例去拉 SVG，图例里写明了「分数，不是毫米」。
+    </p>
+    <p><a href="../../examples/blueprint/field-kit.html">打开可打印测量纸 →</a></p>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", active: "protocol" });</script>
+</body>
+</html>

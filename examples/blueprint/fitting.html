@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>身高估长 · 蓝图工坊</title>
+  <link rel="stylesheet" href="../../docs/blueprint/blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Height → length</p>
+      <h1>中线能报一个厘米，带能报一个号</h1>
+      <p class="lede">选择性别与身高。预测鞋长来自总览散点的 OLS；带子是残差标准差，不是置信区间营销话术。</p>
+    </section>
+    <div class="card">
+      <div class="toolbar">
+        <label class="field">性别
+          <select id="sex">
+            <option value="girl">女童线</option>
+            <option value="boy">男童线</option>
+          </select>
+        </label>
+        <label class="field">身高 cm
+          <input id="height" type="range" min="76" max="154" step="0.5" value="117" />
+          <span id="height-out"></span>
+        </label>
+      </div>
+      <div class="grid stats" id="pred-stats"></div>
+    </div>
+    <div class="pair">
+      <div class="card"><div id="scatter" class="chart"></div></div>
+      <div class="card">
+        <h3>同身高附近的真实点</h3>
+        <div class="table-wrap"><table id="near"></table></div>
+        <p class="lede" id="bin-note"></p>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/blueprint/payload.js"></script>
+  <script src="js/blueprint.js"></script>
+  <script src="js/fitting-page.js"></script>
+</body>
+</html>

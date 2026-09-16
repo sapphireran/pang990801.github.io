@@ -1,0 +1,128 @@
+[
+  {
+    "site": 1,
+    "typical_mm": 16.0,
+    "diabetic_mm": 16.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 16.0,
+    "plotted_vs_true_mm": 1.6,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 2,
+    "typical_mm": 13.0,
+    "diabetic_mm": 13.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 13.0,
+    "plotted_vs_true_mm": 1.3,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 3,
+    "typical_mm": 8.0,
+    "diabetic_mm": 8.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 8.0,
+    "plotted_vs_true_mm": 0.8,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 4,
+    "typical_mm": 9.0,
+    "diabetic_mm": 9.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 9.0,
+    "plotted_vs_true_mm": 0.9,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 5,
+    "typical_mm": 23.0,
+    "diabetic_mm": 23.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 23.0,
+    "plotted_vs_true_mm": 2.3,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 6,
+    "typical_mm": 26.0,
+    "diabetic_mm": 26.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 26.0,
+    "plotted_vs_true_mm": 2.6,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 7,
+    "typical_mm": 35.0,
+    "diabetic_mm": 35.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 35.0,
+    "plotted_vs_true_mm": 3.5,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 8,
+    "typical_mm": 45.0,
+    "diabetic_mm": 45.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 45.0,
+    "plotted_vs_true_mm": 4.5,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 9,
+    "typical_mm": 10.0,
+    "diabetic_mm": 10.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 10.0,
+    "plotted_vs_true_mm": 1.0,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 10,
+    "typical_mm": 29.0,
+    "diabetic_mm": 29.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 29.0,
+    "plotted_vs_true_mm": 2.9,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 11,
+    "typical_mm": 45.0,
+    "diabetic_mm": 45.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 45.0,
+    "plotted_vs_true_mm": 4.5,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 12,
+    "typical_mm": 3.0,
+    "diabetic_mm": 3.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 3.0,
+    "plotted_vs_true_mm": 0.3,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 13,
+    "typical_mm": 27.0,
+    "diabetic_mm": 27.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 27.0,
+    "plotted_vs_true_mm": 2.7,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  },
+  {
+    "site": 14,
+    "typical_mm": 34.0,
+    "diabetic_mm": 34.0,
+    "true_delta_mm": 0.0,
+    "plotted_delta_label_um": 34.0,
+    "plotted_vs_true_mm": 3.4,
+    "note": "The leftover chart labels the line as µm but the numbers track tenths of a millimetre."
+  }
+]

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>儿童脚型蓝图工坊</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Personal blueprint workshop</p>
+      <h1>把总览大屏读成尺和楦</h1>
+      <p class="lede">
+        根目录那组 ECharts 图是 2020 年的个人作业：身高对鞋长、年龄对脚长、BMI 对“胖瘦度”、左右脚是否一样大，以及 9–12 岁的围长画像。
+        这一目录不再重复画同一张散点，而是把已经画上去的厘米数，翻译成 Mondopoint、中国号、巴黎点和童鞋英码，并写下测量与放余量该怎么读。
+      </p>
+      <p>
+        <span class="stamp">Personal only</span>
+        <span class="stamp">Not a last spec</span>
+        <span class="stamp">Not medical advice</span>
+      </p>
+    </section>
+
+    <div class="title-block">
+      <div><b>Drawing</b>pang990801.github.io / docs/blueprint</div>
+      <div><b>Source arrays</b>js/index.js · draw1.js · draw2.js</div>
+      <div><b>Payload</b>data/blueprint/payload.js</div>
+    </div>
+
+    <div class="grid stats">
+      <div class="card stat"><b>199+199</b><span>女童 / 男童身高–鞋长点</span></div>
+      <div class="card stat"><b>0.91</b><span>两性身高–鞋长 Pearson r</span></div>
+      <div class="card stat"><b>11 岁</b><span>均值曲线上男童脚长超过女童</span></div>
+      <div class="card stat"><b>12 mm</b><span>工坊默认儿童放余量</span></div>
+    </div>
+
+    <h2>先读哪一页</h2>
+    <div class="grid two">
+      <article class="card">
+        <h3><a href="systems.html">五种尺码怎么对齐</a></h3>
+        <p>总览 y 轴写「鞋码」但单位是厘米。这一页把厘米脚长对到 Mondopoint、号、EU、UK 童码和 US 童码，并写清每一套在量脚还是量楦。</p>
+      </article>
+      <article class="card">
+        <h3><a href="allowance.html">放余量不是误差</a></h3>
+        <p>楦长 = 脚长 + 放余量。12 mm 只是工坊默认值。正残差的孩子再加 12 mm，和负残差的孩子用同一套，意义不一样。</p>
+      </article>
+      <article class="card">
+        <h3><a href="protocol.html">四个长度/围度怎么量</a></h3>
+        <p>脚长、跖趾围长、跗骨围长、兜跟围长：站立负重、记号点、软尺路径。雷达图上的 0–100 分不是这些毫米数。</p>
+      </article>
+      <article class="card">
+        <h3><a href="fit-check.html">试穿时看什么</a></h3>
+        <p>给家长和自己的读图核对：足趾余量、足跟是否打滑、左右是否要分成两只买。教育笔记，不是门诊流程。</p>
+      </article>
+      <article class="card">
+        <h3><a href="terms.html">中英对照词表</a></h3>
+        <p>鞋号、楦、跖围、Mondopoint、Paris point、barleycorn。同一词在总览标题和工厂图纸里经常不是一个意思。</p>
+      </article>
+      <article class="card">
+        <h3><a href="appendix.html">计算附录</a></h3>
+        <p>女童 <code>shoe = 0.2989 + 0.1409 × height</code>，男童 <code>shoe = −0.0650 + 0.1433 × height</code>。残差标准差约 1.35 cm。</p>
+      </article>
+    </div>
+
+    <h2>交互示例（另一目录）</h2>
+    <div class="grid three">
+      <article class="card">
+        <h3><a href="../../examples/blueprint/converter.html">换算尺</a></h3>
+        <p>拖动脚长和放余量，看五套尺码同时走动。</p>
+      </article>
+      <article class="card">
+        <h3><a href="../../examples/blueprint/fitting.html">身高估长</a></h3>
+        <p>用两条性别回归线估计鞋长，并标出 ±1σ / ±2σ 带。</p>
+      </article>
+      <article class="card">
+        <h3><a href="../../examples/blueprint/growth-atlas.html">生长图集</a></h3>
+        <p>6–14 岁均值、一阶差分，以及按身高分箱的鞋长百分位。</p>
+      </article>
+    </div>
+
+    <div class="note">
+      <strong>和总览页的分工。</strong>
+      总览继续负责刷选、雷达和时间轴饼图。蓝图工坊不改那些 IIFE，只引用抽出来的数组。
+      若要在本地打开交互页，请在仓库根目录运行 <code>python3 -m http.server 4173</code>。
+    </div>
+  </main>
+  <script src="../../examples/blueprint/js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "docs", base: ".", exampleBase: "../../examples/blueprint", dashboard: "../../index.html", active: "hub" });</script>
+</body>
+</html>
