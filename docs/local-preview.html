@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>本地预览 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <a href="./index.html">文档</a>
+      <a href="../examples/index.html">示例馆</a>
+      <a href="../index.html">大屏</a>
+    </nav>
+    <h1>本地预览</h1>
+    <p class="lead">静态站点，在仓库根目录开服务器，不要只把 <code>examples/</code> 当成根路径。</p>
+    <pre><code>python3 -m http.server 4173</code></pre>
+    <table>
+      <thead><tr><th>地址</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><a href="http://127.0.0.1:4173/">/</a></td><td>儿童脚型大屏</td></tr>
+        <tr><td><a href="./index.html">/docs/</a></td><td>文档首页</td></tr>
+        <tr><td><a href="../examples/index.html">/examples/</a></td><td>单图目录</td></tr>
+      </tbody>
+    </table>
+    <h2>空白图</h2>
+    <ul>
+      <li><code>echarts is not defined</code> — 脚本路径错，或只开了 examples 目录当根</li>
+      <li>容器高度 0 — 示例页必须给 <code>#chart</code> 像素高度</li>
+      <li>仍在用 <code>.bar .chart</code> — 示例页只有 <code>#chart</code></li>
+    </ul>
+    <p>正式大屏样式是 <code>css/index.css</code>。<code>index.less</code> 没有提交编译脚本；<code>index_new.css</code> 未被引用。</p>
+    <footer>Markdown：<a href="./local-preview.md">local-preview.md</a></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据表 · 示例</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 0 0 28px;
+    }
+    th, td {
+      border: 1px solid #2a3d5c;
+      padding: 7px 8px;
+      text-align: right;
+    }
+    th:first-child, td:first-child { text-align: left; }
+    th { background: #18263d; color: #7cffc4; }
+    .table-card {
+      background: #121c30;
+      border: 1px solid #2a3d5c;
+      border-radius: 12px;
+      padding: 14px 16px 4px;
+      margin-bottom: 18px;
+    }
+    .table-card h2 { margin: 0 0 10px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="topnav">
+      <a href="./index.html">示例馆</a>
+      <a href="../docs/data-notes.html">数据备忘</a>
+      <a href="../index.html">大屏</a>
+    </nav>
+    <h1>展示数据表</h1>
+    <p class="lead">从 <code>example-data.js</code> 现场生成，用来核对年龄、BMI、雷达和足底草图的数，而不必打开 option。</p>
+    <div id="stats" class="stats"></div>
+    <div id="tables"></div>
+    <footer>散点 398 个点太长，这里只放摘要；逐点仍在散点示例页和大屏里。</footer>
+  </div>
+  <script src="./js/example-data.js"></script>
+  <script src="./js/chart-helpers.js"></script>
+  <script>
+    var h = chartHelpers;
+    var female = h.summarizePairs(exampleData.heightShoe.female);
+    var male = h.summarizePairs(exampleData.heightShoe.male);
+    h.fillStats("#stats", [
+      "女童散点 n=" + female.n + " r=" + h.fmt(female.r, 3),
+      "男童散点 n=" + male.n + " r=" + h.fmt(male.r, 3),
+      "脚长年龄段 " + exampleData.ageFoot.ages[0] + "–" + exampleData.ageFoot.ages.slice(-1)[0] + " 岁",
+      "对称饼 " + exampleData.symmetry.ages.length + " 岁"
+    ]);
+
+    function table(title, headers, rows) {
+      var wrap = document.createElement("section");
+      wrap.className = "table-card";
+      wrap.innerHTML = "<h2>" + title + "</h2>";
+      var t = document.createElement("table");
+      var thead = document.createElement("thead");
+      var trh = document.createElement("tr");
+      headers.forEach(function (name) {
+        var th = document.createElement("th");
+        th.textContent = name;
+        trh.appendChild(th);
+      });
+      thead.appendChild(trh);
+      t.appendChild(thead);
+      var tb = document.createElement("tbody");
+      rows.forEach(function (row) {
+        var tr = document.createElement("tr");
+        row.forEach(function (cell, i) {
+          var td = document.createElement("td");
+          td.textContent = cell;
+          tr.appendChild(td);
+        });
+        tb.appendChild(tr);
+      });
+      t.appendChild(tb);
+      wrap.appendChild(t);
+      return wrap;
+    }
+
+    var root = document.getElementById("tables");
+    var ageRows = exampleData.ageFoot.ages.map(function (age, i) {
+      return [age, exampleData.ageFoot.female[i], exampleData.ageFoot.male[i], exampleData.ageFoot.gap[i]];
+    });
+    root.appendChild(table("年龄 × 脚长（cm）", ["年龄", "女童", "男童", "女 − 男"], ageRows));
+
+    var bmiRows = exampleData.bmiShape.bmi.map(function (bmi, i) {
+      return [bmi, exampleData.bmiShape.female[i], exampleData.bmiShape.male[i]];
+    });
+    root.appendChild(table("BMI × 胖瘦度（展示值）", ["BMI", "女童", "男童"], bmiRows));
+
+    var radarHeaders = ["年龄"].concat(exampleData.radarGrowth.indicators.map(function (ind) { return ind.name; }));
+    var radarRows = exampleData.radarGrowth.series.map(function (row) {
+      return [row.name].concat(row.value);
+    });
+    root.appendChild(table("雷达相对分（0–100）", radarHeaders, radarRows));
+
+    var pressureRows = exampleData.plantarPressure.sites.map(function (site, i) {
+      return [site, exampleData.plantarPressure.normal[i], exampleData.plantarPressure.diabetic[i]];
+    });
+    root.appendChild(table("足底压力草图（Pa）", ["位点", "正常", "糖尿病足"], pressureRows));
+
+    var thickRows = exampleData.plantarThickness.sites.map(function (site, i) {
+      return [
+        site,
+        exampleData.plantarThickness.normalMm[i],
+        exampleData.plantarThickness.diabeticMm[i],
+        exampleData.plantarThickness.delta[i]
+      ];
+    });
+    root.appendChild(table("皮下厚度草图（mm / 差值原值）", ["位点", "正常 mm", "糖尿病足 mm", "差值原值"], thickRows));
+
+    var first = exampleData.symmetry.series[0];
+    var last = exampleData.symmetry.series[exampleData.symmetry.series.length - 1];
+    root.appendChild(table(
+      "双脚比例公式结果（首岁 / 末岁）",
+      ["类别", first.time, last.time],
+      first.data.map(function (item, i) {
+        return [item.name, item.value, last.data[i].value];
+      })
+    ));
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>足底草图 · 示例</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <div class="page">
+    <nav class="topnav">
+      <a href="./index.html">示例馆</a>
+      <a href="../docs/data-notes.html">数据备忘</a>
+      <a href="../index.html">大屏</a>
+    </nav>
+    <h1>足底压力与皮下厚度草图</h1>
+    <p class="lead"><code>draw1.js</code>、<code>draw2.js</code> 原先是 gallery 风格的全局 <code>option</code>，没有挂到大屏。这里改成 <code>setOption</code> 左右对照。厚度图的差值按源码原值画，单位不要当毫米差。</p>
+    <div class="pair">
+      <div class="chart-shell"><div id="pressure" class="chart-pane"></div></div>
+      <div class="chart-shell"><div id="thickness" class="chart-pane"></div></div>
+    </div>
+    <div id="notes" class="notes"></div>
+    <footer><a href="./radar-growth.html">上一张：生长雷达</a></footer>
+  </div>
+  <script src="../js/echarts.min.js"></script>
+  <script src="./js/example-data.js"></script>
+  <script src="./js/chart-helpers.js"></script>
+  <script src="./js/render-charts.js"></script>
+  <script>
+    var a = exampleCharts.mountStandard("#pressure", null, exampleCharts.plantarPressure());
+    var b = exampleCharts.mountStandard("#thickness", null, exampleCharts.plantarThickness());
+    chartHelpers.mountNotes("#notes", exampleData.plantarPressure.notes.concat(exampleData.plantarThickness.notes));
+  </script>
+</body>
+</html>

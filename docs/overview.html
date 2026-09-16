@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>项目说明 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <a href="../index.html">大屏</a>
+      <a href="./index.html">文档</a>
+      <a href="./data-notes.html">数据备忘</a>
+      <a href="../examples/index.html">示例馆</a>
+    </nav>
+    <h1>项目说明</h1>
+    <p class="lead">大屏标题写的是「中国人群脚型数据可视化」，主视图是儿童脚型。导航里的首页、病足页是当时课程站点的外链，源码不在本仓库。</p>
+
+    <h2>这一页在干什么</h2>
+    <p>把已经收进 <code>js/index.js</code> 的测量结果摊开，同时看身高、年龄、BMI 和左右脚差异。布局是常见数据大屏：顶栏时钟、三列面板、中间一张更大的雷达图。</p>
+    <p>适合看儿童期脚长、鞋码、围度是不是一起涨，或把单图拆到 <code>examples/</code> 里改配置。不适合给某个孩子选鞋，也不当作全国普查或现行鞋号国标。</p>
+
+    <h2>页面骨架</h2>
+    <ol>
+      <li>顶栏：标题 + 本地时钟</li>
+      <li>导航：外链首页 / 本页 / 病足页 / mailto</li>
+      <li>三列 <code>section.mainbox</code>：左散点与脚长，中雷达，右 BMI 与双脚比例</li>
+    </ol>
+    <p>图表容器是 <code>.panel .chart</code> 或 <code>.map .chart</code>。<code>js/index.js</code> 用写死的选择器 <code>echarts.init</code>。新面板要同时改 HTML 和对应 IIFE。</p>
+    <p>脚本顺序：<code>flexible.js</code>（rem）→ jQuery → ECharts（完整版 + min，历史原因两份都在）→ <code>index.js</code> → <code>click.js</code>。示例页只引 min 版。</p>
+    <p><code>draw1.js</code>、<code>draw2.js</code> 是足底草图，没挂到大屏；示例馆有一页把它们画出来。</p>
+
+    <h2>和大屏图的对应</h2>
+    <table>
+      <thead>
+        <tr><th>大屏选择器</th><th>示例页</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.bar .chart</code></td><td><a href="../examples/scatter-height-shoe.html">身高 × 鞋码</a></td></tr>
+        <tr><td><code>.line .chart</code></td><td><a href="../examples/age-foot-length.html">年龄 × 脚长</a></td></tr>
+        <tr><td><code>.bar1 .chart</code></td><td><a href="../examples/bmi-foot-shape.html">BMI × 胖瘦度</a></td></tr>
+        <tr><td><code>.line1 .chart</code></td><td><a href="../examples/foot-symmetry.html">双脚比例</a></td></tr>
+        <tr><td><code>.map .chart</code></td><td><a href="../examples/radar-growth.html">生长雷达</a></td></tr>
+        <tr><td><code>draw1.js</code> / <code>draw2.js</code></td><td><a href="../examples/plantar-sketches.html">足底草图</a></td></tr>
+        <tr><td>共享 <code>example-data.js</code></td><td><a href="../examples/data-tables.html">数据表</a></td></tr>
+      </tbody>
+    </table>
+    <p>改数优先动 <code>examples/js/example-data.js</code>。大屏里仍是当时的内联数组；两边应对齐。</p>
+    <footer>完整 Markdown：<a href="./overview.md">overview.md</a></footer>
+  </div>
+</body>
+</html>

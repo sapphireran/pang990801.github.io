@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>读图与复用 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <a href="./index.html">文档</a>
+      <a href="./data-notes.html">数据备忘</a>
+      <a href="../examples/index.html">示例馆</a>
+    </nav>
+    <h1>读图与复用</h1>
+    <p class="lead">大屏五张图在 <code>js/index.js</code> 的独立 IIFE 里。示例页把数据和 option 拆开，只开一张图也能改。</p>
+
+    <h2>共用</h2>
+    <p>大屏多数 <code>echarts.init(el, 'dark')</code>。缩放用 <code>bindChartResize(chart)</code>。大屏选择器写死 class；示例页统一 <code>#chart</code>。</p>
+    <p><code>chart-helpers.js</code>：<code>createChart</code>、<code>bindChartResize</code>、<code>mountNotes</code>、<code>fmt</code>、<code>linearGradient</code>。</p>
+
+    <h2>五张图</h2>
+    <ol>
+      <li><strong>散点</strong> — <code>[heightCm, shoeCm]</code>，带 brush / dataZoom。改 <code>exampleData.heightShoe</code>。</li>
+      <li><strong>脚长柱</strong> — 每组 <code>bar</code> + 菱形 <code>pictorialBar</code>，差值走第二 Y 轴。改柱宽时菱形 offset 一起改。</li>
+      <li><strong>BMI 折线</strong> — 右侧环是独立 pie，改折线不会自动改环。</li>
+      <li><strong>对称饼</strong> — <code>timeline</code> + <code>options[]</code>。重算用 <code>buildSymmetryByAge()</code>。</li>
+      <li><strong>雷达</strong> — 七轴 0–100。大屏 <code>radius: 255</code> 在单页会裁切，示例里按容器缩小。<code>myMap.js</code> 是另一套草稿，已从大屏注释掉。</li>
+    </ol>
+
+    <h2>拷回大屏</h2>
+    <p>在示例页调好 option，把 <code>series.data</code> 写回对应 IIFE，核<code>.bar</code> / <code>.line</code> / <code>.bar1</code> / <code>.line1</code> / <code>.map</code>。不要把示例的 px 高度和 <code>flexible.js</code> 的 rem 混用。</p>
+    <footer>细节和 option 表：<a href="./chart-guide.md">chart-guide.md</a></footer>
+  </div>
+</body>
+</html>
