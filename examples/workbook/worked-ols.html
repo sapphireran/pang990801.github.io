@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLS 对照</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Worked example</p>
+      <h1>身高预测鞋长</h1>
+      <p>普通最小二乘：斜率 = Σ(x−x̄)(y−ȳ) / Σ(x−x̄)²，截距 = ȳ − 斜率 × x̄。浏览器里现算，应和 <code>data/companion/stats.json</code> 一致。</p>
+    </section>
+    <section class="panel">
+      <table id="ols"></table>
+      <p id="story" class="callout" style="margin-top:1rem"></p>
+      <p class="warn">斜率大约 0.14 的意思是：在这批点里，身高每多 1 cm，画出的鞋长大约多 1.4 mm。不要拿去给孩子开鞋号。</p>
+    </section>
+  </main>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/workbook.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "workbook" });
+    CompanionWorkbook.renderOls("story", "ols");
+  </script>
+</body>
+</html>
