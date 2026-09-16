@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生长雷达 · 示例</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <div class="page">
+    <nav class="topnav">
+      <a href="./index.html">示例馆</a>
+      <a href="../docs/chart-guide.html">读图</a>
+      <a href="../index.html">大屏</a>
+    </nav>
+    <h1>9–12 岁相对轮廓</h1>
+    <p class="lead">七个轴都是 0–100 分。大屏里这张图画在 <code>.map</code> 容器中，名字容易误会成地图。单页把半径收成容器的 62%，避免大屏那种 255 像素半径把图裁掉。</p>
+    <div class="chart-shell"><div id="chart"></div></div>
+    <div id="notes" class="notes"></div>
+    <footer>
+      <a href="./foot-symmetry.html">上一张</a> ·
+      <a href="./plantar-sketches.html">下一张：足底草图</a>
+    </footer>
+  </div>
+  <script src="../js/echarts.min.js"></script>
+  <script src="./js/example-data.js"></script>
+  <script src="./js/chart-helpers.js"></script>
+  <script src="./js/render-charts.js"></script>
+  <script>
+    exampleCharts.mountStandard("#chart", "#notes", exampleCharts.radarGrowth(), exampleData.radarGrowth.notes);
+  </script>
+</body>
+</html>

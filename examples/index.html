@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图表示例馆 · 儿童脚型</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <div class="page">
+    <nav class="topnav">
+      <a href="../index.html">大屏</a>
+      <a href="../docs/index.html">文档</a>
+      <a href="./index.html">示例馆</a>
+    </nav>
+    <h1>图表示例馆</h1>
+    <p class="lead">把大屏里的五张图和两份足底草图拆成单页。数据和单位说明在 <a href="../docs/data-notes.html">数据备忘</a>，option 怎么搭在 <a href="../docs/chart-guide.html">读图与复用</a>。</p>
+    <div class="grid">
+      <article class="card">
+        <h2><a href="./scatter-height-shoe.html">身高 × 鞋码</a></h2>
+        <p>199+199 个散点，看身高和鞋长厘米是否近线性。</p>
+        <div class="meta">对应大屏 .bar · scatter</div>
+      </article>
+      <article class="card">
+        <h2><a href="./age-foot-length.html">年龄 × 脚长</a></h2>
+        <p>6–14 岁男女脚长柱，差值折线过零。</p>
+        <div class="meta">对应大屏 .line · bar + pictorialBar</div>
+      </article>
+      <article class="card">
+        <h2><a href="./bmi-foot-shape.html">BMI × 胖瘦度</a></h2>
+        <p>BMI 分箱折线，右侧过胖/过瘦环仍是示意占比。</p>
+        <div class="meta">对应大屏 .bar1 · line + pie</div>
+      </article>
+      <article class="card">
+        <h2><a href="./foot-symmetry.html">双脚比例</a></h2>
+        <p>2–14 岁时间轴饼图，份额由公式生成。</p>
+        <div class="meta">对应大屏 .line1 · timeline pie</div>
+      </article>
+      <article class="card">
+        <h2><a href="./radar-growth.html">生长雷达</a></h2>
+        <p>9–12 岁七维相对分，不是厘米围度。</p>
+        <div class="meta">对应大屏 .map · radar</div>
+      </article>
+      <article class="card">
+        <h2><a href="./plantar-sketches.html">足底草图</a></h2>
+        <p>压力（Pa）和皮下厚度（mm），原先只躺在 draw1/draw2。</p>
+        <div class="meta">未挂大屏 · 两张对照图</div>
+      </article>
+    </div>
+    <footer>从仓库根目录用静态服务器打开，否则 <code>../js/echarts.min.js</code> 会找不到。</footer>
+  </div>
+</body>
+</html>
