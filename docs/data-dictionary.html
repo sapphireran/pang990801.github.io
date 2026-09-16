@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据字典 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="docs-dictionary">
+  <div id="site-header"></div>
+  <div class="site-shell">
+    <aside class="site-side" id="site-side"></aside>
+    <main class="site-main">
+      <p class="kicker">Fields and units</p>
+      <h1>数据字典</h1>
+      <p class="lead">
+        JSON 放在 <code>/data</code>。性别键统一为 <code>female</code> / <code>male</code>，中文界面再写成女生 / 男生。
+        校验脚本：<code>node scripts/validate-data.js</code>。
+      </p>
+
+      <h2>height-shoe-size.json</h2>
+      <table>
+        <thead>
+          <tr><th>路径</th><th>类型</th><th>含义</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>series.female.points[].height</code></td><td>number</td><td>身高，厘米。范围约 79.7–152.8。</td></tr>
+          <tr><td><code>series.female.points[].shoeLength</code></td><td>number</td><td>鞋长 / 脚长标码，厘米。范围约 10.1–24.2。</td></tr>
+          <tr><td><code>series.*.fit.slope</code></td><td>number</td><td>鞋长对身高的 OLS 斜率。</td></tr>
+          <tr><td><code>series.*.fit.intercept</code></td><td>number</td><td>OLS 截距，厘米。</td></tr>
+          <tr><td><code>series.*.fit.r2</code></td><td>number</td><td>决定系数，女生 0.8345，男生 0.8384。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>age-foot-length.json</h2>
+      <table>
+        <thead>
+          <tr><th>路径</th><th>类型</th><th>含义</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ages[]</code></td><td>int</td><td>6 到 14 岁，步长 1 年。</td></tr>
+          <tr><td><code>series.female[]</code></td><td>number</td><td>该年龄女生脚长均值，厘米。</td></tr>
+          <tr><td><code>series.male[]</code></td><td>number</td><td>该年龄男生脚长均值，厘米。</td></tr>
+          <tr><td><code>differenceFemaleMinusMale[]</code></td><td>number</td><td>女减男，厘米。11 岁起为负。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>bmi-foot-plumpness.json</h2>
+      <table>
+        <thead>
+          <tr><th>路径</th><th>类型</th><th>含义</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>bmi[]</code></td><td>int</td><td>12 到 24。</td></tr>
+          <tr><td><code>series.female[]</code> / <code>male[]</code></td><td>number</td><td>项目自定义胖瘦指数，约 23–30。</td></tr>
+          <tr><td><code>shareEstimates.narrowFootShare</code></td><td>object</td><td>过瘦脚示意环：50 / 180。</td></tr>
+          <tr><td><code>shareEstimates.wideFootShare</code></td><td>object</td><td>过胖脚示意环：435 / 2400。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>foot-symmetry.json</h2>
+      <p>每个年龄一行。<code>counts</code> 五类相加等于 <code>total</code>。</p>
+      <table>
+        <thead>
+          <tr><th>键</th><th>中文标签</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>same</code></td><td>双脚相同</td></tr>
+          <tr><td><code>leftLarger10to20</code></td><td>左脚比右脚大 10–20%</td></tr>
+          <tr><td><code>leftLargerOver20</code></td><td>左脚比右脚大 20% 以上</td></tr>
+          <tr><td><code>rightLargerOver20</code></td><td>右脚比左脚大 20% 以上</td></tr>
+          <tr><td><code>rightLarger10to20</code></td><td>右脚比左脚大 10–20%</td></tr>
+        </tbody>
+      </table>
+      <pre>leftLarger10to20  = round(36 - 13 * ln(i+1))
+leftLargerOver20  = round(17 - 6  * ln(i+1))
+rightLargerOver20 = round(11 - 4  * ln(i+1))
+rightLarger10to20 = round(27 - 10 * ln(i+1))
+same              = 63 + a + b + c + d
+i = 0 表示 2 岁，i = 12 表示 14 岁</pre>
+
+      <h2>age-radar-profiles.json</h2>
+      <p>
+        <code>indicators</code> 顺序固定，与 <code>values[7]</code> 对齐。分值 0–100。
+        12 岁鞋长、脚长在原稿里写成 <code>77-6</code>、<code>79-8</code>，JSON 存成 71、71。
+      </p>
+
+      <h2>plantar-pressure.json / tissue-thickness.json</h2>
+      <ul>
+        <li>压力：7 个位点，单位 Pa。两条线 <code>typicalAdult</code>、<code>diabeticFoot</code>。</li>
+        <li>厚度：14 个位点。柱为 mm，差值序列按原稿标成 <code>um</code>。</li>
+        <li>位点没有解剖对照表，不要自行命名为“足跟”“第一跖骨”。</li>
+      </ul>
+    </main>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/site-nav.js"></script>
+</body>
+</html>

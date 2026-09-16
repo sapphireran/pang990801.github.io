@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>范围与局限 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="docs-limits">
+  <div id="site-header"></div>
+  <div class="site-shell">
+    <aside class="site-side" id="site-side"></aside>
+    <main class="site-main">
+      <p class="kicker">Read this first if you reuse a number</p>
+      <h1>范围与局限</h1>
+      <p class="lead">
+        这是个人 GitHub Pages 练习，用来练 ECharts 大屏和把数组拆成文档。
+        它不是抽样调查，也不是制鞋或儿科的参考值表。
+      </p>
+
+      <div class="note warn">
+        不要用这里的预测鞋码给孩子买鞋，也不要把压力 / 厚度草稿当成糖尿病足筛查材料。
+        需要真实决策时，用有抽样框、有测量协议的公开数据或临床检查。
+      </div>
+
+      <h2>已知的数据问题</h2>
+      <ul>
+        <li>散点没有地区、测量年份、仪器型号，也没有左右脚标记。</li>
+        <li>年龄–脚长在 8→9 岁下降，未做质控说明，可能是分组人数不均，也可能是录入如此。</li>
+        <li>胖瘦指数的名称和数值对不上常见长宽比。</li>
+        <li>过瘦 / 过胖环图用占位切片凑百分比，与左侧折线没有公式关系。</li>
+        <li>左右脚五类份额由 <code>Math.log</code> 生成，不是观测频率。</li>
+        <li>雷达分为相对分；12 岁两项在源码里是减法表达式。</li>
+        <li>压力位点无解剖对照；厚度差值单位与柱状单位不一致。</li>
+      </ul>
+
+      <h2>页面和技术债</h2>
+      <ul>
+        <li>总览 <code>index.html</code> 的 <code>&lt;title&gt;</code> 仍是 Document；导航链到外站和其他同学的 GitHub Pages。</li>
+        <li>同时引入 <code>echarts.js</code> 和 <code>echarts.min.js</code>，体积重复。</li>
+        <li>CSS 引用了不存在的 <code>液晶数字.TTF</code>，实际只用 <code>DS-DIGIT.TTF</code>。</li>
+        <li><code>draw1.js</code> / <code>draw2.js</code> 以前没有 HTML 宿主，option 写在全局变量上。</li>
+      </ul>
+
+      <h2>这次文档改动故意没做的事</h2>
+      <p>
+        没有改总览五张图的视觉，也没有“修正” 8–9 岁回落或环图占位算法。
+        目标是把已经存在的数讲清楚，并给草稿图一个能打开的示例页。
+        若以后要重做统计，应另开数据集，而不是在这些 JSON 上假装提高精度。
+      </p>
+    </main>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/site-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "project": "pang990801.github.io",
+  "kind": "personal-visualization-samples",
+  "updated": "2026-09-16",
+  "datasets": [
+    {
+      "id": "height-shoe-size",
+      "file": "height-shoe-size.json",
+      "title": "Height versus shoe length",
+      "titleZh": "身高与鞋码",
+      "source": "js/index.js scatter series"
+    },
+    {
+      "id": "age-foot-length",
+      "file": "age-foot-length.json",
+      "title": "Age versus mean foot length",
+      "titleZh": "年龄与脚长",
+      "source": "js/index.js pictorial bar series"
+    },
+    {
+      "id": "bmi-foot-plumpness",
+      "file": "bmi-foot-plumpness.json",
+      "title": "BMI versus foot plumpness",
+      "titleZh": "儿童BMI与脚的胖瘦度",
+      "source": "js/index.js line + pie series"
+    },
+    {
+      "id": "foot-symmetry",
+      "file": "foot-symmetry.json",
+      "title": "Left and right foot size mix",
+      "titleZh": "儿童双脚比例",
+      "source": "js/index.js timeline pie"
+    },
+    {
+      "id": "age-radar-profiles",
+      "file": "age-radar-profiles.json",
+      "title": "Age body and last profiles",
+      "titleZh": "分年龄体型与围长画像",
+      "source": "js/index.js radar series"
+    },
+    {
+      "id": "plantar-pressure",
+      "file": "plantar-pressure.json",
+      "title": "Plantar pressure at seven sites",
+      "titleZh": "足部压力数据图",
+      "source": "draw1.js"
+    },
+    {
+      "id": "tissue-thickness",
+      "file": "tissue-thickness.json",
+      "title": "Subcutaneous thickness at fourteen sites",
+      "titleZh": "足底各位点皮下组织厚度",
+      "source": "draw2.js"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "age-foot-length",
+  "title": "Mean foot length by age",
+  "ages": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+  "ageUnit": "years",
+  "lengthUnit": "cm",
+  "differenceUnit": "cm",
+  "series": {
+    "female": [18.55, 20.24, 21.01, 20.34, 20.83, 21.29, 21.83, 22.36, 22.66],
+    "male": [18.27, 19.76, 20.61, 20.01, 20.75, 21.32, 21.98, 22.69, 23.16]
+  },
+  "differenceFemaleMinusMale": [0.28, 0.48, 0.4, 0.33, 0.08, -0.03, -0.15, -0.33, -0.5],
+  "notes": [
+    "Values are group means as drawn on the original dashboard, not individual measurements.",
+    "The 8 to 9 year dip is present in the source series and is documented rather than smoothed away.",
+    "Girls are slightly longer on average before age 11; boys overtake after that in this sample."
+  ]
+}

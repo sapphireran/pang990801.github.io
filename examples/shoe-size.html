@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>身高估鞋码 · 示例</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="ex-shoe">
+  <div id="site-header"></div>
+  <div class="site-shell is-wide">
+    <aside class="site-side" id="site-side"></aside>
+    <div>
+      <section class="site-hero">
+        <p class="kicker">height-shoe-size.json</p>
+        <h1>用身高估计鞋长</h1>
+        <p class="lead">直线是对该性别 199 个点的普通最小二乘。青色点跟着滑块走。带宽是残差标准差的 1.96 倍，只描述这份练习数据的离散，不是儿童鞋码的安全区间。</p>
+        <div class="controls">
+          <label>性别
+            <select id="sex">
+              <option value="female">女生</option>
+              <option value="male">男生</option>
+            </select>
+          </label>
+          <label>身高 <span id="height-out">120 cm</span>
+            <input id="height" type="range" min="76" max="153" value="120" />
+          </label>
+        </div>
+        <div class="result-box">
+          <div><span class="muted">估计鞋长</span><strong id="pred">—</strong></div>
+          <div><span class="muted">约 95% 残差带</span><strong id="band">—</strong></div>
+          <div><span class="muted">该性别 R²</span><strong id="r2">—</strong></div>
+        </div>
+      </section>
+      <section class="chart-card">
+        <div id="shoe-chart" class="chart-host"></div>
+      </section>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/echarts.min.js"></script>
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/site-nav.js"></script>
+  <script src="../js/examples/shoe-size.js"></script>
+</body>
+</html>
