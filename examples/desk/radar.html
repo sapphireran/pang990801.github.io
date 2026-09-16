@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>雷达解码 · 夜读课桌</title>
+  <link rel="stylesheet" href="../../docs/desk/desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Seven axes, one 0–100 ruler</span>
+    <h1>雷达解码</h1>
+    <p>身高和兜跟围共用 max=100。把数字读回厘米会把两种测站焊在同一把尺子上。</p>
+  </header>
+  <nav class="desk-nav" aria-label="课桌导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="../../docs/desk/index.html">夜读</a></li>
+      <li><a href="index.html">课桌</a></li>
+      <li><a href="scatter-fit.html">残差</a></li>
+      <li><a href="crossover.html">交叉</a></li>
+      <li><a href="symmetry.html">对称</a></li>
+      <li><a href="radar.html">雷达</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="folio.html">总账</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <div class="figure tall" id="radar-chart"></div>
+      <p id="radar-note" class="note"></p>
+    </section>
+    <section class="sheet">
+      <h2>分数表</h2>
+      <table id="radar-table">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 雷达分数不是围度</footer>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/desk/payload.js"></script>
+  <script src="js/desk-core.js"></script>
+  <script src="js/radar.js"></script>
+</body>
+</html>
