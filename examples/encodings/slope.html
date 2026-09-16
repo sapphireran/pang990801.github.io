@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>坡度图</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Encoding · slope</p>
+      <h1>谁在这一岁更长</h1>
+      <p>左端女孩，右端男孩。红线表示女孩均值更大，青线表示男孩更大。11 岁是第一条青线。</p>
+    </section>
+    <section class="panel">
+      <div id="chart" class="chart-box tall"></div>
+      <p id="note" class="muted"></p>
+    </section>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/encodings.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "encodings" });
+    var rows = CompanionEncodings.slope("#chart");
+    var first = rows.find(function (r) { return r.girl_minus_boy_cm < 0; });
+    document.getElementById("note").textContent =
+      "男孩均值首次超过女孩：" + first.age + " 岁（差 " + first.girl_minus_boy_cm + " cm）。";
+  </script>
+</body>
+</html>

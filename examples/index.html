@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型伴读 · 示例</title>
+  <link rel="stylesheet" href="../docs/companion.css" />
+  <link rel="stylesheet" href="css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Example studio</p>
+      <h1>同一串数字，换一种画法</h1>
+      <p class="lede">
+        原仪表盘是深色大屏。这里把抽出的个人教学序列改成纸色图：密度、坡度、平行坐标、堆积面积、BMI 路径，以及未挂载草稿的哑铃图。
+      </p>
+    </section>
+    <section class="grid three">
+      <article class="card">
+        <h2><a href="encodings/index.html">图解工作室</a></h2>
+        <p>六种替代编码，全部读 <code>COMPANION_DATA</code>。</p>
+      </article>
+      <article class="card">
+        <h2><a href="workbook/index.html">读图练习</a></h2>
+        <p>交叉年龄、相关系数、对称公式、厚度单位，附带算出过程。</p>
+      </article>
+      <article class="card">
+        <h2><a href="tour/index.html">五面板导览</a></h2>
+        <p>按原布局顺序走一遍，并标出展示用的占位环和生成式饼图。</p>
+      </article>
+    </section>
+  </main>
+  <script src="js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "..", active: "encodings" });</script>
+</body>
+</html>

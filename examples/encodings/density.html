@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>密度热力</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Encoding · heatmap</p>
+      <h1>身高 × 鞋长密度</h1>
+      <p>原散点用 4px 符号。重叠之后，中段密度只能靠热力格子看。格子数是伴读选的，不是源码里的分箱。</p>
+    </section>
+    <section class="studio-split">
+      <aside class="panel">
+        <h2>读数</h2>
+        <ul class="stat-list" id="stats"></ul>
+        <p class="muted">热力把两性合在一起。要分性别请回原散点或看练习里的 OLS。</p>
+      </aside>
+      <section class="panel">
+        <div id="chart" class="chart-box tall"></div>
+      </section>
+    </section>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/encodings.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "encodings" });
+    var summary = CompanionEncodings.density("#chart");
+    document.getElementById("stats").innerHTML =
+      "<li><span>点数</span><strong>" + summary.n + "</strong></li>" +
+      "<li><span>Pearson r</span><strong>" + CompanionStudio.fmt(summary.r, 3) + "</strong></li>" +
+      "<li><span>最密一格</span><strong>" + summary.maxBin + "</strong></li>";
+  </script>
+</body>
+</html>

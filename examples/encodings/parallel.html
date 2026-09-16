@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>平行坐标</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Encoding · parallel</p>
+      <h1>把雷达拉直</h1>
+      <p>闭合多边形擅长看「一整岁的形状」，平行坐标擅长看「哪一轴一直偏低」。兜跟围长整列最矮。</p>
+    </section>
+    <section class="panel">
+      <div id="chart" class="chart-box tall"></div>
+      <p class="muted">轴仍是 0–100 展示分。厘米原值不在这个仓库里。</p>
+    </section>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/encodings.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "encodings" });
+    CompanionEncodings.parallel("#chart");
+  </script>
+</body>
+</html>

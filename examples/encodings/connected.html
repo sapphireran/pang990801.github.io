@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI 路径</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Encoding · connected scatter</p>
+      <h1>BMI 升高时指数怎么走</h1>
+      <p>原图是两条平滑面积线。连成路径之后，BMI 14 和 23 附近的折返更明显：不是严格单调。</p>
+    </section>
+    <section class="panel">
+      <div id="chart" class="chart-box tall"></div>
+    </section>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/companion-data.js"></script>
+  <script src="../js/studio.js"></script>
+  <script src="../js/encodings.js"></script>
+  <script>
+    CompanionStudio.mount({ base: "../..", active: "encodings" });
+    CompanionEncodings.connected("#chart");
+  </script>
+</body>
+</html>

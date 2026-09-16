@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图解工作室</title>
+  <link rel="stylesheet" href="../../docs/companion.css" />
+  <link rel="stylesheet" href="../css/studio.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Alternative encodings</p>
+      <h1>图解工作室</h1>
+      <p class="lede">每页只换几何，不换数据源。散点变密度是为了看拥挤，不替换原图的刷选。</p>
+    </section>
+    <section class="grid two">
+      <article class="card">
+        <h2><a href="density.html">密度热力</a></h2>
+        <p>398 个身高–鞋长点打进 14×10 格子。能看见中段比两端密，看不见单个孩子。</p>
+      </article>
+      <article class="card">
+        <h2><a href="slope.html">坡度图</a></h2>
+        <p>每一岁一条线，从女孩均值连到男孩均值。颜色表示谁更长。</p>
+      </article>
+      <article class="card">
+        <h2><a href="parallel.html">平行坐标</a></h2>
+        <p>雷达的七个轴拉直。12 岁整条线抬高，兜跟围仍是最矮的一维。</p>
+      </article>
+      <article class="card">
+        <h2><a href="stacked.html">堆积面积</a></h2>
+        <p>把时间轴饼图改成面积。生成式计数随年龄把「相同」堆得越来越高。</p>
+      </article>
+      <article class="card">
+        <h2><a href="connected.html">BMI 路径</a></h2>
+        <p>按 BMI 升序连起来，看胖瘦指数是不是单调，而不是并排两条平滑线。</p>
+      </article>
+      <article class="card">
+        <h2><a href="dumbbell.html">厚度哑铃</a></h2>
+        <p>未挂载的 14 个位点。只比毫米，不沿用那条全错的「差值 µm」。</p>
+      </article>
+    </section>
+  </main>
+  <script src="../js/studio.js"></script>
+  <script>CompanionStudio.mount({ base: "../..", active: "encodings" });</script>
+</body>
+</html>
