@@ -72,6 +72,7 @@ Refresh the downloadable datasets after editing `js/index.js`, `draw1.js`, or `d
 
 ```bash
 python3 scripts/extract_example_data.py
+python3 scripts/check_examples.py
 ```
 
 ## Personal scope
