@@ -1,0 +1,51 @@
+[
+  {
+    "id": "shoe-cm-not-eu",
+    "title": "鞋码轴不是欧码",
+    "wrong": "把散点的 Y 轴当成 EU / UK / US 鞋码去对货架。",
+    "desk": "面板把 Y 轴标成「鞋码」但单位是 cm，数值大约 10–24 cm，和脚长同一量级。夜读按脚长/楦长厘米来读，不当成品尺码。",
+    "panel": "height-shoe"
+  },
+  {
+    "id": "ratio-times-ten",
+    "title": "胖瘦度更像长宽比×10",
+    "wrong": "把 23–30 读成脚长/脚宽的原始比值。",
+    "desk": "真人脚长大约是脚宽的 2.4–3.0 倍。面板数值落在 23–30，更像 (脚长/脚宽)×10。这是读图假设，不是新的测量定义。",
+    "panel": "bmi-ratio"
+  },
+  {
+    "id": "radar-is-normalized",
+    "title": "雷达是 0–100 分数",
+    "wrong": "把雷达上的 43、71 读成厘米。",
+    "desk": "七个轴共用 max: 100。身高和兜跟围不可能落在同一厘米标尺。只比较年龄之间的形状，不还原围度。",
+    "panel": "radar"
+  },
+  {
+    "id": "symmetry-is-formula",
+    "title": "左右脚饼图是公式",
+    "wrong": "把各年龄饼图当成实测百分比。",
+    "desk": "js/index.js 用 36-13·ln(i+1) 一类表达式生成五类份额。它演示时间轴，不报告调查样本。",
+    "panel": "symmetry"
+  },
+  {
+    "id": "leftover-adult-dfu",
+    "title": "底稿不是儿童面板",
+    "wrong": "把 draw1.js / draw2.js 的糖尿病足曲线并进儿童仪表盘。",
+    "desk": "两份底稿写的是成年正常人群对糖尿病足人群，从未挂到 index.html。夜读把它们放在附录，不和 6–14 岁系列混读。",
+    "panel": "leftovers"
+  },
+  {
+    "id": "pie-not-from-lines",
+    "title": "过胖/过瘦环不是折线汇总",
+    "wrong": "以为右侧双环能从 BMI 折线加总出来。",
+    "desk": "过瘦环是 50 / (50+180)，过胖环是 435 / (435+2400)。这两个分数不能从 12–24 的折线还原，按装饰环处理。",
+    "panel": "bmi-ratio"
+  },
+  {
+    "id": "no-causal-bmi",
+    "title": "BMI 与长宽比不是因果",
+    "wrong": "读成「BMI 升高导致脚变宽/变瘦」。",
+    "desk": "折线只是并排的年龄无关切片。夜读只写「同图出现」，不写机制，也不写选鞋规则。",
+    "panel": "bmi-ratio"
+  }
+]

@@ -1,0 +1,185 @@
+{
+  "female_ols": {
+    "n": 199,
+    "mean_x": 116.8552,
+    "mean_y": 16.7615,
+    "min_x": 79.73,
+    "max_x": 152.78,
+    "min_y": 10.08,
+    "max_y": 24.21,
+    "slope": 0.14088,
+    "intercept": 0.29894,
+    "r2": 0.834512,
+    "rmse": 1.3389,
+    "residual_min": -2.6445,
+    "residual_max": 3.4497,
+    "residual_abs_median": 1.0148
+  },
+  "male_ols": {
+    "n": 199,
+    "mean_x": 111.8186,
+    "mean_y": 15.9634,
+    "min_x": 75.48,
+    "max_x": 149.96,
+    "min_y": 9.74,
+    "max_y": 24.4,
+    "slope": 0.143343,
+    "intercept": -0.065007,
+    "r2": 0.83836,
+    "rmse": 1.3658,
+    "residual_min": -2.5245,
+    "residual_max": 3.0622,
+    "residual_abs_median": 1.1261
+  },
+  "female_residual_bins": [
+    {
+      "from": -3.0,
+      "to": -2.5,
+      "count": 3
+    },
+    {
+      "from": -2.5,
+      "to": -2.0,
+      "count": 8
+    },
+    {
+      "from": -2.0,
+      "to": -1.5,
+      "count": 20
+    },
+    {
+      "from": -1.5,
+      "to": -1.0,
+      "count": 19
+    },
+    {
+      "from": -1.0,
+      "to": -0.5,
+      "count": 26
+    },
+    {
+      "from": -0.5,
+      "to": 0.0,
+      "count": 34
+    },
+    {
+      "from": 0.0,
+      "to": 0.5,
+      "count": 18
+    },
+    {
+      "from": 0.5,
+      "to": 1.0,
+      "count": 21
+    },
+    {
+      "from": 1.0,
+      "to": 1.5,
+      "count": 18
+    },
+    {
+      "from": 1.5,
+      "to": 2.0,
+      "count": 17
+    },
+    {
+      "from": 2.0,
+      "to": 2.5,
+      "count": 8
+    },
+    {
+      "from": 2.5,
+      "to": 3.0,
+      "count": 6
+    },
+    {
+      "from": 3.0,
+      "to": 3.5,
+      "count": 1
+    }
+  ],
+  "male_residual_bins": [
+    {
+      "from": -3.0,
+      "to": -2.5,
+      "count": 1
+    },
+    {
+      "from": -2.5,
+      "to": -2.0,
+      "count": 6
+    },
+    {
+      "from": -2.0,
+      "to": -1.5,
+      "count": 18
+    },
+    {
+      "from": -1.5,
+      "to": -1.0,
+      "count": 39
+    },
+    {
+      "from": -1.0,
+      "to": -0.5,
+      "count": 22
+    },
+    {
+      "from": -0.5,
+      "to": 0.0,
+      "count": 26
+    },
+    {
+      "from": 0.0,
+      "to": 0.5,
+      "count": 12
+    },
+    {
+      "from": 0.5,
+      "to": 1.0,
+      "count": 20
+    },
+    {
+      "from": 1.0,
+      "to": 1.5,
+      "count": 20
+    },
+    {
+      "from": 1.5,
+      "to": 2.0,
+      "count": 13
+    },
+    {
+      "from": 2.0,
+      "to": 2.5,
+      "count": 14
+    },
+    {
+      "from": 2.5,
+      "to": 3.0,
+      "count": 5
+    },
+    {
+      "from": 3.0,
+      "to": 3.5,
+      "count": 3
+    }
+  ],
+  "age_crossover": {
+    "first_age_boys_longer": 11,
+    "girl_at_that_age": 21.29,
+    "boy_at_that_age": 21.32
+  },
+  "height_percentiles": {
+    "female_p10": 87.06,
+    "female_p50": 115.85,
+    "female_p90": 147.12,
+    "male_p10": 83.45,
+    "male_p50": 110.16,
+    "male_p90": 141.79
+  },
+  "pie_shares": {
+    "thin_ring": 0.2174,
+    "wide_ring": 0.1534
+  }
+}
