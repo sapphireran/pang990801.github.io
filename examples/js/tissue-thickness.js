@@ -59,10 +59,12 @@
             symbolSize: 7,
             itemStyle: { color: "#28ffb3" },
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                { offset: 0, color: "rgba(0,154,120,0.9)" },
-                { offset: 1, color: "rgba(0,0,0,0)" }
-              ])
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "rgba(0,154,120,0.9)" },
+                  { offset: 1, color: "rgba(0,0,0,0)" }
+                ])
+              }
             },
             data: data.differenceUm
           }

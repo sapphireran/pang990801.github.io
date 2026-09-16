@@ -74,10 +74,12 @@
             data: data.girlsPlumpness,
             lineStyle: { color: "#FF69B4" },
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                { offset: 0, color: "rgba(255,105,180, 0.7)" },
-                { offset: 1, color: "rgba(255,105,180, 0.05)" }
-              ])
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "rgba(255,105,180, 0.7)" },
+                  { offset: 1, color: "rgba(255,105,180, 0.05)" }
+                ])
+              }
             }
           },
           {
@@ -89,10 +91,12 @@
             data: data.boysPlumpness,
             lineStyle: { color: "#3deaff" },
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                { offset: 0, color: "rgba(61,234,255, 0.4)" },
-                { offset: 1, color: "rgba(61,234,255, 0.05)" }
-              ])
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "rgba(61,234,255, 0.4)" },
+                  { offset: 1, color: "rgba(61,234,255, 0.05)" }
+                ])
+              }
             }
           },
           ring(["83%", "36%"], slim.highlighted, slim.remainder, "#dc832c", slim.label),

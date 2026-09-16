@@ -106,10 +106,12 @@
             data: data.girlsMinusBoysCm,
             itemStyle: { color: "#3deaff" },
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(1, 0, 0, 1, [
-                { offset: 0, color: "rgba(61,234,255, 0.55)" },
-                { offset: 1, color: "rgba(61,234,255, 0.05)" }
-              ])
+              normal: {
+                color: new echarts.graphic.LinearGradient(1, 0, 0, 1, [
+                  { offset: 0, color: "rgba(61,234,255, 0.55)" },
+                  { offset: 1, color: "rgba(61,234,255, 0.05)" }
+                ])
+              }
             }
           }
         ]

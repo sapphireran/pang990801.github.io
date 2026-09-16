@@ -9,17 +9,20 @@
 
   function area(color) {
     return {
-      color: {
-        type: "linear",
-        x: 0,
-        y: 0,
-        x2: 1,
-        y2: 1,
-        colorStops: [
-          { offset: 0, color: color },
-          { offset: 0.5, color: "rgba(0,0,0,0)" },
-          { offset: 1, color: color }
-        ]
+      normal: {
+        color: {
+          type: "linear",
+          x: 0,
+          y: 0,
+          x2: 1,
+          y2: 1,
+          colorStops: [
+            { offset: 0, color: color },
+            { offset: 0.5, color: "rgba(0,0,0,0)" },
+            { offset: 1, color: color }
+          ]
+        },
+        opacity: 1
       }
     };
   }
@@ -48,22 +51,31 @@
           radius: "62%",
           startAngle: 90,
           splitNumber: 3,
-          axisName: { color: "#fff", fontSize: 16 },
-          splitArea: { areaStyle: { color: "rgba(0,0,0,0)" } },
+          name: {
+            formatter: "{value}",
+            textStyle: { color: "#fff", fontSize: 16, fontWeight: 450 }
+          },
+          splitArea: { show: true, areaStyle: { color: "rgba(0,0,0,0)" } },
           axisLine: { lineStyle: { color: "#BEBEBE" } },
-          splitLine: { lineStyle: { color: "#BEBEBE" } }
+          splitLine: { lineStyle: { color: "#BEBEBE", width: 1 } }
         },
         series: [
           {
             name: "雷达图",
             type: "radar",
+            itemStyle: {
+              emphasis: { lineStyle: { width: 4 } }
+            },
             data: data.series.map(function (row, i) {
               return {
                 name: palette[i].name,
                 value: row.values,
                 symbolSize: 3,
                 areaStyle: area(palette[i].line),
-                itemStyle: { borderColor: palette[i].line, borderWidth: 2 }
+                lineStyle: { normal: { color: palette[i].line, width: 2 } },
+                itemStyle: {
+                  normal: { borderColor: palette[i].line, borderWidth: 2.5 }
+                }
               };
             })
           }

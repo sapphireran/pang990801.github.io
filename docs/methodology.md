@@ -24,11 +24,10 @@ examples/               standalone pages that load the JSON
 
 ## Boot order on the home page
 
-1. `js/macarons.js` in `<head>` — registers a theme if ECharts is already present (it is not, at that moment). Harmless leftover.
-2. Inline clock script — `setTimeout(time, 1000)` writes `当前时间：YYYY年M月D-H时M分S秒` into `.showTime`.
-3. After the five `.chart` nodes: `flexible.js` → `jquery.js` → `echarts.js` → `echarts.min.js` → `index.js` → `click.js`.
+1. Inline clock script — `setTimeout(time, 1000)` writes `当前时间：YYYY年M月D-H时M分S秒` into `.showTime`.
+2. After the five `.chart` nodes: `flexible.js` → `jquery.js` → `echarts.min.js` → `macarons.js` → `index.js` → `click.js`.
 
-Loading **both** `echarts.js` and `echarts.min.js` is redundant. The second assignment wins on `window.echarts`. The example pages load only `../js/echarts.min.js`.
+`macarons.js` is loaded after ECharts so it can register its theme. The dashboard IIFEs still call `echarts.init(dom, 'dark')`, not `'macarons'`. The unused full `js/echarts.js` file stays in the tree but is no longer double-loaded. Example pages load only `../js/echarts.min.js` (v4.2.0).
 
 ## Rem layout
 

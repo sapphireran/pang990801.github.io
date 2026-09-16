@@ -26,8 +26,8 @@ Computed while extracting `height-shoe-size.json`:
 
 | Series | n | Height cm (min / mean / max) | Shoe length cm (min / mean / max) |
 | --- | --- | --- | --- |
-| Girls | 199 | 79.73 / 116.05 / 152.78 | 10.08 / 16.54 / 24.21 |
-| Boys | 199 | 75.48 / 112.55 / 149.96 | 9.74 / 16.10 / 24.40 |
+| Girls | 199 | 79.73 / 116.86 / 152.78 | 10.08 / 16.76 / 24.21 |
+| Boys | 199 | 75.48 / 111.82 / 149.96 | 9.74 / 15.96 / 24.40 |
 
 Those means are **unweighted over points**, not age-standardized. A cloud that happens to contain more mid-childhood points will pull the mean toward that band.
 
