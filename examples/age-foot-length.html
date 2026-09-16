@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age × foot length — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Homepage bars</p>
+      <h1>男童女童年龄与脚长的关系</h1>
+      <p class="lede">
+        Mean foot length from age 6 to 14. The cyan line is girl minus boy.
+        Primary Y still starts at 12 cm so the bars match the dashboard.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/growth-notes.md">Growth notes</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>6 岁差值</span><strong id="kpi-start-gap">—</strong></div>
+      <div class="kpi"><span>14 岁差值</span><strong id="kpi-end-gap">—</strong></div>
+      <div class="kpi"><span>首次男童更长</span><strong id="kpi-crossover">—</strong></div>
+    </div>
+
+    <div class="toolbar" id="diff-filter">
+      <button data-value="with-diff" class="is-active">Show difference</button>
+      <button data-value="bars-only">Bars only</button>
+      <a href="./data/age-foot-length.csv">Download CSV</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="age-length-chart" class="chart-frame"></div>
+    </section>
+
+    <article class="note" style="margin-top: 1rem;">
+      <h2>Age-9 dip and the 10–11 crossover</h2>
+      <p>
+        Both means fall from 8 to 9, then climb. The file is a cross-section,
+        so that dip can be a different group of children rather than a real
+        shrink. Girl minus boy stays positive through age 10 and turns
+        negative at 11. Magnitude stays under 0.5 cm — read the line, not
+        only the bar tops.
+      </p>
+    </article>
+
+    <h2 class="section-title">Means</h2>
+    <div class="table-wrap">
+      <table id="age-length-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source series: second IIFE in <code>js/index.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/ageFootLength.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/age-foot-length.js"></script>
+</body>
+</html>

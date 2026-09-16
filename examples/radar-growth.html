@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth radar — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Homepage radar</p>
+      <h1>Nine-to-twelve growth profile</h1>
+      <p class="lede">
+        Seven normalized 0–100 spokes. Toggle ages. This page uses a
+        percentage radius so the polygon survives a narrow column; the
+        dashboard still uses a 255 px radius.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/growth-notes.md">Growth notes</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>年龄窗</span><strong id="kpi-ages">—</strong></div>
+      <div class="kpi"><span>身高 9→12</span><strong id="kpi-stature-gain">—</strong></div>
+      <div class="kpi"><span>兜跟围长 9→12</span><strong id="kpi-heel-gain">—</strong></div>
+    </div>
+
+    <div class="toolbar" id="radar-filter">
+      <button data-value="9" class="is-active">9岁</button>
+      <button data-value="10" class="is-active">10岁</button>
+      <button data-value="11" class="is-active">11岁</button>
+      <button data-value="12" class="is-active">12岁</button>
+      <a href="./data/radar-age-profiles.csv">Download CSV</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="radar-chart" class="chart-frame"></div>
+    </section>
+
+    <article class="note" style="margin-top: 1rem;">
+      <h2>The slow spoke</h2>
+      <p>
+        Stature, weight, and foot length each gain about 40 points. Heel
+        girth gains 16. The 12-year polygon therefore stretches up without
+        filling the rearfoot spoke. Scores are ranks, not centimetres.
+      </p>
+    </article>
+
+    <h2 class="section-title">Normalized scores</h2>
+    <div class="table-wrap">
+      <table id="radar-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source series: fifth IIFE in <code>js/index.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/radarProfiles.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/radar-growth.js"></script>
+</body>
+</html>

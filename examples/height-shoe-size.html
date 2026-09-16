@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Height × shoe last — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Homepage scatter</p>
+      <h1>男童女童身高与鞋码的关系</h1>
+      <p class="lede">
+        Child-level cloud from the first panel. Y is a centimetre last length
+        even though the dashboard tooltip still says 鞋码.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/charts.md">Catalog</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>女童 n</span><strong id="kpi-girl-n">—</strong></div>
+      <div class="kpi"><span>男童 n</span><strong id="kpi-boy-n">—</strong></div>
+      <div class="kpi"><span>女童均高</span><strong id="kpi-girl-height">—</strong></div>
+      <div class="kpi"><span>男童均高</span><strong id="kpi-boy-height">—</strong></div>
+    </div>
+
+    <div class="toolbar" id="sex-filter">
+      <button data-value="all" class="is-active">全部</button>
+      <button data-value="female">女童</button>
+      <button data-value="male">男童</button>
+      <a href="./data/height-shoe-size.csv">Download CSV</a>
+      <a href="../docs/measurements.md">Measurement notes</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="height-shoe-chart" class="chart-frame"></div>
+    </section>
+
+    <section class="split" style="margin-top: 1rem;">
+      <article class="note">
+        <h2>How to read it</h2>
+        <p>
+          The mass is a diagonal band, not a single rule. At a fixed stature
+          the last length still spreads several centimetres. Bounding boxes on
+          the homepage make each sex look rectangular; this page leaves them
+          off so the band is easier to see.
+        </p>
+      </article>
+      <article class="note">
+        <h2>What the file actually stores</h2>
+        <p>
+          199 + 199 pairs of <code>[height_cm, shoe_length_cm]</code>. Girl
+          means sit a little higher (116.86 / 16.76) than boy means
+          (111.82 / 15.96). That is this sketch, not a population table.
+        </p>
+      </article>
+    </section>
+
+    <h2 class="section-title">All points</h2>
+    <div class="table-wrap" style="max-height: 360px;">
+      <table id="height-shoe-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source series: first IIFE in <code>js/index.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/heightShoe.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/height-shoe.js"></script>
+</body>
+</html>

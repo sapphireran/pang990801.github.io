@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantar pressure — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Unused gallery sketch</p>
+      <h1>足部压力数据图</h1>
+      <p class="lede">
+        Adult landmark series from <code>draw1.js</code>. The homepage never
+        mounted this file because it only assigned a gallery-style
+        <code>option</code> global.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/plantar-pressure.md">Sketch notes</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>典型峰值</span><strong id="kpi-typical-peak">—</strong></div>
+      <div class="kpi"><span>糖尿病足峰值</span><strong id="kpi-diabetic-peak">—</strong></div>
+      <div class="kpi"><span>负荷对调点</span><strong id="kpi-invert">—</strong></div>
+    </div>
+
+    <div class="toolbar" id="pressure-filter">
+      <button data-value="all" class="is-active">两条线</button>
+      <button data-value="typical">典型人群</button>
+      <button data-value="diabetic">糖尿病足人群</button>
+      <a href="./data/plantar-pressure.csv">Download CSV</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="pressure-chart" class="chart-frame"></div>
+    </section>
+
+    <article class="note" style="margin-top: 1rem;">
+      <h2>The inversion is the sketch</h2>
+      <p>
+        Typical load peaks at 位点五 (120 Pa). The diabetic-foot line is
+        almost empty there (15 Pa) and instead peaks at 位点一 (290 Pa).
+        Landmarks are ordinal only — there is no heel / hallux map. This is
+        not paediatric data and it does not belong on the children's
+        dashboard.
+      </p>
+    </article>
+
+    <h2 class="section-title">Seven sites</h2>
+    <div class="table-wrap">
+      <table id="pressure-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source arrays: <code>draw1.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/plantarPressure.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/plantar-pressure.js"></script>
+</body>
+</html>

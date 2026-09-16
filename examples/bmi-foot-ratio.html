@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI × slenderness — examples</title>
+  <link rel="stylesheet" href="./css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Homepage area lines</p>
+      <h1>儿童BMI与脚的胖瘦度关系</h1>
+      <p class="lede">
+        脚胖瘦度 is a length/width display scale (values near 23–30), not a
+        raw ratio near 2.5. The decorative rings on the dashboard decode to
+        the KPI percentages below.
+      </p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/data-dictionary.md">Dictionary</a>
+      <a href="./index.html">All examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="kpis">
+      <div class="kpi"><span>过瘦脚环</span><strong id="kpi-thin">—</strong></div>
+      <div class="kpi"><span>过胖脚环</span><strong id="kpi-wide">—</strong></div>
+      <div class="kpi"><span>女童 @ BMI 24</span><strong id="kpi-girl-end">—</strong></div>
+      <div class="kpi"><span>男童 @ BMI 24</span><strong id="kpi-boy-end">—</strong></div>
+    </div>
+
+    <div class="toolbar" id="bmi-filter">
+      <button data-value="all" class="is-active">全部</button>
+      <button data-value="female">女童</button>
+      <button data-value="male">男童</button>
+      <a href="./data/bmi-foot-ratio.csv">Download CSV</a>
+    </div>
+
+    <section class="chart-shell">
+      <div id="bmi-chart" class="chart-frame"></div>
+    </section>
+
+    <article class="note" style="margin-top: 1rem;">
+      <h2>Do not read this as “heavier, fatter feet”</h2>
+      <p>
+        A higher score is a relatively longer outline. Both lines wander
+        upward as BMI goes from 12 to 24, with a sharp girl spike at BMI 14
+        (26.51) and a drop at 15 (24.47). The rings are placeholder
+        fractions (50/230 and 435/2835) and are not computed from these
+        lines.
+      </p>
+    </article>
+
+    <h2 class="section-title">Display-scale values</h2>
+    <div class="table-wrap">
+      <table id="bmi-table"></table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source series: third IIFE in <code>js/index.js</code>.</p>
+  </footer>
+
+  <script src="../js/echarts.min.js"></script>
+  <script src="./data/bmiFootRatio.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/bmi-foot-ratio.js"></script>
+</body>
+</html>
