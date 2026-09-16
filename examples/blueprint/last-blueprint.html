@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>楦型蓝图 · 蓝图工坊</title>
+  <link rel="stylesheet" href="../../docs/blueprint/blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Last sketch</p>
+      <h1>用分数拉轮廓，不装成毫米图纸</h1>
+      <p class="lede">雷达七个轴是 0–100 分。示意图按跖围、跗围、兜跟、脚长分数变形。12 岁源码里鞋码/脚长写成 77-6 / 79-8，这里用 71 / 71。</p>
+    </section>
+    <div class="card">
+      <div class="toolbar">
+        <label class="field">年龄
+          <select id="age"></select>
+        </label>
+        <label class="field">叠一张更小的年龄
+          <select id="compare"><option value="">不叠</option></select>
+        </label>
+      </div>
+      <div id="drawing"></div>
+      <div class="table-wrap"><table id="axes"></table></div>
+    </div>
+  </main>
+  <script src="../../data/blueprint/payload.js"></script>
+  <script src="js/blueprint.js"></script>
+  <script src="js/last-page.js"></script>
+</body>
+</html>

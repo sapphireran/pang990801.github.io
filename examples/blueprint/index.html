@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蓝图示例 · 儿童脚型</title>
+  <link rel="stylesheet" href="../../docs/blueprint/blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Interactive examples</p>
+      <h1>尺、线、残差、纸</h1>
+      <p class="lede">
+        这些页共用 <code>data/blueprint/payload.js</code>。不改总览 IIFE，只把已经画过的厘米数拿来换算、估计和打印。
+      </p>
+    </section>
+    <div class="grid two">
+      <article class="card">
+        <h3><a href="converter.html">换算尺</a></h3>
+        <p>脚长与放余量两条滑块。Mondopoint、号、EU、UK、US 童码并排走。默认 180 mm + 12 mm。</p>
+      </article>
+      <article class="card">
+        <h3><a href="fitting.html">身高估长</a></h3>
+        <p>性别回归线 + ±1σ / ±2σ。旁边列出同身高最近的几个真实点，避免只看见中线。</p>
+      </article>
+      <article class="card">
+        <h3><a href="growth-atlas.html">生长图集</a></h3>
+        <p>6–14 岁均值、一阶差分，以及 5 cm 身高箱的鞋长百分位。9 岁的负增长单独标出来。</p>
+      </article>
+      <article class="card">
+        <h3><a href="last-blueprint.html">楦型蓝图</a></h3>
+        <p>用 9–12 岁雷达分数拉一张俯视/侧视示意图。分数不是毫米，图框按工程图标题栏来画。</p>
+      </article>
+      <article class="card">
+        <h3><a href="field-kit.html">测量纸</a></h3>
+        <p>可打印的左右脚记录表、厘米尺和四个量的空位。浏览器打印时会藏掉导航。</p>
+      </article>
+      <article class="card">
+        <h3><a href="vignettes.html">读图个案</a></h3>
+        <p>八个从散点里挑出来的真实点。每张卡片问一个尺码问题，答案用同一套换算函数。</p>
+      </article>
+      <article class="card">
+        <h3><a href="leftover-fit.html">残差对尺码</a></h3>
+        <p>残差图点一下，把「比中线长 1 cm」翻译成巴黎点和 UK 童码，而不是再画一张剩余图。</p>
+      </article>
+    </div>
+  </main>
+  <script src="js/blueprint.js"></script>
+  <script>Blueprint.mount({ kind: "examples", base: ".", docBase: "../../docs/blueprint", dashboard: "../../index.html", active: "examples" });</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>测量纸 · 蓝图工坊</title>
+  <link rel="stylesheet" href="../../docs/blueprint/blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Field sheet</p>
+      <h1>左右脚各记四个量</h1>
+      <p class="lede">打印这一页当练习纸。尺是屏幕上的厘米示意，打印后请用真尺子核对缩放，不要拿它当计量器具。</p>
+      <p><button type="button" onclick="window.print()">打印</button></p>
+    </section>
+
+    <div class="card">
+      <div class="toolbar">
+        <label class="field">记录人 <input type="text" placeholder="姓名或代号" /></label>
+        <label class="field">日期 <input type="text" placeholder="YYYY-MM-DD" /></label>
+        <label class="field">年龄 <input type="number" min="2" max="18" /></label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>量</th>
+              <th>左脚</th>
+              <th>右脚</th>
+              <th>差（右−左）</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>脚长 mm</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td>后跟突点到最长趾</td></tr>
+            <tr><td>跖趾围长 mm</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td>第 1 / 第 5 跖骨头</td></tr>
+            <tr><td>跗骨围长 mm</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td>足弓最高附近</td></tr>
+            <tr><td>兜跟围长 mm</td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td>后跟斜向前上</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>示意尺 0–20 cm</h3>
+      <div id="ruler"></div>
+      <p class="lede">站立、下午、两只脚、穿将要配套的袜子。量法见 <a href="../../docs/blueprint/protocol.html">测量协议</a>。</p>
+    </div>
+  </main>
+  <script src="js/blueprint.js"></script>
+  <script>
+    Blueprint.mount({ kind: "examples", base: ".", docBase: "../../docs/blueprint", dashboard: "../../index.html", active: "kit" });
+    var svg = '<svg class="dim-svg" viewBox="0 0 760 90" aria-label="0 to 20 centimetre sketch ruler">';
+    svg += '<rect width="760" height="90" fill="#071627"/>';
+    svg += '<line x1="40" y1="50" x2="720" y2="50" stroke="#7fd3ff" stroke-width="2"/>';
+    for (var cm = 0; cm <= 20; cm += 1) {
+      var x = 40 + cm * 34;
+      var h = cm % 5 === 0 ? 22 : 12;
+      svg += '<line x1="' + x + '" y1="50" x2="' + x + '" y2="' + (50 - h) + '" stroke="#7fd3ff"/>';
+      if (cm % 5 === 0) {
+        svg += '<text x="' + x + '" y="78" fill="#8fb4cc" font-size="11" text-anchor="middle" font-family="monospace">' + cm + "</text>";
+      }
+    }
+    svg += "</svg>";
+    document.getElementById("ruler").innerHTML = svg;
+  </script>
+</body>
+</html>

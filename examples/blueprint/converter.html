@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>换算尺 · 蓝图工坊</title>
+  <link rel="stylesheet" href="../../docs/blueprint/blueprint.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Converter</p>
+      <h1>脚长与放余量同时可见</h1>
+      <p class="lede">拖动下面两条轴。Mondopoint / 号跟着脚长走；EU / UK / US 童码跟着楦长走。</p>
+    </section>
+    <div class="card">
+      <div class="toolbar">
+        <label class="field">脚长 mm
+          <input id="foot" type="range" min="140" max="240" step="1" value="180" />
+          <span id="foot-out"></span>
+        </label>
+        <label class="field">放余量 mm
+          <input id="allow" type="range" min="0" max="20" step="1" value="12" />
+          <span id="allow-out"></span>
+        </label>
+        <label class="field">或键入脚长 mm
+          <input id="foot-num" type="number" min="120" max="280" step="1" value="180" />
+        </label>
+      </div>
+      <div class="grid stats" id="size-stats"></div>
+      <div class="ruler-wrap" id="stick"></div>
+    </div>
+    <div class="note">公式见 <a href="../../docs/blueprint/systems.html">尺码体系</a>。品牌配码会在这一带左右偏移，不要把滑块结果写成订单。</div>
+    <div class="table-wrap"><table id="near-table"></table></div>
+  </main>
+  <script src="../../data/blueprint/payload.js"></script>
+  <script src="js/blueprint.js"></script>
+  <script src="js/converter-page.js"></script>
+</body>
+</html>
