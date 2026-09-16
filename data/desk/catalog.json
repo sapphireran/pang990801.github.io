@@ -1,0 +1,32 @@
+{
+  "name": "night-desk",
+  "kind": "personal reprint of hardcoded 2020 dashboard series",
+  "claims": "none-clinical none-factory",
+  "sources": {
+    "js/index.js": "90e385c12ae2eeee71c70d08cbe42e3f9db1786d7652393aeb35adb67615fe74",
+    "draw1.js": "a2537fefb04dbffae38ad306a8294aaca0734ce07b18b664ceb1b8dbcb573e55",
+    "draw2.js": "ad02d8beef174a942062823fe695097e4f347e72b97245abcee71508df61fb3c"
+  },
+  "files": [
+    "height-shoe.json",
+    "age-foot-length.json",
+    "bmi-ratio.json",
+    "symmetry.json",
+    "radar.json",
+    "plantar-pressure.json",
+    "tissue-thickness.json",
+    "stats.json",
+    "clinic.json",
+    "payload.js"
+  ],
+  "counts": {
+    "female_scatter": 199,
+    "male_scatter": 199,
+    "age_rows": 9,
+    "bmi_rows": 13,
+    "symmetry_rows": 13,
+    "pressure_sites": 7,
+    "thickness_sites": 14,
+    "clinic_cards": 7
+  }
+}

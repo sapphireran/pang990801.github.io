@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>再版说明 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">What this desk adds and refuses</span>
+    <h1>再版说明</h1>
+    <p>夜读是个人第二版笔记，不是把 2020 年的仪表盘升级成产品。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>这一版多出来的东西</h2>
+      <ul>
+        <li>从原脚本抽出的 JSON / <code>payload.js</code>，带源文件 SHA-256。</li>
+        <li>对 398 个散点做的 OLS、残差分箱、身高分位。</li>
+        <li>年龄交叉点、装饰环真正的分数、雷达源码里的 <code>77-6</code> / <code>79-8</code>。</li>
+        <li>七张误读卡片，文档和课桌共用同一份 <code>clinic.json</code>。</li>
+        <li>把 draw1 / draw2 第一次挂到能看见的页面上，但仍标成底稿。</li>
+        <li>一张可以打印的测站卡片，只抄原图用过的词。</li>
+      </ul>
+    </section>
+    <section class="sheet">
+      <h2>这一版故意没有的东西</h2>
+      <ul>
+        <li>新的测量、新的孩子、新的 millimetre。</li>
+        <li>Mondopoint / EU / 英国码 / 美国码换算表。</li>
+        <li>楦型加放、鞋楦曲线、工厂公差。</li>
+        <li>对糖尿病足或畸形足的解释。</li>
+        <li>对 <code>scuscientia</code> / <code>ytep-zhi</code> 同学站的改写。</li>
+      </ul>
+      <div class="good">原 <code>index.html</code> 的五张图仍按 2020 年的配置运行。夜读只在导航上加了两个入口。</div>
+    </section>
+    <section class="sheet">
+      <h2>如何核对</h2>
+      <pre>python3 scripts/extract-desk.py
+python3 scripts/verify-desk.py</pre>
+      <p>抽取脚本重写 JSON；校验脚本再跑一遍抽取，并确认 199/199、交叉年龄 11、雷达 71/71、以及夜读/课桌页面都还在。</p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 再版说明不是发布日志以外的授权</footer>
+  <script src="desk.js"></script>
+</body>
+</html>

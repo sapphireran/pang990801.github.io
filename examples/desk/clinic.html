@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>交互误读所 · 夜读课桌</title>
+  <link rel="stylesheet" href="../../docs/desk/desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Click a card, keep the desk note</span>
+    <h1>交互误读所</h1>
+    <p>七张卡片来自同一份 <code>clinic.json</code>。旁边的小图只负责提醒你看的是哪一块，不提供新结论。</p>
+  </header>
+  <nav class="desk-nav" aria-label="课桌导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="../../docs/desk/index.html">夜读</a></li>
+      <li><a href="index.html">课桌</a></li>
+      <li><a href="scatter-fit.html">残差</a></li>
+      <li><a href="crossover.html">交叉</a></li>
+      <li><a href="symmetry.html">对称</a></li>
+      <li><a href="radar.html">雷达</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="folio.html">总账</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <div class="grid-2">
+        <div id="clinic-cards" class="grid-2"></div>
+        <div>
+          <div id="clinic-detail"></div>
+          <div class="figure tall" id="clinic-chart"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 误读所不是审稿意见</footer>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/desk/payload.js"></script>
+  <script src="js/desk-core.js"></script>
+  <script src="js/clinic.js"></script>
+</body>
+</html>

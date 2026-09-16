@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>底稿附录 · 夜读课桌</title>
+  <link rel="stylesheet" href="../../docs/desk/desk.css" />
+  <link rel="stylesheet" href="css/desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Mounted once, still labeled leftover</span>
+    <h1>底稿附录</h1>
+    <p>足压和皮厚来自 <code>draw1.js</code> / <code>draw2.js</code> 的数列。下面的飞线地图是 <code>myMap.js</code> 自己画的，和儿童测站无关。</p>
+  </header>
+  <nav class="desk-nav" aria-label="课桌导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="../../docs/desk/index.html">夜读</a></li>
+      <li><a href="index.html">课桌</a></li>
+      <li><a href="scatter-fit.html">残差</a></li>
+      <li><a href="crossover.html">交叉</a></li>
+      <li><a href="symmetry.html">对称</a></li>
+      <li><a href="radar.html">雷达</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="folio.html">总账</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <div class="figure tall" id="pressure-chart"></div>
+      <p id="pressure-note" class="warn"></p>
+    </section>
+    <section class="sheet">
+      <div class="figure tall" id="thickness-chart"></div>
+      <p id="thickness-note" class="note"></p>
+    </section>
+    <section class="sheet">
+      <h2>飞线地图（未进儿童面板）</h2>
+      <p>中央仪表盘的 class 仍叫 <code>map</code>，里面却是雷达。这里单独给 <code>myMap.js</code> 一个容器，证明它还活着，并且不是脚型测站。</p>
+      <div class="map">
+        <div class="chart"></div>
+      </div>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 底稿不是儿童样本</footer>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/desk/payload.js"></script>
+  <script src="js/desk-core.js"></script>
+  <script src="js/leftovers.js"></script>
+  <script src="../../js/china.js"></script>
+  <script src="../../js/myMap.js"></script>
+</body>
+</html>

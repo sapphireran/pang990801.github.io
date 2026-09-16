@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>残差工作台 · 夜读课桌</title>
+  <link rel="stylesheet" href="../../docs/desk/desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Ordinary least squares on the 2020 clouds</span>
+    <h1>残差工作台</h1>
+    <p>女 199、男 199。拟合在浏览器里重算一遍，应和 <code>stats.json</code> 对得上。Y 轴是「标成鞋码的厘米」。</p>
+  </header>
+  <nav class="desk-nav" aria-label="课桌导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="../../docs/desk/index.html">夜读</a></li>
+      <li><a href="index.html">课桌</a></li>
+      <li><a href="scatter-fit.html">残差</a></li>
+      <li><a href="crossover.html">交叉</a></li>
+      <li><a href="symmetry.html">对称</a></li>
+      <li><a href="radar.html">雷达</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="folio.html">总账</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <div class="toolbar">
+        <button type="button" data-cloud="both" aria-pressed="true">两朵云</button>
+        <button type="button" data-cloud="female" aria-pressed="false">只看女</button>
+        <button type="button" data-cloud="male" aria-pressed="false">只看男</button>
+      </div>
+      <div class="figure tall" id="fit-chart"></div>
+    </section>
+    <section class="sheet">
+      <h2>残差对身高</h2>
+      <div class="figure" id="resid-chart"></div>
+    </section>
+    <section class="sheet">
+      <h2>残差分箱</h2>
+      <div class="figure" id="hist-chart"></div>
+    </section>
+    <section class="sheet">
+      <h2>当场算的拟合</h2>
+      <table id="fit-table">
+        <thead><tr><th></th><th>斜率</th><th>截距</th><th>r²</th><th>RMSE</th><th>n</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="note">斜率约 0.14 表示：在这组已经写进页面的点里，身高每高 1 cm，鞋码轴大约高 0.14 cm。不是尺码换算。</p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · OLS 只描述这些点</footer>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/desk/payload.js"></script>
+  <script src="js/desk-core.js"></script>
+  <script src="js/scatter-fit.js"></script>
+</body>
+</html>

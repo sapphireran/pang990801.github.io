@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>读图 · 夜读课桌</title>
+  <link rel="stylesheet" href="desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">How to sit with each live chart</span>
+    <h1>读图</h1>
+    <p>五张已上线的图，按原页面从左到右、从上到下的顺序读。数字来自 <code>js/index.js</code>，统计量来自 <code>data/desk/stats.json</code>。</p>
+  </header>
+  <nav class="desk-nav" aria-label="夜读导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="index.html">夜读</a></li>
+      <li><a href="origin.html">装订</a></li>
+      <li><a href="stations.html">测站</a></li>
+      <li><a href="reading.html">读图</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="reprint.html">再版说明</a></li>
+      <li><a href="hosting.html">本地预览</a></li>
+      <li><a href="print-card.html">印刷卡片</a></li>
+      <li><a href="../../examples/desk/index.html">课桌示例</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <h2>1. 身高与鞋码散点</h2>
+      <p>两朵云，女 199 点，男 199 点。X 是身高 cm，Y 标成鞋码却带 cm。女云均值约 116.9 × 16.8，男云约 111.8 × 16.0。普通最小二乘：</p>
+      <table>
+        <thead><tr><th></th><th>斜率</th><th>截距</th><th>r²</th><th>RMSE</th></tr></thead>
+        <tbody>
+          <tr><td>女</td><td>0.1409</td><td>0.30</td><td>0.835</td><td>1.34 cm</td></tr>
+          <tr><td>男</td><td>0.1433</td><td>−0.07</td><td>0.838</td><td>1.37 cm</td></tr>
+        </tbody>
+      </table>
+      <p>斜率读成「这组点里，身高每高 1 cm，标成鞋码的那个厘米大约多 0.14」。不要读成全国生长率，也不要拿去推欧码。</p>
+      <p>原图还画了平均值标线，并在女云 x=115、男云 x=110 处各加一条竖线。那两条竖线不是分位数，只是写死的参考。</p>
+      <p><a class="btn" href="../../examples/desk/scatter-fit.html">打开残差课桌</a></p>
+    </section>
+    <section class="sheet">
+      <h2>2. 年龄与脚长</h2>
+      <p>6–14 岁，女柱、男柱，再加一条「女−男」面积。6–10 岁女孩均值更高；11 岁男孩以 21.32 对 21.29 翻上去，之后差距拉到 14 岁的 −0.50 cm。</p>
+      <p>8 岁两柱都高于 9 岁。夜读把它当成这条序列自己的形状，不解释成生长回退，也不补样本数——原文件没有 n。</p>
+      <p><a class="btn" href="../../examples/desk/crossover.html">打开交叉课桌</a></p>
+    </section>
+    <section class="sheet">
+      <h2>3. BMI 与脚胖瘦度</h2>
+      <p>X 是 12 到 24 的整数 BMI。Y 大约 23–30。如果真是脚长/脚宽，比值该在 2.4–3.0；所以夜读按「长宽比×10」这个工作假设来读，并在误读所里写明它只是假设。</p>
+      <p>右侧两个环：过瘦 50/(50+180) ≈ 21.7%，过胖 435/(435+2400) ≈ 15.3%。它们加不出左边的折线，当装饰。</p>
+    </section>
+    <section class="sheet">
+      <h2>4. 双脚比例时间轴</h2>
+      <p>2–14 岁自动播放。五类份额来自 <code>36-13·ln(i+1)</code> 一类表达式，不是问卷百分比。年龄越大，「相同」那一块相对更大，是公式衰减，不是随访结论。</p>
+      <p><a class="btn" href="../../examples/desk/symmetry.html">打开对称课桌</a></p>
+    </section>
+    <section class="sheet">
+      <h2>5. 中央雷达</h2>
+      <p>9–12 岁四圈，七轴共用 max=100。12 岁的鞋码、脚长在源码里写成 <code>77-6</code>、<code>79-8</code>，夜读存的是算完的 71、71。把圈变大读成「分数轮廓变饱满」可以；读成围度厘米不行。</p>
+      <p><a class="btn" href="../../examples/desk/radar.html">打开雷达课桌</a></p>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 读图笔记绑定这 398 个点和五条序列</footer>
+  <script src="desk.js"></script>
+</body>
+</html>

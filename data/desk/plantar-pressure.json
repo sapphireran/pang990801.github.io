@@ -1,0 +1,33 @@
+{
+  "source": "draw1.js",
+  "mounted_on_index": false,
+  "title": "足部压力数据图(单位: Pa)",
+  "sites": [
+    "位点一",
+    "位点二",
+    "位点三",
+    "位点四",
+    "位点五",
+    "位点六",
+    "位点七"
+  ],
+  "normal": [
+    90,
+    50,
+    39,
+    50,
+    120,
+    82,
+    80
+  ],
+  "diabetic_foot": [
+    290,
+    200,
+    20,
+    132,
+    15,
+    200,
+    90
+  ],
+  "population_note": "adult contrast in the leftover file, not the child dashboard"
+}

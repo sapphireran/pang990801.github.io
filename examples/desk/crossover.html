@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年龄交叉 · 夜读课桌</title>
+  <link rel="stylesheet" href="../../docs/desk/desk.css" />
+</head>
+<body>
+  <header class="lamp">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <span class="eyebrow">Boys pass at age 11 in this series</span>
+    <h1>年龄交叉</h1>
+    <p>6–10 岁女孩均值更高。11 岁男孩 21.32 cm，女孩 21.29 cm。原图 8 岁两柱都高于 9 岁，夜读不补故事。</p>
+  </header>
+  <nav class="desk-nav" aria-label="课桌导航">
+    <ul>
+      <li><a href="../../index.html">仪表盘</a></li>
+      <li><a href="../../docs/desk/index.html">夜读</a></li>
+      <li><a href="index.html">课桌</a></li>
+      <li><a href="scatter-fit.html">残差</a></li>
+      <li><a href="crossover.html">交叉</a></li>
+      <li><a href="symmetry.html">对称</a></li>
+      <li><a href="radar.html">雷达</a></li>
+      <li><a href="clinic.html">误读所</a></li>
+      <li><a href="leftovers.html">底稿</a></li>
+      <li><a href="folio.html">总账</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <section class="sheet">
+      <div class="figure tall" id="cross-chart"></div>
+    </section>
+    <section class="sheet">
+      <h2>原序列</h2>
+      <table id="cross-table">
+        <thead><tr><th>年龄</th><th>女孩 cm</th><th>男孩 cm</th><th>女−男</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+  <footer class="desk-foot">Personal reprint · 交叉点只属于这条均值</footer>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../../data/desk/payload.js"></script>
+  <script src="js/desk-core.js"></script>
+  <script src="js/crossover.js"></script>
+</body>
+</html>

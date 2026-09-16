@@ -1,0 +1,12 @@
+.map {
+  position: relative;
+  height: 460px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+
+.map .chart {
+  position: absolute;
+  inset: 0;
+}
