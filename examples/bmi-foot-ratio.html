@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI × plumpness — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>BMI vs foot plumpness</h1>
+    <p class="lede">
+      Plumpness is the dashboard ratio 脚长 / 脚宽 (larger = longer
+      relative to width). Rings reuse the 2020 highlight / remainder
+      counts; they are not a defined clinical cutoff.
+    </p>
+    <div class="stats" id="stats"></div>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+  </main>
+  <footer class="site-footer">Source: js/index.js → data/bmi-foot-ratio.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.bmiFoot;
+      var thin = data.ring_charts.thin_feet;
+      var plump = data.ring_charts.plump_feet;
+      document.getElementById("stats").innerHTML = [
+        ["Thin-feet ring", (thin.highlighted_share * 100).toFixed(1) + "%"],
+        ["Plump-feet ring", (plump.highlighted_share * 100).toFixed(1) + "%"],
+        ["BMI bins", String(data.bmi.length)],
+      ].map(function (row) {
+        return '<div class="stat"><b>' + row[1] + "</b><span>" + row[0] + "</span></div>";
+      }).join("");
+
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = FOOT_THEME.baseOption();
+      option.legend.data = ["Girls ratio", "Boys ratio"];
+      option.grid.right = "36%";
+      option.xAxis = FOOT_THEME.categoryAxis(data.bmi, "BMI");
+      option.yAxis = Object.assign(FOOT_THEME.valueAxis("length / width"), { min: 20 });
+      option.series = [
+        { name: "Girls ratio", type: "line", smooth: true, areaStyle: { opacity: 0.15 }, data: data.female_ratio },
+        { name: "Boys ratio", type: "line", smooth: true, areaStyle: { opacity: 0.15 }, data: data.male_ratio },
+        {
+          type: "pie",
+          center: ["84%", "32%"],
+          radius: ["18%", "26%"],
+          label: { color: "#e7f4f6" },
+          data: [
+            { name: "thin highlight", value: thin.highlighted },
+            { name: "thin remainder", value: thin.remainder },
+          ],
+        },
+        {
+          type: "pie",
+          center: ["84%", "74%"],
+          radius: ["18%", "26%"],
+          label: { color: "#e7f4f6" },
+          data: [
+            { name: "plump highlight", value: plump.highlighted },
+            { name: "plump remainder", value: plump.remainder },
+          ],
+        },
+      ];
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>

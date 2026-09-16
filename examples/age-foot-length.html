@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age × foot length — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Mean foot length by age</h1>
+    <p class="lede">
+      Charted means from the pictorial-bar panel. Girls are slightly
+      longer through age 10; boys overtake after 11. Ages 8–9 sit below
+      age 7 for both series.
+    </p>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+    <p class="note warning">
+      These are dashboard means, not a growth-chart LMS table.
+    </p>
+  </main>
+  <footer class="site-footer">Source: js/index.js → data/age-foot-length.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.ageFoot;
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = FOOT_THEME.baseOption();
+      option.legend.data = ["Girls (cm)", "Boys (cm)", "Girl − boy (cm)"];
+      option.xAxis = FOOT_THEME.categoryAxis(data.ages, "age");
+      option.yAxis = [
+        Object.assign(FOOT_THEME.valueAxis("foot length (cm)"), { min: 17 }),
+        FOOT_THEME.valueAxis("difference (cm)"),
+      ];
+      option.yAxis[1].splitLine = { show: false };
+      option.series = [
+        { name: "Girls (cm)", type: "bar", data: data.female_cm },
+        { name: "Boys (cm)", type: "bar", data: data.male_cm },
+        { name: "Girl − boy (cm)", type: "line", yAxisIndex: 1, smooth: true, data: data.female_minus_male_cm },
+      ];
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>

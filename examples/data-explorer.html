@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data explorer — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Data explorer</h1>
+    <p class="lede">
+      Browse every extracted dataset. Filter rows, copy JSON, or jump
+      to the dictionary. Nothing here is fetched over the network —
+      it reads <code>window.FOOT_DATA</code>.
+    </p>
+    <div class="tabs" id="tabs"></div>
+    <div class="toolbar">
+      <label>
+        Filter
+        <input id="filter" type="search" placeholder="height, 位点, 12岁…" />
+      </label>
+      <button type="button" id="copy">Copy visible JSON</button>
+    </div>
+    <p class="note" id="meta"></p>
+    <div class="table-wrap">
+      <table>
+        <thead id="head"></thead>
+        <tbody id="body"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer class="site-footer">
+    Schema: <a href="../docs/data-dictionary.md">data-dictionary.md</a>
+  </footer>
+  <script src="js/datasets.js"></script>
+  <script>
+    (function () {
+      var bundle = window.FOOT_DATA;
+      var tables = {
+        heightFemale: {
+          label: "Height × last · girls",
+          note: bundle.heightShoe.title_zh + " — female",
+          rows: bundle.heightShoe.series.female.points.map(function (p, i) {
+            return { i: i + 1, height_cm: p[0], shoe_last_cm: p[1] };
+          }),
+          json: bundle.heightShoe.series.female,
+        },
+        heightMale: {
+          label: "Height × last · boys",
+          note: bundle.heightShoe.title_zh + " — male",
+          rows: bundle.heightShoe.series.male.points.map(function (p, i) {
+            return { i: i + 1, height_cm: p[0], shoe_last_cm: p[1] };
+          }),
+          json: bundle.heightShoe.series.male,
+        },
+        ageFoot: {
+          label: "Age × length",
+          note: bundle.ageFoot.title_zh,
+          rows: bundle.ageFoot.ages.map(function (age, i) {
+            return {
+              age: age,
+              female_cm: bundle.ageFoot.female_cm[i],
+              male_cm: bundle.ageFoot.male_cm[i],
+              female_minus_male_cm: bundle.ageFoot.female_minus_male_cm[i],
+            };
+          }),
+          json: bundle.ageFoot,
+        },
+        bmi: {
+          label: "BMI × ratio",
+          note: bundle.bmiFoot.title_zh,
+          rows: bundle.bmiFoot.bmi.map(function (bmi, i) {
+            return {
+              bmi: bmi,
+              female_ratio: bundle.bmiFoot.female_ratio[i],
+              male_ratio: bundle.bmiFoot.male_ratio[i],
+            };
+          }),
+          json: bundle.bmiFoot,
+        },
+        radar: {
+          label: "Growth radar",
+          note: bundle.growthRadar.scale,
+          rows: Object.keys(bundle.growthRadar.series).map(function (age) {
+            var row = { age: age };
+            bundle.growthRadar.axes_en.forEach(function (key, i) {
+              row[key] = bundle.growthRadar.series[age][i];
+            });
+            return row;
+          }),
+          json: bundle.growthRadar,
+        },
+        bilateral: {
+          label: "Left / right model",
+          note: bundle.bilateral.model,
+          rows: bundle.bilateral.points,
+          json: bundle.bilateral,
+        },
+        plantar: {
+          label: "Plantar pressure",
+          note: bundle.plantar.title_zh,
+          rows: bundle.plantar.sites.map(function (site, i) {
+            return {
+              site: site,
+              normal_pa: bundle.plantar.normal_pa[i],
+              diabetic_foot_pa: bundle.plantar.diabetic_foot_pa[i],
+            };
+          }),
+          json: bundle.plantar,
+        },
+        thickness: {
+          label: "Tissue thickness",
+          note: bundle.thickness.title_zh,
+          rows: bundle.thickness.sites.map(function (site, i) {
+            return {
+              site: site,
+              normal_adult_mm: bundle.thickness.normal_adult_mm[i],
+              diabetic_foot_adult_mm: bundle.thickness.diabetic_foot_adult_mm[i],
+              difference_labelled_um: bundle.thickness.difference_labelled_um[i],
+            };
+          }),
+          json: bundle.thickness,
+        },
+      };
+
+      var current = "heightFemale";
+      var tabs = document.getElementById("tabs");
+      var head = document.getElementById("head");
+      var body = document.getElementById("body");
+      var meta = document.getElementById("meta");
+      var filter = document.getElementById("filter");
+
+      Object.keys(tables).forEach(function (key) {
+        var button = document.createElement("button");
+        button.type = "button";
+        button.textContent = tables[key].label;
+        button.dataset.key = key;
+        button.addEventListener("click", function () {
+          current = key;
+          filter.value = "";
+          draw();
+        });
+        tabs.appendChild(button);
+      });
+
+      function visibleRows() {
+        var query = filter.value.trim().toLowerCase();
+        return tables[current].rows.filter(function (row) {
+          if (!query) return true;
+          return Object.keys(row).some(function (key) {
+            return String(row[key]).toLowerCase().indexOf(query) !== -1;
+          });
+        });
+      }
+
+      function draw() {
+        Array.prototype.forEach.call(tabs.children, function (button) {
+          button.setAttribute("aria-selected", button.dataset.key === current ? "true" : "false");
+        });
+        var rows = visibleRows();
+        var cols = rows[0] ? Object.keys(rows[0]) : Object.keys(tables[current].rows[0] || {});
+        head.innerHTML = "<tr>" + cols.map(function (col) { return "<th>" + col + "</th>"; }).join("") + "</tr>";
+        body.innerHTML = rows.map(function (row) {
+          return "<tr>" + cols.map(function (col) { return "<td>" + row[col] + "</td>"; }).join("") + "</tr>";
+        }).join("");
+        meta.textContent = tables[current].note + " · showing " + rows.length + " / " + tables[current].rows.length + " rows";
+      }
+
+      filter.addEventListener("input", draw);
+      document.getElementById("copy").addEventListener("click", function () {
+        var payload = JSON.stringify(visibleRows(), null, 2);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(payload);
+          return;
+        }
+        window.prompt("Copy JSON", payload);
+      });
+      draw();
+    })();
+  </script>
+</body>
+</html>

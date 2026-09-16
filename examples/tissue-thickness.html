@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tissue thickness — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Plantar soft-tissue thickness</h1>
+    <p class="lede">
+      First live mount of unused <code>draw2.js</code>. Bars are
+      millimetres. The line is the original <code>差值:um</code> series
+      copied as-is — it is <em>not</em> a computed millimetre delta.
+    </p>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+  </main>
+  <footer class="site-footer">Source: draw2.js → data/tissue-thickness.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.thickness;
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = FOOT_THEME.baseOption();
+      option.legend.data = ["Typical adult (mm)", "Diabetic-foot adult (mm)", "Labelled difference (um)"];
+      option.xAxis = FOOT_THEME.categoryAxis(data.sites);
+      option.yAxis = [
+        FOOT_THEME.valueAxis("mm"),
+        Object.assign(FOOT_THEME.valueAxis("um label"), { splitLine: { show: false } }),
+      ];
+      option.dataZoom = [{ type: "slider", start: 0, end: 100 }];
+      option.series = [
+        { name: "Typical adult (mm)", type: "bar", data: data.normal_adult_mm },
+        { name: "Diabetic-foot adult (mm)", type: "bar", data: data.diabetic_foot_adult_mm },
+        { name: "Labelled difference (um)", type: "line", yAxisIndex: 1, data: data.difference_labelled_um },
+      ];
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>
