@@ -100,8 +100,8 @@
     opts = opts || {};
     var kind = opts.kind || "docs";
     var base = opts.base || ".";
-    var exampleBase = opts.exampleBase || "../examples/blueprint";
-    var docBase = opts.docBase || "../docs/blueprint";
+    var exampleBase = opts.exampleBase || (kind === "docs" ? "../../examples/blueprint" : ".");
+    var docBase = opts.docBase || (kind === "examples" ? "../../docs/blueprint" : ".");
     var dash = opts.dashboard || "../../index.html";
     var links = kind === "examples" ? EXAMPLE_LINKS : DOC_LINKS;
     var otherHref = kind === "examples" ? docBase + "/index.html" : exampleBase + "/index.html";

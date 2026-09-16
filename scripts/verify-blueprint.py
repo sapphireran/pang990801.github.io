@@ -113,6 +113,11 @@ def check_scripts() -> None:
     for rel in needed:
         if not (ROOT / rel).is_file():
             fail(f"missing {rel}")
+    nav = (ROOT / "examples/blueprint/js/blueprint.js").read_text(encoding="utf-8")
+    if 'kind === "docs" ? "../../examples/blueprint"' not in nav:
+        fail("docs nav default for examples/ is wrong")
+    if 'kind === "examples" ? "../../docs/blueprint"' not in nav:
+        fail("examples nav default for docs/ is wrong")
 
 
 def main() -> None:

@@ -18,7 +18,6 @@
   function render() {
     var mm = Number(foot.value);
     var a = Number(allow.value);
-    footNum.value = mm;
     Blueprint.$("#foot-out").textContent = mm + " mm (" + f(mm / 10, 1) + " cm)";
     Blueprint.$("#allow-out").textContent = a + " mm → 楦长 " + (mm + a) + " mm";
     var s = Blueprint.convertSizes(mm, a);
@@ -58,11 +57,15 @@
       }));
   }
 
-  foot.addEventListener("input", render);
+  foot.addEventListener("input", function () {
+    footNum.value = foot.value;
+    render();
+  });
   allow.addEventListener("input", render);
-  footNum.addEventListener("input", function () {
+  footNum.addEventListener("change", function () {
     var v = Math.max(140, Math.min(240, Number(footNum.value) || 180));
-    foot.value = v;
+    foot.value = String(v);
+    footNum.value = String(v);
     render();
   });
   render();
