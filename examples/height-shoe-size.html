@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例：身高与鞋码</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>男童女童身高与鞋码的关系</h1>
+    <nav class="crumbs">
+      <a href="index.html">示例目录</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/charts.md">图表说明</a>
+      <a href="../data/height-shoe-size.json">JSON</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Scatter of childhood height (cm) against shoe length (cm). Red = 女性, yellow = 男性.
+      Each cloud keeps its dashed min–max box, min/max points, average line, and the original
+      vertical references at 115 cm / 110 cm.
+    </p>
+    <p class="status">Loading sample…</p>
+    <section class="panel"><div class="chart"></div></section>
+    <section class="notes">
+      <article>
+        <h2>How to use the toolbox</h2>
+        <p>Drag a rectangle or polygon to brush a region. Data zoom is on. Save as image exports the current view.</p>
+      </article>
+      <article>
+        <h2>What the tooltip means</h2>
+        <p>鞋码 is printed in centimeters, matching the live dashboard — not a shop tag such as 32码.</p>
+      </article>
+      <article>
+        <h2>What not to infer</h2>
+        <p>No age, no width, no last allowance. Overlap between the two clouds is the honest picture.</p>
+      </article>
+    </section>
+  </main>
+  <p class="footnote">Source series: <code>js/index.js</code> first IIFE, mirrored in <code>data/height-shoe-size.json</code>.</p>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/height-shoe-size.js"></script>
+</body>
+</html>

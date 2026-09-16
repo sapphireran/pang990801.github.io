@@ -1,0 +1,143 @@
+:root {
+  --bg: #07111c;
+  --panel: rgba(7, 24, 40, 0.94);
+  --line: rgba(2, 166, 181, 0.4);
+  --accent: #3deaff;
+  --text: #e8f4ff;
+  --muted: #9bb4c9;
+  --font: "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: #000 url("../../images/bg.jpg") no-repeat center / cover fixed;
+  line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 10, 20, 0.82);
+  z-index: -1;
+}
+
+a { color: #7ee8f2; }
+a:hover { color: #fff; }
+
+.shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.side {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow: auto;
+  padding: 24px 18px;
+  background: rgba(4, 14, 26, 0.92);
+  border-right: 1px solid var(--line);
+}
+
+.side h1 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.side p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.side a { text-decoration: none; }
+
+.side nav a {
+  display: block;
+  padding: 6px 0;
+  color: #c5e7f3;
+  font-size: 0.92rem;
+}
+
+.side nav a:hover { color: var(--accent); }
+
+.content {
+  padding: 28px 36px 64px;
+  max-width: 860px;
+}
+
+.content h2 {
+  margin-top: 2.2em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--line);
+  font-size: 1.35rem;
+}
+
+.content h2:first-of-type {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+
+.content h3 { margin-top: 1.4em; font-size: 1.05rem; color: #b7f3fa; }
+
+.content p, .content li { color: #d5e6f0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 12px 0 20px;
+}
+
+th, td {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: rgba(61, 234, 255, 0.08); color: #b7f3fa; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  color: #c8f7d2;
+}
+
+pre {
+  overflow: auto;
+  padding: 12px 14px;
+  background: #041018;
+  border: 1px solid var(--line);
+  font-size: 0.86rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 12px 0 0;
+}
+
+.note {
+  background: rgba(255, 176, 32, 0.08);
+  border-left: 3px solid #ffb020;
+  padding: 10px 12px;
+  color: #f0d9a0;
+}
+
+@media (max-width: 800px) {
+  .shell { grid-template-columns: 1fr; }
+  .side { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .content { padding: 20px 16px 48px; }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例：9–12 岁雷达</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>9–12 岁体型与围长雷达</h1>
+    <nav class="crumbs">
+      <a href="index.html">示例目录</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/measurements.md">围长名词</a>
+      <a href="../data/age-radar.json">JSON</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Four polygons on a circular radar. Spokes start at 12 o’clock: 身高, 兜跟围长, 跗骨围长, 跖趾围长, 鞋码, 脚长, 体重.
+      Every axis is a 0–100 score, not a tape measurement in centimeters.
+    </p>
+    <p class="status">Loading sample…</p>
+    <section class="panel"><div class="chart compact"></div></section>
+    <section class="notes">
+      <article>
+        <h2>Why this sat in <code>.map</code></h2>
+        <p>The center column used to host <code>myMap.js</code>. The radar reused that hook after the geo experiment was commented out.</p>
+      </article>
+      <article>
+        <h2>Age 12 shoe / foot</h2>
+        <p>The live option writes <code>77-6</code> and <code>79-8</code>. This page plots the evaluated 71 / 71 stored in JSON.</p>
+      </article>
+      <article>
+        <h2>Uneven growth</h2>
+        <p>Look at which spokes jump between 10→11 and 11→12. The polygon does not inflate by the same amount on every axis.</p>
+      </article>
+    </section>
+  </main>
+  <p class="footnote">Source series: <code>js/index.js</code> radar IIFE, mirrored in <code>data/age-radar.json</code>.</p>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/age-radar.js"></script>
+</body>
+</html>

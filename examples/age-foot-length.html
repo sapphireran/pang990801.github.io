@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例：年龄与脚长</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>男童女童年龄与脚长的关系</h1>
+    <nav class="crumbs">
+      <a href="index.html">示例目录</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/charts.md">图表说明</a>
+      <a href="../data/age-foot-length.json">JSON</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Mean foot length (cm) at ages 6–14. Cyan bars are girls, blue bars are boys, diamonds cap the bars.
+      The smooth line is <strong>girls minus boys</strong> on a second axis — it is not a third length series.
+    </p>
+    <p class="status">Loading sample…</p>
+    <section class="panel"><div class="chart"></div></section>
+    <section class="notes">
+      <article>
+        <h2>The zero crossing</h2>
+        <p>On this sample the difference stays slightly positive through age 10, then the boy mean overtakes.</p>
+      </article>
+      <article>
+        <h2>Missing pieces</h2>
+        <p>These are category means only. There is no n, SD, or longitudinal id in the JSON.</p>
+      </article>
+      <article>
+        <h2>Units</h2>
+        <p>Both Y axes are centimeters. The example labels the difference axis explicitly; the live dashboard does not.</p>
+      </article>
+    </section>
+  </main>
+  <p class="footnote">Source series: <code>js/index.js</code> second IIFE, mirrored in <code>data/age-foot-length.json</code>.</p>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/age-foot-length.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+{
+  "title": "儿童双脚比例时间轴",
+  "source": "Computed from the formula in js/index.js line chart timeline",
+  "frames": [
+    {
+      "ageLabel": "2岁",
+      "ageYears": 2,
+      "categories": {
+        "sameBothFeet": 154,
+        "leftLarger10to20": 36,
+        "leftLargerOver20": 17,
+        "rightLargerOver20": 11,
+        "rightLarger10to20": 27
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "3岁",
+      "ageYears": 3,
+      "categories": {
+        "sameBothFeet": 131,
+        "leftLarger10to20": 27,
+        "leftLargerOver20": 13,
+        "rightLargerOver20": 8,
+        "rightLarger10to20": 20
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "4岁",
+      "ageYears": 4,
+      "categories": {
+        "sameBothFeet": 118,
+        "leftLarger10to20": 22,
+        "leftLargerOver20": 10,
+        "rightLargerOver20": 7,
+        "rightLarger10to20": 16
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "5岁",
+      "ageYears": 5,
+      "categories": {
+        "sameBothFeet": 108,
+        "leftLarger10to20": 18,
+        "leftLargerOver20": 9,
+        "rightLargerOver20": 5,
+        "rightLarger10to20": 13
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "6岁",
+      "ageYears": 6,
+      "categories": {
+        "sameBothFeet": 101,
+        "leftLarger10to20": 15,
+        "leftLargerOver20": 7,
+        "rightLargerOver20": 5,
+        "rightLarger10to20": 11
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "7岁",
+      "ageYears": 7,
+      "categories": {
+        "sameBothFeet": 95,
+        "leftLarger10to20": 13,
+        "leftLargerOver20": 6,
+        "rightLargerOver20": 4,
+        "rightLarger10to20": 9
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "8岁",
+      "ageYears": 8,
+      "categories": {
+        "sameBothFeet": 90,
+        "leftLarger10to20": 11,
+        "leftLargerOver20": 5,
+        "rightLargerOver20": 3,
+        "rightLarger10to20": 8
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "9岁",
+      "ageYears": 9,
+      "categories": {
+        "sameBothFeet": 86,
+        "leftLarger10to20": 9,
+        "leftLargerOver20": 5,
+        "rightLargerOver20": 3,
+        "rightLarger10to20": 6
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "10岁",
+      "ageYears": 10,
+      "categories": {
+        "sameBothFeet": 81,
+        "leftLarger10to20": 7,
+        "leftLargerOver20": 4,
+        "rightLargerOver20": 2,
+        "rightLarger10to20": 5
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "11岁",
+      "ageYears": 11,
+      "categories": {
+        "sameBothFeet": 78,
+        "leftLarger10to20": 6,
+        "leftLargerOver20": 3,
+        "rightLargerOver20": 2,
+        "rightLarger10to20": 4
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "12岁",
+      "ageYears": 12,
+      "categories": {
+        "sameBothFeet": 75,
+        "leftLarger10to20": 5,
+        "leftLargerOver20": 3,
+        "rightLargerOver20": 1,
+        "rightLarger10to20": 3
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "13岁",
+      "ageYears": 13,
+      "categories": {
+        "sameBothFeet": 72,
+        "leftLarger10to20": 4,
+        "leftLargerOver20": 2,
+        "rightLargerOver20": 1,
+        "rightLarger10to20": 2
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    },
+    {
+      "ageLabel": "14岁",
+      "ageYears": 14,
+      "categories": {
+        "sameBothFeet": 70,
+        "leftLarger10to20": 3,
+        "leftLargerOver20": 2,
+        "rightLargerOver20": 1,
+        "rightLarger10to20": 1
+      },
+      "formula": {
+        "a": "round(36 - 13 * ln(i+1))",
+        "b": "round(17 - 6 * ln(i+1))",
+        "c": "round(11 - 4 * ln(i+1))",
+        "d": "round(27 - 10 * ln(i+1))",
+        "same": "63 + a + b + c + d",
+        "i": "ageYears - 2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型可视化说明</title>
+  <link rel="stylesheet" href="styles/docs.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <h1>脚型可视化说明</h1>
+      <p>Personal guide for this GitHub Pages dashboard. Not company docs.</p>
+      <nav>
+        <a href="#about">这是什么</a>
+        <a href="#layout">页面结构</a>
+        <a href="#charts">五张图</a>
+        <a href="#words">测量名词</a>
+        <a href="#data">样本边界</a>
+        <a href="#build">怎么跑起来</a>
+        <a href="#examples">示例页</a>
+        <a href="../index.html">返回仪表盘</a>
+        <a href="../examples/index.html">打开示例目录</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <h2 id="about">这是什么</h2>
+      <p>
+        这个仓库是个人站点 <a href="https://pang990801.github.io/">pang990801.github.io</a>：
+        <strong>中国人群脚型数据可视化</strong>，当前首页做的是<strong>儿童脚型</strong>。
+        一张宽屏 ECharts 仪表盘，左边散点 + 柱线，中间雷达，右边 BMI 曲线 + 双脚比例饼图时间轴。
+      </p>
+      <p>
+        它是一份可视化笔记，不是医院产品，不是鞋楦 CAD，也不是公司代码。
+        页眉里的「首页 / 畸形足或病足」仍指向原来的个人/同学站点。
+      </p>
+      <div class="links">
+        <a href="overview.md">overview.md</a>
+        <a href="methodology.md">methodology.md</a>
+        <a href="../README.md">README.md</a>
+      </div>
+
+      <h2 id="layout">页面结构</h2>
+      <table>
+        <tr><th>区域</th><th>内容</th></tr>
+        <tr><td>页眉</td><td>标题 + 本地时钟 <code>当前时间：YYYY年M月D-H时M分S秒</code></td></tr>
+        <tr><td>导航</td><td>首页 / 儿童脚型 / 畸形足或病足 / 联系我们 / 文档 / 示例</td></tr>
+        <tr><td>左栏</td><td>身高×鞋码散点，年龄×脚长柱线</td></tr>
+        <tr><td>中栏 <code>.map</code></td><td>9–12 岁雷达（旧地图位）</td></tr>
+        <tr><td>右栏</td><td>BMI×胖瘦度 + 双脚比例时间轴</td></tr>
+      </table>
+      <p>
+        布局在 <code>css/index.css</code>。中间栏类名还叫 <code>.map</code>，是因为更早一版挂过
+        <code>js/myMap.js</code> 飞线地图，后来改成雷达，脚本已在 <code>index.html</code> 里注释掉。
+      </p>
+
+      <h2 id="charts">五张图怎么读</h2>
+      <h3>1. 身高 × 鞋码</h3>
+      <p>
+        199 个女童点、199 个男童点。<code>X</code> 是身高 cm，<code>Y</code> 是鞋长 cm。
+        红点女孩，黄点男孩。虚线框是各自 min–max，竖线参考 115 / 110 cm。
+        工具箱里的 brush / dataZoom 是给自己圈点用的。
+        <a href="../examples/height-shoe-size.html">打开示例</a>
+      </p>
+      <h3>2. 年龄 × 脚长</h3>
+      <p>
+        横轴 6–14 岁。青柱女、蓝柱男，柱顶钻石是 pictorialBar。
+        第二条 Y 轴上的线是<strong>女均脚长减男均脚长</strong>，不是第三组脚长。
+        本样本里这条差在 10 到 11 岁之间过零。
+        <a href="../examples/age-foot-length.html">打开示例</a>
+      </p>
+      <h3>3. 中间雷达</h3>
+      <p>
+        四个年龄多边形，轴从 12 点方向起：身高、兜跟围长、跗骨围长、跖趾围长、鞋码、脚长、体重。
+        每轴都是 0–100 分，<strong>不要标成厘米</strong>。
+        12 岁鞋码/脚长在源码里写成 <code>77-6</code>、<code>79-8</code>，算出来是 71、71。
+        <a href="../examples/age-radar.html">打开示例</a>
+      </p>
+      <h3>4. BMI × 脚胖瘦度</h3>
+      <p>
+        BMI 分桶 12–24，Y 是「脚长/脚宽」风格指数。粉线女、青线男。
+        右侧两个环是独立占比（过瘦脚 / 过胖脚），不是从折线重新数出来的。
+        <a href="../examples/bmi-foot-ratio.html">打开示例</a>
+      </p>
+      <h3>5. 双脚比例</h3>
+      <p>
+        2–14 岁自动播放饼图。五档：双脚相同、左大 10–20%、左大 20%+、右大 20%+、右大 10–20%。
+        帧数据来自 <code>Math.log</code> 衰减公式，绿色「相同」会随年龄变大是<strong>公式写出来的</strong>，不是成对测量。
+        <a href="../examples/foot-symmetry.html">打开示例</a>
+      </p>
+      <p>更细的读图说明见 <a href="charts.md">charts.md</a>。</p>
+
+      <h2 id="words">测量名词</h2>
+      <table>
+        <tr><th>标签</th><th>在这个站点里的意思</th></tr>
+        <tr><td>鞋码（散点）</td><td>鞋长样本，单位 cm，不是商店里的「32 码」</td></tr>
+        <tr><td>脚长</td><td>后跟到最长趾；和鞋码不是同一个量（鞋楦还有放余）</td></tr>
+        <tr><td>兜跟围长</td><td>后跟杯一圈（heel / seat girth）</td></tr>
+        <tr><td>跗骨围长</td><td>中足/脚背一圈（tarsal / instep girth）</td></tr>
+        <tr><td>跖趾围长</td><td>跖趾关节一圈，通常说的「掌围」（ball girth）</td></tr>
+        <tr><td>脚胖瘦度</td><td>脚长/脚宽指数，不是毫米宽度</td></tr>
+      </table>
+      <p>完整对照表：<a href="measurements.md">measurements.md</a>。</p>
+
+      <h2 id="data">样本边界（引用数字前先看）</h2>
+      <div class="note">
+        这些数列本来就写在 <code>js/index.js</code> 里。这次文档只是把它们镜像成 JSON，没有新测一双脚。
+        没有抽样框、没有每人 ID、没有标准差。不能把散点、BMI 折线和雷达当成同一批孩子。
+      </div>
+      <ul>
+        <li>散点：女 199 / 男 199。女身高均 116.86 cm（79.73–152.78），男身高均 111.82 cm（75.48–149.96）。</li>
+        <li>年龄柱只有 9 个均数 × 2，没有每岁 n。</li>
+        <li>雷达 9–12 岁；柱图 6–14 岁；饼图 2–14 岁——年龄窗并不对齐。</li>
+        <li>过瘦环 50/230 ≈ 21.7%，过胖环 435/2835 ≈ 15.3%，和折线无关。</li>
+        <li><code>draw1.js</code> / <code>draw2.js</code> 是另外两张个人草图。厚度图的「差值:um」不是两根柱子换算出来的。</li>
+      </ul>
+      <p>完整清单：<a href="data-notes.md">data-notes.md</a>。</p>
+
+      <h2 id="build">怎么跑起来</h2>
+      <p>没有打包器。首页按顺序加载 rem 适配、jQuery、ECharts、然后五个 IIFE。示例页只加载 <code>echarts.min.js</code>，用 <code>fetch</code> 读 JSON。</p>
+      <pre>python3 -m http.server 4173
+# http://127.0.0.1:4173/index.html
+# http://127.0.0.1:4173/docs/guide.html
+# http://127.0.0.1:4173/examples/index.html</pre>
+      <p>
+        不要用 <code>file://</code> 打开示例页，浏览器会拦 <code>fetch</code>。
+        改布局请改 <code>css/index.css</code>（<code>index.less</code> 没有接入构建）。
+        改系列时同时改 JS、对应 JSON、以及 <code>data-notes.md</code> 里点名的数字。
+        细节：<a href="methodology.md">methodology.md</a> · <a href="local-preview.md">local-preview.md</a>
+      </p>
+
+      <h2 id="examples">示例页</h2>
+      <p>七张独立页，一张图一个地址，方便对照仪表盘或给 <code>draw1</code> / <code>draw2</code> 单独截图。</p>
+      <table>
+        <tr><th>页面</th><th>数据</th></tr>
+        <tr><td><a href="../examples/height-shoe-size.html">height-shoe-size.html</a></td><td>height-shoe-size.json</td></tr>
+        <tr><td><a href="../examples/age-foot-length.html">age-foot-length.html</a></td><td>age-foot-length.json</td></tr>
+        <tr><td><a href="../examples/age-radar.html">age-radar.html</a></td><td>age-radar.json</td></tr>
+        <tr><td><a href="../examples/bmi-foot-ratio.html">bmi-foot-ratio.html</a></td><td>bmi-foot-ratio.json</td></tr>
+        <tr><td><a href="../examples/foot-symmetry.html">foot-symmetry.html</a></td><td>foot-symmetry.json</td></tr>
+        <tr><td><a href="../examples/plantar-pressure.html">plantar-pressure.html</a></td><td>plantar-pressure.json</td></tr>
+        <tr><td><a href="../examples/tissue-thickness.html">tissue-thickness.html</a></td><td>tissue-thickness.json</td></tr>
+      </table>
+      <p><a href="../examples/index.html">示例目录</a> · <a href="../data/README.md">data/README.md</a></p>
+    </main>
+  </div>
+</body>
+</html>

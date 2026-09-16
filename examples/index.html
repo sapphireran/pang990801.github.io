@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>脚型图表示例</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>个人图表示例</h1>
+    <nav class="crumbs">
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/guide.html">文档</a>
+      <a href="../data/README.md">数据说明</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Each page re-draws one personal chart from this GitHub Pages repo.
+      Series come from <code>data/*.json</code> — the same numbers already embedded in
+      <code>js/index.js</code>, <code>draw1.js</code>, and <code>draw2.js</code>.
+      Serve the repo over HTTP so <code>fetch</code> is allowed.
+    </p>
+    <section class="gallery">
+      <a class="card" href="height-shoe-size.html">
+        <span class="kicker">Dashboard · scatter</span>
+        <h2>身高 × 鞋码</h2>
+        <p>199 girl + 199 boy points, dashed ranges, min/max/average marks. Brush and zoom stay on.</p>
+      </a>
+      <a class="card" href="age-foot-length.html">
+        <span class="kicker">Dashboard · bars + line</span>
+        <h2>年龄 × 脚长</h2>
+        <p>Ages 6–14 mean lengths with diamond caps. The second axis is girls minus boys.</p>
+      </a>
+      <a class="card" href="age-radar.html">
+        <span class="kicker">Dashboard · radar</span>
+        <h2>9–12 岁围长雷达</h2>
+        <p>Seven normalized spokes: height, three girths, shoe size, foot length, weight.</p>
+      </a>
+      <a class="card" href="bmi-foot-ratio.html">
+        <span class="kicker">Dashboard · lines + rings</span>
+        <h2>BMI × 脚胖瘦度</h2>
+        <p>Length/width index by BMI bucket, plus the original slim/wide ring shares.</p>
+      </a>
+      <a class="card" href="foot-symmetry.html">
+        <span class="kicker">Dashboard · timeline pie</span>
+        <h2>双脚比例</h2>
+        <p>Auto-playing ages 2–14. Frames are the live <code>Math.log</code> recipe, not paired counts.</p>
+      </a>
+      <a class="card" href="plantar-pressure.html">
+        <span class="kicker">draw1.js · extra</span>
+        <h2>足部压力位点</h2>
+        <p>Seven sites, typical vs diabetic-foot series in Pa. Ghost legend item removed.</p>
+      </a>
+      <a class="card" href="tissue-thickness.html">
+        <span class="kicker">draw2.js · extra</span>
+        <h2>皮下组织厚度</h2>
+        <p>Fourteen sites, dual bars in mm, original difference line, default dataZoom 10–80.</p>
+      </a>
+    </section>
+  </main>
+  <p class="footnote">Personal examples only. Not a clinical or factory dataset. See <a href="../docs/data-notes.md">data notes</a>.</p>
+</body>
+</html>
