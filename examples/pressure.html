@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>足底压力 · 示例</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="ex-pressure">
+  <div id="site-header"></div>
+  <div class="site-shell is-wide">
+    <aside class="site-side" id="site-side"></aside>
+    <div>
+      <section class="site-hero">
+        <p class="kicker">plantar-pressure.json · 原 draw1.js</p>
+        <h1>足底七位点压力</h1>
+        <p class="lead">这张图以前没有页面可以打开。序列对比“正常人群”和“糖尿病足人群”，单位帕。只作绘图练习。</p>
+        <p id="pressure-note" class="muted"></p>
+      </section>
+      <section class="chart-card">
+        <div id="pressure-chart" class="chart-host"></div>
+      </section>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/echarts.min.js"></script>
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/site-nav.js"></script>
+  <script src="../js/examples/pressure.js"></script>
+</body>
+</html>

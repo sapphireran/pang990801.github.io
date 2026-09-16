@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例 · 儿童脚型可视化</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="ex-index">
+  <div id="site-header"></div>
+  <div class="site-shell is-wide">
+    <aside class="site-side" id="site-side"></aside>
+    <main class="site-main">
+      <p class="kicker">Worked examples</p>
+      <h1>把总览拆开看</h1>
+      <p class="lead">
+        每一页只保留一张关系图，数据从 <code>/data</code> 拉取。适合对照
+        <a href="../docs/chart-guide.html">图表说明</a> 读，而不用在大屏五图之间找轴。
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <h3><a href="growth.html">年龄与脚长</a></h3>
+          <p>6–14 岁均值柱 + 女减男差值。可单独看一条性别，或只看过零的那条折线。</p>
+        </article>
+        <article class="card">
+          <h3><a href="shoe-size.html">身高估鞋码</a></h3>
+          <p>398 个散点加上按性别拟合的直线。拖动身高，看预测鞋长落在云的哪里。</p>
+        </article>
+        <article class="card">
+          <h3><a href="symmetry.html">左右脚比例</a></h3>
+          <p>把自动播放的饼图停在某一岁，同时列出五类的人数，而不是只看百分比。</p>
+        </article>
+        <article class="card">
+          <h3><a href="radar.html">分年龄画像</a></h3>
+          <p>9–12 岁相对分。默认只开两岁，避免四层面积叠死。</p>
+        </article>
+        <article class="card">
+          <h3><a href="pressure.html">足底压力</a></h3>
+          <p>原稿 <code>draw1.js</code> 的七位点折线，第一次有自己的 HTML 宿主。</p>
+        </article>
+        <article class="card">
+          <h3><a href="thickness.html">皮下厚度</a></h3>
+          <p>原稿 <code>draw2.js</code> 的十四位点柱 + 差值线，并标出毫米 / 微米混用。</p>
+        </article>
+      </div>
+    </main>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/site-nav.js"></script>
+</body>
+</html>

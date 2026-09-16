@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>分年龄画像 · 示例</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="ex-radar">
+  <div id="site-header"></div>
+  <div class="site-shell is-wide">
+    <aside class="site-side" id="site-side"></aside>
+    <div>
+      <section class="site-hero">
+        <p class="kicker">age-radar-profiles.json</p>
+        <h1>9–12 岁相对画像</h1>
+        <p class="lead">七个轴都是 0–100 分，不是厘米。默认只开 9 岁和 12 岁，看轮廓怎么往外扩。围长名称见<a href="../docs/methodology.html">测量与读图</a>。</p>
+        <div class="controls">
+          <label><input type="checkbox" name="age" value="9" checked /> 9 岁</label>
+          <label><input type="checkbox" name="age" value="10" /> 10 岁</label>
+          <label><input type="checkbox" name="age" value="11" /> 11 岁</label>
+          <label><input type="checkbox" name="age" value="12" checked /> 12 岁</label>
+        </div>
+      </section>
+      <section class="chart-card">
+        <div id="radar-chart" class="chart-host" style="height: 520px;"></div>
+      </section>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/echarts.min.js"></script>
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/site-nav.js"></script>
+  <script src="../js/examples/radar.js"></script>
+</body>
+</html>

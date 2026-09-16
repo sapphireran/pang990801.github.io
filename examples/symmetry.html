@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>左右脚比例 · 示例</title>
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body class="site-page" data-nav="ex-symmetry">
+  <div id="site-header"></div>
+  <div class="site-shell is-wide">
+    <aside class="site-side" id="site-side"></aside>
+    <div>
+      <section class="site-hero">
+        <p class="kicker">foot-symmetry.json</p>
+        <h1>左右脚比例</h1>
+        <p class="lead">总览里自动播放的饼图。这里停在一岁，并列出人数。份额来自对数衰减公式，不是实测频率。</p>
+        <div class="controls">
+          <label>年龄 <span id="age-out">6岁</span>
+            <input id="age" type="range" min="2" max="14" value="6" />
+          </label>
+        </div>
+      </section>
+      <section class="chart-card">
+        <div id="sym-chart" class="chart-host"></div>
+      </section>
+      <section class="site-main">
+        <h2>当前年龄的人数</h2>
+        <table>
+          <thead>
+            <tr><th>类别</th><th>人数</th><th>占比</th></tr>
+          </thead>
+          <tbody id="sym-rows"></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/echarts.min.js"></script>
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/site-nav.js"></script>
+  <script src="../js/examples/symmetry.js"></script>
+</body>
+</html>
