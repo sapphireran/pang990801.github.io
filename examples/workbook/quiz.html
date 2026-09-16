@@ -59,7 +59,10 @@
     document.getElementById("quiz").addEventListener("submit", function (event) {
       event.preventDefault();
       var result = CompanionWorkbook.gradeQuiz(event.target);
-      document.getElementById("score").textContent = "得分 " + result.score + " / " + result.total;
+      var score = document.getElementById("score");
+      score.textContent = "得分 " + result.score + " / " + result.total;
+      score.className = result.score === result.total ? "ok" : "warn";
+      score.scrollIntoView({ behavior: "smooth", block: "center" });
     });
   </script>
 </body>

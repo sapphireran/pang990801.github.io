@@ -73,7 +73,7 @@
         lineStyle: { width: 2, color: longer },
         itemStyle: { color: longer },
         label: {
-          show: true,
+          show: row.age === 6 || row.age === 11 || row.age === 14,
           formatter: function (p) {
             return p.dataIndex === 0 ? row.age + "岁" : "";
           }
