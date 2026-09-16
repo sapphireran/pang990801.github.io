@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文档 · 儿童脚型</title>
+  <link rel="stylesheet" href="../examples/css/examples.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="./index.html">文档</a>
+      <a href="../examples/index.html">示例</a>
+    </nav>
+
+    <h1>个人脚型可视化说明</h1>
+    <p class="lede">
+      这是 <a href="https://pang990801.github.io/">pang990801.github.io</a> 的阅读版说明。
+      Markdown 源文件在同目录，供 GitHub 仓库浏览；本页给 GitHub Pages 访客用。
+    </p>
+
+    <div class="gallery">
+      <a class="tile" href="#panels">
+        <h2>图表目录</h2>
+        <p>五个已挂载面板、选择器、ECharts 类型，以及未挂载的 draw1 / draw2。</p>
+        <span class="tag">本节 + docs/charts.md</span>
+      </a>
+      <a class="tile" href="#dictionary">
+        <h2>数据字典</h2>
+        <p>每个 JSON 字段的单位、计数（199+199）、环图占位弧、雷达 0–100 分。</p>
+        <span class="tag">本节 + docs/data-dictionary.md</span>
+      </a>
+      <a class="tile" href="#caveats">
+        <h2>测量备忘</h2>
+        <p>鞋码按厘米读、胖瘦度不是长宽比、双脚饼图是公式生成。</p>
+        <span class="tag">本节 + docs/measurement-notes.md</span>
+      </a>
+      <a class="tile" href="#local">
+        <h2>本地预览</h2>
+        <p>HTTP 服务、rem 布局、脚本顺序、以及如何重抽 JSON。</p>
+        <span class="tag">本节 + docs/local-preview.md</span>
+      </a>
+      <a class="tile" href="../examples/index.html">
+        <h2>可运行示例</h2>
+        <p>散点、圆柱条、环图、时间轴饼图、雷达——每张图一页，带表。</p>
+        <span class="tag">examples/ + docs/echarts-cookbook.md</span>
+      </a>
+    </div>
+
+    <h2 id="panels">仪表盘五块</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>标题</th>
+            <th>选择器</th>
+            <th>类型</th>
+            <th>示例页</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>男童女童身高与鞋码的关系</td>
+            <td><code>.bar .chart</code></td>
+            <td>scatter</td>
+            <td><a href="../examples/height-shoe-size.html">height-shoe-size</a></td>
+          </tr>
+          <tr>
+            <td>男童女童年龄与脚长的关系</td>
+            <td><code>.line .chart</code></td>
+            <td>bar + pictorialBar + line</td>
+            <td><a href="../examples/age-foot-length.html">age-foot-length</a></td>
+          </tr>
+          <tr>
+            <td>中央生长轮廓</td>
+            <td><code>.map .chart</code></td>
+            <td>radar</td>
+            <td><a href="../examples/growth-radar.html">growth-radar</a></td>
+          </tr>
+          <tr>
+            <td>儿童BMI与脚的胖瘦度关系</td>
+            <td><code>.bar1 .chart</code></td>
+            <td>line + pie</td>
+            <td><a href="../examples/bmi-plumpness.html">bmi-plumpness</a></td>
+          </tr>
+          <tr>
+            <td>儿童双脚比例</td>
+            <td><code>.line1 .chart</code></td>
+            <td>timeline pie</td>
+            <td><a href="../examples/bilateral-ratio.html">bilateral-ratio</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="dictionary">数据要点</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>JSON</th><th>形状</th><th>单位 / 注意</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>height-shoe-size.json</code></td>
+            <td>女 199 + 男 199 个 <code>[身高, 鞋码]</code></td>
+            <td>都是 cm。女童身高均值 116.86，男童 111.82。</td>
+          </tr>
+          <tr>
+            <td><code>age-foot-length.json</code></td>
+            <td>年龄 6–14，三条等长数组</td>
+            <td>cm。女−男在 11 岁起为负。</td>
+          </tr>
+          <tr>
+            <td><code>growth-radar.json</code></td>
+            <td>7 轴 × 4 个年龄</td>
+            <td>0–100 相对分，不是厘米。12 岁鞋码/脚长为 71。</td>
+          </tr>
+          <tr>
+            <td><code>bmi-plumpness.json</code></td>
+            <td>BMI 12–24 + 两个环</td>
+            <td>Y 是指数。过瘦环 50/(50+180)，过胖环 435/(435+2400)。</td>
+          </tr>
+          <tr>
+            <td><code>bilateral-ratio.json</code></td>
+            <td>2–14 岁五类份额</td>
+            <td>与 <code>js/index.js</code> 相同的 <code>Math.log</code> 公式。</td>
+          </tr>
+          <tr>
+            <td><code>plantar-pressure.json</code></td>
+            <td>7 个位点</td>
+            <td>Pa，成年对照，来自 <code>draw1.js</code>。</td>
+          </tr>
+          <tr>
+            <td><code>tissue-thickness.json</code></td>
+            <td>14 个位点</td>
+            <td>mm + 源文件「差值:um」，来自 <code>draw2.js</code>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="caveats">不要过度解读的三处</h2>
+    <ol class="note">
+      <li>BMI 图的 Y 值是仪表盘上的胖瘦度指数，不是厘米级长宽比。</li>
+      <li>双脚比例时间轴用 <code>Math.log</code> 生成，不能当成患病率。</li>
+      <li><code>draw2.js</code> 的「差值:um」与毫米差的 1000 倍对不上，按源标签保留。</li>
+    </ol>
+
+    <h2 id="local">本地命令</h2>
+    <pre>python3 -m http.server 4173
+node examples/scripts/extract-data.js
+node examples/scripts/validate-data.js</pre>
+  </div>
+</body>
+</html>
