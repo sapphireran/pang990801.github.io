@@ -1,0 +1,98 @@
+{
+  "id": "age-radar",
+  "title": "9–12岁综合体态雷达",
+  "title_en": "Composite body/foot radar by age",
+  "description": "Normalized 0–100 scores for height, girths, shoe size, foot length, and weight.",
+  "source_file": "js/index.js",
+  "indicators": [
+    {
+      "id": "height",
+      "label": "身高",
+      "max": 100
+    },
+    {
+      "id": "heel_girth",
+      "label": "兜跟围长",
+      "max": 100
+    },
+    {
+      "id": "tarsal_girth",
+      "label": "跗骨围长",
+      "max": 100
+    },
+    {
+      "id": "metatarsal_girth",
+      "label": "跖趾围长",
+      "max": 100
+    },
+    {
+      "id": "shoe_size",
+      "label": "鞋码",
+      "max": 100
+    },
+    {
+      "id": "foot_length",
+      "label": "脚长",
+      "max": 100
+    },
+    {
+      "id": "weight",
+      "label": "体重",
+      "max": 100
+    }
+  ],
+  "series": [
+    {
+      "age_years": 9,
+      "values": [
+        43,
+        29,
+        37,
+        37,
+        38,
+        31,
+        41
+      ]
+    },
+    {
+      "age_years": 10,
+      "values": [
+        53,
+        32,
+        42,
+        46,
+        43,
+        42,
+        49
+      ]
+    },
+    {
+      "age_years": 11,
+      "values": [
+        66,
+        37,
+        47,
+        60,
+        57,
+        59,
+        65
+      ]
+    },
+    {
+      "age_years": 12,
+      "values": [
+        84,
+        45,
+        55,
+        70,
+        71,
+        71,
+        79
+      ]
+    }
+  ],
+  "notes": [
+    "Original 12-year shoe_size and foot_length were written as 77-6 and 79-8.",
+    "Exported values use the evaluated results 71 and 71."
+  ]
+}

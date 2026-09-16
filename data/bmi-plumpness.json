@@ -1,0 +1,74 @@
+{
+  "id": "bmi-plumpness",
+  "title": "儿童BMI与脚的胖瘦度关系",
+  "title_en": "BMI vs foot plumpness (length/width)",
+  "description": "Line series of foot plumpness against BMI bins, plus ring charts for extreme feet.",
+  "source_file": "js/index.js",
+  "units": {
+    "bmi": "kg/m^2",
+    "plumpness": "length/width * 10 (dashboard scale)"
+  },
+  "bmi_bins": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "series": {
+    "female_plumpness": [
+      22.97,
+      23.38,
+      26.51,
+      24.47,
+      25.96,
+      26.22,
+      26.66,
+      26.92,
+      27.82,
+      26.35,
+      27.51,
+      29.86,
+      28.67
+    ],
+    "male_plumpness": [
+      25.28,
+      22.97,
+      28.47,
+      26.9,
+      28.03,
+      26.07,
+      26.76,
+      30.18,
+      26.63,
+      30.38,
+      30.13,
+      28.07,
+      30.19
+    ]
+  },
+  "extreme_share": {
+    "thin_feet": {
+      "highlighted": 50,
+      "remainder": 180,
+      "label": "过瘦脚占比"
+    },
+    "wide_feet": {
+      "highlighted": 435,
+      "remainder": 2400,
+      "label": "过胖脚占比"
+    }
+  },
+  "notes": [
+    "Dashboard y-axis is labeled 脚长/脚宽; values are plotted on a 20–32 scale.",
+    "Ring charts reuse placeholder remainder slices from the original option."
+  ]
+}

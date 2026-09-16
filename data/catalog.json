@@ -1,0 +1,48 @@
+{
+  "project": "pang990801.github.io",
+  "kind": "personal GitHub Pages dashboard",
+  "datasets": [
+    {
+      "id": "height-shoe-size",
+      "file": "data/height-shoe-size.json",
+      "chart": "scatter",
+      "live": true
+    },
+    {
+      "id": "age-foot-length",
+      "file": "data/age-foot-length.json",
+      "chart": "bar+line",
+      "live": true
+    },
+    {
+      "id": "bmi-plumpness",
+      "file": "data/bmi-plumpness.json",
+      "chart": "line+pie",
+      "live": true
+    },
+    {
+      "id": "left-right-ratio",
+      "file": "data/left-right-ratio.json",
+      "chart": "timeline pie",
+      "live": true
+    },
+    {
+      "id": "age-radar",
+      "file": "data/age-radar.json",
+      "chart": "radar",
+      "live": true
+    },
+    {
+      "id": "plantar-pressure",
+      "file": "data/plantar-pressure.json",
+      "chart": "line+pie",
+      "live": false
+    },
+    {
+      "id": "tissue-thickness",
+      "file": "data/tissue-thickness.json",
+      "chart": "bar+line",
+      "live": false
+    }
+  ]
+}
