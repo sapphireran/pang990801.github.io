@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小倍数 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+  <style>
+    .quad { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 800px) { .quad { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="growth-story.html">叙事</a>
+      <a href="small-multiples.html" aria-current="page">小倍数</a>
+    </nav>
+    <h1>四龄雷达 + 年龄柱</h1>
+    <p class="lead">仪表盘把四个年龄叠在同一张雷达上。拆开以后更容易看出 9 岁还缩在内圈、12 岁已经顶到身高轴。</p>
+    <div class="quad">
+      <div class="chart short" id="r9"></div>
+      <div class="chart short" id="r10"></div>
+      <div class="chart short" id="r11"></div>
+      <div class="chart short" id="r12"></div>
+    </div>
+    <h2>对照：6–14 岁均值脚长</h2>
+    <div class="chart short" id="age"></div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    const colors = { 9: "#00c2ff", 10: "#f9cf67", 11: "#32cd32", 12: "#e92b77" };
+    Promise.all([Lab.loadData("radar-growth.json"), Lab.loadData("age-foot-length.json")]).then(([radar, age]) => {
+      radar.series.forEach((s) => {
+        echarts.init(document.getElementById("r" + s.age)).setOption({
+          backgroundColor: "transparent",
+          title: { text: s.age + "岁", left: 8, top: 6, textStyle: { color: "#fff", fontSize: 14 } },
+          radar: { indicator: radar.axes.map((t) => ({ name: t, max: 100 })), radius: "62%", axisName: { color: "#cfe6f5", fontSize: 11 }, splitLine: { lineStyle: { color: "#2a4a66" } }, splitArea: { areaStyle: { color: "rgba(0,0,0,0)" } } },
+          series: [{ type: "radar", data: [{ value: s.values, areaStyle: { color: colors[s.age] + "33" }, lineStyle: { color: colors[s.age] }, itemStyle: { color: colors[s.age] } }] }],
+        });
+      });
+      echarts.init(document.getElementById("age")).setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#cfe6f5" } },
+        xAxis: { type: "category", data: age.rows.map((r) => r.age_years), axisLabel: { color: "#8fb0c8" } },
+        yAxis: { min: 17, axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [
+          { name: "女", type: "bar", data: age.rows.map((r) => r.girl_foot_length_cm), itemStyle: { color: "#28f0f5" } },
+          { name: "男", type: "bar", data: age.rows.map((r) => r.boy_foot_length_cm), itemStyle: { color: "#0172e2" } },
+        ],
+      });
+    });
+  </script>
+</body>
+</html>

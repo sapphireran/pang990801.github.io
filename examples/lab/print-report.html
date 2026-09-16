@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>一页报告 · 儿童脚型个人笔记</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="print-report.html" aria-current="page">打印</a>
+      <button type="button" onclick="window.print()">打印 / 另存 PDF</button>
+    </nav>
+    <h1>儿童脚型展示数据 · 一页摘录</h1>
+    <p class="lead">个人 Pages 项目里嵌在 ECharts 中的数字。不是新采样，也不能当临床依据。</p>
+    <div class="stat-row" id="stats"></div>
+    <div class="split">
+      <div class="chart short" id="scatter"></div>
+      <div class="chart short" id="age"></div>
+    </div>
+    <h2>阅读要点</h2>
+    <ul>
+      <li>散点 199 + 199，合并 Pearson <em>r</em> ≈ 0.916；鞋码轴是厘米。</li>
+      <li>脚长均值在 11 岁交叉：之前女高于男，之后相反。</li>
+      <li>BMI 环图 21.74% / 15.34% 来自四个字面量，不是折线计数。</li>
+      <li>左右脚时间轴由自然对数生成，相同占比 62.86% → 90.91%。</li>
+      <li><code>draw1.js</code> / <code>draw2.js</code> 未挂载；厚度「um」线 14/14 不匹配。</li>
+    </ul>
+    <p class="tiny">源码：sapphireran/pang990801.github.io · 抽出脚本：scripts/extract-personal-datasets.py</p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    Promise.all([
+      Lab.loadData("summary.json"),
+      Lab.loadData("height-shoe.json"),
+      Lab.loadData("age-foot-length.json"),
+    ]).then(([sum, pack, age]) => {
+      const p = sum.scatter.pooled;
+      document.getElementById("stats").innerHTML = [
+        ["合并点数", p.n],
+        ["合并 r", p.pearson_r],
+        ["身高范围", p.height_cm.min + "–" + p.height_cm.max],
+        ["鞋长范围", p.shoe_length_cm.min + "–" + p.shoe_length_cm.max],
+        ["过瘦环", sum.bmi_rings_percent.thin + "%"],
+        ["过胖环", sum.bmi_rings_percent.thick + "%"],
+      ].map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+      echarts.init(document.getElementById("scatter")).setOption({
+        backgroundColor: "transparent",
+        title: { text: "身高 × 鞋长", textStyle: { color: "#fff", fontSize: 13 } },
+        xAxis: { axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        yAxis: { axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [
+          { type: "scatter", symbolSize: 4, itemStyle: { color: "#ff4f3b" }, data: pack.female },
+          { type: "scatter", symbolSize: 4, itemStyle: { color: "#ffe01f" }, data: pack.male },
+        ],
+      });
+      echarts.init(document.getElementById("age")).setOption({
+        backgroundColor: "transparent",
+        title: { text: "年龄 × 脚长均值", textStyle: { color: "#fff", fontSize: 13 } },
+        xAxis: { type: "category", data: age.rows.map((r) => r.age_years), axisLabel: { color: "#8fb0c8" } },
+        yAxis: { min: 17, axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [
+          { type: "bar", data: age.rows.map((r) => r.girl_foot_length_cm), itemStyle: { color: "#28f0f5" } },
+          { type: "bar", data: age.rows.map((r) => r.boy_foot_length_cm), itemStyle: { color: "#0172e2" } },
+        ],
+      });
+    });
+  </script>
+</body>
+</html>

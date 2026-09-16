@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>散点探索 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="explorer.html" aria-current="page">探索</a>
+      <a href="correlation.html">回归</a>
+      <a href="../../docs/formulas.html">公式</a>
+    </nav>
+    <h1>身高 × 鞋长探索器</h1>
+    <p class="lead">数据来自 <code>js/index.js</code> 第一段 IIFE，共 199 女 + 199 男。过滤后的子集可以重新看均值，并导出 CSV。</p>
+    <div class="toolbar">
+      <label class="field">性别
+        <select id="sex">
+          <option value="all">全部</option>
+          <option value="female">女性</option>
+          <option value="male">男性</option>
+        </select>
+      </label>
+      <label class="field">最低身高 cm
+        <input id="hmin" type="number" value="75" step="0.1" />
+      </label>
+      <label class="field">最高身高 cm
+        <input id="hmax" type="number" value="155" step="0.1" />
+      </label>
+      <button type="button" id="apply">应用过滤</button>
+      <button type="button" id="export">导出当前 CSV</button>
+    </div>
+    <div class="stat-row" id="stats"></div>
+    <div class="chart" id="chart"></div>
+    <h2>表格</h2>
+    <p class="note">点表头排序。行数多时只渲染当前过滤结果。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-key="sex_zh">性别</th>
+            <th data-key="height_cm">身高 cm</th>
+            <th data-key="shoe_length_cm">鞋长 cm</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    let pack = null;
+    let rows = [];
+    let sortKey = "height_cm";
+    let sortDir = 1;
+    const chart = echarts.init(document.getElementById("chart"));
+    const params = new URLSearchParams(location.search);
+    if (["all", "female", "male"].includes(params.get("sex"))) {
+      document.getElementById("sex").value = params.get("sex");
+    }
+    if (params.get("hmin")) document.getElementById("hmin").value = params.get("hmin");
+    if (params.get("hmax")) document.getElementById("hmax").value = params.get("hmax");
+
+    function syncQuery() {
+      const next = new URLSearchParams();
+      next.set("sex", document.getElementById("sex").value);
+      next.set("hmin", document.getElementById("hmin").value);
+      next.set("hmax", document.getElementById("hmax").value);
+      history.replaceState(null, "", "?" + next.toString());
+    }
+
+    function allRows() {
+      return pack.female.map(([h, s]) => ({ sex: "female", sex_zh: "女性", height_cm: h, shoe_length_cm: s }))
+        .concat(pack.male.map(([h, s]) => ({ sex: "male", sex_zh: "男性", height_cm: h, shoe_length_cm: s })));
+    }
+
+    function filtered() {
+      const sex = document.getElementById("sex").value;
+      const hmin = Number(document.getElementById("hmin").value);
+      const hmax = Number(document.getElementById("hmax").value);
+      return allRows().filter((r) => {
+        if (sex !== "all" && r.sex !== sex) return false;
+        return r.height_cm >= hmin && r.height_cm <= hmax;
+      });
+    }
+
+    function render() {
+      syncQuery();
+      rows = filtered().sort((a, b) => (a[sortKey] > b[sortKey] ? sortDir : -sortDir));
+      const xs = rows.map((r) => r.height_cm);
+      const ys = rows.map((r) => r.shoe_length_cm);
+      const n = rows.length;
+      const r = n > 2 ? Lab.pearson(xs, ys) : NaN;
+      const meanH = n ? Lab.mean(xs) : NaN;
+      const meanS = n ? Lab.mean(ys) : NaN;
+      document.getElementById("stats").innerHTML = [
+        ["点数", n],
+        ["身高均值", n ? meanH.toFixed(2) + " cm" : "—"],
+        ["鞋长均值", n ? meanS.toFixed(2) + " cm" : "—"],
+        ["Pearson r", n > 2 ? r.toFixed(4) : "—"],
+      ].map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+
+      chart.setOption({
+        backgroundColor: "transparent",
+        tooltip: { formatter: (p) => `${p.seriesName}<br/>身高 ${p.value[0]} cm<br/>鞋长 ${p.value[1]} cm` },
+        legend: { textStyle: { color: "#cfe6f5" } },
+        xAxis: { name: "身高 cm", nameTextStyle: { color: "#8fb0c8" }, axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        yAxis: { name: "鞋长 cm", nameTextStyle: { color: "#8fb0c8" }, axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [
+          { name: "女性", type: "scatter", symbolSize: 6, itemStyle: { color: "#ff4f3b" }, data: rows.filter((r) => r.sex === "female").map((r) => [r.height_cm, r.shoe_length_cm]) },
+          { name: "男性", type: "scatter", symbolSize: 6, itemStyle: { color: "#ffe01f" }, data: rows.filter((r) => r.sex === "male").map((r) => [r.height_cm, r.shoe_length_cm]) },
+        ],
+      }, true);
+
+      document.getElementById("tbody").innerHTML = rows.map((r) =>
+        `<tr><td>${r.sex_zh}</td><td>${r.height_cm}</td><td>${r.shoe_length_cm}</td></tr>`
+      ).join("");
+    }
+
+    document.getElementById("apply").onclick = render;
+    document.getElementById("export").onclick = () => Lab.download("height-shoe-filtered.csv", Lab.rowsToCsv(rows), "text/csv");
+    document.querySelectorAll("th[data-key]").forEach((th) => {
+      th.onclick = () => {
+        const key = th.getAttribute("data-key");
+        if (sortKey === key) sortDir *= -1;
+        else { sortKey = key; sortDir = 1; }
+        render();
+      };
+    });
+    window.addEventListener("resize", () => chart.resize());
+
+    Lab.loadData("height-shoe.json").then((data) => {
+      pack = data;
+      render();
+    }).catch((err) => {
+      document.getElementById("stats").innerHTML = `<div class="warn">无法加载数据：${err}</div>`;
+    });
+  </script>
+</body>
+</html>

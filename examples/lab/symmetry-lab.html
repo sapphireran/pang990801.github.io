@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>对称公式 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="symmetry-lab.html" aria-current="page">对称公式</a>
+      <a href="../../docs/formulas.html">公式说明</a>
+    </nav>
+    <h1>左右脚生成器</h1>
+    <p class="lead">复现 <code>js/index.js</code> 里的 <code>Math.log</code> 饼图。默认系数与源码一致；拖动滑条只影响本页，不会写回仪表盘。</p>
+    <div class="toolbar">
+      <label class="field">年龄 i（0 = 2岁）<input id="i" type="range" min="0" max="12" value="0" /> <span id="iLabel"></span></label>
+    </div>
+    <div class="toolbar" id="coeffs"></div>
+    <button type="button" id="reset">恢复源码系数</button>
+    <div class="stat-row" id="stats"></div>
+    <div class="split">
+      <div class="chart" id="pie"></div>
+      <div class="chart" id="line"></div>
+    </div>
+    <p class="warn">这是展示生成器，不是调查微数据。相同占比随 i 升高，是因为四个对数项在变小。</p>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    const defaults = { a: 36, da: 13, b: 17, db: 6, cc: 11, dc: 4, d: 27, dd: 10, base: 63 };
+    const labels = {
+      a: "左10–20 截距", da: "左10–20 斜率",
+      b: "左>20 截距", db: "左>20 斜率",
+      cc: "右>20 截距", dc: "右>20 斜率",
+      d: "右10–20 截距", dd: "右10–20 斜率",
+      base: "相同基数",
+    };
+    const pie = echarts.init(document.getElementById("pie"));
+    const line = echarts.init(document.getElementById("line"));
+
+    function coeffBox() {
+      const host = document.getElementById("coeffs");
+      host.innerHTML = Object.keys(defaults).map((key) => `
+        <label class="field">${labels[key]}
+          <input type="number" data-key="${key}" value="${defaults[key]}" />
+        </label>`).join("");
+      host.querySelectorAll("input").forEach((el) => { el.oninput = render; });
+    }
+
+    function readCoeff() {
+      const c = {};
+      document.querySelectorAll("#coeffs input").forEach((el) => { c[el.dataset.key] = Number(el.value); });
+      return c;
+    }
+
+    function render() {
+      const i = Number(document.getElementById("i").value);
+      document.getElementById("iLabel").textContent = i + " → " + (i + 2) + "岁";
+      const c = readCoeff();
+      const now = Lab.symmetry(i, c);
+      const curve = [];
+      for (let k = 0; k <= 12; k += 1) curve.push(Lab.symmetry(k, c));
+      document.getElementById("stats").innerHTML = [
+        ["相同", now.same],
+        ["总计", now.total],
+        ["相同 %", now.samePct.toFixed(2)],
+        ["左10–20", now.a],
+        ["左>20", now.b],
+        ["右>20", now.c],
+        ["右10–20", now.d],
+      ].map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
+      pie.setOption({
+        backgroundColor: "transparent",
+        color: ["#56c979", "#5caff2", "#b6a2df", "#a96ec9", "#2dc7c9"],
+        series: [{
+          type: "pie", radius: ["36%", "62%"],
+          data: [
+            { name: "双脚相同", value: now.same },
+            { name: "左10–20%", value: now.a },
+            { name: "左>20%", value: now.b },
+            { name: "右>20%", value: now.c },
+            { name: "右10–20%", value: now.d },
+          ],
+          label: { color: "#e8f4ff" },
+        }],
+      }, true);
+      line.setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        xAxis: { type: "category", data: curve.map((_, k) => (k + 2) + "岁"), axisLabel: { color: "#8fb0c8" } },
+        yAxis: { name: "相同 %", min: 50, max: 100, axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } },
+        series: [{ type: "line", data: curve.map((r) => +r.samePct.toFixed(2)), itemStyle: { color: "#56c979" } }],
+      }, true);
+    }
+
+    document.getElementById("i").oninput = render;
+    document.getElementById("reset").onclick = () => { coeffBox(); render(); };
+    window.addEventListener("resize", () => { pie.resize(); line.resize(); });
+    const presetI = new URLSearchParams(location.search).get("i");
+    if (presetI !== null && presetI !== "") document.getElementById("i").value = presetI;
+    coeffBox();
+    render();
+  </script>
+</body>
+</html>

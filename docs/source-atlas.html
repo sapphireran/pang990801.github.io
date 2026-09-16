@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>源码对照 · 儿童脚型个人笔记</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../index.html">儿童脚型</a>
+      <a href="index.html">说明</a>
+      <a href="source-atlas.html" aria-current="page">源码对照</a>
+      <a href="glossary.html">名词</a>
+      <a href="formulas.html">公式</a>
+      <a href="units.html">单位</a>
+      <a href="display-caveats.html">阅读注意</a>
+      <a href="../examples/lab/index.html">实验室</a>
+    </nav>
+    <h1>源码对照</h1>
+    <p class="lead">浏览器真正执行的脚本，以及五个 IIFE 各自画在哪一块 DOM 上。完整段落见 <a href="source-atlas.md">source-atlas.md</a>。</p>
+    <h2>index.html 加载顺序</h2>
+    <table>
+      <thead><tr><th>#</th><th>文件</th><th>作用</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><code>js/macarons.js</code></td><td>注册主题，但没有任何 <code>echarts.init</code> 传入 <code>'macarons'</code></td></tr>
+        <tr><td>2</td><td><code>css/index.css</code></td><td>大屏布局；还写了未出现在 HTML 里的地图装饰</td></tr>
+        <tr><td>3</td><td>页头时钟</td><td>每秒写 <code>.showTime</code></td></tr>
+        <tr><td>4</td><td><code>js/flexible.js</code></td><td>按视口改 <code>rem</code></td></tr>
+        <tr><td>5</td><td><code>js/jquery.js</code></td><td>给 <code>click.js</code> 和一段不会触发的年切换用</td></tr>
+        <tr><td>6</td><td><code>echarts.js</code> + <code>echarts.min.js</code></td><td>两份完整库，后加载的覆盖全局</td></tr>
+        <tr><td>7</td><td><code>js/index.js</code></td><td>五个即时函数 → 五张图</td></tr>
+        <tr><td>8</td><td><code>js/click.js</code></td><td>绑定页面上不存在的 tab 选择器</td></tr>
+      </tbody>
+    </table>
+    <h2>五张活图</h2>
+    <table>
+      <thead><tr><th>顺序</th><th>源码注释</th><th>宿主</th><th>类型</th><th>抽出数据</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>柱状图1模块</td><td><code>.bar .chart</code></td><td>散点 + dark</td><td><a href="../data/height-shoe.json">height-shoe.json</a></td></tr>
+        <tr><td>2</td><td>折线图定制</td><td><code>.line .chart</code></td><td>菱顶柱 + 差值线</td><td><a href="../data/age-foot-length.json">age-foot-length.json</a></td></tr>
+        <tr><td>3</td><td>学习进度柱状图模块</td><td><code>.bar1 .chart</code></td><td>双面积 + 双环</td><td><a href="../data/bmi-shape.json">bmi-shape.json</a></td></tr>
+        <tr><td>4</td><td>折线图 优秀作品</td><td><code>.line1 .chart</code></td><td>时间轴饼图</td><td><a href="../data/foot-symmetry.json">foot-symmetry.json</a></td></tr>
+        <tr><td>5</td><td>（无标题）</td><td><code>.map .chart</code></td><td>雷达，未开 dark</td><td><a href="../data/radar-growth.json">radar-growth.json</a></td></tr>
+      </tbody>
+    </table>
+    <h2>从未挂上的文件</h2>
+    <ul>
+      <li><code>draw1.js</code> / <code>draw2.js</code> — 足底压力与皮下厚度草图，写的是全局 <code>option</code>。</li>
+      <li><code>js/china.js</code> + <code>js/myMap.js</code> — 注释掉了；若打开会和雷达抢 <code>.map .chart</code>。</li>
+      <li><code>index_new.css</code>、<code>js/macarons.json</code> — 没有引用。</li>
+      <li><code>font/液晶数字.TTF</code> — CSS 写了，仓库里没有。</li>
+    </ul>
+    <p class="note">第一段 IIFE 里的 2019/2020 <code>dataAll</code> 是旧柱状图残留：标题下没有 <code>&lt;a&gt;</code>，点击换年不会发生。</p>
+    <p><a href="../examples/lab/small-multiples.html">在实验室里并排看四张雷达 + 年龄柱</a></p>
+    <footer class="tiny">个人笔记</footer>
+  </div>
+</body>
+</html>

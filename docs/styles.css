@@ -1,0 +1,116 @@
+:root {
+  --lab-bg: #061326;
+  --lab-bg-2: #0b1d36;
+  --lab-panel: rgba(33, 64, 112, 0.35);
+  --lab-stroke: rgba(25, 186, 139, 0.35);
+  --lab-cyan: #02a6b5;
+  --lab-text: #e8f4ff;
+  --lab-muted: #8fb0c8;
+  --female: #ff4f3b;
+  --male: #ffe01f;
+  --gap-line: #3deaff;
+  --same: #56c979;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(1200px 600px at 10% -10%, #12345a 0%, var(--lab-bg) 55%);
+  color: var(--lab-text);
+  font: 16px/1.55 "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
+a { color: #7de8ff; }
+a:hover { color: #fff; }
+
+.wrap {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 64px;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  padding: 14px 0 20px;
+  border-bottom: 1px solid var(--lab-stroke);
+  margin-bottom: 28px;
+}
+
+.site-nav .brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.site-nav a { text-decoration: none; color: var(--lab-muted); }
+.site-nav a[aria-current="page"],
+.site-nav a:hover { color: #fff; }
+
+h1, h2, h3 { line-height: 1.25; color: #fff; }
+h1 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 12px; }
+h2 { font-size: 1.25rem; margin-top: 2rem; }
+p.lead { color: var(--lab-muted); font-size: 1.05rem; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--lab-panel);
+  border: 1px solid var(--lab-stroke);
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 0 0 1px rgba(2, 166, 181, 0.08);
+}
+
+.card h2, .card h3 { margin-top: 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th, td {
+  border-bottom: 1px solid rgba(143, 176, 200, 0.2);
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { color: var(--lab-muted); font-weight: 600; }
+
+code, pre {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+code { padding: 0.1em 0.35em; border-radius: 4px; }
+pre { padding: 12px 14px; border-radius: 8px; overflow: auto; }
+
+.note {
+  border-left: 3px solid var(--lab-cyan);
+  padding: 8px 12px;
+  background: rgba(2, 166, 181, 0.08);
+}
+
+.warn {
+  border-left: 3px solid var(--female);
+  padding: 8px 12px;
+  background: rgba(255, 79, 59, 0.08);
+}
+
+footer.tiny {
+  margin-top: 40px;
+  color: var(--lab-muted);
+  font-size: 0.85rem;
+}

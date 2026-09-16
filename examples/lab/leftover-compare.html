@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>未挂载草图 · 实验室</title>
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="../../index.html">儿童脚型</a>
+      <a href="index.html">实验室</a>
+      <a href="leftover-compare.html" aria-current="page">未挂载</a>
+      <a href="../../docs/display-caveats.html">阅读注意</a>
+    </nav>
+    <h1>draw1.js / draw2.js 对照</h1>
+    <p class="warn">这两份脚本没有被 <code>index.html</code> 引用。系列写的是成人「正常人群 / 糖尿病足人群」，不要和儿童五项图混读。</p>
+    <div class="split">
+      <div>
+        <h2>足底压力（Pa 标签）</h2>
+        <div class="chart" id="pressure"></div>
+      </div>
+      <div>
+        <h2>皮下厚度（mm）</h2>
+        <div class="chart" id="thick"></div>
+      </div>
+    </div>
+    <h2>「差值:um」对不上毫米差 × 1000</h2>
+    <p>抽取脚本给每一行算了 <code>chart_delta_matches_mm</code>。14 行全是 false。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>位点</th><th>正常 mm</th><th>糖尿病足 mm</th><th>毫米差</th><th>图上 um</th><th>若按 ×1000</th><th>匹配？</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="js/lab.js"></script>
+  <script>
+    const axis = { axisLabel: { color: "#8fb0c8" }, splitLine: { lineStyle: { color: "#1b3350" } } };
+    Promise.all([Lab.loadData("plantar-pressure.json"), Lab.loadData("plantar-thickness.json")]).then(([p, t]) => {
+      echarts.init(document.getElementById("pressure")).setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#cfe6f5" } },
+        xAxis: { type: "category", data: p.rows.map((r) => r.site), ...axis },
+        yAxis: axis,
+        series: [
+          { name: "正常", type: "line", data: p.rows.map((r) => r.typical_pa), itemStyle: { color: "#a60bde" } },
+          { name: "糖尿病足", type: "line", data: p.rows.map((r) => r.diabetic_pa), itemStyle: { color: "#ff733f" } },
+        ],
+      });
+      echarts.init(document.getElementById("thick")).setOption({
+        backgroundColor: "transparent",
+        tooltip: { trigger: "axis" },
+        legend: { textStyle: { color: "#cfe6f5" } },
+        xAxis: { type: "category", data: t.rows.map((r) => r.site_index), ...axis },
+        yAxis: axis,
+        series: [
+          { name: "正常 mm", type: "bar", data: t.rows.map((r) => r.typical_adult_mm), itemStyle: { color: "#ff9080" } },
+          { name: "糖尿病足 mm", type: "bar", data: t.rows.map((r) => r.diabetic_adult_mm), itemStyle: { color: "#00bfb7" } },
+          { name: "图上 um", type: "line", yAxisIndex: 0, data: t.rows.map((r) => r.chart_delta_um), itemStyle: { color: "#28ffb3" } },
+        ],
+      });
+      document.getElementById("tbody").innerHTML = t.rows.map((r) => `
+        <tr>
+          <td>${r.site_index}</td>
+          <td>${r.typical_adult_mm}</td>
+          <td>${r.diabetic_adult_mm}</td>
+          <td>${r.measured_delta_mm}</td>
+          <td>${r.chart_delta_um}</td>
+          <td>${(r.measured_delta_mm * 1000).toFixed(0)}</td>
+          <td>${r.chart_delta_matches_mm ? "是" : "否"}</td>
+        </tr>`).join("");
+    });
+  </script>
+</body>
+</html>
