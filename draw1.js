@@ -1,4 +1,6 @@
-
+// Draft ECharts option (not mounted on index.html).
+// Runnable page: examples/plantar-pressure.html
+// Series JSON: examples/data/plantar-pressure.json
 // https://gallery.echartsjs.com/editor.html?c=xHyucjzxWZ
 // 折线+饼图
 // 足部压力数据图

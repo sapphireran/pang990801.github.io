@@ -1,3 +1,6 @@
+// Draft ECharts option (not mounted on index.html).
+// Runnable page: examples/tissue-thickness.html
+// Series JSON: examples/data/tissue-thickness.json
 var xData = function() {
     var data = [];
     for (var i = 1; i < 15; i++) {
