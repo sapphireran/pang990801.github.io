@@ -104,7 +104,7 @@
         option.yAxis = Object.assign(FOOT_THEME.valueAxis("shoe last (cm)"), { min: 8, max: 26, scale: true });
         option.legend.data = ["Sample", "OLS", "+RMSE", "−RMSE", "Estimate"];
         option.series = [
-          { name: "Sample", type: "scatter", symbolSize: 5, data: model.points, itemStyle: { opacity: 0.55 } },
+          { name: "Sample", type: "scatter", symbolSize: 8, data: model.points, itemStyle: { opacity: 0.8 } },
           { name: "OLS", type: "line", showSymbol: false, data: line, lineStyle: { width: 2 } },
           { name: "+RMSE", type: "line", showSymbol: false, data: upper, lineStyle: { type: "dashed", width: 1 } },
           { name: "−RMSE", type: "line", showSymbol: false, data: lower, lineStyle: { type: "dashed", width: 1 } },

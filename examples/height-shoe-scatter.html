@@ -76,8 +76,8 @@
       option.yAxis.scale = true;
       option.legend.data = ["Female", "Male", "Female OLS", "Male OLS"];
       option.series = [
-        { name: "Female", type: "scatter", symbolSize: 6, data: female.points },
-        { name: "Male", type: "scatter", symbolSize: 6, data: male.points },
+        { name: "Female", type: "scatter", symbolSize: 9, data: female.points },
+        { name: "Male", type: "scatter", symbolSize: 9, data: male.points },
         { name: "Female OLS", type: "line", showSymbol: false, data: fitLine(fs), lineStyle: { type: "dashed", width: 2 } },
         { name: "Male OLS", type: "line", showSymbol: false, data: fitLine(ms), lineStyle: { type: "dashed", width: 2 } },
       ];
