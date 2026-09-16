@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numeric summary — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">Computed from examples/data</p>
+      <h1>Numeric summary</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../docs/data-notes.md">Data notes</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      Figures produced by <code>examples/js/foot-stats.js</code> from
+      the extracted JSON. Same math as
+      <code>node examples/scripts/summarize-data.js</code>.
+    </p>
+    <h2>Height and shoe length</h2>
+    <table id="scatter-table"></table>
+    <h2>Age means</h2>
+    <table id="age-table"></table>
+    <h2>Other stored series</h2>
+    <dl id="other"></dl>
+    <p class="note" id="status">Loading…</p>
+  </main>
+  <script src="../js/foot-stats.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var F = FootStats;
+
+      function fitRow(label, summary) {
+        return [
+          label,
+          String(summary.x.n),
+          F.formatFixed(summary.x.mean),
+          F.formatFixed(summary.y.mean),
+          F.formatFixed(summary.fit.slope, 4),
+          F.formatFixed(summary.fit.r, 3)
+        ];
+      }
+
+      Promise.all([
+        C.loadJson("../data/height-shoe-size.json"),
+        C.loadJson("../data/age-foot-length.json"),
+        C.loadJson("../data/bmi-foot-ratio.json"),
+        C.loadJson("../data/plantar-pressure.json"),
+        C.loadJson("../data/plantar-thickness.json"),
+        C.loadJson("../data/radar-age-profiles.json")
+      ]).then(function (bundle) {
+        var heightShoe = bundle[0];
+        var age = bundle[1];
+        var bmi = bundle[2];
+        var pressure = bundle[3];
+        var thickness = bundle[4];
+        var radar = bundle[5];
+
+        var girls = F.summarizePairs(heightShoe.girls, "heightCm", "shoeLengthCm");
+        var boys = F.summarizePairs(heightShoe.boys, "heightCm", "shoeLengthCm");
+        C.fillTable(
+          C.$("#scatter-table"),
+          ["Group", "n", "Mean height", "Mean shoe", "Slope", "r"],
+          [fitRow("Girls", girls), fitRow("Boys", boys)]
+        );
+        C.fillTable(
+          C.$("#age-table"),
+          ["Age", "Girls cm", "Boys cm", "Δ"],
+          F.zipAgeSeries(age).map(function (row) {
+            return [
+              String(row.ageYears),
+              F.formatFixed(row.girlsFootLengthCm),
+              F.formatFixed(row.boysFootLengthCm),
+              F.formatFixed(row.girlMinusBoyCm)
+            ];
+          })
+        );
+
+        var thin = F.ringShare(bmi.ringCharts.thinFoot.highlighted, bmi.ringCharts.thinFoot.placeholder);
+        var plump = F.ringShare(bmi.ringCharts.plumpFoot.highlighted, bmi.ringCharts.plumpFoot.placeholder);
+        var pTyp = F.summarizeNumeric(pressure.typicalAdult);
+        var tTyp = F.summarizeNumeric(thickness.typicalAdultMm);
+        C.fillDl(C.$("#other"), [
+          ["Thin-foot ring", F.formatPct(thin)],
+          ["Plump-foot ring", F.formatPct(plump)],
+          ["Radar ages", radar.series.map(function (s) { return s.ageYears; }).join(", ")],
+          ["Typical pressure mean (Pa)", F.formatFixed(pTyp.mean, 1)],
+          ["Typical thickness mean (mm)", F.formatFixed(tTyp.mean, 2)]
+        ]);
+        C.$("#status").textContent = "Loaded from local JSON.";
+      }).catch(function (err) {
+        C.$("#status").className = "error-box";
+        C.$("#status").textContent = err.message;
+      });
+    })();
+  </script>
+</body>
+</html>

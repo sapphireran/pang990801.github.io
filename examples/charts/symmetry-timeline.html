@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Left / right symmetry — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">examples/data/foot-symmetry-by-age.json</p>
+      <h1>Left / right foot categories</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../index.html">Dashboard</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      Same five slices as the auto-playing pie. Counts come from
+      <code>Math.round(... Math.log(i+1))</code>, not from a counted
+      sample. Use the age buttons or wait for the two-second cycle.
+    </p>
+    <div class="toolbar" id="ages"></div>
+    <div class="chart-shell"><div class="chart" id="chart"></div></div>
+    <table id="table"></table>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/foot-stats.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var F = FootStats;
+      var chartNode = C.$("#chart");
+      var timer = null;
+      var index = 0;
+      var rows = [];
+      var chart = null;
+
+      function render(i) {
+        index = i;
+        var row = rows[i];
+        var buttons = document.querySelectorAll("#ages button");
+        for (var b = 0; b < buttons.length; b += 1) {
+          buttons[b].setAttribute("aria-pressed", b === i ? "true" : "false");
+        }
+        chart.setOption({
+          title: { text: row.label, left: "center", top: 12, textStyle: { color: "#d7e7ff" } },
+          series: [{
+            type: "pie",
+            radius: ["32%", "58%"],
+            center: ["50%", "55%"],
+            data: F.symmetrySlices(row)
+          }]
+        });
+      }
+
+      C.loadJson("../data/foot-symmetry-by-age.json").then(function (data) {
+        rows = data;
+        C.fillTable(
+          C.$("#table"),
+          ["Age", "Same", "L +10–20%", "L >20%", "R >20%", "R +10–20%"],
+          rows.map(function (row) {
+            return [
+              String(row.ageYears),
+              String(row.same),
+              String(row.leftLarger10to20),
+              String(row.leftLargerOver20),
+              String(row.rightLargerOver20),
+              String(row.rightLarger10to20)
+            ];
+          })
+        );
+
+        var bar = C.$("#ages");
+        rows.forEach(function (row, i) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = row.label;
+          btn.addEventListener("click", function () {
+            if (timer) {
+              clearInterval(timer);
+              timer = null;
+            }
+            render(i);
+          });
+          bar.appendChild(btn);
+        });
+
+        chart = C.initChart(chartNode);
+        chart.setOption({
+          backgroundColor: C.darkGrid.backgroundColor,
+          tooltip: { trigger: "item" },
+          legend: { bottom: 8, textStyle: { color: "#d7e7ff" } },
+          color: ["#56c979", "#5CAFF2", "#B6A2DF", "#a96ec9", "#2DC7C9"],
+          series: [{ type: "pie", data: [] }]
+        });
+        render(0);
+        timer = setInterval(function () {
+          render((index + 1) % rows.length);
+        }, 2000);
+      }).catch(function (err) {
+        C.showError(chartNode, err);
+      });
+    })();
+  </script>
+</body>
+</html>

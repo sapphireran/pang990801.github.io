@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Height vs shoe length — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">examples/data/height-shoe-size.json</p>
+      <h1>Height vs shoe length</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../index.html">Dashboard</a>
+      <a href="../../docs/chart-catalog.md">Catalog</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      Same scatter cloud as the left-top dashboard panel. The dashed
+      lines are ordinary least squares added here; <code>js/index.js</code>
+      only marks min, max, mean, and a vertical guide.
+    </p>
+    <div class="chart-shell"><div class="chart" id="chart"></div></div>
+    <div class="stats-grid">
+      <section>
+        <h2>Girls</h2>
+        <dl id="girl-stats"></dl>
+      </section>
+      <section>
+        <h2>Boys</h2>
+        <dl id="boy-stats"></dl>
+      </section>
+    </div>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/foot-stats.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var F = FootStats;
+      var chartNode = C.$("#chart");
+
+      function linePoints(records, fit) {
+        var xs = records.map(function (r) { return r.heightCm; });
+        var lo = F.min(xs);
+        var hi = F.max(xs);
+        return [[lo, F.predict(fit, lo)], [hi, F.predict(fit, hi)]];
+      }
+
+      function statRows(label, summary) {
+        return [
+          [label + " n", String(summary.x.n)],
+          ["Height mean (cm)", F.formatFixed(summary.x.mean)],
+          ["Shoe mean (cm)", F.formatFixed(summary.y.mean)],
+          ["Slope (cm shoe / cm height)", F.formatFixed(summary.fit.slope, 4)],
+          ["Intercept", F.formatFixed(summary.fit.intercept)],
+          ["Pearson r", F.formatFixed(summary.fit.r, 3)]
+        ];
+      }
+
+      C.loadJson("../data/height-shoe-size.json").then(function (data) {
+        var girls = F.summarizePairs(data.girls, "heightCm", "shoeLengthCm");
+        var boys = F.summarizePairs(data.boys, "heightCm", "shoeLengthCm");
+        C.fillDl(C.$("#girl-stats"), statRows("Girl", girls));
+        C.fillDl(C.$("#boy-stats"), statRows("Boy", boys));
+
+        var chart = C.initChart(chartNode);
+        chart.setOption({
+          backgroundColor: C.darkGrid.backgroundColor,
+          legend: { data: ["Girls", "Boys", "Girl fit", "Boy fit"], textStyle: { color: "#d7e7ff" } },
+          tooltip: {
+            formatter: function (p) {
+              if (!p.value) return p.name;
+              return p.seriesName + "<br/>height " + p.value[0] + " cm<br/>shoe " + Number(p.value[1]).toFixed(2) + " cm";
+            }
+          },
+          grid: { left: 56, right: 24, top: 48, bottom: 48 },
+          xAxis: { name: "Height (cm)", type: "value", scale: true, splitLine: { show: false } },
+          yAxis: { name: "Shoe length (cm)", type: "value", scale: true, splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } } },
+          series: [
+            {
+              name: "Girls",
+              type: "scatter",
+              symbolSize: 5,
+              itemStyle: { color: "#ff4f3b" },
+              data: data.girls.map(function (r) { return [r.heightCm, r.shoeLengthCm]; })
+            },
+            {
+              name: "Boys",
+              type: "scatter",
+              symbolSize: 5,
+              itemStyle: { color: "#ffe01f" },
+              data: data.boys.map(function (r) { return [r.heightCm, r.shoeLengthCm]; })
+            },
+            {
+              name: "Girl fit",
+              type: "line",
+              showSymbol: false,
+              itemStyle: { color: "#ff4f3b" },
+              lineStyle: { type: "dashed", width: 2 },
+              data: linePoints(data.girls, girls.fit)
+            },
+            {
+              name: "Boy fit",
+              type: "line",
+              showSymbol: false,
+              itemStyle: { color: "#ffe01f" },
+              lineStyle: { type: "dashed", width: 2 },
+              data: linePoints(data.boys, boys.fit)
+            }
+          ]
+        });
+      }).catch(function (err) {
+        C.showError(chartNode, err);
+      });
+    })();
+  </script>
+</body>
+</html>

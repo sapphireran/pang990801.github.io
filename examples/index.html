@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples — children's foot-shape dashboard</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Personal examples</p>
+      <h1>Isolated charts from this dashboard</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Notes</a>
+      <a href="charts/summary-stats.html">Computed summary</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      Each page loads JSON copied from this repository and draws one
+      panel with the ECharts bundle already checked in under
+      <code>js/echarts.min.js</code>. The series are the personal
+      study plots on the live page, not a clinical table.
+    </p>
+
+    <section class="card-grid">
+      <a class="card" href="charts/height-shoe-scatter.html">
+        <h2>Height vs shoe length</h2>
+        <p>199 + 199 scatter points, plus a least-squares line the live page does not draw.</p>
+      </a>
+      <a class="card" href="charts/age-foot-length.html">
+        <h2>Age vs foot length</h2>
+        <p>Mean foot length at ages 6–14 and the girl-minus-boy difference.</p>
+      </a>
+      <a class="card" href="charts/bmi-ratio.html">
+        <h2>BMI vs plumpness index</h2>
+        <p>The displayed 脚胖瘦度 series and the two decorative ring shares.</p>
+      </a>
+      <a class="card" href="charts/symmetry-timeline.html">
+        <h2>Left / right symmetry</h2>
+        <p>Timeline pies generated with the same log formulas as <code>js/index.js</code>.</p>
+      </a>
+      <a class="card" href="charts/age-radar.html">
+        <h2>Ages 9–12 radar</h2>
+        <p>Seven spokes scaled 0–100, including the evaluated 77-6 / 79-8 pair.</p>
+      </a>
+      <a class="card" href="charts/plantar-pressure.html">
+        <h2>Plantar pressure draft</h2>
+        <p>Unmounted <code>draw1.js</code> series, seven named sites, unit Pa.</p>
+      </a>
+      <a class="card" href="charts/plantar-thickness.html">
+        <h2>Plantar thickness draft</h2>
+        <p>Unmounted <code>draw2.js</code> series, fourteen sites, mm plus stored Δ.</p>
+      </a>
+      <a class="card" href="charts/summary-stats.html">
+        <h2>Numeric summary</h2>
+        <p>Means, ranges, and regressions computed from the extracted JSON.</p>
+      </a>
+    </section>
+
+    <p class="note">
+      Re-extract after editing the dashboard source:
+      <code>node examples/scripts/extract-dashboard-data.js</code>
+      then
+      <code>node examples/scripts/test-foot-stats.js</code>.
+    </p>
+  </main>
+</body>
+</html>

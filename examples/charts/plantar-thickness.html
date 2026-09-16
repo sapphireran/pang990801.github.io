@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantar thickness draft — examples</title>
+  <link rel="stylesheet" href="../css/examples.css" />
+</head>
+<body class="chart-page">
+  <header>
+    <div>
+      <p class="eyebrow">Unmounted draw2.js</p>
+      <h1>Plantar thickness sketch</h1>
+    </div>
+    <nav>
+      <a href="../index.html">Gallery</a>
+      <a href="../../docs/unpublished-sketches.md">Sketch notes</a>
+    </nav>
+  </header>
+  <main class="page">
+    <p class="lead">
+      Fourteen numbered sites from the unused draft. Bars are
+      millimeters. The line is the stored <code>差值:um</code> series,
+      not a recomputed millimeter gap.
+    </p>
+    <div class="chart-shell"><div class="chart" id="chart"></div></div>
+    <table id="table"></table>
+  </main>
+  <script src="../../js/echarts.min.js"></script>
+  <script src="../js/foot-stats.js"></script>
+  <script src="../js/example-common.js"></script>
+  <script>
+    (function () {
+      var C = ExampleCommon;
+      var F = FootStats;
+      var chartNode = C.$("#chart");
+
+      C.loadJson("../data/plantar-thickness.json").then(function (data) {
+        var sites = [];
+        for (var i = 1; i <= data.siteCount; i += 1) {
+          sites.push("位点" + i);
+        }
+        C.fillTable(
+          C.$("#table"),
+          ["Site", "Typical (mm)", "Diabetic-foot draft (mm)", "Stored Δ (um label)"],
+          sites.map(function (site, i) {
+            return [
+              site,
+              String(data.typicalAdultMm[i]),
+              String(data.diabeticFootAdultMm[i]),
+              String(data.differenceUm[i])
+            ];
+          })
+        );
+
+        var chart = C.initChart(chartNode);
+        chart.setOption({
+          backgroundColor: C.darkGrid.backgroundColor,
+          legend: { textStyle: { color: "#d7e7ff" } },
+          tooltip: { trigger: "axis" },
+          grid: { left: 56, right: 48, top: 48, bottom: 40 },
+          xAxis: { type: "category", data: sites },
+          yAxis: [
+            { type: "value", name: "mm" },
+            { type: "value", name: "stored Δ" }
+          ],
+          series: [
+            { name: "Typical mm", type: "bar", data: data.typicalAdultMm, itemStyle: { color: "rgba(255,144,128,1)" } },
+            { name: "Diabetic-foot draft mm", type: "bar", data: data.diabeticFootAdultMm, itemStyle: { color: "rgba(0,191,183,1)" } },
+            {
+              name: "Stored Δ",
+              type: "line",
+              yAxisIndex: 1,
+              data: data.differenceUm,
+              itemStyle: { color: "#28ffb3" }
+            }
+          ]
+        });
+      }).catch(function (err) {
+        C.showError(chartNode, err);
+      });
+    })();
+  </script>
+</body>
+</html>
