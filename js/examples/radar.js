@@ -20,7 +20,7 @@
         name: row.age + "岁",
         value: row.values,
         itemStyle: { color: colors[row.age] },
-        areaStyle: { color: colors[row.age], opacity: 0.18 },
+        areaStyle: { color: colors[row.age], opacity: 0.28 },
         lineStyle: { width: 2 }
       };
     });

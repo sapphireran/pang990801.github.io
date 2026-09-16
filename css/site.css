@@ -165,8 +165,7 @@ a:hover {
   margin: 0 0 0.35rem;
   color: var(--cyan);
   font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 h1,
@@ -330,6 +329,13 @@ pre {
   gap: 0.3rem;
   color: var(--muted);
   font-size: 0.86rem;
+}
+
+.controls label.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
 }
 
 .controls input,
