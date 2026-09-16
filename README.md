@@ -4,10 +4,14 @@ Personal GitHub Pages dashboard for browsing **children's foot-shape measurement
 
 This repository is **personal only**. It is not a company product, not a backend service, and not a dataset API. Chart numbers are **embedded in the page scripts** so the site can be opened with no build step and no database.
 
-- **Published page:** [https://pang990801.github.io/](https://pang990801.github.io/)
+- **Published page (works today):** [https://sapphireran.github.io/pang990801.github.io/](https://sapphireran.github.io/pang990801.github.io/)
 - **This repository:** [https://github.com/sapphireran/pang990801.github.io](https://github.com/sapphireran/pang990801.github.io)
 - **On-page title:** 中国人群脚型数据可视化 (data visualization of foot shape in a Chinese population)
 - **This page's topic:** 儿童脚型 (children's foot shape)
+
+The header nav still points 儿童脚型 at [https://pang990801.github.io/](https://pang990801.github.io/) (the old user-site host). That host currently returns GitHub’s **Pages 404**. Use the `sapphireran.github.io/pang990801.github.io` URL, or open a local server from this repo.
+
+GitHub Pages is configured for this repository (`has_pages: true`) with **source branch `gh-pages`**. That branch is **not** on the remote anymore (only `master` is). The published HTML is a leftover build (Last-Modified **2020-05-24**). Merging docs or chart edits into `master` does **not** refresh the live URL until Pages is pointed at `master` or `gh-pages` is restored. Details: [docs/MAINTENANCE.md](docs/MAINTENANCE.md#publish-on-github-pages).
 
 ## What you see on the page
 
@@ -18,7 +22,7 @@ A small nav row links out of this page:
 | Label (as shown) | Destination |
 | --- | --- |
 | 首页 | Related personal home: [scuscientia.github.io](https://scuscientia.github.io/) |
-| 儿童脚型 | This dashboard (self) |
+| 儿童脚型 | Intended as this dashboard; href is still `https://pang990801.github.io/` and **404s**. Use the sapphireran project Pages URL instead. |
 | 畸形足或病足 | Related personal page: [ytep-zhi.github.io](https://ytep-zhi.github.io/) |
 | 联系我们 | Mail link `1127235750@qq.com` |
 
@@ -84,7 +88,7 @@ Any other static server in this folder works the same way (`npx serve`, Caddy, n
 These are **separate personal sites**, linked from the nav. They are not folders in this repo.
 
 - Home / 首页: https://scuscientia.github.io/
-- Children's foot shape / 儿童脚型: https://pang990801.github.io/ (this project)
+- Children's foot shape / 儿童脚型: https://sapphireran.github.io/pang990801.github.io/ (this project; the nav’s pang990801.github.io href currently 404s)
 - Deformed or pathological foot / 畸形足或病足: https://ytep-zhi.github.io/
 
 ## License and data caution

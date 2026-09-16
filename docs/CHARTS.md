@@ -149,8 +149,10 @@ Legend colors: 9岁 `#00c2ff`, 10岁 `#f9cf67`, 11岁 `#32CD32`, 12岁 `#e92b77`
 
 | Ring | Visible label | Values in source | Implied share |
 | --- | --- | --- | --- |
-| Upper (`center` 83%, 33%) | 过瘦脚占比 | 50 vs 180 placeholder | 50 / 230 ≈ 21.7% |
-| Lower (`center` 83%, 72%) | 过胖脚占比 | 435 vs 2400 placeholder | 435 / 2835 ≈ 15.3% |
+| Upper (`center` 83%, 33%) | 过瘦脚占比 | 50 vs 180 placeholder | 50 / 230 ≈ 21.74% |
+| Lower (`center` 83%, 72%) | 过胖脚占比 | 435 vs 2400 placeholder | 435 / 2835 ≈ 15.34% |
+
+A local desktop render of `index.html` showed those same ring labels (**21.74%**, **15.34%**).
 
 The pie slice name `用户来源分析` is leftover gallery text. Only the formatter labels (过瘦 / 过胖) are meant to be read.
 

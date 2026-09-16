@@ -6,11 +6,15 @@ How to **read and operate** this personal dashboard. For series names and file l
 
 ### Published copy
 
-1. In a desktop browser, open [https://pang990801.github.io/](https://pang990801.github.io/).
+1. In a desktop browser, open [https://sapphireran.github.io/pang990801.github.io/](https://sapphireran.github.io/pang990801.github.io/).
 2. Give the page a **wide window** (1024px or wider). The layout uses rem units from viewport width and is not a mobile app.
 3. Wait until all five panels draw. Charts are created in `js/index.js` after jQuery and ECharts load.
 
+Do **not** rely on [https://pang990801.github.io/](https://pang990801.github.io/) (the 儿童脚型 href in the nav). That user-site host currently serves GitHub’s **“There isn't a GitHub Pages site here”** page.
+
 If a panel is empty, do a hard refresh (`Ctrl+Shift+R` / `Cmd+Shift+R`). Scripts are loaded from this same origin; there is no API to fail.
+
+The live project-Pages copy is a **2020-era publish**. For the charts and copy in *this* `master` tree, use the local server below.
 
 ### Local copy
 
@@ -169,7 +173,7 @@ The per-age slice sizes are generated in `js/index.js` from a small log formula,
 
 ## 7. Related pages from this dashboard
 
-If you follow 首页 or 畸形足或病足, you leave this repository's site. Those URLs are other personal GitHub Pages projects. Coming back: open 儿童脚型 or this repo's Pages URL again.
+If you follow 首页 or 畸形足或病足, you leave this repository's site. Those URLs are other personal GitHub Pages projects. Coming back: open [https://sapphireran.github.io/pang990801.github.io/](https://sapphireran.github.io/pang990801.github.io/) (not the 儿童脚型 href, which 404s).
 
 ## 8. What this page is not
 

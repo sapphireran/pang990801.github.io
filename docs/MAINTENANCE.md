@@ -87,7 +87,7 @@ Clock markup is inline in `index.html` (`function time()`). Changing the sentenc
 
 ## Files that are not on the live path
 
-Do not assume every file in the tree affects [pang990801.github.io](https://pang990801.github.io/).
+Do not assume every file in the tree affects the published dashboard.
 
 | File | Status |
 | --- | --- |
@@ -123,19 +123,47 @@ Do not assume every file in the tree affects [pang990801.github.io](https://pang
 
 ## Publish on GitHub Pages
 
-This project is meant to be served as a **user/project GitHub Pages** site from the default branch (`master`).
+Checked against this repository (personal notes — re-check **Settings → Pages** if you change hosting):
 
-Typical personal flow:
+| Fact | Value as of this writing |
+| --- | --- |
+| Working public URL | [https://sapphireran.github.io/pang990801.github.io/](https://sapphireran.github.io/pang990801.github.io/) |
+| Nav href 儿童脚型 | [https://pang990801.github.io/](https://pang990801.github.io/) — **404** (no user-site on that host) |
+| Pages `html_url` | `https://sapphireran.github.io/pang990801.github.io/` |
+| Pages source | Branch **`gh-pages`**, path `/` |
+| `gh-pages` on `origin`? | **No** — remotes are `master` plus topic branches |
+| Live HTML `Last-Modified` | 2020-05-24 (stale leftover publish) |
+| Custom domain | none |
 
-1. Commit only the static files you intend to ship (`index.html`, `css/`, `js/`, `images/`, `font/`).
-2. Push to `origin` (`master` or a PR into `master`).
-3. In the GitHub repo: **Settings → Pages**. Source should be the branch that holds `index.html` at the site root.
-4. Wait for the Pages build (Actions / environment **github-pages**).
-5. Open the published URL and hard-refresh.
+So: the dashboard you see online is **not** guaranteed to match `master`. A docs-only merge will not move the 2020 Pages copy. A chart edit on `master` will not go live until you fix the source.
 
-The nav still advertises [https://pang990801.github.io/](https://pang990801.github.io/). If Pages is bound to `https://sapphireran.github.io/pang990801.github.io/`, either enable that custom user-site redirect or update the 儿童脚型 href so “this page” links match reality.
+### Make `master` the live site (recommended personal setup)
 
-Docs-only PRs (`README.md`, `docs/*`) do not change the dashboard until you merge; they also do not need a rebuild beyond Pages copying files.
+1. GitHub → this repo → **Settings → Pages**.
+2. Set source to branch **`master`**, folder `/` (site root has `index.html`).
+3. Save, wait for the Pages build (`status: built`).
+4. Hard-refresh [https://sapphireran.github.io/pang990801.github.io/](https://sapphireran.github.io/pang990801.github.io/).
+5. Optionally change the 儿童脚型 `<a href>` in `index.html` to that same URL so the nav does not 404.
+
+### Or restore a `gh-pages` branch
+
+If you want to keep the current Pages setting:
+
+```bash
+git checkout master
+git checkout -b gh-pages
+git push -u origin gh-pages
+```
+
+Then every publish is a fast-forward of `gh-pages` to the commit you want live. Do not invent a second unrelated tree.
+
+### After any publish
+
+1. Wait for the github-pages environment / Actions run.
+2. Open the **sapphireran.github.io** URL, not pang990801.github.io.
+3. Hard-refresh and re-run the [visual checklist](#quick-visual-checklist-after-any-htmljscss-change).
+
+Docs-only PRs (`README.md`, `docs/*`) do not change chart pixels. They still belong on `master` so the next person (you) knows how the site is actually hosted.
 
 ## Quick visual checklist (after any HTML/JS/CSS change)
 
