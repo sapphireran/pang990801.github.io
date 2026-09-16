@@ -1,0 +1,39 @@
+{
+  "id": "plantar-pressure",
+  "title": "Plantar pressure by site",
+  "title_zh": "足部压力数据图",
+  "source_file": "draw1.js",
+  "wired_in_dashboard": false,
+  "units": "Pa as labelled in the unused option file",
+  "sites": [
+    "位点一",
+    "位点二",
+    "位点三",
+    "位点四",
+    "位点五",
+    "位点六",
+    "位点七"
+  ],
+  "normal_pa": [
+    90,
+    50,
+    39,
+    50,
+    120,
+    82,
+    80
+  ],
+  "diabetic_foot_pa": [
+    290,
+    200,
+    20,
+    132,
+    15,
+    200,
+    90
+  ],
+  "notes": [
+    "draw1.js was never mounted by index.html; this dataset only appears in the examples.",
+    "A third legend entry 潍V has no series data in the source file."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "project": "pang990801.github.io",
+  "title": "中国人群脚型数据可视化 / Children's foot-shape visualization",
+  "year": 2020,
+  "note": "Personal archive extracted from the 2020 GitHub Pages dashboard. Values are copied from the published chart scripts; they are not a newly collected clinical sample.",
+  "datasets": [
+    "height-shoe-size.json",
+    "age-foot-length.json",
+    "bmi-foot-ratio.json",
+    "growth-radar.json",
+    "bilateral-symmetry.json",
+    "plantar-pressure.json",
+    "tissue-thickness.json"
+  ]
+}
