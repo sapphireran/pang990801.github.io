@@ -94,6 +94,7 @@ Example pages do not load those images. They use a flat navy gradient so the not
 3. Docs hub links resolve.
 4. Each example page draws a chart and a table.
 5. `python3 scripts/extract_example_data.py` is a no-op if sources did not change.
+6. `python3 scripts/check_examples.py` confirms pages, datasets, and hub links still line up.
 
 No test runner is wired up. These pages are static.
 

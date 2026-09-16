@@ -14,6 +14,7 @@ Personal notes for the children's foot-shape Pages site. These files explain the
 | [Plantar sketches](plantar-pressure.md) | Unused `draw1.js` / `draw2.js` |
 | [ECharts notes](echarts-notes.md) | Themes, pictorial bars, dual builds |
 | [Local preview](local-preview.md) | `python3 -m http.server` and Pages paths |
+| [Adding another example](adding-examples.md) | Extract script, page module, and smoke check |
 
 A styled HTML index lives at [index.html](index.html) for browsing on GitHub Pages.
 
