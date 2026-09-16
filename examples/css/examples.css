@@ -1,0 +1,270 @@
+:root {
+  --ink: #071018;
+  --panel: #10202c;
+  --panel-2: #163042;
+  --line: rgba(140, 210, 220, 0.18);
+  --text: #e7f4f6;
+  --muted: #9bb7be;
+  --teal: #2ee0d0;
+  --teal-dim: #148f86;
+  --coral: #ff6b6b;
+  --gold: #f4c15d;
+  --blue: #5cafff;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(46, 224, 208, 0.16), transparent 50%),
+    radial-gradient(900px 500px at 110% 0%, rgba(255, 107, 107, 0.12), transparent 45%),
+    var(--ink);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header,
+.site-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand span {
+  color: var(--teal);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  color: var(--muted);
+}
+
+nav a {
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.hero h1,
+.page h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.lede,
+.note {
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.card,
+.panel,
+.chart-card {
+  background: linear-gradient(180deg, var(--panel), #0c1a24);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  padding: 1.1rem 1.15rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 170px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  flex: 1;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+
+.chart-card {
+  padding: 1rem;
+  margin: 1.25rem 0;
+}
+
+.chart {
+  width: 100%;
+  height: 460px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin: 1rem 0 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  width: min(360px, 100%);
+}
+
+select,
+button,
+input[type="search"],
+input[type="number"] {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--teal);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.stat {
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(16, 32, 44, 0.85);
+}
+
+.stat b {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--teal);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  padding: 0.45rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.tabs button[aria-selected="true"] {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.warning {
+  border-left: 3px solid var(--coral);
+  padding: 0.2rem 0 0.2rem 0.8rem;
+}
+
+.site-footer {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .chart {
+    height: 360px;
+  }
+}

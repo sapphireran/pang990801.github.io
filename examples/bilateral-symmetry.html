@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Left / right timeline — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Left / right proportion timeline</h1>
+    <p class="lede warning">
+      Synthetic motion graphic. Slices come from decaying
+      <code>log(i+1)</code> terms in <code>js/index.js</code>, not from
+      a surveyed n.
+    </p>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+  </main>
+  <footer class="site-footer">Source: js/index.js → data/bilateral-symmetry.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.bilateral;
+      var labels = ["Same", "Left 10–20%", "Left >20%", "Right >20%", "Right 10–20%"];
+      var keys = ["same", "left_10_20", "left_over_20", "right_over_20", "right_10_20"];
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = {
+        backgroundColor: "rgba(0,0,0,0)",
+        baseOption: {
+          timeline: {
+            axisType: "category",
+            autoPlay: true,
+            playInterval: 2000,
+            data: data.points.map(function (p) { return p.age; }),
+            label: { color: "#c9e3e7" },
+            lineStyle: { color: "#2ee0d0" },
+            checkpointStyle: { color: "#2ee0d0" },
+          },
+          tooltip: { trigger: "item" },
+          color: FOOT_THEME.colors,
+          series: [{
+            type: "pie",
+            radius: ["32%", "58%"],
+            center: ["50%", "48%"],
+            label: { color: "#e7f4f6" },
+          }],
+        },
+        options: data.points.map(function (point) {
+          return {
+            series: [{
+              data: keys.map(function (key, i) {
+                return { name: labels[i], value: point[key] };
+              }),
+            }],
+          };
+        }),
+      };
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Last-length estimator — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Last-length estimator</h1>
+    <p class="lede warning">
+      Teaching control from the in-sample OLS. Not a factory last, not
+      a brand conversion, not medical advice. Measure the foot.
+    </p>
+    <div class="toolbar">
+      <label>
+        Height (cm)
+        <input id="height" type="range" min="76" max="153" step="0.5" value="120" />
+      </label>
+      <label>
+        Series
+        <select id="sex">
+          <option value="female">Female scatter (n = 199)</option>
+          <option value="male">Male scatter (n = 199)</option>
+        </select>
+      </label>
+      <label>
+        Typed height
+        <input id="heightNumber" type="number" min="76" max="153" step="0.5" value="120" />
+      </label>
+    </div>
+    <div class="stats" id="stats"></div>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+    <p class="note">
+      Mondopoint-like millimetres are <code>round(last_cm × 10)</code>.
+      Allowance adds 5 mm. Band is ± RMSE from
+      <a href="../docs/generated-stats.md">generated-stats.md</a>.
+    </p>
+  </main>
+  <footer class="site-footer">Uses FOOT_STATS.ols on the extracted points</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/stats.js"></script>
+  <script>
+    (function () {
+      var heightShoe = window.FOOT_DATA.heightShoe;
+      var heightEl = document.getElementById("height");
+      var numberEl = document.getElementById("heightNumber");
+      var sexEl = document.getElementById("sex");
+      var statsEl = document.getElementById("stats");
+      var chart = echarts.init(document.getElementById("chart"));
+
+      function currentFit(sex) {
+        var points = heightShoe.series[sex].points;
+        var xs = points.map(function (p) { return p[0]; });
+        var ys = points.map(function (p) { return p[1]; });
+        return { points: points, fit: FOOT_STATS.ols(xs, ys), stored: heightShoe.series[sex].stats.ols };
+      }
+
+      function syncHeight(value) {
+        heightEl.value = value;
+        numberEl.value = value;
+      }
+
+      function render() {
+        var sex = sexEl.value;
+        var height = Number(heightEl.value);
+        var model = currentFit(sex);
+        var last = FOOT_STATS.predictLastCm(height, model.fit);
+        var mm = FOOT_STATS.mondopoint(last);
+        var other = sex === "female" ? "male" : "female";
+        var otherLast = FOOT_STATS.predictLastCm(height, currentFit(other).fit);
+
+        statsEl.innerHTML = [
+          ["Height", height.toFixed(1) + " cm"],
+          ["Predicted last", last.toFixed(2) + " cm"],
+          ["± RMSE band", "± " + model.fit.rmse.toFixed(2) + " cm"],
+          ["Mondopoint-like", mm + " mm"],
+          ["+5 mm allowance", (mm + 5) + " mm"],
+          ["Other series @ height", otherLast.toFixed(2) + " cm"],
+        ].map(function (row) {
+          return '<div class="stat"><b>' + row[1] + "</b><span>" + row[0] + "</span></div>";
+        }).join("");
+
+        var lo = 76;
+        var hi = 153;
+        var line = [[lo, model.fit.slope * lo + model.fit.intercept], [hi, model.fit.slope * hi + model.fit.intercept]];
+        var upper = [[lo, line[0][1] + model.fit.rmse], [hi, line[1][1] + model.fit.rmse]];
+        var lower = [[lo, line[0][1] - model.fit.rmse], [hi, line[1][1] - model.fit.rmse]];
+
+        var option = FOOT_THEME.baseOption();
+        option.tooltip = { trigger: "item" };
+        option.xAxis = Object.assign(FOOT_THEME.valueAxis("height (cm)"), { min: 74, max: 156, scale: true });
+        option.yAxis = Object.assign(FOOT_THEME.valueAxis("shoe last (cm)"), { min: 8, max: 26, scale: true });
+        option.legend.data = ["Sample", "OLS", "+RMSE", "−RMSE", "Estimate"];
+        option.series = [
+          { name: "Sample", type: "scatter", symbolSize: 8, data: model.points, itemStyle: { opacity: 0.8 } },
+          { name: "OLS", type: "line", showSymbol: false, data: line, lineStyle: { width: 2 } },
+          { name: "+RMSE", type: "line", showSymbol: false, data: upper, lineStyle: { type: "dashed", width: 1 } },
+          { name: "−RMSE", type: "line", showSymbol: false, data: lower, lineStyle: { type: "dashed", width: 1 } },
+          { name: "Estimate", type: "scatter", symbolSize: 16, data: [[height, last]] },
+        ];
+        chart.setOption(option, true);
+      }
+
+      heightEl.addEventListener("input", function () {
+        syncHeight(heightEl.value);
+        render();
+      });
+      numberEl.addEventListener("input", function () {
+        var value = Math.min(153, Math.max(76, Number(numberEl.value) || 120));
+        syncHeight(value);
+        render();
+      });
+      sexEl.addEventListener("change", render);
+      render();
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>

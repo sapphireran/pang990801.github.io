@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docs — children's foot-shape archive</title>
+  <link rel="stylesheet" href="../examples/css/examples.css" />
+  <style>
+    article { max-width: 76ch; }
+    article h2 { margin-top: 2rem; }
+    article ul { color: var(--muted); }
+    article code { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>docs</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="./index.html">Docs</a>
+      <a href="../examples/index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Personal archive notes</h1>
+      <p class="lede">
+        Write-ups for the 2020 GitHub Pages dashboard. Markdown sources
+        stay in this folder for GitHub; this page is the readable hub.
+      </p>
+    </section>
+    <div class="grid">
+      <a class="card" href="read.html?doc=architecture.md">
+        <span class="tag">system</span>
+        <h2>Architecture</h2>
+        <p>Boot order, rem HUD, dead handlers, extract pipeline.</p>
+      </a>
+      <a class="card" href="read.html?doc=charts.md">
+        <span class="tag">five panels</span>
+        <h2>Chart notes</h2>
+        <p>What each ECharts option actually plots, including leftovers.</p>
+      </a>
+      <a class="card" href="read.html?doc=data-dictionary.md">
+        <span class="tag">/data</span>
+        <h2>Data dictionary</h2>
+        <p>Field units, OLS fields, and what was never in the repo.</p>
+      </a>
+      <a class="card" href="read.html?doc=study-notes.md">
+        <span class="tag">reading</span>
+        <h2>Study notes</h2>
+        <p>How far the 2020 charts can be pushed — and where to stop.</p>
+      </a>
+      <a class="card" href="read.html?doc=examples.md">
+        <span class="tag">gallery</span>
+        <h2>Examples index</h2>
+        <p>Page-by-page list of the standalone remounts.</p>
+      </a>
+      <a class="card" href="read.html?doc=extending.md">
+        <span class="tag">howto</span>
+        <h2>Extending</h2>
+        <p>Add a dataset or example without breaking Pages.</p>
+      </a>
+      <a class="card" href="read.html?doc=generated-stats.md">
+        <span class="tag">generated</span>
+        <h2>Generated stats</h2>
+        <p>OLS, correlations, ring shares from extract_data.py.</p>
+      </a>
+    </div>
+    <article>
+      <h2>Start here</h2>
+      <p>
+        The homepage at <a href="../index.html">index.html</a> is the
+        original 2020 HUD: five ECharts IIFEs, jQuery, and
+        <code>flexible.js</code>. Arrays used to live only inside
+        <code>js/index.js</code>. They now also live under
+        <a href="../data/catalog.json">data/</a> so examples can reload
+        them without copy-paste.
+      </p>
+      <p>
+        Two root files, <code>draw1.js</code> and <code>draw2.js</code>,
+        were option objects that nothing mounted. The gallery pages
+        <a href="../examples/plantar-pressure.html">plantar pressure</a>
+        and
+        <a href="../examples/tissue-thickness.html">tissue thickness</a>
+        are the first places those series become charts.
+      </p>
+      <h2>Regenerate</h2>
+      <p>
+        After editing a dashboard array:
+      </p>
+      <p>
+        <code>python3 scripts/extract_data.py && python3 scripts/validate_data.py</code>
+      </p>
+      <p>
+        That rewrites JSON, <code>examples/js/datasets.js</code>, and
+        <a href="generated-stats.md">generated-stats.md</a>.
+      </p>
+      <h2>Limits</h2>
+      <ul>
+        <li>Personal visualization archive, not a clinical dataset.</li>
+        <li>No sampling protocol, city, device, or subject IDs shipped.</li>
+        <li>Bilateral pies are a log formula, not prevalence.</li>
+        <li>Shoe last on the scatter is centimetres, not Mondopoint.</li>
+      </ul>
+    </article>
+  </main>
+  <footer class="site-footer">pang990801.github.io · Sapphire Ran · personal only</footer>
+</body>
+</html>

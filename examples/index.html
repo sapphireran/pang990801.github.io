@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples — children's foot-shape archive</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap hero">
+    <h1>Standalone examples from the 2020 charts</h1>
+    <p class="lede">
+      Each page reloads the extracted JSON (also inlined as
+      <code>window.FOOT_DATA</code>) and draws with the repo's own
+      ECharts build. The last two cards mount option files that the
+      homepage never called.
+    </p>
+    <div class="grid">
+      <a class="card" href="height-shoe-scatter.html">
+        <span class="tag">n = 199 + 199</span>
+        <h2>Height × shoe last</h2>
+        <p>Scatter with OLS overlay. Y is centimetres, not Mondopoint.</p>
+      </a>
+      <a class="card" href="age-foot-length.html">
+        <span class="tag">ages 6–14</span>
+        <h2>Age × foot length</h2>
+        <p>Mean lengths and the girl−boy gap, including the 8–9 dip.</p>
+      </a>
+      <a class="card" href="bmi-foot-ratio.html">
+        <span class="tag">BMI 12–24</span>
+        <h2>BMI × plumpness</h2>
+        <p>Length/width ratio plus the thin / plump rings.</p>
+      </a>
+      <a class="card" href="growth-radar.html">
+        <span class="tag">0–100 index</span>
+        <h2>Growth radar</h2>
+        <p>Nine to twelve years on seven normalized axes.</p>
+      </a>
+      <a class="card" href="bilateral-symmetry.html">
+        <span class="tag">synthetic</span>
+        <h2>Left / right timeline</h2>
+        <p>The log-decay pie, labelled as a motion graphic.</p>
+      </a>
+      <a class="card" href="plantar-pressure.html">
+        <span class="tag">draw1.js</span>
+        <h2>Plantar pressure</h2>
+        <p>First live mount of the unused seven-site option.</p>
+      </a>
+      <a class="card" href="tissue-thickness.html">
+        <span class="tag">draw2.js</span>
+        <h2>Tissue thickness</h2>
+        <p>Adult mm bars and the mismatched “um” line.</p>
+      </a>
+      <a class="card" href="shoe-size-estimator.html">
+        <span class="tag">interactive</span>
+        <h2>Last-length estimator</h2>
+        <p>Height slider, residual band, Mondopoint teaching conversion.</p>
+      </a>
+      <a class="card" href="data-explorer.html">
+        <span class="tag">all datasets</span>
+        <h2>Data explorer</h2>
+        <p>Tables, filters, and copyable JSON for every file in /data.</p>
+      </a>
+    </div>
+    <p class="note">
+      Personal archive only — not a fitting guide and not medical advice.
+      How to add a page: <a href="../docs/extending.md">docs/extending.md</a>.
+    </p>
+  </main>
+  <footer class="site-footer">pang990801.github.io · personal 2020 project</footer>
+</body>
+</html>

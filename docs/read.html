@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doc — children's foot-shape archive</title>
+  <link rel="stylesheet" href="../examples/css/examples.css" />
+  <style>
+    article { max-width: 86ch; }
+    article h1 { font-size: 2rem; }
+    article h2 { margin-top: 2rem; }
+    article p, article li { color: var(--muted); }
+    article strong { color: var(--text); }
+    article table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    article th, article td {
+      border-bottom: 1px solid var(--line);
+      padding: 0.4rem 0.55rem;
+      text-align: left;
+    }
+    article pre {
+      overflow: auto;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #0c1a24;
+    }
+    article code { color: var(--gold); }
+    .missing { color: var(--coral); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>docs</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="./index.html">Docs</a>
+      <a href="../examples/index.html">Gallery</a>
+      <a id="raw" href="#">Raw markdown</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <article id="article"><p>Loading…</p></article>
+  </main>
+  <footer class="site-footer">Rendered locally with docs/js/markdown-lite.js</footer>
+  <script src="js/markdown-lite.js"></script>
+  <script>
+    (function () {
+      var allowed = {
+        "architecture.md": "Architecture",
+        "charts.md": "Chart notes",
+        "data-dictionary.md": "Data dictionary",
+        "study-notes.md": "Study notes",
+        "examples.md": "Examples index",
+        "extending.md": "Extending",
+        "generated-stats.md": "Generated stats",
+      };
+      var params = new URLSearchParams(window.location.search);
+      var doc = params.get("doc") || "architecture.md";
+      var article = document.getElementById("article");
+      var raw = document.getElementById("raw");
+
+      if (!allowed[doc]) {
+        article.innerHTML = '<p class="missing">Unknown document.</p>';
+        return;
+      }
+
+      document.title = allowed[doc] + " — docs";
+      raw.href = doc;
+      raw.textContent = doc;
+
+      fetch(doc).then(function (response) {
+        if (!response.ok) throw new Error(response.status);
+        return response.text();
+      }).then(function (text) {
+        article.innerHTML = window.MARKDOWN_LITE.render(text);
+      }).catch(function () {
+        article.innerHTML = '<p class="missing">Could not load ' + doc + ". Serve the repo over HTTP.</p>";
+      });
+    })();
+  </script>
+</body>
+</html>

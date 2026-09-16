@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth radar — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Normalized growth radar</h1>
+    <p class="lede">
+      Seven axes, each 0–100. Toggle ages in the legend. The 12-year
+      shoe-last and foot-length slots are the evaluated
+      <code>77-6</code> and <code>79-8</code> (both 71).
+    </p>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+    <p class="note">
+      These are dashboard indices, not millimetres. The homepage still
+      draws this chart in a DOM node named <code>.map</code>.
+    </p>
+  </main>
+  <footer class="site-footer">Source: js/index.js → data/growth-radar.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.growthRadar;
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = FOOT_THEME.baseOption();
+      option.radar = {
+        indicator: data.axes.map(function (name, i) {
+          return { name: name + " / " + data.axes_en[i], max: 100 };
+        }),
+        center: ["50%", "55%"],
+        radius: "62%",
+        axisName: { color: "#c9e3e7" },
+        splitLine: { lineStyle: { color: "rgba(140, 210, 220, 0.2)" } },
+        splitArea: { areaStyle: { color: ["rgba(46,224,208,0.04)", "rgba(0,0,0,0)"] } },
+      };
+      option.legend.data = Object.keys(data.series);
+      option.series = [{
+        type: "radar",
+        data: Object.keys(data.series).map(function (age) {
+          return { name: age, value: data.series[age], areaStyle: { opacity: 0.12 } };
+        }),
+      }];
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>

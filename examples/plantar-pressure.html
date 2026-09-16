@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantar pressure — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Plantar pressure by site</h1>
+    <p class="lede">
+      First page that actually <code>setOption</code>s the unused
+      <code>draw1.js</code> object. Units are Pa as labelled there.
+      Site anatomy is not named in the source file. The leftover legend
+      entry <code>潍V</code> had no series and is omitted.
+    </p>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+    <p class="note warning">
+      Adult “normal vs diabetic-foot” comparison parked in the repo —
+      not wired to the children's dashboard.
+    </p>
+  </main>
+  <footer class="site-footer">Source: draw1.js → data/plantar-pressure.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.plantar;
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = FOOT_THEME.baseOption();
+      option.legend.data = ["Typical (label)", "Diabetic-foot (label)"];
+      option.xAxis = FOOT_THEME.categoryAxis(data.sites);
+      option.yAxis = FOOT_THEME.valueAxis("Pa (as labelled)");
+      option.series = [
+        { name: "Typical (label)", type: "line", smooth: true, symbol: "circle", symbolSize: 9, data: data.normal_pa },
+        { name: "Diabetic-foot (label)", type: "line", smooth: true, symbol: "circle", symbolSize: 9, data: data.diabetic_foot_pa },
+      ];
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>

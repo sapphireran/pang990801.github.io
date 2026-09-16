@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Height × shoe last — examples</title>
+  <link rel="stylesheet" href="css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">Foot-shape <span>examples</span></a>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="./index.html">Gallery</a>
+    </nav>
+  </header>
+  <main class="wrap page">
+    <h1>Height vs shoe last</h1>
+    <p class="lede">
+      Same 199 + 199 points as the homepage scatter. The dashed lines are
+      the in-sample OLS fits stored in <code>height-shoe-size.json</code>.
+      Y is a centimetre last length, even though the 2020 title says 鞋码.
+    </p>
+    <div class="stats" id="stats"></div>
+    <div class="chart-card"><div id="chart" class="chart"></div></div>
+    <p class="note">
+      Brush or dataZoom to isolate a height band. Full notes:
+      <a href="../docs/charts.md">docs/charts.md</a>.
+    </p>
+  </main>
+  <footer class="site-footer">Source: js/index.js → data/height-shoe-size.json</footer>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var data = window.FOOT_DATA.heightShoe;
+      var female = data.series.female;
+      var male = data.series.male;
+      var fs = female.stats;
+      var ms = male.stats;
+
+      document.getElementById("stats").innerHTML = [
+        ["Girls r", fs.pearson_r.toFixed(3)],
+        ["Boys r", ms.pearson_r.toFixed(3)],
+        ["Girl RMSE", fs.ols.rmse.toFixed(2) + " cm"],
+        ["Boy RMSE", ms.ols.rmse.toFixed(2) + " cm"],
+      ].map(function (row) {
+        return '<div class="stat"><b>' + row[1] + "</b><span>" + row[0] + "</span></div>";
+      }).join("");
+
+      function fitLine(stats) {
+        var lo = stats.height_cm.min;
+        var hi = stats.height_cm.max;
+        return [
+          [lo, stats.ols.slope * lo + stats.ols.intercept],
+          [hi, stats.ols.slope * hi + stats.ols.intercept],
+        ];
+      }
+
+      var chart = echarts.init(document.getElementById("chart"));
+      var option = FOOT_THEME.baseOption();
+      option.tooltip = {
+        trigger: "item",
+        formatter: function (params) {
+          if (!params.value) return params.name;
+          return params.seriesName + "<br/>height " + params.value[0] + " cm<br/>last " + params.value[1] + " cm";
+        },
+      };
+      option.toolbox = { feature: { dataZoom: {}, brush: { type: ["rect", "clear"] }, saveAsImage: {} } };
+      option.brush = {};
+      option.xAxis = FOOT_THEME.valueAxis("height (cm)");
+      option.xAxis.scale = true;
+      option.yAxis = FOOT_THEME.valueAxis("shoe last (cm)");
+      option.yAxis.scale = true;
+      option.legend.data = ["Female", "Male", "Female OLS", "Male OLS"];
+      option.series = [
+        { name: "Female", type: "scatter", symbolSize: 9, data: female.points },
+        { name: "Male", type: "scatter", symbolSize: 9, data: male.points },
+        { name: "Female OLS", type: "line", showSymbol: false, data: fitLine(fs), lineStyle: { type: "dashed", width: 2 } },
+        { name: "Male OLS", type: "line", showSymbol: false, data: fitLine(ms), lineStyle: { type: "dashed", width: 2 } },
+      ];
+      chart.setOption(option);
+      FOOT_THEME.bindResize(chart);
+    })();
+  </script>
+</body>
+</html>
