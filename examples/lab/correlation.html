@@ -37,6 +37,10 @@
     const scatter = echarts.init(document.getElementById("scatter"));
     const resid = echarts.init(document.getElementById("resid"));
     let pack;
+    const preset = new URLSearchParams(location.search).get("group");
+    if (["pooled", "female", "male"].includes(preset)) {
+      document.getElementById("group").value = preset;
+    }
 
     function points(group) {
       if (group === "female") return pack.female;
@@ -102,7 +106,10 @@
       }, true);
     }
 
-    document.getElementById("group").onchange = render;
+    document.getElementById("group").onchange = () => {
+      history.replaceState(null, "", "?group=" + document.getElementById("group").value);
+      render();
+    };
     window.addEventListener("resize", () => { scatter.resize(); resid.resize(); });
     Lab.loadData("height-shoe.json").then((data) => { pack = data; render(); });
   </script>

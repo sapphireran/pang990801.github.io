@@ -59,6 +59,20 @@
     let sortKey = "height_cm";
     let sortDir = 1;
     const chart = echarts.init(document.getElementById("chart"));
+    const params = new URLSearchParams(location.search);
+    if (["all", "female", "male"].includes(params.get("sex"))) {
+      document.getElementById("sex").value = params.get("sex");
+    }
+    if (params.get("hmin")) document.getElementById("hmin").value = params.get("hmin");
+    if (params.get("hmax")) document.getElementById("hmax").value = params.get("hmax");
+
+    function syncQuery() {
+      const next = new URLSearchParams();
+      next.set("sex", document.getElementById("sex").value);
+      next.set("hmin", document.getElementById("hmin").value);
+      next.set("hmax", document.getElementById("hmax").value);
+      history.replaceState(null, "", "?" + next.toString());
+    }
 
     function allRows() {
       return pack.female.map(([h, s]) => ({ sex: "female", sex_zh: "女性", height_cm: h, shoe_length_cm: s }))
@@ -76,6 +90,7 @@
     }
 
     function render() {
+      syncQuery();
       rows = filtered().sort((a, b) => (a[sortKey] > b[sortKey] ? sortDir : -sortDir));
       const xs = rows.map((r) => r.height_cm);
       const ys = rows.map((r) => r.shoe_length_cm);

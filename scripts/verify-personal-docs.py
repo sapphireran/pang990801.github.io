@@ -44,6 +44,9 @@ def main() -> None:
     explorer = (ROOT / "examples/lab/explorer.html").read_text(encoding="utf-8")
     ok("height-shoe.json" in explorer, "explorer should load height-shoe.json")
     ok("Lab.loadData" in explorer, "explorer should use Lab.loadData")
+    ok("URLSearchParams" in explorer, "explorer should accept ?sex= query params")
+    correlation = (ROOT / "examples/lab/correlation.html").read_text(encoding="utf-8")
+    ok("group=" in correlation, "correlation should accept ?group=")
 
     index = (ROOT / "index.html").read_text(encoding="utf-8")
     ok("中国人群脚型数据可视化" in index, "dashboard title should match the header")

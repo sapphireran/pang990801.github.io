@@ -90,6 +90,8 @@
       }, true);
     }
 
+    const presetCm = new URLSearchParams(location.search).get("cm");
+    if (presetCm) document.getElementById("cm").value = presetCm;
     document.getElementById("cm").oninput = render;
     document.getElementById("preset").onchange = (e) => {
       if (!e.target.value) return;

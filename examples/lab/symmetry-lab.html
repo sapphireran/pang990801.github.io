@@ -100,6 +100,8 @@
     document.getElementById("i").oninput = render;
     document.getElementById("reset").onclick = () => { coeffBox(); render(); };
     window.addEventListener("resize", () => { pie.resize(); line.resize(); });
+    const presetI = new URLSearchParams(location.search).get("i");
+    if (presetI !== null && presetI !== "") document.getElementById("i").value = presetI;
     coeffBox();
     render();
   </script>
