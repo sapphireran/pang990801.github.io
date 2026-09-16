@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例：BMI 与脚胖瘦度</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>儿童BMI与脚的胖瘦度关系</h1>
+    <nav class="crumbs">
+      <a href="index.html">示例目录</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/charts.md">图表说明</a>
+      <a href="../data/bmi-foot-ratio.json">JSON</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Pink and cyan area lines plot a length/width plumpness index against BMI buckets 12–24.
+      The two rings are the original independent shares labeled 过瘦脚占比 and 过胖脚占比 — they are not computed from the lines.
+    </p>
+    <p class="status">Loading sample…</p>
+    <section class="panel"><div class="chart"></div></section>
+    <section class="notes">
+      <article>
+        <h2>Y axis</h2>
+        <p>脚胖瘦度（脚长/脚宽）, minimum 20. It is an index, not a raw millimeter width.</p>
+      </article>
+      <article>
+        <h2>Rings</h2>
+        <p>Each ring is a highlighted slice plus a remainder <code>占位</code> slice, copied from the live option object.</p>
+      </article>
+      <article>
+        <h2>No join key</h2>
+        <p>These BMI buckets cannot be joined to the height×shoe scatter. Different panels, different samples.</p>
+      </article>
+    </section>
+  </main>
+  <p class="footnote">Source series: <code>js/index.js</code> <code>.bar1</code> IIFE, mirrored in <code>data/bmi-foot-ratio.json</code>.</p>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/bmi-foot-ratio.js"></script>
+</body>
+</html>

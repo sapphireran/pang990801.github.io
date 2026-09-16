@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例：双脚比例</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>儿童双脚比例</h1>
+    <nav class="crumbs">
+      <a href="index.html">示例目录</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/data-notes.md">数据说明</a>
+      <a href="../data/foot-symmetry.json">JSON</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Timeline doughnut for ages 2–14. Auto-play uses the same 2-second interval as the dashboard.
+      Every frame is generated from the live <code>Math.log</code> recipe, then stored in JSON so this page does not re-derive silently.
+    </p>
+    <p class="status">Loading sample…</p>
+    <section class="panel"><div class="chart compact"></div></section>
+    <section class="notes">
+      <article>
+        <h2>Buckets</h2>
+        <p>Same size, left 10–20% larger, left &gt;20%, right &gt;20%, right 10–20%. The green slice is “双脚相同”.</p>
+      </article>
+      <article>
+        <h2>Why the green slice grows</h2>
+        <p>The log terms decay as age index increases, so the asymmetric counts shrink <em>by construction</em>.</p>
+      </article>
+      <article>
+        <h2>Do not quote as prevalence</h2>
+        <p>There are no measured left/right pairs behind these frames. Replace the JSON if you add real pairs.</p>
+      </article>
+    </section>
+  </main>
+  <p class="footnote">Source recipe: <code>js/index.js</code> pie timeline IIFE. Materialized frames: <code>data/foot-symmetry.json</code>.</p>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/foot-symmetry.js"></script>
+</body>
+</html>

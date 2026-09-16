@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>示例：皮下组织厚度</title>
+  <link rel="stylesheet" href="styles/examples.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>足底各位点皮下组织厚度</h1>
+    <nav class="crumbs">
+      <a href="index.html">示例目录</a>
+      <a href="../index.html">仪表盘</a>
+      <a href="../docs/data-notes.md">数据说明</a>
+      <a href="../data/tissue-thickness.json">JSON</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <p class="lede">
+      Personal extra from <code>draw2.js</code>. Coral bars are typical-adult thickness (mm), teal bars are the diabetic-foot sketch (mm).
+      The green line is the original <code>差值:um</code> series — it is <strong>not</strong> a unit conversion of the bars.
+      The slider opens at 10–80 so the first view matches the original dataZoom window.
+    </p>
+    <p class="status">Loading sample…</p>
+    <section class="panel"><div class="chart"></div></section>
+    <section class="notes">
+      <article>
+        <h2>Check site 1</h2>
+        <p>13.2 − 11.6 = 1.6 mm, but the line value is 16. That mismatch is why the docs refuse a mm↔um story.</p>
+      </article>
+      <article>
+        <h2>Zoom</h2>
+        <p>Drag the bottom slider or pinch inside the grid. Inside zoom is enabled, same as the sketch.</p>
+      </article>
+      <article>
+        <h2>Still unlabeled sites</h2>
+        <p>位点1–14 have no plantar map. Add one before treating a bar as a named anatomical station.</p>
+      </article>
+    </section>
+  </main>
+  <p class="footnote">Source option: <code>draw2.js</code>. Structured copy: <code>data/tissue-thickness.json</code>.</p>
+  <script src="../js/echarts.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/tissue-thickness.js"></script>
+</body>
+</html>
