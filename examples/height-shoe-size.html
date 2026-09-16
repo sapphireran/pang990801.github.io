@@ -82,22 +82,22 @@
             { name: "女性", type: "scatter", symbolSize: 5, itemStyle: { color: "#ff4f3b" }, data: data.female.points },
             { name: "男性", type: "scatter", symbolSize: 5, itemStyle: { color: "#ffe01f" }, data: data.male.points },
             {
-              name: "女性趋势",
-              type: "line",
-              z: 10,
-              symbol: "none",
-              itemStyle: { color: "#ff4f3b" },
-              lineStyle: { width: 3, type: "dashed", color: "#ff4f3b" },
-              data: girlFit.line
-            },
-            {
               name: "男性趋势",
               type: "line",
-              z: 10,
+              z: 9,
               symbol: "none",
               itemStyle: { color: "#7ee0ff" },
               lineStyle: { width: 3, type: "solid", color: "#7ee0ff" },
               data: boyFit.line
+            },
+            {
+              name: "女性趋势",
+              type: "line",
+              z: 11,
+              symbol: "none",
+              itemStyle: { color: "#ff4f3b" },
+              lineStyle: { width: 3, type: "dashed", color: "#ff4f3b" },
+              data: girlFit.line
             }
           ]
         };
