@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes — children's foot-shape dashboard</title>
+  <link rel="stylesheet" href="../examples/css/examples.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <p class="eyebrow">Personal Pages notes</p>
+      <h1>Children's foot-shape dashboard</h1>
+      <p class="lede">
+        Field notes for the five homepage charts, the leftover adult sketches,
+        and the downloadable series under <code>examples/data</code>.
+      </p>
+    </div>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html">Dashboard</a>
+      <a class="is-active" href="./index.html">Docs</a>
+      <a href="../examples/index.html">Examples</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="intro-grid">
+      <article class="card">
+        <h2>What this folder is</h2>
+        <p>
+          A personal reading layer on top of
+          <a href="https://pang990801.github.io/">pang990801.github.io</a>.
+          The dashboard already draws the charts. These notes name the fields,
+          units, and leftover gallery files so a later edit does not have to
+          reverse-engineer <code>js/index.js</code>.
+        </p>
+      </article>
+      <article class="card">
+        <h2>What this folder is not</h2>
+        <p>
+          Not a clinic protocol, not a sizing guide, and not company code.
+          Numbers on this site are illustrative series used to practice
+          ECharts layout. Do not fit shoes from them.
+        </p>
+      </article>
+    </section>
+
+    <h2 class="section-title">Notes</h2>
+    <ul class="card-list">
+      <li>
+        <a href="./data-dictionary.md">
+          <h3>Data dictionary</h3>
+          <p>Column names, units, and the 199 / 199 scatter split.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./measurements.md">
+          <h3>Measurement notes</h3>
+          <p>Stature, last length, girth tapes, and 脚胖瘦度 as a display scale.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./charts.md">
+          <h3>Chart catalog</h3>
+          <p>Selectors, ECharts types, and which IIFE owns which panel.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./growth-notes.md">
+          <h3>Growth reading notes</h3>
+          <p>Age-9 dip, the 10–11 crossover, and the slow heel-girth spoke.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./left-right-asymmetry.md">
+          <h3>Left / right timeline</h3>
+          <p>Log-decay counts from age 2 to 14, with the baked-in left bias.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./plantar-pressure.md">
+          <h3>Plantar sketches</h3>
+          <p>Why <code>draw1.js</code> and <code>draw2.js</code> never mounted.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./echarts-notes.md">
+          <h3>ECharts notes</h3>
+          <p>Dual builds, unused macarons theme, pictorial diamonds, radar radius.</p>
+        </a>
+      </li>
+      <li>
+        <a href="./local-preview.md">
+          <h3>Local preview</h3>
+          <p>Static server from the repo root, then regenerate the datasets.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="section-title">Jump to an example</h2>
+    <p class="fine">
+      Each example page draws one series, prints the table, and links back here.
+    </p>
+    <ul class="pill-list">
+      <li><a href="../examples/height-shoe-size.html">Height × shoe last</a></li>
+      <li><a href="../examples/age-foot-length.html">Age × foot length</a></li>
+      <li><a href="../examples/bmi-foot-ratio.html">BMI × slenderness</a></li>
+      <li><a href="../examples/radar-growth.html">Growth radar</a></li>
+      <li><a href="../examples/left-right-asymmetry.html">Left / right pie</a></li>
+      <li><a href="../examples/plantar-pressure.html">Plantar pressure</a></li>
+      <li><a href="../examples/tissue-thickness.html">Tissue thickness</a></li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Personal notes for Sapphire Ran. Source stays on this GitHub Pages repo.</p>
+  </footer>
+</body>
+</html>

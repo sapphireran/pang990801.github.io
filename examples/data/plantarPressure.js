@@ -1,0 +1,84 @@
+window.ExampleData = window.ExampleData || {};
+window.ExampleData.plantarPressure = {
+  "description": "Illustrative plantar pressure (Pa) at seven landmarks, from draw1.js.",
+  "unit": "Pa",
+  "sites_zh": [
+    "位点1",
+    "位点2",
+    "位点3",
+    "位点4",
+    "位点5",
+    "位点6",
+    "位点7"
+  ],
+  "typical": [
+    90,
+    50,
+    39,
+    50,
+    120,
+    82,
+    80
+  ],
+  "diabetic_foot": [
+    290,
+    200,
+    20,
+    132,
+    15,
+    200,
+    90
+  ],
+  "rows": [
+    {
+      "site_zh": "位点1",
+      "site": "site_1",
+      "typical_pa": 90,
+      "diabetic_foot_pa": 290,
+      "difference_pa": 200
+    },
+    {
+      "site_zh": "位点2",
+      "site": "site_2",
+      "typical_pa": 50,
+      "diabetic_foot_pa": 200,
+      "difference_pa": 150
+    },
+    {
+      "site_zh": "位点3",
+      "site": "site_3",
+      "typical_pa": 39,
+      "diabetic_foot_pa": 20,
+      "difference_pa": -19
+    },
+    {
+      "site_zh": "位点4",
+      "site": "site_4",
+      "typical_pa": 50,
+      "diabetic_foot_pa": 132,
+      "difference_pa": 82
+    },
+    {
+      "site_zh": "位点5",
+      "site": "site_5",
+      "typical_pa": 120,
+      "diabetic_foot_pa": 15,
+      "difference_pa": -105
+    },
+    {
+      "site_zh": "位点6",
+      "site": "site_6",
+      "typical_pa": 82,
+      "diabetic_foot_pa": 200,
+      "difference_pa": 118
+    },
+    {
+      "site_zh": "位点7",
+      "site": "site_7",
+      "typical_pa": 80,
+      "diabetic_foot_pa": 90,
+      "difference_pa": 10
+    }
+  ],
+  "source_file": "draw1.js"
+};
