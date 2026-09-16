@@ -22,7 +22,7 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "WenQuanYi Micro Hei", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.55;
 }
 
