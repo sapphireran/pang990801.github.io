@@ -84,6 +84,19 @@ def main() -> int:
             if rel and not rel.startswith("#") and not (ROOT / rel).exists():
                 fail(f"missing {rel}")
 
+    snippets = {
+        "docs/landmarks.html": "兜跟围长",
+        "docs/reading.html": "Math.log",
+        "examples/encodings/density.html": "CompanionEncodings.density",
+        "examples/workbook/quiz.html": "CompanionWorkbook.gradeQuiz",
+        "examples/tour/index.html": "CompanionTour.start",
+        "index.html": "docs/index.html",
+    }
+    for rel, needle in snippets.items():
+        path = ROOT / rel
+        if path.exists() and needle not in path.read_text(encoding="utf-8"):
+            fail(f"{rel} missing expected snippet: {needle}")
+
     if failures:
         print("verify-companion: FAIL")
         for item in failures:
